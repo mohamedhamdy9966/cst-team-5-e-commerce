@@ -13,10 +13,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-    />
-    <link
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
       rel="stylesheet"
     />
@@ -117,6 +113,7 @@
       }
       .stars {
         color: #f4c430;
+        font-size: 1.5rem;
       }
       .homeAddToCartButton {
         position: relative;
@@ -218,24 +215,6 @@
       .card-container {
         flex: 0 0 25%; /* 100 / 4 = 25% per card */
         box-sizing: border-box;
-      }
-      .swiper {
-        width: 100%;
-        max-width: 80%;
-        height: 300px;
-        margin: auto;
-        margin-top: 50px;
-        position: relative;
-      }
-      .swiper-slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-      }
-      .swiper-button-next,
-      .swiper-button-prev {
-        color: white;
       }
     </style>
   </head>
@@ -698,8 +677,11 @@
                       class="d-flex justify-content-center align-items-center p-5 rounded"
                       style="background-color: rgb(221, 221, 221)"
                     >
-                      <img src="./assets/home/book-4.png" class="card-img-top
-                      hover-zoom alt="Book Cover" />
+                      <img
+                        src="./assets/home/book-4.png"
+                        class="card-img-top hover-zoom"
+                        alt="Book-Cover"
+                      />
                     </section>
                     <div class="card-body">
                       <h5 class="card-title">Book Title 7</h5>
@@ -1292,90 +1274,11 @@
                         <div class="stars">★★★★☆</div>
                         <a
                           href="#"
-                          class="btn btn-sm w-100 mt-2 text-primary"
+                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
                           style="background-color: #d0e1e7"
+                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
+                          CART</a
                         >
-                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
-                          CART
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Repeat for other books -->
-            <div class="col-12 col-sm-6 mb-5">
-              <div class="card h-100">
-                <div class="row g-0 align-items-center">
-                  <div
-                    class="col-4 d-flex align-items-center justify-content-center bg-light"
-                  >
-                    <img
-                      src="./assets/home/book-5.png"
-                      class="img-fluid rounded-start hover-zoom"
-                      alt="book"
-                      style="max-height: 180px"
-                    />
-                  </div>
-                  <div class="col-8">
-                    <div class="card-body">
-                      <h5 class="card-title d-flex justify-content-between">
-                        Design Low Book
-                        <div class="d-flex">
-                          <div
-                            class="border rounded-circle p-1 m-1"
-                            style="cursor: pointer"
-                          >
-                            <i
-                              class="fa-solid fa-heart mx-1"
-                              title="Add to Favourite"
-                            ></i>
-                          </div>
-                          <div
-                            class="border rounded-circle p-1 m-1"
-                            style="cursor: pointer"
-                          >
-                            <i
-                              class="fa-solid fa-shopping-cart mx-1"
-                              title="Add to Cart"
-                            ></i>
-                          </div>
-                          <div
-                            class="border rounded-circle p-1 m-1"
-                            style="cursor: pointer"
-                          >
-                            <i
-                              class="fa-solid fa-eye mx-1"
-                              title="View Details"
-                            ></i>
-                          </div>
-                        </div>
-                      </h5>
-                      <p class="fs-6 fw-bold text-primary">
-                        Flovely And Unicom Erna lorem lorem
-                      </p>
-                      <p class="fw-bold text-primary">$19.00</p>
-                      <p class="card-text">
-                        <img
-                          src="./assets/home/seller-1.png"
-                          class="hover-zoom"
-                          alt="seller"
-                        />
-                        Wilson
-                      </p>
-                      <div
-                        class="d-flex justify-content-between align-items-center"
-                      >
-                        <div class="stars">★★★★☆</div>
-                        <a
-                          href="#"
-                          class="btn btn-sm w-100 mt-2 text-primary"
-                          style="background-color: #d0e1e7"
-                        >
-                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
-                          CART
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -1447,12 +1350,11 @@
                         <div class="stars">★★★★☆</div>
                         <a
                           href="#"
-                          class="btn btn-sm w-100 mt-2 text-primary"
+                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
                           style="background-color: #d0e1e7"
+                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
+                          CART</a
                         >
-                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
-                          CART
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -1524,12 +1426,87 @@
                         <div class="stars">★★★★☆</div>
                         <a
                           href="#"
-                          class="btn btn-sm w-100 mt-2 text-primary"
+                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
                           style="background-color: #d0e1e7"
+                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
+                          CART</a
                         >
-                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
-                          CART
-                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 mb-5">
+              <div class="card h-100">
+                <div class="row g-0 align-items-center">
+                  <div
+                    class="col-4 d-flex align-items-center justify-content-center bg-light"
+                  >
+                    <img
+                      src="./assets/home/book-5.png"
+                      class="img-fluid rounded-start hover-zoom"
+                      alt="book"
+                      style="max-height: 180px"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <div class="card-body">
+                      <h5 class="card-title d-flex justify-content-between">
+                        Design Low Book
+                        <div class="d-flex">
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-heart mx-1"
+                              title="Add to Favourite"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-shopping-cart mx-1"
+                              title="Add to Cart"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-eye mx-1"
+                              title="View Details"
+                            ></i>
+                          </div>
+                        </div>
+                      </h5>
+                      <p class="fs-6 fw-bold text-primary">
+                        Flovely And Unicom Erna lorem lorem
+                      </p>
+                      <p class="fw-bold text-primary">$19.00</p>
+                      <p class="card-text">
+                        <img
+                          src="./assets/home/seller-1.png"
+                          class="hover-zoom"
+                          alt="seller"
+                        />
+                        Wilson
+                      </p>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div class="stars">★★★★☆</div>
+                        <a
+                          href="#"
+                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                          style="background-color: #d0e1e7"
+                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
+                          CART</a
+                        >
                       </div>
                     </div>
                   </div>
@@ -1601,12 +1578,11 @@
                         <div class="stars">★★★★☆</div>
                         <a
                           href="#"
-                          class="btn btn-sm w-100 mt-2 text-primary"
+                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
                           style="background-color: #d0e1e7"
+                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
+                          CART</a
                         >
-                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
-                          CART
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -1678,12 +1654,11 @@
                         <div class="stars">★★★★☆</div>
                         <a
                           href="#"
-                          class="btn btn-sm w-100 mt-2 text-primary"
+                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
                           style="background-color: #d0e1e7"
+                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
+                          CART</a
                         >
-                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
-                          CART
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -1706,7 +1681,7 @@
           Explore More &rarr;
         </a>
       </section>
-      <section class="splide" aria-label="Splide Basic HTML Example">
+      <section class="splide splide-one" aria-label="Splide Basic HTML Example">
         <div class="splide__track">
           <ul class="splide__list">
             <li class="splide__slide">
@@ -1977,16 +1952,110 @@
           What our client say
         </h3>
       </section>
-      <section>
-        <section class="splide" aria-label="Splide Basic HTML Example">
-          <div class="splide__track">
-            <ul class="splide__list">
-              <li class="splide__slide">Slide 01</li>
-              <li class="splide__slide">Slide 02</li>
-              <li class="splide__slide">Slide 03</li>
-            </ul>
-          </div>
-        </section>
+      <section class="splide splide-two" aria-label="Client Testimonials">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <div class="card h-100">
+                <div class="card-body">
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content. Lorem ipsum dolor sit
+                    amet consectetur adipisicing elit. Eveniet.
+                  </p>
+                </div>
+                <div
+                  class="card-footer bg-white border-0 d-flex justify-content-between align-items-center"
+                >
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="./assets/home/seller-2.png"
+                      class="rounded-circle"
+                      style="width: 60px; height: 60px; object-fit: cover"
+                      alt="user"
+                    />
+                    <div class="ms-3">
+                      <h6 class="mb-0">Ronald Richards</h6>
+                      <small class="text-muted">Marketing Director</small>
+                      <div class="stars text-warning">★★★★☆</div>
+                    </div>
+                  </div>
+                  <img
+                    src="./assets/home/envato-logo.png"
+                    style="height: 40px"
+                    alt="logo"
+                  />
+                </div>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="card h-100">
+                <div class="card-body">
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content. Lorem ipsum dolor sit
+                    amet consectetur adipisicing elit. Eveniet.
+                  </p>
+                </div>
+                <div
+                  class="card-footer bg-white border-0 d-flex justify-content-between align-items-center"
+                >
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="./assets/home/seller-2.png"
+                      class="rounded-circle"
+                      style="width: 60px; height: 60px; object-fit: cover"
+                      alt="user"
+                    />
+                    <div class="ms-3">
+                      <h6 class="mb-0">Ronald Richards</h6>
+                      <small class="text-muted">Marketing Director</small>
+                      <div class="stars text-warning">★★★★☆</div>
+                    </div>
+                  </div>
+                  <img
+                    src="./assets/home/envato-logo.png"
+                    style="height: 40px"
+                    alt="logo"
+                  />
+                </div>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="card h-100">
+                <div class="card-body">
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content. Lorem ipsum dolor sit
+                    amet consectetur adipisicing elit. Eveniet.
+                  </p>
+                </div>
+                <div
+                  class="card-footer bg-white border-0 d-flex justify-content-between align-items-center"
+                >
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="./assets/home/seller-2.png"
+                      class="rounded-circle"
+                      style="width: 60px; height: 60px; object-fit: cover"
+                      alt="user"
+                    />
+                    <div class="ms-3">
+                      <h6 class="mb-0">Ronald Richards</h6>
+                      <small class="text-muted">Marketing Director</small>
+                      <div class="stars text-warning">★★★★☆</div>
+                    </div>
+                  </div>
+                  <img
+                    src="./assets/home/envato-logo.png"
+                    style="height: 40px"
+                    alt="logo"
+                  />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
     </section>
     <script>
@@ -2024,7 +2093,7 @@
         }
       });
       document.addEventListener("DOMContentLoaded", function () {
-        new Splide(".splide", {
+        new Splide(".splide-one", {
           type: "loop",
           perPage: 4,
           perMove: 1,
@@ -2047,10 +2116,31 @@
             },
           },
         }).mount();
+        new Splide(".splide-two", {
+          type: "loop",
+          perPage: 2,
+          perMove: 1,
+          gap: "1rem",
+          autoplay: true,
+          pauseOnHover: true,
+          breakpoints: {
+            1024: {
+              perPage: 1,
+              perMove: 1,
+            },
+            768: {
+              perPage: 1,
+              perMove: 1,
+            },
+            480: {
+              perPage: 1,
+              perMove: 1,
+            },
+          },
+        }).mount();
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
   </body>
 </html>
