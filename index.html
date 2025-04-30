@@ -217,7 +217,11 @@
     <nav class="d-flex align-items-stretch sticky" style="height: 100px">
       <!-- Left Logo -->
       <div class="left-logo d-flex align-items-center px-4">
-        <img src="./assets/home/white-logo.svg" alt="Bookle" class="img-fluid" />
+        <img
+          src="./assets/home/white-logo.svg"
+          alt="Bookle"
+          class="img-fluid"
+        />
       </div>
 
       <!-- Right Section -->
@@ -340,7 +344,8 @@
         </h1>
         <a
           href="#"
-          class="btn homeAddToCartButton btn-primary text-white rounded"
+          class="btn homeAddToCartButton text-white rounded"
+          style="background-color: #036280;"
           >Shop Now &rarr;</a
         >
       </section>
@@ -667,8 +672,8 @@
                       class="d-flex justify-content-center align-items-center p-5 rounded"
                       style="background-color: rgb(221, 221, 221)"
                     >
-                      <img src="./assets/home/book-4.png" class="card-img-top hover-zoom
-                      alt="Book Cover" />
+                      <img src="./assets/home/book-4.png" class="card-img-top
+                      hover-zoom alt="Book Cover" />
                     </section>
                     <div class="card-body">
                       <h5 class="card-title">Book Title 7</h5>
@@ -1147,9 +1152,34 @@
         </div>
       </div>
     </section>
-    <section id="homeSeventhSection" class="container mt-5 mb-5">
-      <img class="w-100" src="./assets/home/book-shape.png" />
-      <section></section>
+    <section
+      id="homeSeventhSection"
+      class="container mt-5 mb-5 position-relative"
+      style="background-color: #d0e1e7"
+    >
+      <section class="position-relative">
+        <img class="w-100" src="./assets/home/book-shape.png" />
+        <img
+          class="position-absolute img-fluid animate-right-image"
+          style="height: 95%; right: 1%; bottom: 0"
+          src="./assets/home/girl-shape-2.png"
+        />
+      </section>
+      <section
+        class="position-absolute text-center"
+        style="top: 50%; left: 50%; transform: translate(-50%, -50%)"
+      >
+        <h1 class="fw-bold fs-1 mb-3">
+          Get 25% discount in <br />
+          all kind of super Selling
+        </h1>
+        <a
+          href="#"
+          class="btn homeAddToCartButton text-white rounded"
+          style="background-color: #036280"
+          >Shop Now &rarr;</a
+        >
+      </section>
     </section>
     <script>
       const container = document.getElementById("carousel-card-container");
