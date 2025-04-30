@@ -875,7 +875,7 @@
                   <div class="book-wrapper mx-auto">
                     <div class="border-circle"></div>
                     <img
-                      src="./assets/home/book-1.png"
+                      src="./assets/home/book-5.png"
                       alt="Book Cover"
                       class="book-image"
                     />
@@ -911,7 +911,7 @@
                   <div class="book-wrapper mx-auto">
                     <div class="border-circle"></div>
                     <img
-                      src="./assets/home/book-1.png"
+                      src="./assets/home/book-5.png"
                       alt="Book Cover"
                       class="book-image"
                     />
@@ -1224,310 +1224,469 @@
             View More &rarr;
           </a>
         </section>
-        <section class="d-flex flex-wrap gap-4 px-1" id="cards-grid">
-          <!-- Book 1 -->
-          <div class="card mb-3" style="min-width: 48%">
-            <div class="row g-0 align-items-center">
-              <div
-                class="col-md-4 d-flex align-items-center justify-content-center h-25"
-                style="background-color: #f5f5f5"
-              >
-                <img
-                  src="./assets/home/book-1.png"
-                  class="img-fluid rounded-start hover-zoom h-100"
-                  alt="book"
-                  style="max-height: 180px"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5
-                    class="card-title d-flex align-items-center justify-content-between"
+        <section class="container">
+          <div class="row g-3" id="cards-grid">
+            <!-- Card Template (repeat for all books) -->
+            <div class="col-12 col-sm-6 mb-5">
+              <div class="card h-100">
+                <div class="row g-0 align-items-center">
+                  <div
+                    class="col-4 d-flex align-items-center justify-content-center bg-light"
                   >
-                    Design Low Book
-                    <section class="d-flex">
-                      <section
-                        class="border rounded-circle d-flex align-items-center p-1 m-1"
-                        style="cursor: pointer"
-                      >
-                        <i
-                          class="fa-solid fa-heart mx-1"
-                          title="Add to Favourite"
-                        ></i>
-                      </section>
-                      <section
-                        class="border rounded-circle d-flex align-items-center p-1 m-1"
-                        style="cursor: pointer"
-                      >
-                        <i
-                          class="fa-solid fa-shopping-cart mx-1"
-                          title="Add to Favourite"
-                        ></i>
-                      </section>
-                      <section
-                        class="border rounded-circle d-flex align-items-center p-1 m-1"
-                        style="cursor: pointer"
-                      >
-                        <i
-                          class="fa-solid fa-eye mx-1"
-                          title="Add to Favourite"
-                        ></i>
-                      </section>
-                    </section>
-                  </h5>
-                  <p class="card-text fs-5 fw-bold" style="color: #003366">
-                    Flovely And Unicom Erna lorem lorem
-                  </p>
-                  <p class="card-text fw-bold" style="color: #003366">$19.00</p>
-                  <p class="card-text">
                     <img
-                      src="./assets/home/seller-1.png"
-                      class="hover-zoom"
-                    />Wilson
-                  </p>
-                  <section
-                    class="d-flex justify-content-between m-1 align-items-center"
-                  >
-                    <section class="stars w-50 h-100">★★★★☆</section>
-                    <section class="w-50 h-100">
-                      <a
-                        href="#"
-                        class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
-                        style="background-color: #d0e1e7"
-                        ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                        CART</a
+                      src="./assets/home/book-5.png"
+                      class="img-fluid rounded-start hover-zoom"
+                      alt="book"
+                      style="max-height: 180px"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <div class="card-body">
+                      <h5 class="card-title d-flex justify-content-between">
+                        Design Low Book
+                        <div class="d-flex">
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-heart mx-1"
+                              title="Add to Favourite"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-shopping-cart mx-1"
+                              title="Add to Cart"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-eye mx-1"
+                              title="View Details"
+                            ></i>
+                          </div>
+                        </div>
+                      </h5>
+                      <p class="fs-6 fw-bold text-primary">
+                        Flovely And Unicom Erna lorem lorem
+                      </p>
+                      <p class="fw-bold text-primary">$19.00</p>
+                      <p class="card-text">
+                        <img
+                          src="./assets/home/seller-1.png"
+                          class="hover-zoom"
+                          alt="seller"
+                        />
+                        Wilson
+                      </p>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
                       >
-                    </section>
-                  </section>
+                        <div class="stars">★★★★☆</div>
+                        <a
+                          href="#"
+                          class="btn btn-sm w-100 mt-2 text-primary"
+                          style="background-color: #d0e1e7"
+                        >
+                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
+                          CART
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Book 2 -->
-          <div class="card mb-3" style="min-width: 48%">
-            <div class="row g-0 align-items-center">
-              <div
-                class="col-md-4 d-flex align-items-center justify-content-center h-25"
-                style="background-color: #f5f5f5"
-              >
-                <img
-                  src="./assets/home/book-1.png"
-                  class="img-fluid rounded-start hover-zoom h-100"
-                  alt="book"
-                  style="max-height: 180px"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Design Low Book</h5>
-                  <p class="card-text fs-5 fw-bold" style="color: #003366">
-                    Flovely And Unicom Erna lorem lorem
-                  </p>
-                  <p class="card-text fw-bold" style="color: #003366">$19.00</p>
-                  <p class="card-text">
-                    <img
-                      src="./assets/home/seller-1.png"
-                      class="hover-zoom"
-                    />Wilson
-                  </p>
-                  <section
-                    class="d-flex justify-content-between m-1 align-items-center"
+            <!-- Repeat for other books -->
+            <div class="col-12 col-sm-6 mb-5">
+              <div class="card h-100">
+                <div class="row g-0 align-items-center">
+                  <div
+                    class="col-4 d-flex align-items-center justify-content-center bg-light"
                   >
-                    <section class="stars w-50 h-100">★★★★☆</section>
-                    <section class="w-50 h-100">
-                      <a
-                        href="#"
-                        class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
-                        style="background-color: #d0e1e7"
-                        ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                        CART</a
+                    <img
+                      src="./assets/home/book-5.png"
+                      class="img-fluid rounded-start hover-zoom"
+                      alt="book"
+                      style="max-height: 180px"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <div class="card-body">
+                      <h5 class="card-title d-flex justify-content-between">
+                        Design Low Book
+                        <div class="d-flex">
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-heart mx-1"
+                              title="Add to Favourite"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-shopping-cart mx-1"
+                              title="Add to Cart"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-eye mx-1"
+                              title="View Details"
+                            ></i>
+                          </div>
+                        </div>
+                      </h5>
+                      <p class="fs-6 fw-bold text-primary">
+                        Flovely And Unicom Erna lorem lorem
+                      </p>
+                      <p class="fw-bold text-primary">$19.00</p>
+                      <p class="card-text">
+                        <img
+                          src="./assets/home/seller-1.png"
+                          class="hover-zoom"
+                          alt="seller"
+                        />
+                        Wilson
+                      </p>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
                       >
-                    </section>
-                  </section>
+                        <div class="stars">★★★★☆</div>
+                        <a
+                          href="#"
+                          class="btn btn-sm w-100 mt-2 text-primary"
+                          style="background-color: #d0e1e7"
+                        >
+                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
+                          CART
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Book 3 -->
-          <div class="card mb-3" style="min-width: 48%">
-            <div class="row g-0 align-items-center">
-              <div
-                class="col-md-4 d-flex align-items-center justify-content-center h-25"
-                style="background-color: #f5f5f5"
-              >
-                <img
-                  src="./assets/home/book-1.png"
-                  class="img-fluid rounded-start hover-zoom h-100"
-                  alt="book"
-                  style="max-height: 180px"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Design Low Book</h5>
-                  <p class="card-text fs-5 fw-bold" style="color: #003366">
-                    Flovely And Unicom Erna lorem lorem
-                  </p>
-                  <p class="card-text fw-bold" style="color: #003366">$19.00</p>
-                  <p class="card-text">
-                    <img
-                      src="./assets/home/seller-1.png"
-                      class="hover-zoom"
-                    />Wilson
-                  </p>
-                  <section
-                    class="d-flex justify-content-between m-1 align-items-center"
+            <div class="col-12 col-sm-6 mb-5">
+              <div class="card h-100">
+                <div class="row g-0 align-items-center">
+                  <div
+                    class="col-4 d-flex align-items-center justify-content-center bg-light"
                   >
-                    <section class="stars w-50 h-100">★★★★☆</section>
-                    <section class="w-50 h-100">
-                      <a
-                        href="#"
-                        class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
-                        style="background-color: #d0e1e7"
-                        ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                        CART</a
+                    <img
+                      src="./assets/home/book-5.png"
+                      class="img-fluid rounded-start hover-zoom"
+                      alt="book"
+                      style="max-height: 180px"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <div class="card-body">
+                      <h5 class="card-title d-flex justify-content-between">
+                        Design Low Book
+                        <div class="d-flex">
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-heart mx-1"
+                              title="Add to Favourite"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-shopping-cart mx-1"
+                              title="Add to Cart"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-eye mx-1"
+                              title="View Details"
+                            ></i>
+                          </div>
+                        </div>
+                      </h5>
+                      <p class="fs-6 fw-bold text-primary">
+                        Flovely And Unicom Erna lorem lorem
+                      </p>
+                      <p class="fw-bold text-primary">$19.00</p>
+                      <p class="card-text">
+                        <img
+                          src="./assets/home/seller-1.png"
+                          class="hover-zoom"
+                          alt="seller"
+                        />
+                        Wilson
+                      </p>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
                       >
-                    </section>
-                  </section>
+                        <div class="stars">★★★★☆</div>
+                        <a
+                          href="#"
+                          class="btn btn-sm w-100 mt-2 text-primary"
+                          style="background-color: #d0e1e7"
+                        >
+                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
+                          CART
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Book 4 -->
-          <div class="card mb-3" style="min-width: 48%">
-            <div class="row g-0 align-items-center">
-              <div
-                class="col-md-4 d-flex align-items-center justify-content-center h-25"
-                style="background-color: #f5f5f5"
-              >
-                <img
-                  src="./assets/home/book-1.png"
-                  class="img-fluid rounded-start hover-zoom h-100"
-                  alt="book"
-                  style="max-height: 180px"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Design Low Book</h5>
-                  <p class="card-text fs-5 fw-bold" style="color: #003366">
-                    Flovely And Unicom Erna lorem lorem
-                  </p>
-                  <p class="card-text fw-bold" style="color: #003366">$19.00</p>
-                  <p class="card-text">
-                    <img
-                      src="./assets/home/seller-1.png"
-                      class="hover-zoom"
-                    />Wilson
-                  </p>
-                  <section
-                    class="d-flex justify-content-between m-1 align-items-center"
+            <div class="col-12 col-sm-6 mb-5">
+              <div class="card h-100">
+                <div class="row g-0 align-items-center">
+                  <div
+                    class="col-4 d-flex align-items-center justify-content-center bg-light"
                   >
-                    <section class="stars w-50 h-100">★★★★☆</section>
-                    <section class="w-50 h-100">
-                      <a
-                        href="#"
-                        class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
-                        style="background-color: #d0e1e7"
-                        ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                        CART</a
+                    <img
+                      src="./assets/home/book-5.png"
+                      class="img-fluid rounded-start hover-zoom"
+                      alt="book"
+                      style="max-height: 180px"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <div class="card-body">
+                      <h5 class="card-title d-flex justify-content-between">
+                        Design Low Book
+                        <div class="d-flex">
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-heart mx-1"
+                              title="Add to Favourite"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-shopping-cart mx-1"
+                              title="Add to Cart"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-eye mx-1"
+                              title="View Details"
+                            ></i>
+                          </div>
+                        </div>
+                      </h5>
+                      <p class="fs-6 fw-bold text-primary">
+                        Flovely And Unicom Erna lorem lorem
+                      </p>
+                      <p class="fw-bold text-primary">$19.00</p>
+                      <p class="card-text">
+                        <img
+                          src="./assets/home/seller-1.png"
+                          class="hover-zoom"
+                          alt="seller"
+                        />
+                        Wilson
+                      </p>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
                       >
-                    </section>
-                  </section>
+                        <div class="stars">★★★★☆</div>
+                        <a
+                          href="#"
+                          class="btn btn-sm w-100 mt-2 text-primary"
+                          style="background-color: #d0e1e7"
+                        >
+                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
+                          CART
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- book 5 -->
-          <div class="card mb-3" style="min-width: 48%">
-            <div class="row g-0 align-items-center">
-              <div
-                class="col-md-4 d-flex align-items-center justify-content-center h-25"
-                style="background-color: #f5f5f5"
-              >
-                <img
-                  src="./assets/home/book-1.png"
-                  class="img-fluid rounded-start hover-zoom h-100"
-                  alt="book"
-                  style="max-height: 180px"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Design Low Book</h5>
-                  <p class="card-text fs-5 fw-bold" style="color: #003366">
-                    Flovely And Unicom Erna lorem lorem
-                  </p>
-                  <p class="card-text fw-bold" style="color: #003366">$19.00</p>
-                  <p class="card-text">
-                    <img
-                      src="./assets/home/seller-1.png"
-                      class="hover-zoom"
-                    />Wilson
-                  </p>
-                  <section
-                    class="d-flex justify-content-between m-1 align-items-center"
+            <div class="col-12 col-sm-6">
+              <div class="card h-100">
+                <div class="row g-0 align-items-center">
+                  <div
+                    class="col-4 d-flex align-items-center justify-content-center bg-light"
                   >
-                    <section class="stars w-50 h-100">★★★★☆</section>
-                    <section class="w-50 h-100">
-                      <a
-                        href="#"
-                        class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
-                        style="background-color: #d0e1e7"
-                        ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                        CART</a
+                    <img
+                      src="./assets/home/book-5.png"
+                      class="img-fluid rounded-start hover-zoom"
+                      alt="book"
+                      style="max-height: 180px"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <div class="card-body">
+                      <h5 class="card-title d-flex justify-content-between">
+                        Design Low Book
+                        <div class="d-flex">
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-heart mx-1"
+                              title="Add to Favourite"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-shopping-cart mx-1"
+                              title="Add to Cart"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-eye mx-1"
+                              title="View Details"
+                            ></i>
+                          </div>
+                        </div>
+                      </h5>
+                      <p class="fs-6 fw-bold text-primary">
+                        Flovely And Unicom Erna lorem lorem
+                      </p>
+                      <p class="fw-bold text-primary">$19.00</p>
+                      <p class="card-text">
+                        <img
+                          src="./assets/home/seller-1.png"
+                          class="hover-zoom"
+                          alt="seller"
+                        />
+                        Wilson
+                      </p>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
                       >
-                    </section>
-                  </section>
+                        <div class="stars">★★★★☆</div>
+                        <a
+                          href="#"
+                          class="btn btn-sm w-100 mt-2 text-primary"
+                          style="background-color: #d0e1e7"
+                        >
+                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
+                          CART
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- book 6 -->
-          <div class="card mb-3" style="min-width: 48%">
-            <div class="row g-0 align-items-center">
-              <div
-                class="col-md-4 d-flex align-items-center justify-content-center h-25"
-                style="background-color: #f5f5f5"
-              >
-                <img
-                  src="./assets/home/book-1.png"
-                  class="img-fluid rounded-start hover-zoom h-100"
-                  alt="book"
-                  style="max-height: 180px"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Design Low Book</h5>
-                  <p class="card-text fs-5 fw-bold" style="color: #003366">
-                    Flovely And Unicom Erna lorem lorem
-                  </p>
-                  <p class="card-text fw-bold" style="color: #003366">$19.00</p>
-                  <p class="card-text">
-                    <img
-                      src="./assets/home/seller-1.png"
-                      class="hover-zoom"
-                    />Wilson
-                  </p>
-                  <section
-                    class="d-flex justify-content-between m-1 align-items-center"
+            <div class="col-12 col-sm-6">
+              <div class="card h-100">
+                <div class="row g-0 align-items-center">
+                  <div
+                    class="col-4 d-flex align-items-center justify-content-center bg-light"
                   >
-                    <section class="stars w-50 h-100">★★★★☆</section>
-                    <section class="w-50 h-100">
-                      <a
-                        href="#"
-                        class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
-                        style="background-color: #d0e1e7"
-                        ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                        CART</a
+                    <img
+                      src="./assets/home/book-5.png"
+                      class="img-fluid rounded-start hover-zoom"
+                      alt="book"
+                      style="max-height: 180px"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <div class="card-body">
+                      <h5 class="card-title d-flex justify-content-between">
+                        Design Low Book
+                        <div class="d-flex">
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-heart mx-1"
+                              title="Add to Favourite"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-shopping-cart mx-1"
+                              title="Add to Cart"
+                            ></i>
+                          </div>
+                          <div
+                            class="border rounded-circle p-1 m-1"
+                            style="cursor: pointer"
+                          >
+                            <i
+                              class="fa-solid fa-eye mx-1"
+                              title="View Details"
+                            ></i>
+                          </div>
+                        </div>
+                      </h5>
+                      <p class="fs-6 fw-bold text-primary">
+                        Flovely And Unicom Erna lorem lorem
+                      </p>
+                      <p class="fw-bold text-primary">$19.00</p>
+                      <p class="card-text">
+                        <img
+                          src="./assets/home/seller-1.png"
+                          class="hover-zoom"
+                          alt="seller"
+                        />
+                        Wilson
+                      </p>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
                       >
-                    </section>
-                  </section>
+                        <div class="stars">★★★★☆</div>
+                        <a
+                          href="#"
+                          class="btn btn-sm w-100 mt-2 text-primary"
+                          style="background-color: #d0e1e7"
+                        >
+                          <i class="fa-solid fa-basket-shopping"></i> ADD TO
+                          CART
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1535,7 +1694,7 @@
         </section>
       </section>
     </section>
-    <section id="ninthSection" class="container pt-5">
+    <section id="homeNinthSection" class="container pt-5">
       <section
         class="d-flex justify-content-between align-items-center mt-4 mb-5"
       >
@@ -1551,25 +1710,283 @@
         <div class="splide__track">
           <ul class="splide__list">
             <li class="splide__slide">
-              <img src="./assets/home/book-1.png" />
+              <div class="col-12">
+                <div class="card h-100 border-0 shadow-sm">
+                  <section
+                    class="d-flex justify-content-center align-items-center p-5 rounded"
+                    style="background-color: rgb(221, 221, 221)"
+                  >
+                    <img
+                      src="./assets/home/book-5.png"
+                      class="card-img-top hover-zoom"
+                      alt="Book Cover"
+                    />
+                  </section>
+                  <div class="card-body">
+                    <h5 class="card-title">Book Title 7</h5>
+                    <a
+                      class="card-text text-warning-emphasis text-decoration-none"
+                      href="#"
+                    >
+                      The Man
+                    </a>
+                    <section class="fw-bold" style="color: orangered">
+                      $20.99
+                    </section>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <section>
+                        <img src="./assets/home/seller-3.png" />
+                        <span>manmanam</span>
+                      </section>
+                      <section class="stars mb-2">★★★★☆</section>
+                    </div>
+                    <a
+                      href="#"
+                      class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                      style="background-color: #d0e1e7"
+                      ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
+                    >
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="splide__slide">
-              <img src="./assets/home/book-2.png" />
+              <div class="col-12">
+                <div class="card h-100 border-0 shadow-sm">
+                  <section
+                    class="d-flex justify-content-center align-items-center p-5 rounded"
+                    style="background-color: rgb(221, 221, 221)"
+                  >
+                    <img
+                      src="./assets/home/book-4.png"
+                      class="card-img-top hover-zoom"
+                      alt="Book Cover"
+                    />
+                  </section>
+                  <div class="card-body">
+                    <h5 class="card-title">Book Title 7</h5>
+                    <a
+                      class="card-text text-warning-emphasis text-decoration-none"
+                      href="#"
+                    >
+                      The Man
+                    </a>
+                    <section class="fw-bold" style="color: orangered">
+                      $20.99
+                    </section>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <section>
+                        <img src="./assets/home/seller-3.png" />
+                        <span>manmanam</span>
+                      </section>
+                      <section class="stars mb-2">★★★★☆</section>
+                    </div>
+                    <a
+                      href="#"
+                      class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                      style="background-color: #d0e1e7"
+                      ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
+                    >
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="splide__slide">
-              <img src="./assets/home/book-3.png" />
+              <div class="col-12">
+                <div class="card h-100 border-0 shadow-sm">
+                  <section
+                    class="d-flex justify-content-center align-items-center p-5 rounded"
+                    style="background-color: rgb(221, 221, 221)"
+                  >
+                    <img
+                      src="./assets/home/book-2.png"
+                      class="card-img-top hover-zoom"
+                      alt="Book Cover"
+                    />
+                  </section>
+                  <div class="card-body">
+                    <h5 class="card-title">Book Title 7</h5>
+                    <a
+                      class="card-text text-warning-emphasis text-decoration-none"
+                      href="#"
+                    >
+                      The Man
+                    </a>
+                    <section class="fw-bold" style="color: orangered">
+                      $20.99
+                    </section>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <section>
+                        <img src="./assets/home/seller-3.png" />
+                        <span>manmanam</span>
+                      </section>
+                      <section class="stars mb-2">★★★★☆</section>
+                    </div>
+                    <a
+                      href="#"
+                      class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                      style="background-color: #d0e1e7"
+                      ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
+                    >
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="splide__slide">
-              <img src="./assets/home/book-4.png" />
+              <div class="col-12">
+                <div class="card h-100 border-0 shadow-sm">
+                  <section
+                    class="d-flex justify-content-center align-items-center p-5 rounded"
+                    style="background-color: rgb(221, 221, 221)"
+                  >
+                    <img
+                      src="./assets/home/book-3.png"
+                      class="card-img-top hover-zoom"
+                      alt="Book Cover"
+                    />
+                  </section>
+                  <div class="card-body">
+                    <h5 class="card-title">Book Title 7</h5>
+                    <a
+                      class="card-text text-warning-emphasis text-decoration-none"
+                      href="#"
+                    >
+                      The Man
+                    </a>
+                    <section class="fw-bold" style="color: orangered">
+                      $20.99
+                    </section>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <section>
+                        <img src="./assets/home/seller-3.png" />
+                        <span>manmanam</span>
+                      </section>
+                      <section class="stars mb-2">★★★★☆</section>
+                    </div>
+                    <a
+                      href="#"
+                      class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                      style="background-color: #d0e1e7"
+                      ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
+                    >
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="splide__slide">
-              <img src="./assets/home/book-5.png" />
+              <div class="col-12">
+                <div class="card h-100 border-0 shadow-sm">
+                  <section
+                    class="d-flex justify-content-center align-items-center p-5 rounded"
+                    style="background-color: rgb(221, 221, 221)"
+                  >
+                    <img
+                      src="./assets/home/book-5.png"
+                      class="card-img-top hover-zoom"
+                      alt="Book Cover"
+                    />
+                  </section>
+                  <div class="card-body">
+                    <h5 class="card-title">Book Title 7</h5>
+                    <a
+                      class="card-text text-warning-emphasis text-decoration-none"
+                      href="#"
+                    >
+                      The Man
+                    </a>
+                    <section class="fw-bold" style="color: orangered">
+                      $20.99
+                    </section>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <section>
+                        <img src="./assets/home/seller-3.png" />
+                        <span>manmanam</span>
+                      </section>
+                      <section class="stars mb-2">★★★★☆</section>
+                    </div>
+                    <a
+                      href="#"
+                      class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                      style="background-color: #d0e1e7"
+                      ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
+                    >
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="splide__slide">
-              <img src="./assets/home/book-3.png" />
+              <div class="col-12">
+                <div class="card h-100 border-0 shadow-sm">
+                  <section
+                    class="d-flex justify-content-center align-items-center p-5 rounded"
+                    style="background-color: rgb(221, 221, 221)"
+                  >
+                    <img
+                      src="./assets/home/book-4.png"
+                      class="card-img-top hover-zoom"
+                      alt="Book Cover"
+                    />
+                  </section>
+                  <div class="card-body">
+                    <h5 class="card-title">Book Title 7</h5>
+                    <a
+                      class="card-text text-warning-emphasis text-decoration-none"
+                      href="#"
+                    >
+                      The Man
+                    </a>
+                    <section class="fw-bold" style="color: orangered">
+                      $20.99
+                    </section>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <section>
+                        <img src="./assets/home/seller-3.png" />
+                        <span>manmanam</span>
+                      </section>
+                      <section class="stars mb-2">★★★★☆</section>
+                    </div>
+                    <a
+                      href="#"
+                      class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                      style="background-color: #d0e1e7"
+                      ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
+                    >
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
+      </section>
+    </section>
+    <section id="homeTenthSection" class="container pt-5">
+      <section class="d-flex align-items-center mt-4 mb-5">
+        <h3 class="mb-0 fw-bold fs-1" style="color: #003366">
+          What our client say
+        </h3>
+      </section>
+      <section>
+        <section class="splide" aria-label="Splide Basic HTML Example">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">Slide 01</li>
+              <li class="splide__slide">Slide 02</li>
+              <li class="splide__slide">Slide 03</li>
+            </ul>
+          </div>
+        </section>
       </section>
     </section>
     <script>
@@ -1610,7 +2027,7 @@
         new Splide(".splide", {
           type: "loop",
           perPage: 4,
-          perMove: 1, // Slide 1 by 1
+          perMove: 1,
           drag: true,
           gap: "1rem",
           autoplay: true,
