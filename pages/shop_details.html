@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <!-- Swiper CSS -->
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+hr {
+  margin: 40px 0px;
+}
+li {
+  color: #52556c;
+}
+/* الجزء :عنوان */
+.top {
+  height: 400px;
+  background-color: #e6eff2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+.top img {
+  padding-top: 60px;
+  height: auto;
+}
+h1,
+h5 {
+  color: #012e4a;
+}
+p {
+  color: #52556c;
+}
+.top h1 {
+  /* margin:0px 300px; */
+  text-align: center;
+}
+/* الصورة الكبيرة وعيالها */
+.product-image img {
+  border: 2px solid #ccc;
+  padding: 5% 10%;
+  background-color: #f8f8f8;
+  border-radius: 20px;
+  margin-bottom: 15px;
+
+}
+#mainImage {
+  padding: 10% 20%;
+
+}
+.thumbnail {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  margin-right: 5px;
+  padding: 4px;
+  border-radius: 20px;
+  transition: border 0.2s;
+}
+
+.thumbnail:hover {
+  border: 2px solid#04314c;
+}
+
+
+/*تفاصيل المنتج */
+.product-title {
+  color: #012e4a;
+}
+
+#rating i,
+.product-price {
+  color: #ff6500;
+}
+
+.product-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-control {
+  padding: 15px;
+  border-radius: 30px;
+  border-color: #036280;
+  color: #04314c;
+
+}
+
+.read {
+  border-color: #036280;
+  border-radius: 30px;
+  color: #036280;
+  font-weight: bold;
+  padding: 15px 40px;
+
+}
+
+.add {
+  background-color: #036280;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  padding: 15px;
+
+}
+
+.favourite {
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  background-color: #036280;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border-color: #036280;
+  color: #036280;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-details-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  /* تشيل النقط */
+  padding: 0;
+  margin: 0;
+  gap: 10px 20px;
+  /* مسافات بين العناصر */
+}
+
+.product-details-list li {
+  font-size: 18px;
+  columns: #52556c;
+
+  b {
+    color: #012e4a;
+  }
+
+}
+
+.details {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 40px;
+  background-color: #f8f8f8;
+  margin-bottom: 30px;
+}
+
+.product-details-list-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  /* تشيل النقط */
+  padding: 0;
+  margin: 0;
+  gap: 10px 20px;
+  /* مسافات بين العناصر */
+}
+
+.available-on {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+
+/* الوصف */
+.des {
+  font-size: 17px;
+  color: #52556c
+}
+.book-card {
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  width: 90%;
+  max-width: 360px;
+  min-height: 550px;
+  margin: auto;
+
+}
+.card-top {
+  height: 350px;
+  ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px 15px 0 0;
+  background-color: #f8f8f8;
+}
+
+.card-img-top {
+  width: 60%;
+  height: 70%;
+  transition: transform 0.5s ease;
+}
+
+.book-card:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+.card-title {
+  color: #012e4a;
+  ;
+}
+
+.price del {
+  color: #999;
+}
+
+.price {
+  color: #ff6500;
+}
+
+.badge-hot {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ff6500;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.author-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.rating {
+  font-size: 1.4rem;
+  /* تكبير النجوم */
+  color: #ff6500;
+  /* نفس لون النجوم */
+  line-height: 1;
+}
+
+.add-cart-btn {
+  border-radius: 30px;
+  background-color: #e6eff2;
+  color: #284e66;
+  border: none;
+  font-weight: bold;
+
+}
+.btn {
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  z-index: 1;
+  /* لضمان بقاء النص فوق الشريط */
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background-color: #ff6500;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  transform: scaleX(1);
+}
+
+.btn:hover {
+  color: white;
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  color: #ff6500;
+
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+
+}
+
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 1;
+}
+  </style>
+</head>
+
+<body>
+  <div class="wraper">
+      <div class="top d-flex align-items-center justify-content-between">
+        <img src="../assets/shop_details/top.png" alt="top image" class="col-auto d-none d-xl-block">
+        <div class="text-center col-12 col-md-4 py-5">
+          <h1>Shop Details</h1>
+        </div>
+        <img src="../assets/shop_details/book2.png" alt="logo" class="col-auto d-none d-xl-block">
+      </div>
+    <div class="container-fluid mt-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="product-image">
+            <img src="../assets/shop_details/book1.png" class="col-xl-12 img-fluid rounded mb-3" alt="Product Image" id="mainImage">
+            <div class="col-xl-12 row mt-2">
+              <div class="col-2">
+                <img src="../assets/shop_details/book1.png" class="img-fluid rounded thumbnail" alt="Thumbnail 1">
+              </div>
+              <div class="col-2">
+                <img src="../assets/shop_details/book1.png" class="img-fluid rounded thumbnail" alt="Thumbnail 2">
+              </div>
+              <div class="col-2">
+                <img src="../assets/shop_details/book1.png" class="img-fluid rounded thumbnail" alt="Thumbnail 3">
+              </div>
+              <div class="col-2">
+                <img src="../assets/shop_details/book1.png" class="img-fluid rounded thumbnail" alt="Thumbnail 4">
+              </div>
+              <div class="row">
+                <div class="col-2">
+                  <img src="../assets/shop_details/book1.png" class="img-fluid rounded thumbnail" alt="Thumbnail 5">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h1 class="product-title">Product Name Here</h1>
+
+
+          <div class="product-rating mb-2">
+            <span id="rating" class="text-warning">
+              <i class="fas fa-star " data-index="1"></i>
+              <i class="fas fa-star" data-index="2"></i>
+              <i class="fas fa-star" data-index="3"></i>
+              <i class="fas fa-star" data-index="4"></i>
+              <i class="fas fa-star" data-index="5"></i>
+            </span>
+            <span> (1 Customer Reviews)</span>
+          </div>
+
+
+          <p class="product-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar, tortor quis varius
+            pretium est felis scelerisque nulla, vitae placerat justo nunc a massa. Aenean nec montes
+            vestibulum urna vel imperdiet ipsum. Orci varius natoque penatibus et magnis dis ridicul
+            parturient montes.
+          </p>
+          <h2 class="product-price "> $150 </h2>
+
+
+          <div class="product-actions row row-cols-auto g-2 align-items-center">
+            <div class="col-auto">
+            
+                <input type="number" class="form-control" id="quantity" value="1" min="1" style="max-width: 80px;">
+              
+            </div>
+            <div class="col-auto">
+              <button class="btn me-2 read">Read A Little</button>
+            </div>
+            <div class="col-auto">
+              <button class="btn me-2 add"><i class="fas fa-shopping-cart">Add to Cart</i></button>
+            </div>
+            <div class="col-auto">
+              <button class="btn rounded-circle favourite me-2"> <i class="far fa-heart me-1"></i></button>
+            </div>
+            <div class="col-auto">
+              <button class="btn rounded-circle arrow"> <i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <hr>
+          <div class="details">
+            <ul class="product-details-list">
+              <li><b class="detail-label">SKU : </b> FTC1020865D</li>
+              <li><b class="detail-label">Tags : </b> Design, Low</li>
+              <li><b class="detail-label">Total page : </b> 330</li>
+              <li><b class="detail-label">Publish Years : </b> 2021</li>
+              <li><b class="detail-label">Category : </b> Kids Toys</li>
+              <li><b class="detail-label">Language : </b> English</li>
+              <li><b class="detail-label">Century : </b> United States</li>
+            </ul>
+          </div>
+          <div class="details">
+            <ul class="product-details-list-2">
+              <li><i class="fas fa-check text-success me-2"></i>Free shipping orders from $150</li>
+              <li><i class="fas fa-check text-success me-2"></i>Manaya Flash Discount: Starting at 30% Off
+              </li>
+              <li><i class="fas fa-check text-success me-2"></i>30 days exchange & return</li>
+              <li><i class="fas fa-check text-success me-2"></i>Safe & Secure online shopping</li>
+            </ul>
+          </div>
+          <div class="available-on">
+            <h5>Also Available On:</h5>
+            <img src="../assets/shop_details/cutomerio.png">
+            <img src="../assets/shop_details/dropbox.png">
+            <img src="../assets/shop_details/amazon.png">
+          </div>
+        </div>
+      </div>
+
+      <div class="my-4">
+        <h5 style="text-align: center ">Description</h5>
+        <hr>
+        <p class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis erat interdum, tempor
+          turpis in, sodales ex. In hac habitasse platea dictumst. Etiam accumsan scelerisque urna, a lobortis
+          velit vehicula ut. Maecenas porttitor dolor a velit aliquet, et euismod nibh vulputate. Duis nunc
+          velit, lacinia vel risus in, finibus sodales augue. Aliquam lacinia imperdiet dictum. Etiam tempus
+          finibus tortor, quis placerat arcu tristique in. Sed vitae dui a diam luctus maximus. Quisque nec
+          felis dapibus, dapibus enim vitae, vestibulum libero. Aliquam erat volutpat. Phasellus luctus
+          rhoncus justo. Duis a nulla sit amet justo aliquam ullamcorper. Phasellus nulla lorem, pretium et
+          libero in, porta auctor dui. In a ornare purus, et efficitur elit. Etiam consectetur sit amet quam
+          ut tincidunt. Donec gravida ultricies tellus ac pharetra. Praesent a pulvinar purus. Proin
+          sollicitudin leo eget mi sagittis aliquam. Donec sollicitudin ex ac lobortis mollis. Sed eget libero
+          nec mi</p>
+      </div>
+      <hr>
+      <div class=" col-12 text-center mb-5" >
+        <h1>Related Products</h1>
+        <p>Interdum et malesuada fames ac ante ipsum primis in faucibus.<br>
+          Donec at nulla nulla. Duis posuere ex lacus</p>
+      </div>
+      <div class="container-fluid px-2 ">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            
+            <!-- كل كارد يبقى جوه swiper-slide -->
+            <div class="swiper-slide">
+              
+        <!-- Book Card -->
+        <div class="col">
+          <div class="card book-card position-relative">
+            <div class="card-top d-flex justify-content-center align-items-center">
+              <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+            </div>
+
+
+            <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+            <div class="card-body">
+              <h6 class="text-muted">Design Low Book</h6>
+              <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+              <div class="price mb-2">
+                <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                <div class="d-flex align-items-center">
+                  <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                  <span>Alexander</span>
+                </div>
+                <div class="rating mb-0">
+                  ★★★★☆
+                </div>
+              </div>
+
+              <button class="btn add-cart-btn w-100 py-3">
+                <i class="fas fa-shopping-cart">Add to Cart</i>
+              </button>
+            </div>
+          </div>
+        </div>
+            </div>
+        
+            <div class="swiper-slide">
+              <!-- كارد تاني -->
+              <div class="col">
+                <div class="card book-card position-relative">
+                  <div class="card-top d-flex justify-content-center align-items-center">
+                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  </div>
+      
+      
+                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <div class="card-body">
+                    <h6 class="text-muted">Design Low Book</h6>
+                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <div class="price mb-2">
+                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                      <div class="d-flex align-items-center">
+                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <span>Alexander</span>
+                      </div>
+                      <div class="rating mb-0">
+                        ★★★★☆
+                      </div>
+                    </div>
+      
+                    <button class="btn add-cart-btn w-100 py-3">
+                      <i class="fas fa-shopping-cart">Add to Cart</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+        
+            <div class="swiper-slide">
+              <!-- كارد تالت -->
+              <div class="col">
+                <div class="card book-card position-relative">
+                  <div class="card-top d-flex justify-content-center align-items-center">
+                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  </div>
+      
+      
+                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <div class="card-body">
+                    <h6 class="text-muted">Design Low Book</h6>
+                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <div class="price mb-2">
+                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                      <div class="d-flex align-items-center">
+                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <span>Alexander</span>
+                      </div>
+                      <div class="rating mb-0">
+                        ★★★★☆
+                      </div>
+                    </div>
+      
+                    <button class="btn add-cart-btn w-100 py-3">
+                      <i class="fas fa-shopping-cart">Add to Cart</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+        
+            <!-- كرري على عدد الكروت -->
+        
+            <div class="swiper-slide">
+              <!-- كارد تالت -->
+              <div class="col">
+                <div class="card book-card position-relative">
+                  <div class="card-top d-flex justify-content-center align-items-center">
+                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  </div>
+      
+      
+                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <div class="card-body">
+                    <h6 class="text-muted">Design Low Book</h6>
+                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <div class="price mb-2">
+                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                      <div class="d-flex align-items-center">
+                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <span>Alexander</span>
+                      </div>
+                      <div class="rating mb-0">
+                        ★★★★☆
+                      </div>
+                    </div>
+      
+                    <button class="btn add-cart-btn w-100 py-3">
+                      <i class="fas fa-shopping-cart">Add to Cart</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+
+
+
+
+
+            
+            <div class="swiper-slide">
+              <!-- كارد تالت -->
+              <div class="col">
+                <div class="card book-card position-relative">
+                  <div class="card-top d-flex justify-content-center align-items-center">
+                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  </div>
+      
+      
+                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <div class="card-body">
+                    <h6 class="text-muted">Design Low Book</h6>
+                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <div class="price mb-2">
+                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                      <div class="d-flex align-items-center">
+                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <span>Alexander</span>
+                      </div>
+                      <div class="rating mb-0">
+                        ★★★★☆
+                      </div>
+                    </div>
+      
+                    <button class="btn add-cart-btn w-100 py-3">
+                      <i class="fas fa-shopping-cart">Add to Cart</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+
+            <div class="swiper-slide">
+              <!-- كارد تالت -->
+              <div class="col">
+                <div class="card book-card position-relative">
+                  <div class="card-top d-flex justify-content-center align-items-center">
+                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  </div>
+      
+      
+                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <div class="card-body">
+                    <h6 class="text-muted">Design Low Book</h6>
+                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <div class="price mb-2">
+                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                      <div class="d-flex align-items-center">
+                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <span>Alexander</span>
+                      </div>
+                      <div class="rating mb-0">
+                        ★★★★☆
+                      </div>
+                    </div>
+      
+                    <button class="btn add-cart-btn w-100 py-3">
+                      <i class="fas fa-shopping-cart">Add to Cart</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+
+
+            
+            <div class="swiper-slide">
+              <!-- كارد تالت -->
+              <div class="col">
+                <div class="card book-card position-relative">
+                  <div class="card-top d-flex justify-content-center align-items-center">
+                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  </div>
+      
+      
+                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <div class="card-body">
+                    <h6 class="text-muted">Design Low Book</h6>
+                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <div class="price mb-2">
+                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                      <div class="d-flex align-items-center">
+                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <span>Alexander</span>
+                      </div>
+                      <div class="rating mb-0">
+                        ★★★★☆
+                      </div>
+                    </div>
+      
+                    <button class="btn add-cart-btn w-100 py-3">
+                      <i class="fas fa-shopping-cart">Add to Cart</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+
+
+            
+            <div class="swiper-slide">
+              <!-- كارد تالت -->
+              <div class="col">
+                <div class="card book-card position-relative">
+                  <div class="card-top d-flex justify-content-center align-items-center">
+                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  </div>
+      
+      
+                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <div class="card-body">
+                    <h6 class="text-muted">Design Low Book</h6>
+                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <div class="price mb-2">
+                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                      <div class="d-flex align-items-center">
+                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <span>Alexander</span>
+                      </div>
+                      <div class="rating mb-0">
+                        ★★★★☆
+                      </div>
+                    </div>
+      
+                    <button class="btn add-cart-btn w-100 py-3">
+                      <i class="fas fa-shopping-cart">Add to Cart</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+
+            
+            <div class="swiper-slide">
+              <!-- كارد تالت -->
+              <div class="col">
+                <div class="card book-card position-relative">
+                  <div class="card-top d-flex justify-content-center align-items-center">
+                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  </div>
+      
+      
+                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <div class="card-body">
+                    <h6 class="text-muted">Design Low Book</h6>
+                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <div class="price mb-2">
+                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                      <div class="d-flex align-items-center">
+                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <span>Alexander</span>
+                      </div>
+                      <div class="rating mb-0">
+                        ★★★★☆
+                      </div>
+                    </div>
+      
+                    <button class="btn add-cart-btn w-100 py-3">
+                      <i class="fas fa-shopping-cart">Add to Cart</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        
+          <!-- لو عايزة أزرار تنقل -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        
+        </div>
+        
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 4,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</body>
+
+</html> 
