@@ -13,6 +13,44 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .top-bar {
+        background-color: #036280;
+        color: white;
+        font-size: 0.9rem;
+      }
+      .top-bar a {
+        color: white;
+        text-decoration: none;
+        margin-right: 15px;
+      }
+      .main-header {
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+      }
+      .left-logo {
+        background-color: #012e4a;
+        border-top-right-radius: 75%;
+        height: 100%;
+      }
+      .left-logo img {
+        max-height: 100%;
+      }
+      .nav-icons i {
+        font-size: 1.2rem;
+        position: relative;
+      }
+      .nav-icons span.badge {
+        font-size: 0.7rem;
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        background-color: #036280;
+      }
     body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -321,6 +359,165 @@ p {
 </head>
 
 <body>
+  <nav class="d-flex align-items-stretch sticky" style="height: 100px">
+    <!-- Left Logo -->
+    <div class="left-logo d-flex align-items-center px-4">
+      <img
+        src="../assets/home/white-logo.svg"
+        alt="Bookle"
+        class="img-fluid"
+      />
+    </div>
+
+    <!-- Right Section -->
+    <div class="flex-grow-1 d-flex flex-column">
+      <!-- Top Nav -->
+      <div
+        class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50"
+      >
+        <div>
+          <i class="fas fa-phone me-2"></i> +208-6666-0112 |
+          <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
+          <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
+        </div>
+        <div>
+          <a href="#"><i class="fas fa-user ms-3 me-1"></i>Login</a>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div
+        class="main-header d-flex justify-content-between align-items-center px-3 flex-grow-1"
+      >
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg p-0">
+          <div class="container-fluid">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item fw-bold px-2" style="margin-left: 50px">
+                  <a class="nav-link" href="#">Home</a>
+                </li>
+
+                <!-- Shop Dropdown -->
+                <li class="nav-item dropdown fw-bold px-2">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="shopDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Shop
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                    <li>
+                      <a class="dropdown-item" href="./pages/customer-dashboard.html">Shop Default</a>
+                    </li>
+                    <li><a class="dropdown-item" href="./pages/shoplist.html">Shop List</a></li>
+                    <li>
+                      <a class="dropdown-item" href="./pages/shop_details.html">Shop Details</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Shop Cart</a></li>
+                    <li><a class="dropdown-item" href="#">WishList</a></li>
+                    <li><a class="dropdown-item" href="./pages/checkout.html">CheckOut</a></li>
+                  </ul>
+                </li>
+
+                <!-- Pages Dropdown -->
+                <li class="nav-item dropdown fw-bold px-2">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="pagesDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Pages
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    <li><a class="dropdown-item" href="#">About Us</a></li>
+
+                    <!-- Nested Dropdown (Mega menu style) -->
+                    <li class="dropdown-submenu dropend">
+                      <a
+                        class="dropdown-item dropdown-toggle"
+                        href="#"
+                        id="authorDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Author Pages
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="authorDropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Author</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Author Profile</a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">FAQ</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown fw-bold px-4">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="shopDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Blog
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                    <li>
+                      <a class="dropdown-item" href="#">Blog Grid</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Blog List</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Blog Details</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item fw-bold px-2">
+                  <a class="nav-link" href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Icons -->
+        <div class="nav-icons d-flex gap-3">
+          <div class="position-relative">
+            <i class="far fa-heart"></i>
+            <span class="badge rounded-circle text-bg-light">0</span>
+          </div>
+          <div class="position-relative">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge rounded-circle text-bg-light">0</span>
+          </div>
+          <div><i class="fas fa-sliders"></i></div>
+        </div>
+      </div>
+    </div>
+  </nav>
   <div class="wraper">
       <div class="top d-flex align-items-center justify-content-between">
         <img src="../assets/shop_details/top.png" alt="top image" class="col-auto d-none d-xl-block">

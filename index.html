@@ -22,6 +22,26 @@
         padding: 0;
         box-sizing: border-box;
       }
+      .footer {
+        background-color: #012e4a;
+        border-radius: 5px;
+        padding: 40px;
+      }
+
+      label {
+        color: #036280;
+        font-size: 20px;
+      }
+      input {
+        height: 55px;
+      }
+      .note {
+        height: 250px;
+      }
+      span {
+        color: #012e4a;
+        font-size: 20px;
+      }
       .top-bar {
         background-color: #036280;
         color: white;
@@ -44,10 +64,6 @@
       .left-logo img {
         max-height: 100%;
       }
-      .main-header {
-        background-color: #fff;
-        border-bottom: 1px solid #ddd;
-      }
       .nav-icons i {
         font-size: 1.2rem;
         position: relative;
@@ -58,6 +74,10 @@
         top: -8px;
         right: -10px;
         background-color: #036280;
+      }
+      .main-header {
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
       }
       @keyframes floatHorizontal {
         0% {
@@ -154,70 +174,94 @@
         padding-left: 10px;
         color: #012e4a;
       }
+      .border-dashed {
+        border-style: dashed !important;
+      }
       .book-wrapper {
-        position: relative;
-        width: 160px;
-        height: 160px;
-      }
-      .border-circle {
-        width: 100%;
-        height: 100%;
-        border: 3px dashed #7f56d9;
-        border-radius: 50%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        box-sizing: border-box;
-        animation: spin 4s linear infinite;
-        z-index: 1;
-      }
+  position: relative;
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 1 / 1;
+  margin: auto;
+}
+.border-circle {
+  width: 100%;
+  height: 100%;
+  border: 3px dashed #7f56d9;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: spin 9s linear infinite;
+  z-index: 1;
+  box-sizing: border-box;
+}
       @keyframes spin {
         100% {
           transform: rotate(360deg);
         }
       }
       .book-image {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100px;
-        height: 140px;
-        object-fit: cover;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        border-radius: 10px;
-        transition: transform 0.3s ease;
-      }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 55%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 2;
+  border-radius: 10px;
+  transition: transform 0.7s ease;
+}
       .book-wrapper:hover .book-image {
-        transform: translate(-50%, -50%) scale(1.05);
+        transform: translate(-50%, -50%) scale(1.07);
         cursor: pointer;
       }
       .badge-number {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        background-color: #003366;
-        color: white;
-        font-weight: bold;
-        font-size: 14px;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        text-align: center;
-        line-height: 30px;
-        z-index: 3;
-      }
-      #carousel-card-container {
-        transition: transform 0.5s ease-in-out;
-        display: flex;
-        width: max-content;
-      }
-      .card-container {
-        flex: 0 0 25%; /* 100 / 4 = 25% per card */
-        box-sizing: border-box;
-      }
-      .border-dashed {
-        border-style: dashed !important;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #003366;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 26px;
+  z-index: 3;
+}
+.splide__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.splide__slide p {
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+      @media (max-width: 768px) {
+        .badge-number {
+          width: 22px;
+          height: 22px;
+          font-size: 0.75rem;
+          line-height: 22px;
+        }
+        .book-image {
+          width: 60%;
+        }
+        .splide__slide p {
+          font-size: 0.875rem;
+        }
+        #homeFourthSection {
+          padding: 2rem 1rem !important;
+        }
+        .top-carousel {
+          font-size: 1.5rem !important;
+          white-space: nowrap;
+        }
       }
     </style>
   </head>
@@ -236,7 +280,7 @@
       <div class="flex-grow-1 d-flex flex-column">
         <!-- Top Nav -->
         <div
-          class="top-bar d-flex justify-content-between align-items-center px-3 py-1"
+          class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50"
         >
           <div>
             <i class="fas fa-phone me-2"></i> +208-6666-0112 |
@@ -244,7 +288,6 @@
             <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
           </div>
           <div>
-            <a href="#"><i class="fas fa-comments me-1"></i>Live Chat</a>
             <a href="#"><i class="fas fa-user ms-3 me-1"></i>Login</a>
           </div>
         </div>
@@ -266,41 +309,116 @@
               </button>
               <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
+                  <li class="nav-item fw-bold px-2" style="margin-left: 50px">
                     <a class="nav-link" href="#">Home</a>
                   </li>
-                  <li class="nav-item dropdown">
+
+                  <!-- Shop Dropdown -->
+                  <li class="nav-item dropdown fw-bold px-2">
                     <a
                       class="nav-link dropdown-toggle"
                       href="#"
+                      id="shopDropdown"
                       role="button"
                       data-bs-toggle="dropdown"
-                      >Shop</a
+                      aria-expanded="false"
                     >
-                    <ul class="dropdown-menu">
+                      Shop
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="shopDropdown">
                       <li>
-                        <a class="dropdown-item" href="#">All Products</a>
+                        <a
+                          class="dropdown-item"
+                          href="./pages/customer-dashboard.html"
+                          >Shop Default</a
+                        >
                       </li>
-                      <li><a class="dropdown-item" href="#">Categories</a></li>
+                      <li>
+                        <a class="dropdown-item" href="./pages/shoplist.html"
+                          >Shop List</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="./pages/shop_details.html"
+                          >Shop Details</a
+                        >
+                      </li>
+                      <li><a class="dropdown-item" href="#">Shop Cart</a></li>
+                      <li><a class="dropdown-item" href="#">WishList</a></li>
+                      <li>
+                        <a class="dropdown-item" href="./pages/checkout.html"
+                          >CheckOut</a
+                        >
+                      </li>
                     </ul>
                   </li>
-                  <li class="nav-item dropdown">
+
+                  <!-- Pages Dropdown -->
+                  <li class="nav-item dropdown fw-bold px-2">
                     <a
                       class="nav-link dropdown-toggle"
                       href="#"
+                      id="pagesDropdown"
                       role="button"
                       data-bs-toggle="dropdown"
-                      >Pages</a
+                      aria-expanded="false"
                     >
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">About</a></li>
+                      Pages
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                      <li><a class="dropdown-item" href="#">About Us</a></li>
+
+                      <!-- Nested Dropdown (Mega menu style) -->
+                      <li class="dropdown-submenu dropend">
+                        <a
+                          class="dropdown-item dropdown-toggle"
+                          href="#"
+                          id="authorDropdown"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          Author Pages
+                        </a>
+                        <ul
+                          class="dropdown-menu"
+                          aria-labelledby="authorDropdown"
+                        >
+                          <li><a class="dropdown-item" href="#">Author</a></li>
+                          <li>
+                            <a class="dropdown-item" href="#">Author Profile</a>
+                          </li>
+                        </ul>
+                      </li>
+
                       <li><a class="dropdown-item" href="#">FAQ</a></li>
                     </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
+
+                  <li class="nav-item dropdown fw-bold px-4">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="shopDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Blog
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                      <li>
+                        <a class="dropdown-item" href="#">Blog Grid</a>
+                      </li>
+                      <li><a class="dropdown-item" href="#">Blog List</a></li>
+                      <li>
+                        <a class="dropdown-item" href="#">Blog Details</a>
+                      </li>
+                    </ul>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item fw-bold px-2">
                     <a class="nav-link" href="#">Contact</a>
                   </li>
                 </ul>
@@ -842,112 +960,100 @@
         >Top Categories Book</span
       >
 
-      <div
-        id="books2Carousel"
-        class="carousel slide border border-black rounded pt-5"
-        data-bs-ride="false"
+      <section
+        class="splide splide-four px-2 pt-5 border border-black"
+        aria-label="Book Categories Carousel"
       >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container">
-              <div
-                id="carousel-card-container"
-                class="d-flex overflow-hidden"
-                style="gap: 16px; transition: transform 0.5s ease-in-out"
-              >
-                <!-- All cards here -->
-                <div class="card-container text-center" style="flex: 0 0 25%">
-                  <div class="book-wrapper mx-auto">
-                    <div class="border-circle"></div>
-                    <img
-                      src="./assets/home/book-5.png"
-                      alt="Book Cover"
-                      class="book-image"
-                    />
-                    <div class="badge-number">01</div>
-                  </div>
-                  <p class="mt-3 fw-bold">Romance Books (80)</p>
+        <div class="splide__track text-center">
+          <ul class="splide__list">
+            <li class="splide__slide rounded-circle px-0">
+              <div class="text-center">
+                <div class="book-wrapper mx-auto">
+                  <div class="border-circle"></div>
+                  <img
+                    src="./assets/home/book-5.png"
+                    alt="Book Cover"
+                    class="book-image"
+                  />
+                  <div class="badge-number">01</div>
                 </div>
-                <div class="card-container text-center" style="flex: 0 0 25%">
-                  <div class="book-wrapper mx-auto">
-                    <div class="border-circle"></div>
-                    <img
-                      src="./assets/home/book-2.png"
-                      alt="Book Cover"
-                      class="book-image"
-                    />
-                    <div class="badge-number">01</div>
-                  </div>
-                  <p class="mt-3 fw-bold">Romance Books (80)</p>
-                </div>
-                <div class="card-container text-center" style="flex: 0 0 25%">
-                  <div class="book-wrapper mx-auto">
-                    <div class="border-circle"></div>
-                    <img
-                      src="./assets/home/book-3.png"
-                      alt="Book Cover"
-                      class="book-image"
-                    />
-                    <div class="badge-number">01</div>
-                  </div>
-                  <p class="mt-3 fw-bold">Romance Books (80)</p>
-                </div>
-                <div class="card-container text-center" style="flex: 0 0 25%">
-                  <div class="book-wrapper mx-auto">
-                    <div class="border-circle"></div>
-                    <img
-                      src="./assets/home/book-5.png"
-                      alt="Book Cover"
-                      class="book-image"
-                    />
-                    <div class="badge-number">01</div>
-                  </div>
-                  <p class="mt-3 fw-bold">Romance Books (80)</p>
-                </div>
-                <div class="card-container text-center" style="flex: 0 0 25%">
-                  <div class="book-wrapper mx-auto">
-                    <div class="border-circle"></div>
-                    <img
-                      src="./assets/home/book-4.png"
-                      alt="Book Cover"
-                      class="book-image"
-                    />
-                    <div class="badge-number">01</div>
-                  </div>
-                  <p class="mt-3 fw-bold">Romance Books (80)</p>
-                </div>
-                <div class="card-container text-center" style="flex: 0 0 25%">
-                  <div class="book-wrapper mx-auto">
-                    <div class="border-circle"></div>
-                    <img
-                      src="./assets/home/book-5.png"
-                      alt="Book Cover"
-                      class="book-image"
-                    />
-                    <div class="badge-number">01</div>
-                  </div>
-                  <p class="mt-3 fw-bold">Romance Books (80)</p>
-                </div>
-                <!-- repeat the above block for all cards (book-2.png to book-5.png, etc.) -->
+                <p class="mt-3 fw-bold">Romance Books (80)</p>
               </div>
-            </div>
-          </div>
+            </li>
+            <li class="splide__slide">
+              <div class="text-center">
+                <div class="book-wrapper mx-auto">
+                  <div class="border-circle"></div>
+                  <img
+                    src="./assets/home/book-5.png"
+                    alt="Book Cover"
+                    class="book-image"
+                  />
+                  <div class="badge-number">01</div>
+                </div>
+                <p class="mt-3 fw-bold">Romance Books (80)</p>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="text-center">
+                <div class="book-wrapper mx-auto">
+                  <div class="border-circle"></div>
+                  <img
+                    src="./assets/home/book-5.png"
+                    alt="Book Cover"
+                    class="book-image"
+                  />
+                  <div class="badge-number">01</div>
+                </div>
+                <p class="mt-3 fw-bold">Romance Books (80)</p>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="text-center">
+                <div class="book-wrapper mx-auto">
+                  <div class="border-circle"></div>
+                  <img
+                    src="./assets/home/book-5.png"
+                    alt="Book Cover"
+                    class="book-image"
+                  />
+                  <div class="badge-number">01</div>
+                </div>
+                <p class="mt-3 fw-bold">Romance Books (80)</p>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="text-center">
+                <div class="book-wrapper mx-auto">
+                  <div class="border-circle"></div>
+                  <img
+                    src="./assets/home/book-5.png"
+                    alt="Book Cover"
+                    class="book-image"
+                  />
+                  <div class="badge-number">01</div>
+                </div>
+                <p class="mt-3 fw-bold">Romance Books (80)</p>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="text-center">
+                <div class="book-wrapper mx-auto">
+                  <div class="border-circle"></div>
+                  <img
+                    src="./assets/home/book-5.png"
+                    alt="Book Cover"
+                    class="book-image"
+                  />
+                  <div class="badge-number">01</div>
+                </div>
+                <p class="mt-3 fw-bold">Romance Books (80)</p>
+              </div>
+            </li>
+            <!-- Repeat slides -->
+          </ul>
         </div>
-
-        <!-- Controls -->
-        <button class="carousel-control-prev" type="button" id="customPrevBtn">
-          <span
-            class="carousel-control-prev-icon bg-primary rounded-circle p-3"
-          ></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" id="customNextBtn">
-          <span
-            class="carousel-control-next-icon bg-primary rounded-circle p-3"
-          ></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+      </section>
     </section>
     <section id="homeFifthSection" class="first-slider container pt-5">
       <section class="d-flex justify-content-between align-items-center mb-4">
@@ -1195,13 +1301,13 @@
     <section
       id="homeEightthSection"
       class="container-fluid mt-1 mb-1 p-5"
-      style="background-color: #d0e1e7; height: 200vh"
+      style="background-color: #d0e1e7; min-height: 100vh"
     >
       <section class="container h-100 bg-light rounded pt-2">
         <section
-          class="d-flex justify-content-between align-items-center mt-4 mb-5"
+          class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mt-4 mb-5 gap-3"
         >
-          <h3 class="mb-0 fw-bold" style="color: #003366">Top Rating Books</h3>
+          <h3 class="mb-0 fw-bold text-primary">Top Rating Books</h3>
           <a
             href="#"
             class="btn homeAddToCartButton rounded text-secondary border px-4 px-md-5 py-2"
@@ -1209,465 +1315,437 @@
             View More &rarr;
           </a>
         </section>
+
         <section class="container">
-          <div class="row g-3" id="cards-grid">
-            <!-- Card Template (repeat for all books) -->
-            <div class="col-12 col-sm-6 mb-5">
-              <div class="card h-100">
+          <div class="row g-4" id="cards-grid">
+            <!-- Repeat this .col block for each card -->
+            <div class="col-12 col-md-6">
+              <div class="card h-100 shadow-sm">
                 <div class="row g-0 align-items-center">
                   <div
-                    class="col-4 d-flex align-items-center justify-content-center bg-light"
+                    class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
                       src="./assets/home/book-5.png"
                       class="img-fluid rounded-start hover-zoom"
                       alt="book"
-                      style="max-height: 180px"
+                      style="max-height: 160px"
                     />
                   </div>
                   <div class="col-8">
-                    <div class="card-body">
+                    <div class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex">
+                        <div class="d-flex flex-wrap">
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Favourite"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-heart mx-1"
-                              title="Add to Favourite"
-                            ></i>
+                            <i class="fa-solid fa-heart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Cart"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-shopping-cart mx-1"
-                              title="Add to Cart"
-                            ></i>
+                            <i class="fa-solid fa-shopping-cart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="View Details"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-eye mx-1"
-                              title="View Details"
-                            ></i>
+                            <i class="fa-solid fa-eye mx-1"></i>
                           </div>
                         </div>
                       </h5>
-                      <p class="fs-6 fw-bold text-primary">
-                        Flovely And Unicom Erna lorem lorem
+                      <p class="fs-6 fw-bold text-primary mb-1">
+                        Flovely And Unicom Erna
                       </p>
-                      <p class="fw-bold text-primary">$19.00</p>
-                      <p class="card-text">
+                      <p class="fw-bold text-primary mb-1">$19.00</p>
+                      <p class="card-text d-flex align-items-center gap-2">
                         <img
                           src="./assets/home/seller-1.png"
                           class="hover-zoom"
                           alt="seller"
+                          style="width: 25px; height: 25px"
                         />
                         Wilson
                       </p>
                       <div
-                        class="d-flex justify-content-between align-items-center"
+                        class="d-flex justify-content-between align-items-center mt-3"
                       >
                         <div class="stars">★★★★☆</div>
                         <a
                           href="#"
-                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                          class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
                           style="background-color: #d0e1e7"
-                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                          CART</a
                         >
+                          <i class="fa-solid fa-basket-shopping"></i> Add
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-12 col-sm-6 mb-5">
-              <div class="card h-100">
+            <div class="col-12 col-md-6">
+              <div class="card h-100 shadow-sm">
                 <div class="row g-0 align-items-center">
                   <div
-                    class="col-4 d-flex align-items-center justify-content-center bg-light"
+                    class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
                       src="./assets/home/book-5.png"
                       class="img-fluid rounded-start hover-zoom"
                       alt="book"
-                      style="max-height: 180px"
+                      style="max-height: 160px"
                     />
                   </div>
                   <div class="col-8">
-                    <div class="card-body">
+                    <div class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex">
+                        <div class="d-flex flex-wrap">
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Favourite"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-heart mx-1"
-                              title="Add to Favourite"
-                            ></i>
+                            <i class="fa-solid fa-heart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Cart"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-shopping-cart mx-1"
-                              title="Add to Cart"
-                            ></i>
+                            <i class="fa-solid fa-shopping-cart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="View Details"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-eye mx-1"
-                              title="View Details"
-                            ></i>
+                            <i class="fa-solid fa-eye mx-1"></i>
                           </div>
                         </div>
                       </h5>
-                      <p class="fs-6 fw-bold text-primary">
-                        Flovely And Unicom Erna lorem lorem
+                      <p class="fs-6 fw-bold text-primary mb-1">
+                        Flovely And Unicom Erna
                       </p>
-                      <p class="fw-bold text-primary">$19.00</p>
-                      <p class="card-text">
+                      <p class="fw-bold text-primary mb-1">$19.00</p>
+                      <p class="card-text d-flex align-items-center gap-2">
                         <img
                           src="./assets/home/seller-1.png"
                           class="hover-zoom"
                           alt="seller"
+                          style="width: 25px; height: 25px"
                         />
                         Wilson
                       </p>
                       <div
-                        class="d-flex justify-content-between align-items-center"
+                        class="d-flex justify-content-between align-items-center mt-3"
                       >
                         <div class="stars">★★★★☆</div>
                         <a
                           href="#"
-                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                          class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
                           style="background-color: #d0e1e7"
-                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                          CART</a
                         >
+                          <i class="fa-solid fa-basket-shopping"></i> Add
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-12 col-sm-6 mb-5">
-              <div class="card h-100">
+            <div class="col-12 col-md-6">
+              <div class="card h-100 shadow-sm">
                 <div class="row g-0 align-items-center">
                   <div
-                    class="col-4 d-flex align-items-center justify-content-center bg-light"
+                    class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
                       src="./assets/home/book-5.png"
                       class="img-fluid rounded-start hover-zoom"
                       alt="book"
-                      style="max-height: 180px"
+                      style="max-height: 160px"
                     />
                   </div>
                   <div class="col-8">
-                    <div class="card-body">
+                    <div class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex">
+                        <div class="d-flex flex-wrap">
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Favourite"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-heart mx-1"
-                              title="Add to Favourite"
-                            ></i>
+                            <i class="fa-solid fa-heart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Cart"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-shopping-cart mx-1"
-                              title="Add to Cart"
-                            ></i>
+                            <i class="fa-solid fa-shopping-cart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="View Details"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-eye mx-1"
-                              title="View Details"
-                            ></i>
+                            <i class="fa-solid fa-eye mx-1"></i>
                           </div>
                         </div>
                       </h5>
-                      <p class="fs-6 fw-bold text-primary">
-                        Flovely And Unicom Erna lorem lorem
+                      <p class="fs-6 fw-bold text-primary mb-1">
+                        Flovely And Unicom Erna
                       </p>
-                      <p class="fw-bold text-primary">$19.00</p>
-                      <p class="card-text">
+                      <p class="fw-bold text-primary mb-1">$19.00</p>
+                      <p class="card-text d-flex align-items-center gap-2">
                         <img
                           src="./assets/home/seller-1.png"
                           class="hover-zoom"
                           alt="seller"
+                          style="width: 25px; height: 25px"
                         />
                         Wilson
                       </p>
                       <div
-                        class="d-flex justify-content-between align-items-center"
+                        class="d-flex justify-content-between align-items-center mt-3"
                       >
                         <div class="stars">★★★★☆</div>
                         <a
                           href="#"
-                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                          class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
                           style="background-color: #d0e1e7"
-                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                          CART</a
                         >
+                          <i class="fa-solid fa-basket-shopping"></i> Add
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-12 col-sm-6 mb-5">
-              <div class="card h-100">
+            <div class="col-12 col-md-6">
+              <div class="card h-100 shadow-sm">
                 <div class="row g-0 align-items-center">
                   <div
-                    class="col-4 d-flex align-items-center justify-content-center bg-light"
+                    class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
                       src="./assets/home/book-5.png"
                       class="img-fluid rounded-start hover-zoom"
                       alt="book"
-                      style="max-height: 180px"
+                      style="max-height: 160px"
                     />
                   </div>
                   <div class="col-8">
-                    <div class="card-body">
+                    <div class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex">
+                        <div class="d-flex flex-wrap">
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Favourite"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-heart mx-1"
-                              title="Add to Favourite"
-                            ></i>
+                            <i class="fa-solid fa-heart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Cart"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-shopping-cart mx-1"
-                              title="Add to Cart"
-                            ></i>
+                            <i class="fa-solid fa-shopping-cart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="View Details"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-eye mx-1"
-                              title="View Details"
-                            ></i>
+                            <i class="fa-solid fa-eye mx-1"></i>
                           </div>
                         </div>
                       </h5>
-                      <p class="fs-6 fw-bold text-primary">
-                        Flovely And Unicom Erna lorem lorem
+                      <p class="fs-6 fw-bold text-primary mb-1">
+                        Flovely And Unicom Erna
                       </p>
-                      <p class="fw-bold text-primary">$19.00</p>
-                      <p class="card-text">
+                      <p class="fw-bold text-primary mb-1">$19.00</p>
+                      <p class="card-text d-flex align-items-center gap-2">
                         <img
                           src="./assets/home/seller-1.png"
                           class="hover-zoom"
                           alt="seller"
+                          style="width: 25px; height: 25px"
                         />
                         Wilson
                       </p>
                       <div
-                        class="d-flex justify-content-between align-items-center"
+                        class="d-flex justify-content-between align-items-center mt-3"
                       >
                         <div class="stars">★★★★☆</div>
                         <a
                           href="#"
-                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                          class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
                           style="background-color: #d0e1e7"
-                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                          CART</a
                         >
+                          <i class="fa-solid fa-basket-shopping"></i> Add
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-12 col-sm-6">
-              <div class="card h-100">
+            <div class="col-12 col-md-6">
+              <div class="card h-100 shadow-sm">
                 <div class="row g-0 align-items-center">
                   <div
-                    class="col-4 d-flex align-items-center justify-content-center bg-light"
+                    class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
                       src="./assets/home/book-5.png"
                       class="img-fluid rounded-start hover-zoom"
                       alt="book"
-                      style="max-height: 180px"
+                      style="max-height: 160px"
                     />
                   </div>
                   <div class="col-8">
-                    <div class="card-body">
+                    <div class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex">
+                        <div class="d-flex flex-wrap">
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Favourite"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-heart mx-1"
-                              title="Add to Favourite"
-                            ></i>
+                            <i class="fa-solid fa-heart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Cart"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-shopping-cart mx-1"
-                              title="Add to Cart"
-                            ></i>
+                            <i class="fa-solid fa-shopping-cart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="View Details"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-eye mx-1"
-                              title="View Details"
-                            ></i>
+                            <i class="fa-solid fa-eye mx-1"></i>
                           </div>
                         </div>
                       </h5>
-                      <p class="fs-6 fw-bold text-primary">
-                        Flovely And Unicom Erna lorem lorem
+                      <p class="fs-6 fw-bold text-primary mb-1">
+                        Flovely And Unicom Erna
                       </p>
-                      <p class="fw-bold text-primary">$19.00</p>
-                      <p class="card-text">
+                      <p class="fw-bold text-primary mb-1">$19.00</p>
+                      <p class="card-text d-flex align-items-center gap-2">
                         <img
                           src="./assets/home/seller-1.png"
                           class="hover-zoom"
                           alt="seller"
+                          style="width: 25px; height: 25px"
                         />
                         Wilson
                       </p>
                       <div
-                        class="d-flex justify-content-between align-items-center"
+                        class="d-flex justify-content-between align-items-center mt-3"
                       >
                         <div class="stars">★★★★☆</div>
                         <a
                           href="#"
-                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                          class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
                           style="background-color: #d0e1e7"
-                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                          CART</a
                         >
+                          <i class="fa-solid fa-basket-shopping"></i> Add
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-12 col-sm-6">
-              <div class="card h-100">
+            <div class="col-12 col-md-6">
+              <div class="card h-100 shadow-sm">
                 <div class="row g-0 align-items-center">
                   <div
-                    class="col-4 d-flex align-items-center justify-content-center bg-light"
+                    class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
                       src="./assets/home/book-5.png"
                       class="img-fluid rounded-start hover-zoom"
                       alt="book"
-                      style="max-height: 180px"
+                      style="max-height: 160px"
                     />
                   </div>
                   <div class="col-8">
-                    <div class="card-body">
+                    <div class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex">
+                        <div class="d-flex flex-wrap">
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Favourite"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-heart mx-1"
-                              title="Add to Favourite"
-                            ></i>
+                            <i class="fa-solid fa-heart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="Add to Cart"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-shopping-cart mx-1"
-                              title="Add to Cart"
-                            ></i>
+                            <i class="fa-solid fa-shopping-cart mx-1"></i>
                           </div>
                           <div
                             class="border rounded-circle p-1 m-1"
+                            title="View Details"
                             style="cursor: pointer"
                           >
-                            <i
-                              class="fa-solid fa-eye mx-1"
-                              title="View Details"
-                            ></i>
+                            <i class="fa-solid fa-eye mx-1"></i>
                           </div>
                         </div>
                       </h5>
-                      <p class="fs-6 fw-bold text-primary">
-                        Flovely And Unicom Erna lorem lorem
+                      <p class="fs-6 fw-bold text-primary mb-1">
+                        Flovely And Unicom Erna
                       </p>
-                      <p class="fw-bold text-primary">$19.00</p>
-                      <p class="card-text">
+                      <p class="fw-bold text-primary mb-1">$19.00</p>
+                      <p class="card-text d-flex align-items-center gap-2">
                         <img
                           src="./assets/home/seller-1.png"
                           class="hover-zoom"
                           alt="seller"
+                          style="width: 25px; height: 25px"
                         />
                         Wilson
                       </p>
                       <div
-                        class="d-flex justify-content-between align-items-center"
+                        class="d-flex justify-content-between align-items-center mt-3"
                       >
                         <div class="stars">★★★★☆</div>
                         <a
                           href="#"
-                          class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
+                          class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
                           style="background-color: #d0e1e7"
-                          ><i class="fa-solid fa-basket-shopping"></i>ADD TO
-                          CART</a
                         >
+                          <i class="fa-solid fa-basket-shopping"></i> Add
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <!-- Repeat ends -->
           </div>
         </section>
       </section>
@@ -2276,140 +2354,225 @@
           in faucibus. Donec at nulla nulla. Duis posuere ex lacus
         </h6>
       </section>
-      <section class="d-flex align-items-center justify-content-evenly">
-        <div class="card" style="width: 18rem">
-          <section class="p-3">
-            <img src="./assets/home/blog-1.jpg" class="card-img-top" alt="" />
-          </section>
-          <div class="card-body">
-            <section>
-              <a href="#" class="text-decoration-none card-title fw-bold fs-4"
-                >Lorem ipsum dolor sit amet consectetur adipisicing.</a
-              >
-              <br />
-            </section>
-            <a class="icon-link text-decoration-none text-muted" href="#">
-              Icon link
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="bi"
-                viewBox="0 0 16 16"
-                aria-hidden="true"
-              >
-                <path
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+      <section class="container">
+        <div class="row g-4 justify-content-center">
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100">
+              <section class="p-3">
+                <img
+                  src="./assets/home/blog-1.jpg"
+                  class="card-img-top"
+                  alt="Blog 1"
                 />
-              </svg>
-            </a>
+              </section>
+              <div class="card-body d-flex flex-column">
+                <a
+                  href="#"
+                  class="text-decoration-none card-title fw-bold fs-4 mb-2"
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                </a>
+                <a
+                  class="icon-link text-decoration-none text-muted mt-auto"
+                  href="#"
+                >
+                  Icon link
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="bi"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card" style="width: 18rem">
-          <section class="p-3">
-            <img src="./assets/home/blog-2.jpg" class="card-img-top" alt="" />
-          </section>
-          <div class="card-body">
-            <section>
-              <a href="#" class="text-decoration-none card-title fw-bold fs-4"
-                >Lorem ipsum dolor sit amet consectetur adipisicing.</a
-              >
-              <br />
-            </section>
-            <a class="icon-link text-decoration-none text-muted" href="#">
-              Icon link
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="bi"
-                viewBox="0 0 16 16"
-                aria-hidden="true"
-              >
-                <path
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+
+          <!-- Repeat for other cards -->
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100">
+              <section class="p-3">
+                <img
+                  src="./assets/home/blog-2.jpg"
+                  class="card-img-top"
+                  alt="Blog 2"
                 />
-              </svg>
-            </a>
+              </section>
+              <div class="card-body d-flex flex-column">
+                <a
+                  href="#"
+                  class="text-decoration-none card-title fw-bold fs-4 mb-2"
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                </a>
+                <a
+                  class="icon-link text-decoration-none text-muted mt-auto"
+                  href="#"
+                >
+                  Icon link
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="bi"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card" style="width: 18rem">
-          <section class="p-3">
-            <img src="./assets/home/blog-3.jpg" class="card-img-top" alt="" />
-          </section>
-          <div class="card-body">
-            <section>
-              <a href="#" class="text-decoration-none card-title fw-bold fs-4"
-                >Lorem ipsum dolor sit amet consectetur adipisicing.</a
-              >
-              <br />
-            </section>
-            <a class="icon-link text-decoration-none text-muted" href="#">
-              Icon link
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="bi"
-                viewBox="0 0 16 16"
-                aria-hidden="true"
-              >
-                <path
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100">
+              <section class="p-3">
+                <img
+                  src="./assets/home/blog-4.jpg"
+                  class="card-img-top"
+                  alt="Blog 2"
                 />
-              </svg>
-            </a>
+              </section>
+              <div class="card-body d-flex flex-column">
+                <a
+                  href="#"
+                  class="text-decoration-none card-title fw-bold fs-4 mb-2"
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                </a>
+                <a
+                  class="icon-link text-decoration-none text-muted mt-auto"
+                  href="#"
+                >
+                  Icon link
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="bi"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card" style="width: 18rem">
-          <section class="p-3">
-            <img src="./assets/home/blog-4.jpg" class="card-img-top" alt="" />
-          </section>
-          <div class="card-body">
-            <section>
-              <a href="#" class="text-decoration-none card-title fw-bold fs-4"
-                >Lorem ipsum dolor sit amet consectetur adipisicing.</a
-              >
-              <br />
-            </section>
-            <a class="icon-link text-decoration-none text-muted" href="#">
-              Icon link
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="bi"
-                viewBox="0 0 16 16"
-                aria-hidden="true"
-              >
-                <path
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100">
+              <section class="p-3">
+                <img
+                  src="./assets/home/blog-3.jpg"
+                  class="card-img-top"
+                  alt="Blog 2"
                 />
-              </svg>
-            </a>
+              </section>
+              <div class="card-body d-flex flex-column">
+                <a
+                  href="#"
+                  class="text-decoration-none card-title fw-bold fs-4 mb-2"
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                </a>
+                <a
+                  class="icon-link text-decoration-none text-muted mt-auto"
+                  href="#"
+                >
+                  Icon link
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="bi"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </section>
+    <section class="footer text-white">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-3 mb-4">
+            <h5>📚 Bookle</h5>
+            <p>
+              Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
+              lacinia curabitur lacinia mollis
+            </p>
+            <div>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Customers Support</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Store List</a></li>
+              <li><a href="#" class="text-white">Opening Hours</a></li>
+              <li><a href="#" class="text-white">Contact Us</a></li>
+              <li><a href="#" class="text-white">Return Policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Categories</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Novel Books</a></li>
+              <li><a href="#" class="text-white">Poetry Books</a></li>
+              <li><a href="#" class="text-white">Political Books</a></li>
+              <li><a href="#" class="text-white">History Books</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Newsletter</h6>
+            <p>
+              Sign up to receive weekly newsletter to get the latest updates.
+            </p>
+            <form class="d-flex">
+              <input
+                type="email"
+                class="form-control me-2"
+                placeholder="Enter Email Address"
+              />
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-paper-plane" style="color: white"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <hr class="bg-white" />
+        <div class="text-center">
+          <p>
+            <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
+            <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
+            <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
+            &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
+          </p>
+        </div>
+      </div>
+    </section>
     <script>
       const container = document.getElementById("carousel-card-container");
-      const cards = container.querySelectorAll(".card-container");
       let currentIndex = 0;
       const visibleCards = 4;
-      document.getElementById("customNextBtn").addEventListener("click", () => {
-        if (currentIndex < cards.length - visibleCards) {
-          currentIndex++;
-        } else {
-          currentIndex = 0; // Loop to start
-        }
-        updateCarousel();
-      });
-      document.getElementById("customPrevBtn").addEventListener("click", () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-        } else {
-          currentIndex = cards.length - visibleCards; // Loop to end
-        }
-        updateCarousel();
-      });
-      function updateCarousel() {
-        const cardWidth =
-          container.querySelector(".card-container").offsetWidth;
-        const offset = -currentIndex * (cardWidth + 16); // adjust if using gap
-        container.style.transform = `translateX(${offset}px)`;
-      }
       const grids = document.querySelectorAll(".dot-grid");
       grids.forEach((grid) => {
         for (let i = 0; i < 50; i++) {
@@ -2438,6 +2601,25 @@
             480: {
               perPage: 1,
               perMove: 1,
+            },
+          },
+        }).mount();
+        new Splide(".splide-four", {
+          type: "loop",
+          perPage: 3,
+          perMove: 1,
+          breakpoints: {
+            1200: {
+              perPage: 4,
+            },
+            992: {
+              perPage: 3,
+            },
+            768: {
+              perPage: 2,
+            },
+            576: {
+              perPage: 1,
             },
           },
         }).mount();
