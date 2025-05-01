@@ -113,6 +113,26 @@
       button:hover {
         background-color: #218838;
       }
+      .footer {
+        background-color: #012e4a;
+        border-radius: 5px;
+        padding: 40px;
+      }
+
+      label {
+        color: #036280;
+        font-size: 20px;
+      }
+      input {
+        height: 55px;
+      }
+      .note {
+        height: 250px;
+      }
+      span {
+        color: #012e4a;
+        font-size: 20px;
+      }
     </style>
   </head>
   <body>
@@ -177,15 +197,31 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="shopDropdown">
                       <li>
-                        <a class="dropdown-item" href="./pages/customer-dashboard.html">Shop Default</a>
+                        <a
+                          class="dropdown-item"
+                          href="./pages/customer-dashboard.html"
+                          >Shop Default</a
+                        >
                       </li>
-                      <li><a class="dropdown-item" href="./pages/shoplist.html">Shop List</a></li>
                       <li>
-                        <a class="dropdown-item" href="./pages/shop_details.html">Shop Details</a>
+                        <a class="dropdown-item" href="./pages/shoplist.html"
+                          >Shop List</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="./pages/shop_details.html"
+                          >Shop Details</a
+                        >
                       </li>
                       <li><a class="dropdown-item" href="#">Shop Cart</a></li>
                       <li><a class="dropdown-item" href="#">WishList</a></li>
-                      <li><a class="dropdown-item" href="./pages/checkout.html">CheckOut</a></li>
+                      <li>
+                        <a class="dropdown-item" href="./pages/checkout.html"
+                          >CheckOut</a
+                        >
+                      </li>
                     </ul>
                   </li>
 
@@ -299,5 +335,72 @@
         <button type="submit">Complete Purchase</button>
       </form>
     </div>
+    <footer class="footer text-white">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-3 mb-4">
+            <h5>📚 Bookle</h5>
+            <p>
+              Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
+              lacinia curabitur lacinia mollis
+            </p>
+            <div>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Customers Support</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Store List</a></li>
+              <li><a href="#" class="text-white">Opening Hours</a></li>
+              <li><a href="#" class="text-white">Contact Us</a></li>
+              <li><a href="#" class="text-white">Return Policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Categories</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Novel Books</a></li>
+              <li><a href="#" class="text-white">Poetry Books</a></li>
+              <li><a href="#" class="text-white">Political Books</a></li>
+              <li><a href="#" class="text-white">History Books</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Newsletter</h6>
+            <p>
+              Sign up to receive weekly newsletter to get the latest updates.
+            </p>
+            <form class="d-flex">
+              <input
+                type="email"
+                class="form-control me-2"
+                placeholder="Enter Email Address"
+              />
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-paper-plane" style="color: white"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <hr class="bg-white" />
+        <div class="text-center">
+          <p>
+            <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
+            <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
+            <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
+            &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
