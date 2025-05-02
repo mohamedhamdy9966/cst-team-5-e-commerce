@@ -1,4 +1,4 @@
-body {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,12 +6,11 @@ body {
    .icon-btn:hover ,.num-btn:hover , .prev:hover ,.next:hover ,.fab:hover  {
      background-color: #f4c430;
      color: white;
-     }
+  }
      .left-img {
     position: absolute;
     left: -0.25%;
     top: 20%;
-    
     max-height: 400px;
   }
   .right-img {
