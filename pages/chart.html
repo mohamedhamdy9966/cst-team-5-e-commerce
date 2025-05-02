@@ -1,335 +1,547 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <style>
-        .header-top {
-            background-color: #005670;
-            color: white;
-            font-size: 0.9rem;
-        }
+      .header-top {
+        background-color: #005670;
+        color: white;
+        font-size: 0.9rem;
+      }
+      .top-bar {
+        background-color: #036280;
+        color: white;
+        font-size: 0.9rem;
+      }
+      .top-bar a {
+        color: white;
+        text-decoration: none;
+        margin-right: 15px;
+      }
+      .left-logo {
+        background-color: #012e4a;
+        border-top-right-radius: 75%;
+        height: 100%;
+      }
+      .left-logo img {
+        max-height: 100%;
+      }
+      .nav-icons i {
+        font-size: 1.2rem;
+        position: relative;
+      }
+      .nav-icons span.badge {
+        font-size: 0.7rem;
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        background-color: #036280;
+      }
+      .relative {
+        position: relative;
+      }
 
-        .relative {
-            position: relative;
-        }
+      #left-img {
+        position: absolute;
+        left: -0.25%;
+        top: 30%;
 
-        #left-img {
-            position: absolute;
-            left: -0.25%;
-            top: 30%;
+        max-height: 400px;
+      }
 
-            max-height: 400px;
-        }
+      #right-img {
+        position: absolute;
+        right: 0;
+        width: 300px;
+        top: 20%;
 
-        #right-img {
-            position: absolute;
-            right: 0;
-            width: 300px;
-            top: 20%;
+        max-height: 350px;
+      }
 
-            max-height: 350px;
-        }
+      .center-dev {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
-        .center-dev {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+      #last-dev {
+        background-color: #e6eff2;
+        height: 70vh;
+      }
 
-        #last-dev {
-            background-color: #E6EFF2;
-            height: 70vh;
-        }
+      .wrapper {
+        width: 95vw;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 3fr 1fr;
+        gap: 1rem;
+        grid-template-areas:
+          "main aside"
+          "footer aside";
+      }
 
-        .wrapper {
-            width: 95vw;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            grid-template-rows: 3fr 1fr;
-            gap: 1rem;
-            grid-template-areas: "main aside"
-                "footer aside";
-        }
+      .main {
+        grid-area: main;
+      }
 
-        .main {
-            grid-area: main;
-        }
+      .aside {
+        grid-area: aside;
+      }
 
-        .aside {
-            grid-area: aside;
-        }
+      .gridfooter {
+        grid-area: footer;
+      }
 
-        .gridfooter {
-            grid-area: footer;
-        }
+      .footer {
+        background-color: #036280;
+        border-radius: 5px;
+        padding: 40px;
+      }
 
-        .footer {
-            background-color: #036280;
-            border-radius: 5px;
-            padding: 40px;
-        }
+      .btn-custom {
+        background-color: #036280;
+        color: white;
+      }
 
-        .btn-custom {
-            background-color: #036280;
-            color: white;
-        }
+      .btn-custom:hover {
+        background-color: #f4c430;
+        color: white;
+      }
 
-        .btn-custom:hover {
-            background-color: #f4c430;
-            color: white;
-        }
+      .fab:hover {
+        background-color: #f4c430;
+        color: white;
+      }
 
-        .fab:hover {
-            background-color: #f4c430;
-            color: white;
-        }
-
-
-        .fab {
-            width: 30px;
-            height: 30px;
-            border: 1px solid white;
-            padding: 5px 8px;
-        }
+      .fab {
+        width: 30px;
+        height: 30px;
+        border: 1px solid white;
+        padding: 5px 8px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div class="header-top py-2 px-4 d-flex justify-content-between align-items-center">
-        <div>
-            <i class="fa fa-phone"></i> ‪+208-6666-0112‬ &nbsp;
-            <i class="fa fa-envelope"></i> info@example.com &nbsp;
-            <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM
-        </div>
-        <div>
-            <a href="login.html" class="text-white">Login</a>
-        </div>
-    </div>
+  <body>
+    <nav class="d-flex align-items-stretch sticky" style="height: 100px">
+      <!-- Left Logo -->
+      <div class="left-logo d-flex align-items-center px-4">
+        <img
+          src="../assets/home/white-logo.svg"
+          alt="Bookle"
+          class="img-fluid"
+        />
+      </div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-        <a class="navbar-brand" href="#">📚 Bookle</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Shop</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">All Products</a></li>
-                        <li><a class="dropdown-item" href="#">Best Sellers</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pages</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">About</a></li>
-                        <li><a class="dropdown-item" href="#">FAQ</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-            </ul>
-            <form class="d-flex" role="search">
-                <select class="form-select me-2">
-                    <option selected>Category</option>
-                </select>
-                <select class="form-select me-2">
-                    <option selected>Author</option>
-                </select>
-                <input class="form-control me-2" type="search" placeholder="Search" />
-                <button class="btn btn-outline-light" type="submit"><i class="fa fa-search"></i></button>
-            </form>
-             
+      <!-- Right Section -->
+      <div class="flex-grow-1 d-flex flex-column">
+        <!-- Top Nav -->
+        <div
+          class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50"
+        >
+          <div>
+            <i class="fas fa-phone me-2"></i> +208-6666-0112 |
+            <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
+            <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
+          </div>
+          <div>
+            <a href="./pages/login.html"
+              ><i class="fas fa-user ms-3 me-1"></i>Login</a
+            >
+          </div>
         </div>
-          
+
+        <!-- Bottom Nav -->
+        <div
+          class="main-header d-flex justify-content-between align-items-center px-3 flex-grow-1"
+        >
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg p-0">
+            <div class="container-fluid">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item fw-bold px-2" style="margin-left: 50px">
+                    <a class="nav-link" href="#">Home</a>
+                  </li>
+
+                  <!-- Shop Dropdown -->
+                  <li class="nav-item dropdown fw-bold px-2">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="shopDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Shop
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="./pages/customer-dashboard.html"
+                          >Shop Default</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="./pages/shoplist.html"
+                          >Shop List</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="./pages/shop_details.html"
+                          >Shop Details</a
+                        >
+                      </li>
+                      <li><a class="dropdown-item" href="#">Shop Cart</a></li>
+                      <li><a class="dropdown-item" href="#">WishList</a></li>
+                      <li>
+                        <a class="dropdown-item" href="./pages/checkout.html"
+                          >CheckOut</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+
+                  <!-- Pages Dropdown -->
+                  <li class="nav-item dropdown fw-bold px-2">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="pagesDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Pages
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="./pages/customer-dashboard.html"
+                          >About Us</a
+                        >
+                      </li>
+
+                      <!-- Nested Dropdown (Mega menu style) -->
+                      <li class="dropdown-submenu dropend">
+                        <a
+                          class="dropdown-item dropdown-toggle"
+                          href="#"
+                          id="authorDropdown"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          Author Pages
+                        </a>
+                        <ul
+                          class="dropdown-menu"
+                          aria-labelledby="authorDropdown"
+                        >
+                          <li><a class="dropdown-item" href="#">Author</a></li>
+                          <li>
+                            <a class="dropdown-item" href="#">Author Profile</a>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li><a class="dropdown-item" href="#">FAQ</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="nav-item dropdown fw-bold px-4">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="blogDropDown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Blog
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="blogDropDown">
+                      <li>
+                        <a class="dropdown-item" href="#">Blog Grid</a>
+                      </li>
+                      <li><a class="dropdown-item" href="#">Blog List</a></li>
+                      <li>
+                        <a class="dropdown-item" href="#">Blog Details</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item fw-bold px-2">
+                    <a class="nav-link" href="#">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <!-- Icons -->
+          <div class="nav-icons d-flex gap-3">
+            <div class="position-relative">
+              <i class="far fa-heart"></i>
+              <span class="badge rounded-circle text-bg-light">0</span>
+            </div>
+            <div class="position-relative">
+              <a href="./pages/chart.html">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge rounded-circle text-bg-light">0</span>
+              </a>
+            </div>
+            <div><i class="fas fa-sliders"></i></div>
+          </div>
+        </div>
+      </div>
     </nav>
 
-    <section class="pt-5">
-        <div id="last-dev" class="relative">
-            <img src="/test1.png" id="left-img" />
-            <h1 class="center-dev">Contact Us</h1>
-            <img src="/test2.png" id="right-img">
-        </div>
+    <section>
+      <div id="last-dev" class="relative">
+        <img src="../assets/cart/test1.png" id="left-img" />
+        <h1 class="center-dev">Contact Us</h1>
+        <img src="../assets/cart/test2.png" id="right-img" />
+      </div>
     </section>
 
     <section class="wrapper p-3 mt-5">
-        <section class="main">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            <h5>Product</h5>
-                        </th>
-                        <th>
-                            <h5>Price</h5>
-                        </th>
-                        <th>
-                            <h5>Quantity</h5>
-                        </th>
-                        <th>
-                            <h5>Subtotal</h5>
-                        </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <button
-                                    class="btn btn-sm border rounded-circle d-flex align-items-center justify-content-center me-2"
-                                    style="width: 32px; height: 32px;" title="Remove item">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                                <img src="images/product.png" class="img-fluid me-2" style="width: 60px; height: 60px;"
-                                    alt="Product">
-                                <span>Simple Things You To Save Book</span>
-                            </div>
-                        </td>
-
-                        <td>$30.00</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <button class="btn btn-outline-secondary btn-sm" id="dec">-</button>
-                                <input type="text" value="1" class="form-control text-center mx-1" style="width: 50px;"
-                                    id="quantity">
-                                <button class="btn btn-outline-secondary btn-sm" id="inc">+</button>
-                            </div>
-                        </td>
-                        <td>$30.00</td>
-                    </tr>
-                </tbody>
-
-            </table>
-        </section>
-        <section class="aside">
-            <div class="card p-3 w-100 w-md-75 w-lg-50" style="max-width: 400px;">
-                <div class="card-header fw-bold">
-                    Cart Total
+      <section class="main">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                <h5>Product</h5>
+              </th>
+              <th>
+                <h5>Price</h5>
+              </th>
+              <th>
+                <h5>Quantity</h5>
+              </th>
+              <th>
+                <h5>Subtotal</h5>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <button
+                    class="btn btn-sm border rounded-circle d-flex align-items-center justify-content-center me-2"
+                    style="width: 32px; height: 32px"
+                    title="Remove item"
+                  >
+                    <i class="fas fa-times"></i>
+                  </button>
+                  <img
+                    src="../assets/cart/test2.png"
+                    class="img-fluid me-2"
+                    style="width: 60px; height: 60px"
+                    alt="Product"
+                  />
+                  <span>Simple Things You To Save Book</span>
                 </div>
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <span>Sub total</span>
-                        <span>$0.00</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <span>Shipping</span>
-                        <span>$0.00</span>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between fw-bold">
-                        <span>Total</span>
-                        <span>$0.00</span>
-                    </div>
+              </td>
+
+              <td>$30.00</td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <button class="btn btn-outline-secondary btn-sm" id="dec">
+                    -
+                  </button>
+                  <input
+                    type="text"
+                    value="1"
+                    class="form-control text-center mx-1"
+                    style="width: 50px"
+                    id="quantity"
+                  />
+                  <button class="btn btn-outline-secondary btn-sm" id="inc">
+                    +
+                  </button>
                 </div>
-                <div class="card-footer bg-transparent border-0">
-                    <a href="#" class="btn w-100" style="background-color: #036280; color: white;">Proceed to
-                        Checkout</a>
-                </div>
+              </td>
+              <td>$30.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="aside">
+        <div class="card p-3 w-100 w-md-75 w-lg-50" style="max-width: 400px">
+          <div class="card-header fw-bold">Cart Total</div>
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span>Sub total</span>
+              <span>$0.00</span>
             </div>
-
-        </section>
-        <section class="gridfooter">
-            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap">
-                <div class="d-flex align-items-center flex-grow-1 me-3" style="max-width: 400px;">
-                    <input type="text" class="form-control me-2" placeholder="Coupon Code">
-                    <button type="button" id="apply" class="btn btn-custom">Apply</button>
-                </div>
-
-                <button type="button" class="btn" style="background-color: #f4c430; color: white;">Update Cart</button>
+            <div class="d-flex justify-content-between">
+              <span>Shipping</span>
+              <span>$0.00</span>
             </div>
-        </section>
+            <hr />
+            <div class="d-flex justify-content-between fw-bold">
+              <span>Total</span>
+              <span>$0.00</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <a
+              href="#"
+              class="btn w-100"
+              style="background-color: #036280; color: white"
+              >Proceed to Checkout</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="gridfooter">
+        <div
+          class="d-flex align-items-center justify-content-between mb-3 flex-wrap"
+        >
+          <div
+            class="d-flex align-items-center flex-grow-1 me-3"
+            style="max-width: 400px"
+          >
+            <input
+              type="text"
+              class="form-control me-2"
+              placeholder="Coupon Code"
+            />
+            <button type="button" id="apply" class="btn btn-custom">
+              Apply
+            </button>
+          </div>
+
+          <button
+            type="button"
+            class="btn"
+            style="background-color: #f4c430; color: white"
+          >
+            Update Cart
+          </button>
+        </div>
+      </section>
     </section>
 
     <div class="footer text-white">
-        <div class="container">
-            <div class="row text-center text-md-start">
-                <div class="col-md-3 mb-4">
-                    <h5>📚 Bookle</h5>
-                    <p>Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia curabitur lacinia
-                        mollis</p>
-                    <div>
-                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <h6>Customers Support</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Store List</a></li>
-                        <li><a href="#" class="text-white">Opening Hours</a></li>
-                        <li><a href="#" class="text-white">Contact Us</a></li>
-                        <li><a href="#" class="text-white">Return Policy</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <h6>Categories</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Novel Books</a></li>
-                        <li><a href="#" class="text-white">Poetry Books</a></li>
-                        <li><a href="#" class="text-white">Political Books</a></li>
-                        <li><a href="#" class="text-white">History Books</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <h6>Newsletter</h6>
-                    <p>Sign up to receive weekly newsletter to get the latest updates.</p>
-                    <form class="d-flex">
-                        <input type="email" class="form-control me-2" placeholder="Enter Email Address" />
-                        <button class="btn btn-primary" type="submit">
-                            <i class="fa fa-paper-plane" style="color: white;"></i>
-                        </button>
-                    </form>
-                </div>
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-3 mb-4">
+            <h5>📚 Bookle</h5>
+            <p>
+              Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
+              lacinia curabitur lacinia mollis
+            </p>
+            <div>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-linkedin"></i
+              ></a>
             </div>
-            <hr class="bg-white" />
-            <div class="text-center">
-                <p>
-                    <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
-                    <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
-                    <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; | &nbsp;
-                    <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
-                </p>
-            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Customers Support</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Store List</a></li>
+              <li><a href="#" class="text-white">Opening Hours</a></li>
+              <li><a href="#" class="text-white">Contact Us</a></li>
+              <li><a href="#" class="text-white">Return Policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Categories</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Novel Books</a></li>
+              <li><a href="#" class="text-white">Poetry Books</a></li>
+              <li><a href="#" class="text-white">Political Books</a></li>
+              <li><a href="#" class="text-white">History Books</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Newsletter</h6>
+            <p>
+              Sign up to receive weekly newsletter to get the latest updates.
+            </p>
+            <form class="d-flex">
+              <input
+                type="email"
+                class="form-control me-2"
+                placeholder="Enter Email Address"
+              />
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-paper-plane" style="color: white"></i>
+              </button>
+            </form>
+          </div>
         </div>
-              
+        <hr class="bg-white" />
+        <div class="text-center">
+          <p>
+            <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
+            <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
+            <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
+            &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
+          </p>
+        </div>
+      </div>  
     </div>
 
     <script>
-        let quantityInput = document.getElementById("quantity");
-        let quantity = parseInt(quantityInput.value);
+      let quantityInput = document.getElementById("quantity");
+      let quantity = parseInt(quantityInput.value);
 
-        document.getElementById("inc").addEventListener("click", () => {
-            quantity++;
-            quantityInput.value = quantity;
-        });
+      document.getElementById("inc").addEventListener("click", () => {
+        quantity++;
+        quantityInput.value = quantity;
+      });
 
-        document.getElementById("dec").addEventListener("click", () => {
-            if (quantity > 1) {
-                quantity--;
-                quantityInput.value = quantity;
-            }
-        });
+      document.getElementById("dec").addEventListener("click", () => {
+        if (quantity > 1) {
+          quantity--;
+          quantityInput.value = quantity;
+        }
+      });
 
-        document.querySelector(".fa-times").addEventListener("click", (e) => {
-            e.target.closest("tr").remove();
-            updateTotal();
-        });
+      document.querySelector(".fa-times").addEventListener("click", (e) => {
+        e.target.closest("tr").remove();
+        updateTotal();
+      });
     </script>
-</body>
-
+  </body>
 </html>
