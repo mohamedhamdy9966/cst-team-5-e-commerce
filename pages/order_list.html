@@ -1,139 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Orders List</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    body {
-      background-color: #f7f7f7;
-    }
-    h6 {
-      color: #012e4a;
-    }
-    .order-card {
-      background-color: white;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-    .order-image {
-      width: 60px;
-      height: 80px;
-      object-fit: cover;
-      /* border-radius: 8px; */
-    }
-    .status-badge {
-      background-color:#284e66;
-      color: white;
-      font-size: 12px;
-      border-radius: 12px;
-      padding: 3px 10px;
-    }
-    .status-dot {
-      height: 10px;
-      width: 10px;
-      background-color: #28a745;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 6px;
-    }
-    .section-title {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #012e4a;
-    }
-    .order-info {
-      font-size: 14px;
-      color: #555;
-    
-    }
-    .order-info b {
-      color: #012e4a;
-    }
-  </style>
-</head>
-<body>
-
-<div class="container my-5">
-  <div class="bg-white p-4 rounded shadow-sm">
-    <h2 class="section-title mb-4">Orders List</h2>
-    <!-- Order 1 -->
-    <div class="order-card d-flex align-items-center">
-      <img src="../assets/order-list/b1.png" alt="Product" class="order-image me-3" />
-      <div class="flex-grow-1">
-        <h6 class="mb-1">How Deal With Very Bad BOOK  </h6>
-        <div class="order-info">
-          <div><b>Price:</b> <span>$320</span></div>
-          <div><b>Quantity:</b> <span>1</span></div>
-          <div><b>Date:</b> <span>Tue Apr 29 2025</span></div>
-          <div><b>Payment:</b> <span>Stripe</span></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Orders List</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        background-color: #f7f7f7;
+      }
+      h6 {
+        color: #012e4a;
+      }
+      .order-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      }
+      .order-image {
+        width: 60px;
+        height: 80px;
+        object-fit: cover;
+        /* border-radius: 8px; */
+      }
+      .status-badge {
+        background-color: #284e66;
+        color: white;
+        font-size: 12px;
+        border-radius: 12px;
+        padding: 3px 10px;
+      }
+      .status-dot {
+        height: 10px;
+        width: 10px;
+        background-color: #28a745;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 6px;
+      }
+      .section-title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #012e4a;
+      }
+      .order-info {
+        font-size: 14px;
+        color: #555;
+      }
+      .order-info b {
+        color: #012e4a;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="d-flex align-items-stretch sticky" style="height: 100px">
+      <!-- Left Logo -->
+      <div
+        class="d-flex align-items-center px-4"
+        style="
+          background-color: #012e4a;
+          border-top-right-radius: 75%;
+          height: 100%;
+        "
+      >
+        <img
+          src="../assets/home/white-logo.svg"
+          alt="Bookle"
+          class="img-fluid"
+          style="max-height: 100%"
+        />
+      </div>
+      <!-- Right Section -->
+      <div class="flex-grow-1 d-flex flex-column">
+        <!-- Top Nav -->
+        <div
+          class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
+          style="background-color: #036280; color: white; font-size: 0.9rem"
+        >
+          <div class="">
+            <i class="fas fa-phone me-2"></i> +208-6666-0112 |
+            <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
+            <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
+          </div>
+          <div>
+            <a
+              href="./login.html"
+              style="color: white; text-decoration: none; margin-right: 15px"
+              ><i class="fas fa-user ms-3 me-1"></i>Login</a
+            >
+          </div>
+        </div>
+        <!-- Bottom Nav -->
+        <div
+          class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
+          style="background-color: #fff; border-bottom: 1px solid #ddd"
+        >
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg p-0">
+            <div class="container-fluid">
+              <!-- Toggle Button for Offcanvas -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <!-- Offcanvas Menu -->
+              <div
+                class="offcanvas offcanvas-start"
+                tabindex="-1"
+                id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel"
+              >
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    <i class="fa-solid fa-bars"></i> Menu
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="#"
+                        ><i class="fa-solid fa-house"></i> Home</a
+                      >
+                    </li>
+                    <!-- Shop Dropdown -->
+                    <li class="nav-item dropdown fw-bold px-2">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="shopDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-shop"></i> Shop
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./customer-dashboard.html"
+                            >Shop Default</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./shoplist.html"
+                            >Shop List</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./shop_details.html"
+                            >Shop Details</a
+                          >
+                        </li>
+                        <li><a class="dropdown-item" href="#">Shop Cart</a></li>
+                        <li><a class="dropdown-item" href="#">WishList</a></li>
+                        <li>
+                          <a class="dropdown-item" href="./checkout.html"
+                            >CheckOut</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <!-- Pages Dropdown -->
+                    <li class="nav-item dropdown fw-bold px-2">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="pagesDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-file"></i> Pages
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./customer-dashboard.html"
+                            >About Us</a
+                          >
+                        </li>
+                        <li class="dropdown-submenu dropend">
+                          <a
+                            class="dropdown-item dropdown-toggle"
+                            href="#"
+                            id="authorDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            Author Pages
+                          </a>
+                          <ul
+                            class="dropdown-menu"
+                            aria-labelledby="authorDropdown"
+                          >
+                            <li>
+                              <a class="dropdown-item" href="#">Author</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                >Author Profile</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a class="dropdown-item" href="#">FAQ</a></li>
+                      </ul>
+                    </li>
+                    <!-- Blog Dropdown -->
+                    <li class="nav-item dropdown fw-bold px-2">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="blogDropDown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-blog"></i> Blog
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="blogDropDown">
+                        <li><a class="dropdown-item" href="#">Blog Grid</a></li>
+                        <li><a class="dropdown-item" href="#">Blog List</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Blog Details</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="./Contact.html"
+                        ><i class="fa-solid fa-address-book"></i> Contact</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <!-- Icons -->
+          <div class="d-flex gap-3">
+            <div class="position-relative">
+              <a href="#" class="text-danger">
+                <i
+                  class="far fa-heart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  >0</span
+                >
+              </a>
+            </div>
+            <div class="position-relative">
+              <a href="./chart.html" class="text-success">
+                <i
+                  class="fas fa-shopping-cart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  >0</span
+                >
+              </a>
+            </div>
+            <div class="position-relative">
+              <a href="./login.html" style="color: #02488d">
+                <i
+                  class="fas fa-user"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="ms-auto d-flex align-items-center gap-2 text-end">
-        <div><span class="status-dot"></span> <span class="order-status">Delivered</span></div>
-        <div class="status-badge">Order Status</div>
-      </div>
-    </div>
+    </nav>
+    <div class="container my-5">
+      <div class="bg-white p-4 rounded shadow-sm">
+        <h2 class="section-title mb-4">Orders List</h2>
+        <!-- Order 1 -->
+        <div class="order-card d-flex align-items-center">
+          <img
+            src="../assets/order-list/b1.png"
+            alt="Product"
+            class="order-image me-3"
+          />
+          <div class="flex-grow-1">
+            <h6 class="mb-1">How Deal With Very Bad BOOK</h6>
+            <div class="order-info">
+              <div><b>Price:</b> <span>$320</span></div>
+              <div><b>Quantity:</b> <span>1</span></div>
+              <div><b>Date:</b> <span>Tue Apr 29 2025</span></div>
+              <div><b>Payment:</b> <span>Stripe</span></div>
+            </div>
+          </div>
+          <div class="ms-auto d-flex align-items-center gap-2 text-end">
+            <div>
+              <span class="status-dot"></span>
+              <span class="order-status">Delivered</span>
+            </div>
+            <div class="status-badge">Order Status</div>
+          </div>
+        </div>
 
-    <!-- Order 2 -->
-    <div class="order-card d-flex align-items-center">
-      <img src="../assets/order-list/b2.png" alt="Product" class="order-image me-3" />
-      <div class="flex-grow-1">
-        <h6 class="mb-1">Stylish Women Basic Tee</h6>
-        <div class="order-info">
-          <div><b>Price:</b> <span>$140</span></div>
-          <div><b>Quantity:</b> <span>1</span></div>
-          <div><b>Date:</b> <span>Tue Apr 29 2025</span></div>
-          <div><b>Payment:</b> <span>Stripe</span></div>
+        <!-- Order 2 -->
+        <div class="order-card d-flex align-items-center">
+          <img
+            src="../assets/order-list/b2.png"
+            alt="Product"
+            class="order-image me-3"
+          />
+          <div class="flex-grow-1">
+            <h6 class="mb-1">Stylish Women Basic Tee</h6>
+            <div class="order-info">
+              <div><b>Price:</b> <span>$140</span></div>
+              <div><b>Quantity:</b> <span>1</span></div>
+              <div><b>Date:</b> <span>Tue Apr 29 2025</span></div>
+              <div><b>Payment:</b> <span>Stripe</span></div>
+            </div>
+          </div>
+          <div class="ms-auto d-flex align-items-center gap-2 text-end">
+            <div>
+              <span class="status-dot"></span>
+              <span class="order-status">Delivered</span>
+            </div>
+            <div class="status-badge">Order Status</div>
+          </div>
+        </div>
+
+        <!-- Order 3 -->
+        <div class="order-card d-flex align-items-center">
+          <img
+            src="../assets/order-list/b3.png"
+            alt="Product"
+            class="order-image me-3"
+          />
+          <div class="flex-grow-1">
+            <h6 class="mb-1">Flovely and Unicom Erna</h6>
+            <div class="order-info">
+              <div><b>Price:</b> <span>$150</span></div>
+              <div><b>Quantity:</b> <span>3</span></div>
+              <div><b>Date:</b> <span>Tue Apr 29 2025</span></div>
+              <div><b>Payment:</b> <span>Stripe</span></div>
+            </div>
+          </div>
+          <div class="ms-auto d-flex align-items-center gap-2 text-end">
+            <div>
+              <span class="status-dot"></span>
+              <span class="order-status">Delivered</span>
+            </div>
+            <div class="status-badge">Order Status</div>
+          </div>
+        </div>
+
+        <!-- Order 4 -->
+        <div class="order-card d-flex align-items-center">
+          <img
+            src="../assets/order-list/b4.png"
+            alt="Product"
+            class="order-image me-3"
+          />
+          <div class="flex-grow-1">
+            <h6 class="mb-1">Castle In The Sky</h6>
+            <div class="order-info">
+              <div><b>Price:</b> <span>$290</span></div>
+              <div><b>Quantity:</b> <span>1</span></div>
+              <div><b>Date:</b> <span>Mon Apr 28 2025</span></div>
+              <div><b>Payment:</b> <span>Stripe</span></div>
+            </div>
+          </div>
+          <div class="ms-auto d-flex align-items-center gap-2 text-end">
+            <div>
+              <span class="status-dot"></span>
+              <span class="order-status">Order Placed</span>
+            </div>
+            <div class="status-badge">Order Status</div>
+          </div>
         </div>
       </div>
-      <div class="ms-auto d-flex align-items-center gap-2 text-end">
-        <div><span class="status-dot"></span> <span class="order-status">Delivered</span></div>
-        <div class="status-badge">Order Status</div>
-      </div>
     </div>
-
-    <!-- Order 3 -->
-    <div class="order-card d-flex align-items-center">
-      <img src="../assets/order-list/b3.png" alt="Product" class="order-image me-3" />
-      <div class="flex-grow-1">
-        <h6 class="mb-1">Flovely and Unicom Erna</h6>
-        <div class="order-info">
-          <div><b>Price:</b> <span>$150</span></div>
-          <div><b>Quantity:</b> <span>3</span></div>
-          <div><b>Date:</b> <span>Tue Apr 29 2025</span></div>
-          <div><b>Payment:</b> <span>Stripe</span></div>
+    <footer
+      class="text-white"
+      style="background-color: #012e4a; border-radius: 5px; padding: 40px"
+    >
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-3 mb-4">
+            <h5>📚 Bookle</h5>
+            <p>
+              Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
+              lacinia curabitur lacinia mollis
+            </p>
+            <div>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Customers Support</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Store List</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Opening Hours</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/Contact.html"
+                  class="text-white text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Return Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Categories</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Novel Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Poetry Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Political Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >History Books</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Newsletter</h6>
+            <p>
+              Sign up to receive weekly newsletter to get the latest updates.
+            </p>
+            <form class="d-flex">
+              <input
+                type="email"
+                class="form-control me-2"
+                placeholder="Enter Email Address"
+              />
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-paper-plane" style="color: white"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <hr class="bg-white" />
+        <div class="text-center">
+          <p>
+            <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
+            <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
+            <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
+            &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
+          </p>
         </div>
       </div>
-      <div class="ms-auto d-flex align-items-center gap-2 text-end">
-        <div><span class="status-dot"></span> <span class="order-status">Delivered</span></div>
-        <div class="status-badge">Order Status</div>
-      </div>
-    </div>
-
-    <!-- Order 4 -->
-    <div class="order-card d-flex align-items-center">
-      <img src="../assets/order-list/b4.png" alt="Product" class="order-image me-3" />
-      <div class="flex-grow-1">
-        <h6 class="mb-1">Castle In The Sky</h6>
-        <div class="order-info">
-          <div><b>Price:</b> <span>$290</span></div>
-          <div><b>Quantity:</b> <span>1</span></div>
-          <div><b>Date:</b> <span>Mon Apr 28 2025</span></div>
-          <div><b>Payment:</b> <span>Stripe</span></div>
-        </div>
-      </div>
-      <div class="ms-auto d-flex align-items-center gap-2 text-end">
-        <div><span class="status-dot"></span> <span class="order-status">Order Placed</span></div>
-        <div class="status-badge">Order Status</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-</body>
+    </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
