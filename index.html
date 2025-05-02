@@ -41,39 +41,6 @@
         color: #012e4a;
         font-size: 20px;
       }
-      .top-bar {
-        background-color: #036280;
-        color: white;
-        font-size: 0.9rem;
-      }
-      .top-bar a {
-        color: white;
-        text-decoration: none;
-        margin-right: 15px;
-      }      
-      .left-logo {
-        background-color: #012e4a;
-        border-top-right-radius: 75%;
-        height: 100%;
-      }
-      .left-logo img {
-        max-height: 100%;
-      }
-      .nav-icons i {
-        font-size: 1.2rem;
-        position: relative;
-      }
-      .nav-icons span.badge {
-        font-size: 0.7rem;
-        position: absolute;
-        top: -8px;
-        right: -10px;
-        background-color: #036280;
-      }
-      .main-header {
-        background-color: #fff;
-        border-bottom: 1px solid #ddd;
-      }
       @keyframes floatHorizontal {
         0% {
           transform: translateX(0);
@@ -263,11 +230,12 @@
   <body>
     <nav class="d-flex align-items-stretch sticky" style="height: 100px">
       <!-- Left Logo -->
-      <div class="left-logo d-flex align-items-center px-4">
+      <div class="d-flex align-items-center px-4" style="background-color: #012e4a; border-top-right-radius: 75%; height: 100%;">
         <img
           src="./assets/home/white-logo.svg"
           alt="Bookle"
           class="img-fluid"
+          style="max-height: 100%;"
         />
       </div>
 
@@ -275,164 +243,202 @@
       <div class="flex-grow-1 d-flex flex-column">
         <!-- Top Nav -->
         <div
-          class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50"
+          class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
+          style="background-color: #036280; color: white; font-size: 0.9rem;"
         >
-          <div>
+          <div class="">
             <i class="fas fa-phone me-2"></i> +208-6666-0112 |
             <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
             <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
           </div>
           <div>
-            <a href="./pages/login.html"><i class="fas fa-user ms-3 me-1"></i>Login</a>
+            <a href="./pages/login.html" style="color: white; text-decoration: none; margin-right: 15px;"
+              ><i class="fas fa-user ms-3 me-1"></i>Login</a
+            >
           </div>
         </div>
 
         <!-- Bottom Nav -->
         <div
-          class="main-header d-flex justify-content-between align-items-center px-3 flex-grow-1"
+          class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
+          style="background-color: #fff; border-bottom: 1px solid #ddd;"
         >
           <!-- Navbar -->
           <nav class="navbar navbar-expand-lg p-0">
             <div class="container-fluid">
+              <!-- Toggle Button for Offcanvas -->
               <button
                 class="navbar-toggler"
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar"
               >
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item fw-bold px-2" style="margin-left: 50px">
-                    <a class="nav-link" href="#">Home</a>
-                  </li>
+              <!-- Offcanvas Menu -->
+              <div
+                class="offcanvas offcanvas-start"
+                tabindex="-1"
+                id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel"
+              >
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    Menu
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <!-- Shop Dropdown -->
+                    <li class="nav-item dropdown fw-bold px-2">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="shopDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Shop
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./pages/customer-dashboard.html"
+                            >Shop Default</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./pages/shoplist.html"
+                            >Shop List</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./pages/shop_details.html"
+                            >Shop Details</a
+                          >
+                        </li>
+                        <li><a class="dropdown-item" href="#">Shop Cart</a></li>
+                        <li><a class="dropdown-item" href="#">WishList</a></li>
+                        <li>
+                          <a class="dropdown-item" href="./pages/checkout.html"
+                            >CheckOut</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <!-- Pages Dropdown -->
+                    <li class="nav-item dropdown fw-bold px-2">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="pagesDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Pages
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./pages/customer-dashboard.html"
+                            >About Us</a
+                          >
+                        </li>
+                        <li class="dropdown-submenu dropend">
+                          <a
+                            class="dropdown-item dropdown-toggle"
+                            href="#"
+                            id="authorDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            Author Pages
+                          </a>
+                          <ul
+                            class="dropdown-menu"
+                            aria-labelledby="authorDropdown"
+                          >
+                            <li>
+                              <a class="dropdown-item" href="#">Author</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                >Author Profile</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a class="dropdown-item" href="#">FAQ</a></li>
+                      </ul>
+                    </li>
 
-                  <!-- Shop Dropdown -->
-                  <li class="nav-item dropdown fw-bold px-2">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      id="shopDropdown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Shop
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="shopDropdown">
-                      <li>
-                        <a
-                          class="dropdown-item"
-                          href="./pages/customer-dashboard.html"
-                          >Shop Default</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="./pages/shoplist.html"
-                          >Shop List</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          class="dropdown-item"
-                          href="./pages/shop_details.html"
-                          >Shop Details</a
-                        >
-                      </li>
-                      <li><a class="dropdown-item" href="#">Shop Cart</a></li>
-                      <li><a class="dropdown-item" href="#">WishList</a></li>
-                      <li>
-                        <a class="dropdown-item" href="./pages/checkout.html"
-                          >CheckOut</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
+                    <!-- Blog Dropdown -->
+                    <li class="nav-item dropdown fw-bold px-2">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="blogDropDown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Blog
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="blogDropDown">
+                        <li><a class="dropdown-item" href="#">Blog Grid</a></li>
+                        <li><a class="dropdown-item" href="#">Blog List</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Blog Details</a>
+                        </li>
+                      </ul>
+                    </li>
 
-                  <!-- Pages Dropdown -->
-                  <li class="nav-item dropdown fw-bold px-2">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      id="pagesDropdown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Pages
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
-                      <li><a class="dropdown-item" href="./pages/customer-dashboard.html">About Us</a></li>
-
-                      <!-- Nested Dropdown (Mega menu style) -->
-                      <li class="dropdown-submenu dropend">
-                        <a
-                          class="dropdown-item dropdown-toggle"
-                          href="#"
-                          id="authorDropdown"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          Author Pages
-                        </a>
-                        <ul
-                          class="dropdown-menu"
-                          aria-labelledby="authorDropdown"
-                        >
-                          <li><a class="dropdown-item" href="#">Author</a></li>
-                          <li>
-                            <a class="dropdown-item" href="#">Author Profile</a>
-                          </li>
-                        </ul>
-                      </li>
-
-                      <li><a class="dropdown-item" href="#">FAQ</a></li>
-                    </ul>
-                  </li>
-
-                  <li class="nav-item dropdown fw-bold px-4">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      id="blogDropDown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Blog
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="blogDropDown">
-                      <li>
-                        <a class="dropdown-item" href="#">Blog Grid</a>
-                      </li>
-                      <li><a class="dropdown-item" href="#">Blog List</a></li>
-                      <li>
-                        <a class="dropdown-item" href="#">Blog Details</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item fw-bold px-2">
-                    <a class="nav-link" href="./pages/Contact.html">Contact</a>
-                  </li>
-                </ul>
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="./pages/Contact.html"
+                        >Contact</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </nav>
           <!-- Icons -->
-          <div class="nav-icons d-flex gap-3">
+          <div class="d-flex gap-3">
             <div class="position-relative">
-              <i class="far fa-heart"></i>
-              <span class="badge rounded-circle text-bg-light">0</span>
-            </div>
-            <div class="position-relative">
-              <a href="./pages/chart.html">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="badge rounded-circle text-bg-light">0</span>
+              <a href="#" class="text-danger">
+                <i class="far fa-heart" style="font-size: 1.2rem; position: relative;"></i>
+                <span class="rounded-circle text-bg-light" style="font-size: 0.7rem; position: absolute; top: -8px; right: -10px; background-color: #036280;">0</span>
               </a>
             </div>
-            <div><i class="fas fa-sliders"></i></div>
+            <div class="position-relative">
+              <a href="./pages/chart.html" class="text-success">
+                <i class="fas fa-shopping-cart" style="font-size: 1.2rem; position: relative;"></i>
+                <span class="rounded-circle text-bg-light" style="font-size: 0.7rem; position: absolute; top: -8px; right: -10px; background-color: #036280;">0</span>
+              </a>
+            </div>
+            <div class="position-relative">
+              <a href="./pages/chart.html" class="text-primary">
+                <i class="fas fa-user" style="font-size: 1.2rem; position: relative;"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -1245,7 +1251,10 @@
         </div>
       </div>
     </section>
-    <section id="homeSixthSection" class="container mt-5 d-flex justify-content-center justify-content-md-start">
+    <section
+      id="homeSixthSection"
+      class="container mt-5 d-flex justify-content-center justify-content-md-start"
+    >
       <div class="card" style="width: 18rem; background-color: #036280">
         <div class="card-body">
           <h2 class="card-title fw-bold fs-1 text-white">
@@ -1378,9 +1387,8 @@
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2 d-flex justify-content-between gap-1 align-items-center"
                           style="background-color: #d0e1e7"
                         >
-                          <i class="fa-solid fa-basket-shopping"></i> <span class="d-none d-lg-inline-block">
-                            Add
-                          </span>
+                          <i class="fa-solid fa-basket-shopping"></i>
+                          <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
                       </div>
                     </div>
@@ -1451,9 +1459,8 @@
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
                           style="background-color: #d0e1e7"
                         >
-                        <i class="fa-solid fa-basket-shopping"></i> <span class="d-none d-lg-inline-block">
-                          Add
-                        </span>
+                          <i class="fa-solid fa-basket-shopping"></i>
+                          <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
                       </div>
                     </div>
@@ -1524,9 +1531,8 @@
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
                           style="background-color: #d0e1e7"
                         >
-                        <i class="fa-solid fa-basket-shopping"></i> <span class="d-none d-lg-inline-block">
-                          Add
-                        </span>
+                          <i class="fa-solid fa-basket-shopping"></i>
+                          <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
                       </div>
                     </div>
@@ -1597,9 +1603,8 @@
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
                           style="background-color: #d0e1e7"
                         >
-                        <i class="fa-solid fa-basket-shopping"></i> <span class="d-none d-lg-inline-block">
-                          Add
-                        </span>
+                          <i class="fa-solid fa-basket-shopping"></i>
+                          <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
                       </div>
                     </div>
@@ -1670,9 +1675,8 @@
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
                           style="background-color: #d0e1e7"
                         >
-                        <i class="fa-solid fa-basket-shopping"></i> <span class="d-none d-lg-inline-block">
-                          Add
-                        </span>
+                          <i class="fa-solid fa-basket-shopping"></i>
+                          <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
                       </div>
                     </div>
@@ -1743,9 +1747,8 @@
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
                           style="background-color: #d0e1e7"
                         >
-                        <i class="fa-solid fa-basket-shopping"></i> <span class="d-none d-lg-inline-block">
-                          Add
-                        </span>
+                          <i class="fa-solid fa-basket-shopping"></i>
+                          <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
                       </div>
                     </div>
@@ -2536,7 +2539,9 @@
             <ul class="list-unstyled">
               <li><a href="#" class="text-white">Store List</a></li>
               <li><a href="#" class="text-white">Opening Hours</a></li>
-              <li><a href="./pages/Contact.html" class="text-white">Contact Us</a></li>
+              <li>
+                <a href="./pages/Contact.html" class="text-white">Contact Us</a>
+              </li>
               <li><a href="#" class="text-white">Return Policy</a></li>
             </ul>
           </div>
