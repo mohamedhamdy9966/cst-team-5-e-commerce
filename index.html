@@ -220,17 +220,31 @@
           white-space: nowrap;
         }
       }
+      .social-link:hover {
+        background-color: #f8f9fa; /* Bootstrap's "bg-light" equivalent */
+        color: #941616; /* Change icon color if needed */
+        border-radius: 50%; /* Optional: rounded hover effect */
+        padding: 6px; /* Optional: spacing for the rounded look */
+        transition: background-color 0.3s ease;
+      }
     </style>
   </head>
   <body>
     <nav class="d-flex align-items-stretch sticky" style="height: 100px">
       <!-- Left Logo -->
-      <div class="d-flex align-items-center px-4" style="background-color: #012e4a; border-top-right-radius: 75%; height: 100%;">
+      <div
+        class="d-flex align-items-center px-4"
+        style="
+          background-color: #012e4a;
+          border-top-right-radius: 75%;
+          height: 100%;
+        "
+      >
         <img
           src="./assets/home/white-logo.svg"
           alt="Bookle"
           class="img-fluid"
-          style="max-height: 100%;"
+          style="max-height: 100%"
         />
       </div>
       <!-- Right Section -->
@@ -238,7 +252,7 @@
         <!-- Top Nav -->
         <div
           class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
-          style="background-color: #036280; color: white; font-size: 0.9rem;"
+          style="background-color: #036280; color: white; font-size: 0.9rem"
         >
           <div class="">
             <i class="fas fa-phone me-2"></i> +208-6666-0112 |
@@ -246,7 +260,9 @@
             <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
           </div>
           <div>
-            <a href="./pages/login.html" style="color: white; text-decoration: none; margin-right: 15px;"
+            <a
+              href="./pages/login.html"
+              style="color: white; text-decoration: none; margin-right: 15px"
               ><i class="fas fa-user ms-3 me-1"></i>Login</a
             >
           </div>
@@ -254,7 +270,7 @@
         <!-- Bottom Nav -->
         <div
           class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
-          style="background-color: #fff; border-bottom: 1px solid #ddd;"
+          style="background-color: #fff; border-bottom: 1px solid #ddd"
         >
           <!-- Navbar -->
           <nav class="navbar navbar-expand-lg p-0">
@@ -278,7 +294,7 @@
               >
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                    Menu
+                    <i class="fa-solid fa-bars"></i> Menu
                   </h5>
                   <button
                     type="button"
@@ -290,7 +306,9 @@
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item fw-bold px-2">
-                      <a class="nav-link" href="#">Home</a>
+                      <a class="nav-link" href="#"
+                        ><i class="fa-solid fa-house"></i> Home</a
+                      >
                     </li>
                     <!-- Shop Dropdown -->
                     <li class="nav-item dropdown fw-bold px-2">
@@ -302,7 +320,7 @@
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        Shop
+                        <i class="fa-solid fa-shop"></i> Shop
                       </a>
                       <ul class="dropdown-menu" aria-labelledby="shopDropdown">
                         <li>
@@ -343,7 +361,7 @@
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        Pages
+                        <i class="fa-solid fa-file"></i> Pages
                       </a>
                       <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
                         <li>
@@ -381,7 +399,6 @@
                         <li><a class="dropdown-item" href="#">FAQ</a></li>
                       </ul>
                     </li>
-
                     <!-- Blog Dropdown -->
                     <li class="nav-item dropdown fw-bold px-2">
                       <a
@@ -392,7 +409,7 @@
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        Blog
+                        <i class="fa-solid fa-blog"></i> Blog
                       </a>
                       <ul class="dropdown-menu" aria-labelledby="blogDropDown">
                         <li><a class="dropdown-item" href="#">Blog Grid</a></li>
@@ -402,10 +419,9 @@
                         </li>
                       </ul>
                     </li>
-
                     <li class="nav-item fw-bold px-2">
                       <a class="nav-link" href="./pages/Contact.html"
-                        >Contact</a
+                        ><i class="fa-solid fa-address-book"></i> Contact</a
                       >
                     </li>
                   </ul>
@@ -417,19 +433,48 @@
           <div class="d-flex gap-3">
             <div class="position-relative">
               <a href="#" class="text-danger">
-                <i class="far fa-heart" style="font-size: 1.2rem; position: relative;"></i>
-                <span class="rounded-circle text-bg-light" style="font-size: 0.7rem; position: absolute; top: -8px; right: -10px; background-color: #036280;">0</span>
+                <i
+                  class="far fa-heart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  >0</span
+                >
               </a>
             </div>
             <div class="position-relative">
               <a href="./pages/chart.html" class="text-success">
-                <i class="fas fa-shopping-cart" style="font-size: 1.2rem; position: relative;"></i>
-                <span class="rounded-circle text-bg-light" style="font-size: 0.7rem; position: absolute; top: -8px; right: -10px; background-color: #036280;">0</span>
+                <i
+                  class="fas fa-shopping-cart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  >0</span
+                >
               </a>
             </div>
             <div class="position-relative">
-              <a href="./pages/chart.html" class="text-primary">
-                <i class="fas fa-user" style="font-size: 1.2rem; position: relative;"></i>
+              <a href="./pages/login.html" style="color: #02488d;">
+                <i
+                  class="fas fa-user"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
               </a>
             </div>
           </div>
@@ -2506,7 +2551,10 @@
         </div>
       </section>
     </section>
-    <footer class="text-white" style="background-color: #012e4a; border-radius: 5px; padding: 40px;">
+    <footer
+      class="text-white"
+      style="background-color: #012e4a; border-radius: 5px; padding: 40px"
+    >
       <div class="container">
         <div class="row text-center text-md-start">
           <div class="col-md-3 mb-4">
@@ -2517,7 +2565,7 @@
             </p>
             <div>
               <a href="#" class="text-white me-2"
-                ><i class="fab fa-facebook-f"></i
+                ><i class="fab fa-facebook-f "></i
               ></a>
               <a href="#" class="text-white me-2"
                 ><i class="fab fa-twitter"></i
@@ -2530,21 +2578,53 @@
           <div class="col-md-3 mb-4">
             <h6>Customers Support</h6>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Store List</a></li>
-              <li><a href="#" class="text-white">Opening Hours</a></li>
               <li>
-                <a href="./pages/Contact.html" class="text-white">Contact Us</a>
+                <a href="#" class="text-white text-decoration-none"
+                  >Store List</a
+                >
               </li>
-              <li><a href="#" class="text-white">Return Policy</a></li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Opening Hours</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/Contact.html"
+                  class="text-white text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Return Policy</a
+                >
+              </li>
             </ul>
           </div>
           <div class="col-md-3 mb-4">
             <h6>Categories</h6>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Novel Books</a></li>
-              <li><a href="#" class="text-white">Poetry Books</a></li>
-              <li><a href="#" class="text-white">Political Books</a></li>
-              <li><a href="#" class="text-white">History Books</a></li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Novel Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Poetry Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Political Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >History Books</a
+                >
+              </li>
             </ul>
           </div>
           <div class="col-md-3 mb-4">
