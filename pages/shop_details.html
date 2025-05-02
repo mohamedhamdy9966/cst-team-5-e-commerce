@@ -438,7 +438,7 @@ p {
                     <li>
                       <a class="dropdown-item" href="./shop_details.html">Shop Details</a>
                     </li>
-                    <li><a class="dropdown-item" href="#">Shop Cart</a></li>
+                    <li><a class="dropdown-item" href="./cart.html">Shop Cart</a></li>
                     <li><a class="dropdown-item" href="#">WishList</a></li>
                     <li><a class="dropdown-item" href="./checkout.html">CheckOut</a></li>
                   </ul>
@@ -514,16 +514,57 @@ p {
           </div>
         </nav>
         <!-- Icons -->
-        <div class="nav-icons d-flex gap-3">
+        <div class="d-flex gap-3">
           <div class="position-relative">
-            <i class="far fa-heart"></i>
-            <span class="badge rounded-circle text-bg-light">0</span>
+            <a href="./order_list.html" class="text-danger">
+              <i
+                class="far fa-heart"
+                style="font-size: 1.2rem; position: relative"
+              ></i>
+              <span
+                class="rounded-circle text-bg-light"
+                style="
+                  font-size: 0.7rem;
+                  position: absolute;
+                  top: -8px;
+                  right: -10px;
+                  background-color: #036280;
+                "
+                >0</span
+              >
+            </a>
           </div>
           <div class="position-relative">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cartBadge" class="badge rounded-circle text-bg-light">0</span>
+            <a href="./cart.html" class="text-success">
+              <i
+                class="fas fa-shopping-cart"
+                style="font-size: 1.2rem; position: relative"
+              ></i>
+              <span
+                class="rounded-circle text-bg-light"
+                style="
+                  font-size: 0.7rem;
+                  position: absolute;
+                  top: -8px;
+                  right: -10px;
+                  background-color: #036280;
+                "
+                >0</span
+              >
+            </a>
           </div>
-          <div><i class="fas fa-sliders"></i></div>
+          <div class="position-relative">
+            <a
+              href="./login.html"
+              class="d-md-none"
+              style="color: #02488d"
+            >
+              <i
+                class="fas fa-user"
+                style="font-size: 1.2rem; position: relative"
+              ></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
