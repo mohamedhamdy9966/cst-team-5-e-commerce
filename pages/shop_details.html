@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop Details</title>
-  <!-- Swiper CSS -->
-<link
-rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-    .top-bar {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Details</title>
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .top-bar {
         background-color: #036280;
         color: white;
         font-size: 0.9rem;
@@ -51,303 +58,291 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         right: -10px;
         background-color: #036280;
       }
-    body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-hr {
-  margin: 40px 0px;
-}
-li {
-  color: #52556c;
-}
-/* الجزء :عنوان */
-.top {
-  height: 400px;
-  background-color: #e6eff2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 100px;
-}
-.top img {
-  padding-top: 60px;
-  height: auto;
-}
-h1,
-h5 {
-  color: #012e4a;
-}
-p {
-  color: #52556c;
-}
-.top h1 {
-  /* margin:0px 300px; */
-  text-align: center;
-}
-/* الصورة الكبيرة وعيالها */
-.product-image img {
-  border: 2px solid #ccc;
-  padding: 5% 10%;
-  background-color: #f8f8f8;
-  border-radius: 20px;
-  margin-bottom: 15px;
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      hr {
+        margin: 40px 0px;
+      }
+      li {
+        color: #52556c;
+      }
+      /* الجزء :عنوان */
+      .top {
+        height: 400px;
+        background-color: #e6eff2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 100px;
+      }
+      .top img {
+        padding-top: 60px;
+        height: auto;
+      }
+      h1,
+      h5 {
+        color: #012e4a;
+      }
+      p {
+        color: #52556c;
+      }
+      .top h1 {
+        /* margin:0px 300px; */
+        text-align: center;
+      }
+      /* الصورة الكبيرة وعيالها */
+      .product-image img {
+        border: 2px solid #ccc;
+        padding: 5% 10%;
+        background-color: #f8f8f8;
+        border-radius: 20px;
+        margin-bottom: 15px;
+      }
+      #mainImage {
+        padding: 10% 20%;
+      }
+      .thumbnail {
+        cursor: pointer;
+        border: 1px solid #ddd;
+        margin-right: 5px;
+        padding: 4px;
+        border-radius: 20px;
+        transition: border 0.2s;
+      }
 
-}
-#mainImage {
-  padding: 10% 20%;
+      .thumbnail:hover {
+        border: 2px solid#04314c;
+      }
 
-}
-.thumbnail {
-  cursor: pointer;
-  border: 1px solid #ddd;
-  margin-right: 5px;
-  padding: 4px;
-  border-radius: 20px;
-  transition: border 0.2s;
-}
+      /*تفاصيل المنتج */
+      .product-title {
+        color: #012e4a;
+      }
 
-.thumbnail:hover {
-  border: 2px solid#04314c;
-}
+      #rating i,
+      .product-price {
+        color: #ff6500;
+      }
 
+      .product-actions {
+        display: flex;
+        justify-content: space-around;
+      }
 
-/*تفاصيل المنتج */
-.product-title {
-  color: #012e4a;
-}
+      .form-control {
+        padding: 15px;
+        border-radius: 30px;
+        border-color: #036280;
+        color: #04314c;
+      }
 
-#rating i,
-.product-price {
-  color: #ff6500;
-}
+      .read {
+        border-color: #036280;
+        border-radius: 30px;
+        color: #036280;
+        font-weight: bold;
+        padding: 15px 40px;
+      }
 
-.product-actions {
-  display: flex;
-  justify-content: space-around;
-}
+      .add {
+        background-color: #036280;
+        border-radius: 30px;
+        color: white;
+        font-weight: bold;
+        padding: 15px;
+      }
 
-.form-control {
-  padding: 15px;
-  border-radius: 30px;
-  border-color: #036280;
-  color: #04314c;
+      .favourite {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #036280;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-}
+      .arrow {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border-color: #036280;
+        color: #036280;
 
-.read {
-  border-color: #036280;
-  border-radius: 30px;
-  color: #036280;
-  font-weight: bold;
-  padding: 15px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-}
+      .product-details-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        list-style: none;
+        /* تشيل النقط */
+        padding: 0;
+        margin: 0;
+        gap: 10px 20px;
+        /* مسافات بين العناصر */
+      }
 
-.add {
-  background-color: #036280;
-  border-radius: 30px;
-  color: white;
-  font-weight: bold;
-  padding: 15px;
-}
+      .product-details-list li {
+        font-size: 18px;
+        columns: #52556c;
 
-.favourite {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #036280;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+        b {
+          color: #012e4a;
+        }
+      }
 
-.arrow {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border-color: #036280;
-  color: #036280;
+      .details {
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        padding: 40px;
+        background-color: #f8f8f8;
+        margin-bottom: 30px;
+      }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      .product-details-list-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        list-style: none;
+        /* تشيل النقط */
+        padding: 0;
+        margin: 0;
+        gap: 10px 20px;
+        /* مسافات بين العناصر */
+      }
 
-.product-details-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  list-style: none;
-  /* تشيل النقط */
-  padding: 0;
-  margin: 0;
-  gap: 10px 20px;
-  /* مسافات بين العناصر */
-}
+      .available-on {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 100px;
+      }
 
-.product-details-list li {
-  font-size: 18px;
-  columns: #52556c;
+      /* الوصف */
+      .des {
+        font-size: 17px;
+        color: #52556c;
+      }
+      .book-card {
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+        width: 90%;
+        max-width: 360px;
+        min-height: 550px;
+        margin: auto;
+      }
+      .card-top {
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px 15px 0 0;
+        background-color: #f8f8f8;
+      }
 
-  b {
-    color: #012e4a;
-  }
+      .card-img-top {
+        width: 60%;
+        height: 70%;
+        transition: transform 0.5s ease;
+      }
 
-}
+      .book-card:hover .card-img-top {
+        transform: scale(1.1);
+      }
 
-.details {
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  padding: 40px;
-  background-color: #f8f8f8;
-  margin-bottom: 30px;
-}
+      .card-title {
+        color: #012e4a;
+      }
 
-.product-details-list-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  list-style: none;
-  /* تشيل النقط */
-  padding: 0;
-  margin: 0;
-  gap: 10px 20px;
-  /* مسافات بين العناصر */
-}
+      .price del {
+        color: #999;
+      }
 
-.available-on {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 100px;
-}
+      .price {
+        color: #ff6500;
+      }
 
+      .badge-hot {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: #ff6500;
+        font-weight: bold;
+        font-size: 0.75rem;
+      }
 
-/* الوصف */
-.des {
-  font-size: 17px;
-  color: #52556c
-}
-.book-card {
-  border: none;
-  border-radius: 15px;
-  transition: transform 0.3s ease;
-  width: 90%;
-  max-width: 360px;
-  min-height: 550px;
-  margin: auto;
+      .author-img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
 
-}
-.card-top {
-  height: 350px;
-  ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px 15px 0 0;
-  background-color: #f8f8f8;
-}
+      .rating {
+        font-size: 1.4rem;
+        /* تكبير النجوم */
+        color: #ff6500;
+        /* نفس لون النجوم */
+        line-height: 1;
+      }
 
-.card-img-top {
-  width: 60%;
-  height: 70%;
-  transition: transform 0.5s ease;
-}
+      .add-cart-btn {
+        border-radius: 30px;
+        background-color: #e6eff2;
+        color: #284e66;
+        border: none;
+        font-weight: bold;
+      }
+      .btn {
+        position: relative;
+        overflow: hidden;
+        font-weight: bold;
+        z-index: 1;
+        /* لضمان بقاء النص فوق الشريط */
+      }
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        background-color: #ff6500;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.6s ease;
+        z-index: -1;
+      }
 
-.book-card:hover .card-img-top {
-  transform: scale(1.1);
-}
+      .btn:hover::before {
+        transform: scaleX(1);
+      }
 
-.card-title {
-  color: #012e4a;
-  ;
-}
+      .btn:hover {
+        color: white;
+      }
 
-.price del {
-  color: #999;
-}
-
-.price {
-  color: #ff6500;
-}
-
-.badge-hot {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #ff6500;
-  font-weight: bold;
-  font-size: 0.75rem;
-}
-
-.author-img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.rating {
-  font-size: 1.4rem;
-  /* تكبير النجوم */
-  color: #ff6500;
-  /* نفس لون النجوم */
-  line-height: 1;
-}
-
-.add-cart-btn {
-  border-radius: 30px;
-  background-color: #e6eff2;
-  color: #284e66;
-  border: none;
-  font-weight: bold;
-
-}
-.btn {
-  position: relative;
-  overflow: hidden;
-  font-weight: bold;
-  z-index: 1;
-  /* لضمان بقاء النص فوق الشريط */
-}
-.btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 30px;
-  background-color: #ff6500;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s ease;
-  z-index: -1;
-}
-
-.btn:hover::before {
-  transform: scaleX(1);
-}
-
-.btn:hover {
-  color: white;
-}
-
-
-.swiper-button-next,
-.swiper-button-prev {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  color: #ff6500;
-  /* display: flex; */
-  align-items: center;
-  justify-content: center;
-  opacity: 0.3;
-}
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  opacity: 1;
-}
-.footer {
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: #ff6500;
+        /* display: flex; */
+        align-items: center;
+        justify-content: center;
+        opacity: 0.3;
+      }
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        opacity: 1;
+      }
+      .footer {
         background-color: #012e4a;
         border-radius: 5px;
         padding: 40px;
@@ -367,780 +362,942 @@ p {
         color: #012e4a;
         font-size: 20px;
       }
-  </style>
-</head>
+    </style>
+  </head>
 
-<body>
-  <nav class="d-flex align-items-stretch sticky" style="height: 100px">
-    <!-- Left Logo -->
-    <div
-      class="d-flex align-items-center px-4"
-      style="
-        background-color: #012e4a;
-        border-top-right-radius: 75%;
-        height: 100%;
-      "
-    >
-      <img
-        src="../assets/home/white-logo.svg"
-        alt="Bookle"
-        class="img-fluid"
-        style="max-height: 100%"
-      />
-    </div>
-    <!-- Right Section -->
-    <div class="flex-grow-1 d-flex flex-column">
-      <!-- Top Nav -->
+  <body>
+    <nav class="d-flex align-items-stretch sticky" style="height: 100px">
+      <!-- Left Logo -->
       <div
-        class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
-        style="background-color: #036280; color: white; font-size: 0.9rem"
+        class="d-flex align-items-center px-4"
+        style="
+          background-color: #012e4a;
+          border-top-right-radius: 75%;
+          height: 100%;
+        "
       >
-        <div class="">
-          <i class="fas fa-phone me-2"></i> +208-6666-0112 |
-          <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
-          <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
-        </div>
-        <div>
-          <a
-            href="./login.html"
-            style="color: white; text-decoration: none; margin-right: 15px"
-            ><i class="fas fa-user ms-3 me-1"></i>Login</a
-          >
-        </div>
+        <img
+          src="../assets/home/white-logo.svg"
+          alt="Bookle"
+          class="img-fluid"
+          style="max-height: 100%"
+        />
       </div>
-      <!-- Bottom Nav -->
-      <div
-        class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
-        style="background-color: #fff; border-bottom: 1px solid #ddd"
-      >
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg p-0">
-          <div class="container-fluid">
-            <!-- Toggle Button for Offcanvas -->
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasNavbar"
-              aria-controls="offcanvasNavbar"
+      <!-- Right Section -->
+      <div class="flex-grow-1 d-flex flex-column">
+        <!-- Top Nav -->
+        <div
+          class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
+          style="background-color: #036280; color: white; font-size: 0.9rem"
+        >
+          <div class="">
+            <i class="fas fa-phone me-2"></i> +208-6666-0112 |
+            <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
+            <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
+          </div>
+          <div>
+            <a
+              href="./login.html"
+              style="color: white; text-decoration: none; margin-right: 15px"
+              ><i class="fas fa-user ms-3 me-1"></i>Login</a
             >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Offcanvas Menu -->
-            <div
-              class="offcanvas offcanvas-start"
-              tabindex="-1"
-              id="offcanvasNavbar"
-              aria-labelledby="offcanvasNavbarLabel"
-            >
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                  <i class="fa-solid fa-bars"></i> Menu
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li class="nav-item fw-bold px-2">
-                    <a class="nav-link" href="#"
-                      ><i class="fa-solid fa-house"></i> Home</a
-                    >
-                  </li>
-                  <!-- Shop Dropdown -->
-                  <li class="nav-item dropdown fw-bold px-2">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      id="shopDropdown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <i class="fa-solid fa-shop"></i> Shop
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="shopDropdown">
-                      <li>
-                        <a
-                          class="dropdown-item"
-                          href="./customer-dashboard.html"
-                          >Shop Default</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="./shoplist.html"
-                          >Shop List</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          class="dropdown-item"
-                          href="./shop_details.html"
-                          >Shop Details</a
-                        >
-                      </li>
-                      <li><a class="dropdown-item" href="#">Shop Cart</a></li>
-                      <li><a class="dropdown-item" href="#">WishList</a></li>
-                      <li>
-                        <a class="dropdown-item" href="./checkout.html"
-                          >CheckOut</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <!-- Pages Dropdown -->
-                  <li class="nav-item dropdown fw-bold px-2">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      id="pagesDropdown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <i class="fa-solid fa-file"></i> Pages
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
-                      <li>
-                        <a
-                          class="dropdown-item"
-                          href="./customer-dashboard.html"
-                          >About Us</a
-                        >
-                      </li>
-                      <li class="dropdown-submenu dropend">
-                        <a
-                          class="dropdown-item dropdown-toggle"
-                          href="#"
-                          id="authorDropdown"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          Author Pages
-                        </a>
-                        <ul
-                          class="dropdown-menu"
-                          aria-labelledby="authorDropdown"
-                        >
-                          <li>
-                            <a class="dropdown-item" href="#">Author</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item" href="#"
-                              >Author Profile</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="dropdown-item" href="#">FAQ</a></li>
-                    </ul>
-                  </li>
-                  <!-- Blog Dropdown -->
-                  <li class="nav-item dropdown fw-bold px-2">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      id="blogDropDown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <i class="fa-solid fa-blog"></i> Blog
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="blogDropDown">
-                      <li><a class="dropdown-item" href="#">Blog Grid</a></li>
-                      <li><a class="dropdown-item" href="#">Blog List</a></li>
-                      <li>
-                        <a class="dropdown-item" href="#">Blog Details</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item fw-bold px-2">
-                    <a class="nav-link" href="./Contact.html"
-                      ><i class="fa-solid fa-address-book"></i> Contact</a
-                    >
-                  </li>
-                </ul>
+          </div>
+        </div>
+        <!-- Bottom Nav -->
+        <div
+          class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
+          style="background-color: #fff; border-bottom: 1px solid #ddd"
+        >
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg p-0">
+            <div class="container-fluid">
+              <!-- Toggle Button for Offcanvas -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <!-- Offcanvas Menu -->
+              <div
+                class="offcanvas offcanvas-start"
+                tabindex="-1"
+                id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel"
+              >
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    <i class="fa-solid fa-bars"></i> Menu
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="../index.html"
+                        ><i class="fa-solid fa-house"></i> Home</a
+                      >
+                    </li>
+                    <!-- Shop Dropdown -->
+                    <li class="nav-item dropdown fw-bold px-2">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="shopDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-shop"></i> Shop
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./customer-dashboard.html"
+                            >Shop Default</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./shoplist.html"
+                            >Shop List</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./shop_details.html"
+                            >Shop Details</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./cart.html"
+                            >Shop Cart</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./wishlist.html"
+                            >WishList</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./checkout.html"
+                            >CheckOut</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <!-- Pages Dropdown -->
+                    <li class="nav-item dropdown fw-bold px-2">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="pagesDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-file"></i> Pages
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                        <li>
+                          <a class="dropdown-item" href="./wishlist.html"
+                            >About Us</a
+                          >
+                        </li>
+                        <li class="dropdown-submenu dropend">
+                          <a
+                            class="dropdown-item dropdown-toggle"
+                            href="#"
+                            id="authorDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            Author Pages
+                          </a>
+                          <ul
+                            class="dropdown-menu"
+                            aria-labelledby="authorDropdown"
+                          >
+                            <li>
+                              <a class="dropdown-item" href="#">Author</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                >Author Profile</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a class="dropdown-item" href="#">FAQ</a></li>
+                      </ul>
+                    </li>
+                    <!-- Blog Dropdown -->
+                    <li class="nav-item dropdown fw-bold px-2">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="blogDropDown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-blog"></i> Blog
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="blogDropDown">
+                        <li><a class="dropdown-item" href="#">Blog Grid</a></li>
+                        <li><a class="dropdown-item" href="#">Blog List</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Blog Details</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="./Contact.html"
+                        ><i class="fa-solid fa-address-book"></i> Contact</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </nav>
-        <!-- Icons -->
-        <div class="d-flex gap-3">
-          <div class="position-relative">
-            <a href="#" class="text-danger">
-              <i
-                class="far fa-heart"
-                style="font-size: 1.2rem; position: relative"
-              ></i>
-              <span
-                class="rounded-circle text-bg-light"
-                style="
-                  font-size: 0.7rem;
-                  position: absolute;
-                  top: -8px;
-                  right: -10px;
-                  background-color: #036280;
-                "
-                >0</span
+          </nav>
+          <!-- Icons -->
+          <div class="d-flex gap-3">
+            <div class="position-relative">
+              <a href="./order_list.html" class="text-danger">
+                <i
+                  class="far fa-heart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  >0</span
+                >
+              </a>
+            </div>
+            <div class="position-relative">
+              <a href="./cart.html" class="text-success">
+                <i
+                  class="fas fa-shopping-cart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  >0</span
+                >
+              </a>
+            </div>
+            <div class="position-relative">
+              <a
+                href="./login.html"
+                class="d-md-none"
+                style="color: #02488d"
               >
-            </a>
-          </div>
-          <div class="position-relative">
-            <a href="./cart.html" class="text-success">
-              <i
-                class="fas fa-shopping-cart"
-                style="font-size: 1.2rem; position: relative"
-              ></i>
-              <span
-                class="rounded-circle text-bg-light"
-                style="
-                  font-size: 0.7rem;
-                  position: absolute;
-                  top: -8px;
-                  right: -10px;
-                  background-color: #036280;
-                "
-                >0</span
-              >
-            </a>
-          </div>
-          <div class="position-relative">
-            <a href="./login.html" style="color: #02488d;">
-              <i
-                class="fas fa-user"
-                style="font-size: 1.2rem; position: relative"
-              ></i>
-            </a>
+                <i
+                  class="fas fa-user"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </nav>
-  <div class="wraper">
+    </nav>
+    <div class="wraper">
       <div class="top d-flex align-items-center justify-content-between">
-        <img src="../assets/shop_details/top.png" alt="top image" class="col-auto d-none d-xl-block">
+        <img
+          src="../assets/shop_details/top.png"
+          alt="top image"
+          class="col-auto d-none d-xl-block"
+        />
         <div class="text-center col-12 col-md-4 py-5">
           <h1>Shop Details</h1>
         </div>
-        <img src="../assets/shop_details/book2.png" alt="logo" class="col-auto d-none d-xl-block">
+        <img
+          src="../assets/shop_details/book2.png"
+          alt="logo"
+          class="col-auto d-none d-xl-block"
+        />
       </div>
-    <div class="container-fluid mt-5">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="product-image">
-            <img src="../assets/shop_details/book1.png" class="col-xl-12 img-fluid rounded mb-3" alt="Product Image" id="mainImage">
-            <div class="col-xl-12 row mt-2">
-              <div class="col-2">
-                <img src="../assets/shop_details/book1.png" class="img-fluid rounded thumbnail" alt="Thumbnail 1">
-              </div>
-              <div class="col-2">
-                <img src="../assets/shop_details/book1.png" class="img-fluid rounded thumbnail" alt="Thumbnail 2">
-              </div>
-              <div class="col-2">
-                <img src="../assets/shop_details/book1.png" class="img-fluid rounded thumbnail" alt="Thumbnail 3">
-              </div>
-              <div class="col-2">
-                <img src="../assets/shop_details/book1.png" class="img-fluid rounded thumbnail" alt="Thumbnail 4">
-              </div>
-              <div class="row">
-                <div class="col-2">
-                  <img src="../assets/shop_details/book1.png" class="img-fluid rounded thumbnail" alt="Thumbnail 5">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <h1 class="product-title">Product Name Here</h1>
-          <div class="product-rating mb-2">
-            <span id="rating" class="text-warning">
-              <i class="fas fa-star " data-index="1"></i>
-              <i class="fas fa-star" data-index="2"></i>
-              <i class="fas fa-star" data-index="3"></i>
-              <i class="fas fa-star" data-index="4"></i>
-              <i class="fas fa-star" data-index="5"></i>
-            </span>
-            <span> (1 Customer Reviews)</span>
-          </div>
-          <p class="product-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar, tortor quis varius
-            pretium est felis scelerisque nulla, vitae placerat justo nunc a massa. Aenean nec montes
-            vestibulum urna vel imperdiet ipsum. Orci varius natoque penatibus et magnis dis ridicul
-            parturient montes.
-          </p>
-          <h2 class="product-price "> $150 </h2>
-          <div class="product-actions row row-cols-auto g-2 align-items-center">
-            <div class="col-auto">
-                <input type="number" class="form-control" id="quantity" value="1" min="1" style="max-width: 80px;">
-            </div>
-            <div class="col-auto">
-              <button class="btn me-2 read">Read A Little</button>
-            </div>
-            <div class="col-auto">
-              <button class="btn me-2 add"><i class="fas fa-shopping-cart">Add to Cart</i></button>
-            </div>
-            <div class="col-auto">
-              <button class="btn rounded-circle favourite me-2"> <i class="far fa-heart me-1"></i></button>
-            </div>
-            <div class="col-auto">
-              <button class="btn rounded-circle arrow"> <i class="fas fa-exchange-alt"></i></button>
-            </div>
-          </div>
-          <hr>
-          <div class="details">
-            <ul class="product-details-list">
-              <li><b class="detail-label">SKU : </b> FTC1020865D</li>
-              <li><b class="detail-label">Tags : </b> Design, Low</li>
-              <li><b class="detail-label">Total page : </b> 330</li>
-              <li><b class="detail-label">Publish Years : </b> 2021</li>
-              <li><b class="detail-label">Category : </b> Kids Toys</li>
-              <li><b class="detail-label">Language : </b> English</li>
-              <li><b class="detail-label">Century : </b> United States</li>
-            </ul>
-          </div>
-          <div class="details">
-            <ul class="product-details-list-2">
-              <li><i class="fas fa-check text-success me-2"></i>Free shipping orders from $150</li>
-              <li><i class="fas fa-check text-success me-2"></i>Manaya Flash Discount: Starting at 30% Off
-              </li>
-              <li><i class="fas fa-check text-success me-2"></i>30 days exchange & return</li>
-              <li><i class="fas fa-check text-success me-2"></i>Safe & Secure online shopping</li>
-            </ul>
-          </div>
-          <div class="available-on w-100">
-            <h5>Also Available On:</h5>
-            <img src="../assets/shop_details/cutomerio.png">
-            <img src="../assets/shop_details/dropbox.png">
-            <img src="../assets/shop_details/amazon.png">
-          </div>
-        </div>
-      </div>
-      <div class="my-4">
-        <h5 style="text-align: center ">Description</h5>
-        <hr>
-        <p class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis erat interdum, tempor
-          turpis in, sodales ex. In hac habitasse platea dictumst. Etiam accumsan scelerisque urna, a lobortis
-          velit vehicula ut. Maecenas porttitor dolor a velit aliquet, et euismod nibh vulputate. Duis nunc
-          velit, lacinia vel risus in, finibus sodales augue. Aliquam lacinia imperdiet dictum. Etiam tempus
-          finibus tortor, quis placerat arcu tristique in. Sed vitae dui a diam luctus maximus. Quisque nec
-          felis dapibus, dapibus enim vitae, vestibulum libero. Aliquam erat volutpat. Phasellus luctus
-          rhoncus justo. Duis a nulla sit amet justo aliquam ullamcorper. Phasellus nulla lorem, pretium et
-          libero in, porta auctor dui. In a ornare purus, et efficitur elit. Etiam consectetur sit amet quam
-          ut tincidunt. Donec gravida ultricies tellus ac pharetra. Praesent a pulvinar purus. Proin
-          sollicitudin leo eget mi sagittis aliquam. Donec sollicitudin ex ac lobortis mollis. Sed eget libero
-          nec mi</p>
-      </div>
-      <hr>
-      <div class=" col-12 text-center mb-5" >
-        <h1>Related Products</h1>
-        <p>Interdum et malesuada fames ac ante ipsum primis in faucibus.<br>
-          Donec at nulla nulla. Duis posuere ex lacus</p>
-      </div>
-      <div class="container-fluid px-2 ">
-        <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            <!-- كل كارد يبقى جوه swiper-slide -->
-            <div class="swiper-slide">
-        <!-- Book Card -->
-        <div class="col">
-          <div class="card book-card position-relative">
-            <div class="card-top d-flex justify-content-center align-items-center">
-              <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
-            </div>
-            <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
-            <div class="card-body">
-              <h6 class="text-muted">Design Low Book</h6>
-              <h5 class="card-title">How Deal With Very Bad BOOK</h5>
-              <div class="price mb-2">
-                <span class=" fw-bold">$30.00</span> <del>$39.99</del>
-              </div>
-              <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
-                <div class="d-flex align-items-center">
-                  <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
-                  <span>Alexander</span>
-                </div>
-                <div class="rating mb-0">
-                  ★★★★☆
-                </div>
-              </div>
-              <button class="btn add-cart-btn w-100 py-3">
-                <i class="fas fa-shopping-cart">Add to Cart</i>
-              </button>
-            </div>
-          </div>
-        </div>
-            </div>
-            <div class="swiper-slide">
-              <!-- كارد تاني -->
-              <div class="col">
-                <div class="card book-card position-relative">
-                  <div class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
-                  </div>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
-                  <div class="card-body">
-                    <h6 class="text-muted">Design Low Book</h6>
-                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
-                    <div class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
-                        <span>Alexander</span>
-                      </div>
-                      <div class="rating mb-0">
-                        ★★★★☆
-                      </div>
-                    </div>
-                    <button class="btn add-cart-btn w-100 py-3">
-                      <i class="fas fa-shopping-cart">Add to Cart</i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <!-- كارد تالت -->
-              <div class="col">
-                <div class="card book-card position-relative">
-                  <div class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
-                  </div>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
-                  <div class="card-body">
-                    <h6 class="text-muted">Design Low Book</h6>
-                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
-                    <div class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
-                        <span>Alexander</span>
-                      </div>
-                      <div class="rating mb-0">
-                        ★★★★☆
-                      </div>
-                    </div>
-                    <button class="btn add-cart-btn w-100 py-3">
-                      <i class="fas fa-shopping-cart">Add to Cart</i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- كرري على عدد الكروت -->
-            <div class="swiper-slide">
-              <!-- كارد تالت -->
-              <div class="col">
-                <div class="card book-card position-relative">
-                  <div class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
-                  </div>
-                    <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
-                  <div class="card-body">
-                    <h6 class="text-muted">Design Low Book</h6>
-                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
-                    <div class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
-                        <span>Alexander</span>
-                      </div>
-                      <div class="rating mb-0">
-                        ★★★★☆
-                      </div>
-                    </div>
-                    <button class="btn add-cart-btn w-100 py-3">
-                      <i class="fas fa-shopping-cart">Add to Cart</i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <!-- كارد تالت -->
-              <div class="col">
-                <div class="card book-card position-relative">
-                  <div class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
-                  </div>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
-                  <div class="card-body">
-                    <h6 class="text-muted">Design Low Book</h6>
-                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
-                    <div class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
-                        <span>Alexander</span>
-                      </div>
-                      <div class="rating mb-0">
-                        ★★★★☆
-                      </div>
-                    </div>
-                    <button class="btn add-cart-btn w-100 py-3">
-                      <i class="fas fa-shopping-cart">Add to Cart</i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <!-- كارد تالت -->
-              <div class="col">
-                <div class="card book-card position-relative">
-                  <div class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
-                  </div>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
-                  <div class="card-body">
-                    <h6 class="text-muted">Design Low Book</h6>
-                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
-                    <div class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
-                        <span>Alexander</span>
-                      </div>
-                      <div class="rating mb-0">
-                        ★★★★☆
-                      </div>
-                    </div>
-                    <button class="btn add-cart-btn w-100 py-3">
-                      <i class="fas fa-shopping-cart">Add to Cart</i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <!-- كارد تالت -->
-              <div class="col">
-                <div class="card book-card position-relative">
-                  <div class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
-                  </div>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
-                  <div class="card-body">
-                    <h6 class="text-muted">Design Low Book</h6>
-                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
-                    <div class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
-                        <span>Alexander</span>
-                      </div>
-                      <div class="rating mb-0">
-                        ★★★★☆
-                      </div>
-                    </div>
-                    <button class="btn add-cart-btn w-100 py-3">
-                      <i class="fas fa-shopping-cart">Add to Cart</i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <!-- كارد تالت -->
-              <div class="col">
-                <div class="card book-card position-relative">
-                  <div class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
-                  </div>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
-                  <div class="card-body">
-                    <h6 class="text-muted">Design Low Book</h6>
-                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
-                    <div class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
-                        <span>Alexander</span>
-                      </div>
-                      <div class="rating mb-0">
-                        ★★★★☆
-                      </div>
-                    </div>
-                    <button class="btn add-cart-btn w-100 py-3">
-                      <i class="fas fa-shopping-cart">Add to Cart</i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <!-- كارد تالت -->
-              <div class="col">
-                <div class="card book-card position-relative">
-                  <div class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
-                  </div>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
-                  <div class="card-body">
-                    <h6 class="text-muted">Design Low Book</h6>
-                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
-                    <div class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-4   mt-4">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
-                        <span>Alexander</span>
-                      </div>
-                      <div class="rating mb-0">
-                        ★★★★☆
-                      </div>
-                    </div>
-                    <button class="btn add-cart-btn w-100 py-3">
-                      <i class="fas fa-shopping-cart">Add to Cart</i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- لو عايزة أزرار تنقل -->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-    </div>
-  </div>
-  </div>
-  <footer
-      class="text-white"
-      style="background-color: #012e4a; border-radius: 5px; padding: 40px"
-    >
-      <div class="container">
-        <div class="row text-center text-md-start">
-          <div class="col-md-3 mb-4">
-            <h5>📚 Bookle</h5>
-            <p>
-              Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
-              lacinia curabitur lacinia mollis
-            </p>
-            <div>
-              <a href="#" class="text-white me-2"
-                ><i class="fab fa-facebook-f "></i
-              ></a>
-              <a href="#" class="text-white me-2"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a href="#" class="text-white me-2"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-3 mb-4">
-            <h6>Customers Support</h6>
-            <ul class="list-unstyled">
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Store List</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Opening Hours</a
-                >
-              </li>
-              <li>
-                <a
-                  href="./pages/Contact.html"
-                  class="text-white text-decoration-none"
-                  >Contact Us</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Return Policy</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-4">
-            <h6>Categories</h6>
-            <ul class="list-unstyled">
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Novel Books</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Poetry Books</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Political Books</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >History Books</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-4">
-            <h6>Newsletter</h6>
-            <p>
-              Sign up to receive weekly newsletter to get the latest updates.
-            </p>
-            <form class="d-flex">
-              <input
-                type="email"
-                class="form-control me-2"
-                placeholder="Enter Email Address"
+      <div class="container-fluid mt-5">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="product-image">
+              <img
+                src="../assets/shop_details/book1.png"
+                class="col-xl-12 img-fluid rounded mb-3 detailImg"
+                alt="Product Image"
+                id="mainImage"
               />
-              <button class="btn btn-primary" type="submit">
-                <i class="fa fa-paper-plane" style="color: white"></i>
-              </button>
-            </form>
+              <div class="col-xl-12 row mt-2">
+                <div class="col-2">
+                  <img
+                    src="../assets/shop_details/book1.png"
+                    class="img-fluid rounded thumbnail detailImg"
+                    alt="Thumbnail 1"
+                  />
+                </div>
+                <div class="col-2">
+                  <img
+                    src="../assets/shop_details/book1.png"
+                    class="img-fluid rounded thumbnail detailImg"
+                    alt="Thumbnail 2"
+                  />
+                </div>
+                <div class="col-2">
+                  <img
+                    src="../assets/shop_details/book1.png"
+                    class="img-fluid rounded thumbnail detailImg"
+                    alt="Thumbnail 3"
+                  />
+                </div>
+                <div class="col-2">
+                  <img
+                    src="../assets/shop_details/book1.png"
+                    class="img-fluid rounded thumbnail detailImg"
+                    alt="Thumbnail 4"
+                  />
+                </div>
+                <div class="row">
+                  <div class="col-2">
+                    <img
+                      src="../assets/shop_details/book1.png"
+                      class="img-fluid rounded thumbnail detailImg"
+                      alt="Thumbnail 5 detailImg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h1 class="product-title" id="detailName">Product Name Here</h1>
+            <div class="product-rating mb-2">
+              <span id="rating" class="text-warning">
+                <i class="fas fa-star" data-index="1"></i>
+                <i class="fas fa-star" data-index="2"></i>
+                <i class="fas fa-star" data-index="3"></i>
+                <i class="fas fa-star" data-index="4"></i>
+                <i class="fas fa-star" data-index="5"></i>
+              </span>
+              <span> (1 Customer Reviews)</span>
+            </div>
+            <p class="product-description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              pulvinar, tortor quis varius pretium est felis scelerisque nulla,
+              vitae placerat justo nunc a massa. Aenean nec montes vestibulum
+              urna vel imperdiet ipsum. Orci varius natoque penatibus et magnis
+              dis ridicul parturient montes.
+            </p>
+            <h2 class="product-price" id="detailPrice">$150</h2>
+            <div
+              class="product-actions row row-cols-auto g-2 align-items-center"
+            >
+              <div class="col-auto">
+                <!--      <input type="number" class="form-control" id="quantity" value="1" min="1" style="max-width: 80px;"> -->
+              </div>
+              <div class="col-auto">
+                <button class="btn me-2 read">Read A Little</button>
+              </div>
+              <div class="col-auto">
+                <button class="btn me-2 add add-cart-btn2">
+                  <i class="fas fa-shopping-cart">Add to Cart</i>
+                </button>
+              </div>
+              <div class="col-auto">
+                <button class="btn rounded-circle favourite me-2">
+                  <i class="far fa-heart me-1"></i>
+                </button>
+              </div>
+              <div class="col-auto">
+                <button class="btn rounded-circle arrow">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+              </div>
+            </div>
+            <hr />
+            <div class="details">
+              <ul class="product-details-list">
+                <li><b class="detail-label">SKU : </b> FTC1020865D</li>
+                <li><b class="detail-label">Tags : </b> Design, Low</li>
+                <li><b class="detail-label">Total page : </b> 330</li>
+                <li><b class="detail-label">Publish Years : </b> 2021</li>
+                <li><b class="detail-label">Category : </b> Kids Toys</li>
+                <li><b class="detail-label">Language : </b> English</li>
+                <li><b class="detail-label">Century : </b> United States</li>
+              </ul>
+            </div>
+            <div class="details">
+              <ul class="product-details-list-2">
+                <li>
+                  <i class="fas fa-check text-success me-2"></i>Free shipping
+                  orders from $150
+                </li>
+                <li>
+                  <i class="fas fa-check text-success me-2"></i>Manaya Flash
+                  Discount: Starting at 30% Off
+                </li>
+                <li>
+                  <i class="fas fa-check text-success me-2"></i>30 days exchange
+                  & return
+                </li>
+                <li>
+                  <i class="fas fa-check text-success me-2"></i>Safe & Secure
+                  online shopping
+                </li>
+              </ul>
+            </div>
+            <div class="available-on">
+              <h5>Also Available On:</h5>
+              <img src="../assets/shop_details/cutomerio.png" />
+              <img src="../assets/shop_details/dropbox.png" />
+              <img src="../assets/shop_details/amazon.png" />
+            </div>
           </div>
         </div>
-        <hr class="bg-white" />
-        <div class="text-center">
-          <p>
-            <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
-            <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
-            <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
-            &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
+        <div class="my-4">
+          <h5 style="text-align: center">Description</h5>
+          <hr />
+          <p class="des">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque quis erat interdum, tempor turpis in, sodales ex. In
+            hac habitasse platea dictumst. Etiam accumsan scelerisque urna, a
+            lobortis velit vehicula ut. Maecenas porttitor dolor a velit
+            aliquet, et euismod nibh vulputate. Duis nunc velit, lacinia vel
+            risus in, finibus sodales augue. Aliquam lacinia imperdiet dictum.
+            Etiam tempus finibus tortor, quis placerat arcu tristique in. Sed
+            vitae dui a diam luctus maximus. Quisque nec felis dapibus, dapibus
+            enim vitae, vestibulum libero. Aliquam erat volutpat. Phasellus
+            luctus rhoncus justo. Duis a nulla sit amet justo aliquam
+            ullamcorper. Phasellus nulla lorem, pretium et libero in, porta
+            auctor dui. In a ornare purus, et efficitur elit. Etiam consectetur
+            sit amet quam ut tincidunt. Donec gravida ultricies tellus ac
+            pharetra. Praesent a pulvinar purus. Proin sollicitudin leo eget mi
+            sagittis aliquam. Donec sollicitudin ex ac lobortis mollis. Sed eget
+            libero nec mi
           </p>
         </div>
+        <hr />
+        <div class="col-12 text-center mb-5">
+          <h1>Related Products</h1>
+          <p>
+            Interdum et malesuada fames ac ante ipsum primis in faucibus.<br />
+            Donec at nulla nulla. Duis posuere ex lacus
+          </p>
+        </div>
+        <div class="container-fluid px-2">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <!-- كل كارد يبقى جوه swiper-slide -->
+              <div class="swiper-slide">
+                <!-- Book Card -->
+                <div class="col">
+                  <div class="card book-card position-relative">
+                    <div
+                      class="card-top d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="../assets/shop_details/book3.png"
+                        class="card-img-top"
+                        alt="Book Cover"
+                      />
+                    </div>
+                    <span class="badge badge-hot text-white px-2 py-1 rounded"
+                      >Hot</span
+                    >
+                    <div class="card-body">
+                      <h6 class="text-muted">Design Low Book</h6>
+                      <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                      <div class="price mb-2">
+                        <span class="fw-bold">$30.00</span> <del>$39.99</del>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                      >
+                        <div class="d-flex align-items-center">
+                          <img
+                            src="../assets/shop_details/client-2.png"
+                            class="author-img me-1"
+                            alt="Author"
+                          />
+                          <span>Alexander</span>
+                        </div>
+                        <div class="rating mb-0">★★★★☆</div>
+                      </div>
+                      <button class="btn add-cart-btn w-100 py-3">
+                        <i class="fas fa-shopping-cart">Add to Cart</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <!-- كارد تاني -->
+                <div class="col">
+                  <div class="card book-card position-relative">
+                    <div
+                      class="card-top d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="../assets/shop_details/book3.png"
+                        class="card-img-top"
+                        alt="Book Cover"
+                      />
+                    </div>
+                    <span class="badge badge-hot text-white px-2 py-1 rounded"
+                      >Hot</span
+                    >
+                    <div class="card-body">
+                      <h6 class="text-muted">Design Low Book</h6>
+                      <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                      <div class="price mb-2">
+                        <span class="fw-bold">$30.00</span> <del>$39.99</del>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                      >
+                        <div class="d-flex align-items-center">
+                          <img
+                            src="../assets/shop_details/client-2.png"
+                            class="author-img me-1"
+                            alt="Author"
+                          />
+                          <span>Alexander</span>
+                        </div>
+                        <div class="rating mb-0">★★★★☆</div>
+                      </div>
+                      <button class="btn add-cart-btn w-100 py-3">
+                        <i class="fas fa-shopping-cart">Add to Cart</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <!-- كارد تالت -->
+                <div class="col">
+                  <div class="card book-card position-relative">
+                    <div
+                      class="card-top d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="../assets/shop_details/book3.png"
+                        class="card-img-top"
+                        alt="Book Cover"
+                      />
+                    </div>
+                    <span class="badge badge-hot text-white px-2 py-1 rounded"
+                      >Hot</span
+                    >
+                    <div class="card-body">
+                      <h6 class="text-muted">Design Low Book</h6>
+                      <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                      <div class="price mb-2">
+                        <span class="fw-bold">$30.00</span> <del>$39.99</del>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                      >
+                        <div class="d-flex align-items-center">
+                          <img
+                            src="../assets/shop_details/client-2.png"
+                            class="author-img me-1"
+                            alt="Author"
+                          />
+                          <span>Alexander</span>
+                        </div>
+                        <div class="rating mb-0">★★★★☆</div>
+                      </div>
+                      <button class="btn add-cart-btn w-100 py-3">
+                        <i class="fas fa-shopping-cart">Add to Cart</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- كرري على عدد الكروت -->
+              <div class="swiper-slide">
+                <!-- كارد تالت -->
+                <div class="col">
+                  <div class="card book-card position-relative">
+                    <div
+                      class="card-top d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="../assets/shop_details/book3.png"
+                        class="card-img-top"
+                        alt="Book Cover"
+                      />
+                    </div>
+                    <span class="badge badge-hot text-white px-2 py-1 rounded"
+                      >Hot</span
+                    >
+                    <div class="card-body">
+                      <h6 class="text-muted">Design Low Book</h6>
+                      <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                      <div class="price mb-2">
+                        <span class="fw-bold">$30.00</span> <del>$39.99</del>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                      >
+                        <div class="d-flex align-items-center">
+                          <img
+                            src="../assets/shop_details/client-2.png"
+                            class="author-img me-1"
+                            alt="Author"
+                          />
+                          <span>Alexander</span>
+                        </div>
+                        <div class="rating mb-0">★★★★☆</div>
+                      </div>
+                      <button class="btn add-cart-btn w-100 py-3">
+                        <i class="fas fa-shopping-cart">Add to Cart</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <!-- كارد تالت -->
+                <div class="col">
+                  <div class="card book-card position-relative">
+                    <div
+                      class="card-top d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="../assets/shop_details/book3.png"
+                        class="card-img-top"
+                        alt="Book Cover"
+                      />
+                    </div>
+                    <span class="badge badge-hot text-white px-2 py-1 rounded"
+                      >Hot</span
+                    >
+                    <div class="card-body">
+                      <h6 class="text-muted">Design Low Book</h6>
+                      <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                      <div class="price mb-2">
+                        <span class="fw-bold">$30.00</span> <del>$39.99</del>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                      >
+                        <div class="d-flex align-items-center">
+                          <img
+                            src="../assets/shop_details/client-2.png"
+                            class="author-img me-1"
+                            alt="Author"
+                          />
+                          <span>Alexander</span>
+                        </div>
+                        <div class="rating mb-0">★★★★☆</div>
+                      </div>
+                      <button class="btn add-cart-btn w-100 py-3">
+                        <i class="fas fa-shopping-cart">Add to Cart</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <!-- كارد تالت -->
+                <div class="col">
+                  <div class="card book-card position-relative">
+                    <div
+                      class="card-top d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="../assets/shop_details/book3.png"
+                        class="card-img-top"
+                        alt="Book Cover"
+                      />
+                    </div>
+                    <span class="badge badge-hot text-white px-2 py-1 rounded"
+                      >Hot</span
+                    >
+                    <div class="card-body">
+                      <h6 class="text-muted">Design Low Book</h6>
+                      <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                      <div class="price mb-2">
+                        <span class="fw-bold">$30.00</span> <del>$39.99</del>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                      >
+                        <div class="d-flex align-items-center">
+                          <img
+                            src="../assets/shop_details/client-2.png"
+                            class="author-img me-1"
+                            alt="Author"
+                          />
+                          <span>Alexander</span>
+                        </div>
+                        <div class="rating mb-0">★★★★☆</div>
+                      </div>
+                      <button class="btn add-cart-btn w-100 py-3">
+                        <i class="fas fa-shopping-cart">Add to Cart</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <!-- كارد تالت -->
+                <div class="col">
+                  <div class="card book-card position-relative">
+                    <div
+                      class="card-top d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="../assets/shop_details/book3.png"
+                        class="card-img-top"
+                        alt="Book Cover"
+                      />
+                    </div>
+                    <span class="badge badge-hot text-white px-2 py-1 rounded"
+                      >Hot</span
+                    >
+                    <div class="card-body">
+                      <h6 class="text-muted">Design Low Book</h6>
+                      <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                      <div class="price mb-2">
+                        <span class="fw-bold">$30.00</span> <del>$39.99</del>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                      >
+                        <div class="d-flex align-items-center">
+                          <img
+                            src="../assets/shop_details/client-2.png"
+                            class="author-img me-1"
+                            alt="Author"
+                          />
+                          <span>Alexander</span>
+                        </div>
+                        <div class="rating mb-0">★★★★☆</div>
+                      </div>
+                      <button class="btn add-cart-btn w-100 py-3">
+                        <i class="fas fa-shopping-cart">Add to Cart</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <!-- كارد تالت -->
+                <div class="col">
+                  <div class="card book-card position-relative">
+                    <div
+                      class="card-top d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="../assets/shop_details/book3.png"
+                        class="card-img-top"
+                        alt="Book Cover"
+                      />
+                    </div>
+                    <span class="badge badge-hot text-white px-2 py-1 rounded"
+                      >Hot</span
+                    >
+                    <div class="card-body">
+                      <h6 class="text-muted">Design Low Book</h6>
+                      <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                      <div class="price mb-2">
+                        <span class="fw-bold">$30.00</span> <del>$39.99</del>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                      >
+                        <div class="d-flex align-items-center">
+                          <img
+                            src="../assets/shop_details/client-2.png"
+                            class="author-img me-1"
+                            alt="Author"
+                          />
+                          <span>Alexander</span>
+                        </div>
+                        <div class="rating mb-0">★★★★☆</div>
+                      </div>
+                      <button class="btn add-cart-btn w-100 py-3">
+                        <i class="fas fa-shopping-cart">Add to Cart</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <!-- كارد تالت -->
+                <div class="col">
+                  <div class="card book-card position-relative">
+                    <div
+                      class="card-top d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="../assets/shop_details/book3.png"
+                        class="card-img-top"
+                        alt="Book Cover"
+                      />
+                    </div>
+                    <span class="badge badge-hot text-white px-2 py-1 rounded"
+                      >Hot</span
+                    >
+                    <div class="card-body">
+                      <h6 class="text-muted">Design Low Book</h6>
+                      <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                      <div class="price mb-2">
+                        <span class="fw-bold">$30.00</span> <del>$39.99</del>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                      >
+                        <div class="d-flex align-items-center">
+                          <img
+                            src="../assets/shop_details/client-2.png"
+                            class="author-img me-1"
+                            alt="Author"
+                          />
+                          <span>Alexander</span>
+                        </div>
+                        <div class="rating mb-0">★★★★☆</div>
+                      </div>
+                      <button class="btn add-cart-btn w-100 py-3">
+                        <i class="fas fa-shopping-cart">Add to Cart</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- لو عايزة أزرار تنقل -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
       </div>
-    </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 4,
-      spaceBetween: 20,
-      loop: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
-</body>
-
-</html> 
+      <footer class="footer text-white">
+        <div class="container">
+          <div class="row text-center text-md-start">
+            <div class="col-md-3 mb-4">
+              <h5>📚 Bookle</h5>
+              <p>
+                Phasellus ultricies aliquam volutpat ullamcorper laoreet neque,
+                a lacinia curabitur lacinia mollis
+              </p>
+              <div>
+                <a href="#" class="text-white me-2"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" class="text-white me-2"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" class="text-white me-2"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <h6>Customers Support</h6>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Store List</a></li>
+                <li><a href="#" class="text-white">Opening Hours</a></li>
+                <li><a href="#" class="text-white">Contact Us</a></li>
+                <li><a href="#" class="text-white">Return Policy</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+              <h6>Categories</h6>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Novel Books</a></li>
+                <li><a href="#" class="text-white">Poetry Books</a></li>
+                <li><a href="#" class="text-white">Political Books</a></li>
+                <li><a href="#" class="text-white">History Books</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+              <h6>Newsletter</h6>
+              <p>
+                Sign up to receive weekly newsletter to get the latest updates.
+              </p>
+              <form class="d-flex">
+                <input
+                  type="email"
+                  class="form-control me-2"
+                  placeholder="Enter Email Address"
+                />
+                <button class="btn btn-primary" type="submit">
+                  <i class="fa fa-paper-plane" style="color: white"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+          <hr class="bg-white" />
+          <div class="text-center">
+            <p>
+              <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
+              <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
+              <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
+              &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+      window.addEventListener("DOMContentLoaded", () => {
+        const product = JSON.parse(localStorage.getItem("selectedProduct"));
+        if (product) {
+          document.querySelectorAll(".detailImg").forEach((img) => {
+            img.src = product.img;
+          });
+          document.querySelector("#detailName").textContent = product.name;
+          document.querySelector("#detailPrice").textContent = product.price;
+        }
+        const badge = document.getElementById("cartBadge");
+        const addToCartBtn = document.querySelector(".add-cart-btn2");
+        // Load current cart from localStorage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        badge.textContent = cart.length; // Set correct initial count
+        addToCartBtn.addEventListener("click", () => {
+          cart.push(product);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          badge.textContent = cart.length; // Update badge immediately
+        });
+      });
+    </script>
+  </body>
+</html>
