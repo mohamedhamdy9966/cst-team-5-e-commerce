@@ -1,0 +1,172 @@
+const books = [
+    {
+        id: 1,
+        title: "Castle In The Sky",
+        author: "Hayao Miyazaki",
+        price: 16.99,
+        category: "Adventure",
+        image: "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+        description: "Vestibulum consectetur fringilla tellus, et pulvinar massa tempus nec. Fusce nibh nibh, consectetur vitae felis quis, sagittis ullamcorper enim. Nullam maximus vehicula justo, vel vestibulum turpis dictum at. Nam sed laoreet sem.",
+        rating: 4.7,
+        sold: 160,
+        isFeatured: true
+    },
+    {
+        id: 2,
+        title: "Simple Things You Can Do to Save the Earth",
+        author: "Stephen King",
+        price: 29.99,
+        category: "Adventure",
+        image: "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+        description: "A practical guide with actionable steps for environmental conservation and grassroots movements.",
+        rating: 4.5,
+        sold: 120,
+        isFeatured: false
+    },
+    {
+        id: 3,
+        title: "Flovely And Unicom Erna",
+        author: "Agatha Christie",
+        price: 18.99,
+        category: "Novels",
+        image: "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+        description: "A children's activity book categorized under kids’ literature, published in 2014.",
+        rating: 4.2,
+        sold: 90,
+        isFeatured: true
+    },
+    {
+        id: 4,
+        title: "Qple Gpod with Retina Sisplay",
+        author: "Dan Brown",
+        price: 39.99,
+        category: "Novels",
+        image: "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+        description: "Explores Apple's Retina Display technology introduced in 2010 and its visual clarity.",
+        rating: 4.1,
+        sold: 75,
+        isFeatured: false
+    },
+    {
+        id: 5,
+        title: "The Alchemist",
+        author: "Paulo Coelho",
+        price: 14.99,
+        category: "Philosophy",
+        image: "static/img/book1.jpg",
+        description: "A journey of self-discovery through the deserts of Egypt.",
+        isFeatured: true,
+        rating: 4.7,
+        sold: 150
+    },
+    {
+        id: 6,
+        title: "1984",
+        author: "George Orwell",
+        price: 12.50,
+        category: "Dystopia",
+        image: "static/img/book2.jpg",
+        description: "A chilling vision of a totalitarian future.",
+        isFeatured: true,
+        rating: 4.9,
+        sold: 200
+    },
+    {
+        id: 7,
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        price: 11.75,
+        category: "Classic",
+        image: "static/img/book3.jpg",
+        description: "A deep look into racial injustice and childhood.",
+        isFeatured: false,
+        rating: 4.8,
+        sold: 180
+    },
+    {
+        id: 8,
+        title: "Atomic Habits",
+        author: "James Clear",
+        price: 16.00,
+        category: "Self-help",
+        image: "static/img/book4.jpg",
+        description: "Tiny changes make a big difference.",
+        isFeatured: true,
+        rating: 4.6,
+        sold: 250
+    },
+    {
+        id: 9,
+        title: "Rich Dad Poor Dad",
+        author: "Robert Kiyosaki",
+        price: 13.25,
+        category: "Finance",
+        image: "static/img/book5.jpg",
+        description: "What the rich teach their kids about money.",
+        isFeatured: false,
+        rating: 4.4,
+        sold: 170
+    },
+    {
+        id: 10,
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        price: 15.00,
+        category: "Fantasy",
+        image: "static/img/book6.jpg",
+        description: "A hobbit’s unexpected adventure.",
+        isFeatured: true,
+        rating: 4.8,
+        sold: 300
+    },
+    {
+        id: 11,
+        title: "Think and Grow Rich",
+        author: "Napoleon Hill",
+        price: 10.00,
+        category: "Motivation",
+        image: "static/img/book7.jpg",
+        description: "Classic strategies for success.",
+        isFeatured: false,
+        rating: 4.3,
+        sold: 110
+    },
+    {
+        id: 12,
+        title: "Sapiens",
+        author: "Yuval Noah Harari",
+        price: 18.00,
+        category: "History",
+        image: "static/img/book8.jpg",
+        description: "A brief history of humankind.",
+        isFeatured: false,
+        rating: 4.9,
+        sold: 260
+    },
+    {
+        id: 13,
+        title: "The Power of Now",
+        author: "Eckhart Tolle",
+        price: 14.00,
+        category: "Spiritual",
+        image: "static/img/book9.jpg",
+        description: "Living in the present moment.",
+        isFeatured: false,
+        rating: 4.6,
+        sold: 140
+    },
+    {
+        id: 14,
+        title: "The Psychology of Money",
+        author: "Morgan Housel",
+        price: 13.75,
+        category: "Finance",
+        image: "static/img/book10.jpg",
+        description: "Timeless lessons on wealth and behavior.",
+        isFeatured: true,
+        rating: 4.7,
+        sold: 210
+    }
+];
+
+localStorage.setItem("books", JSON.stringify(books));
