@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+      }
+      .sidebar {
+        background-color: #036280;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 400px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1000;
+      }
+      .sidebar .nav-link {
+        color: white;
+        background-color: #0f84a9;
+        margin: 20px auto;
+
+        text-align: center;
+        width: 50%;
+        border-radius: 20px;
+        font-size: 1.25rem;
+        padding: 10px 20px;
+      }
+
+      .sidebar .nav-link:hover {
+        background-color: #0c6c8a;
+        box-shadow: 4px 4px 4px 4px rgba(36, 19, 194, 0.3);
+      }
+
+      .sidebar span,
+      .sidebar i {
+        color: black;
+      }
+      .main-content {
+        margin-left: 400px;
+        padding: 2rem;
+      }
+      #xx {
+        margin-left: 20px;
+      }
+
+      @media (max-width: 1281px) {
+        .sidebar {
+          width: 200px;
+        }
+        .sidebar span {
+          display: none;
+        }
+        .main-content {
+          margin-left: 300px;
+          font-size: 15px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          height: auto;
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-around;
+          padding: 0.5rem;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+        }
+        .test {
+          max-width: 100%;
+        }
+        .sidebar span {
+          display: none;
+        }
+
+        .sidebar .nav-link {
+          margin: 0;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .main-content {
+          margin-left: 0 !important;
+          padding-top: 6rem !important;
+        }
+        .form-select {
+          width: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <!-- Sidebar -->
+        <nav class="sidebar">
+          <a href="Admin.html" class="nav-link ff15" title="Add Items"
+            ><i class="bi bi-plus-square"></i><span> Book</span></a
+          >
+          <a href="booklist.html" class="nav-link" title="List Items"
+            ><i class="bi bi-list-ul"></i><span> Book list</span></a
+          >
+          <a href="#" class="nav-link" title="Orders"
+            ><i class="bi bi-receipt"></i><span> Orders</span></a
+          >
+          <a href="Users.html" class="nav-link" title="Users"
+            ><i class="bi bi-people"></i><span> Users</span></a
+          >
+          <a href="#" class="nav-link" title="Logout"
+            ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
+          >
+        </nav>
+        <!-- Main Content -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4 main-content">
+          <h3 class="mb-4" id="xx">All Orders</h3>
+
+          <div class="d-flex flex-column gap-4">
+            <!-- Order Item -->
+            <div class="row bg-white rounded p-3 shadow-sm ff">
+              <div class="col-md-1 text-secondary fs-4">📦</div>
+              <div class="col-md-7">
+                <p class="mb-1">
+                  <span class="text-tertiary">Items:</span> Product A x 2
+                  <span>"Large"</span>
+                </p>
+                <p class="mb-1">
+                  <span class="text-tertiary">Name:</span> John Doe
+                </p>
+                <p class="mb-1 text-tertiary">
+                  Address: 123 Main St, New York, NY, USA, 10001
+                </p>
+                <p class="mb-1 text-tertiary">Items: 1</p>
+                <p class="mb-1">Method: Cash on Delivery</p>
+                <p class="mb-1">Payment: Pending</p>
+                <p class="mb-0">Date: 04/29/2025</p>
+              </div>
+              <div class="col-md-2 fw-semibold">$49.99</div>
+              <div class="col-md-2">
+                <select class="form-select form-select-sm bg-light ss">
+                  <option selected>Order Placed</option>
+                  <option>Packing</option>
+                  <option>Shipped</option>
+                  <option>Out for delivery</option>
+                  <option>Delivered</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Another Order -->
+            <div class="row bg-white rounded p-3 shadow-sm ff">
+              <div class="col-md-1 text-secondary fs-4">📦</div>
+              <div class="col-md-7">
+                <p class="mb-1">
+                  <span class="text-tertiary">Items:</span> Product B x 1
+                  <span>"Medium"</span>
+                </p>
+                <p class="mb-1">
+                  <span class="text-tertiary">Name:</span> Jane Smith
+                </p>
+                <p class="mb-1 text-tertiary">
+                  Address: 456 Market Ave, San Francisco, CA, USA, 94103
+                </p>
+                <p class="mb-1 text-tertiary">Items: 1</p>
+                <p class="mb-1">Method: Credit Card</p>
+                <p class="mb-1">Payment: Done</p>
+                <p class="mb-0">Date: 04/28/2025</p>
+              </div>
+              <div class="col-md-2 fw-semibold">$79.50</div>
+              <div class="col-md-2">
+                <select class="form-select form-select-sm bg-light">
+                  <option>Order Placed</option>
+                  <option selected>Packing</option>
+                  <option>Shipped</option>
+                  <option>Out for delivery</option>
+                  <option>Delivered</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+  <script>
+    function logout() {
+      localStorage.removeItem("currentUser");
+      location = "./login.html";
+    }
+  </script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book List</title>
+  <style>
+    body{font-family:sans-serif;padding:1rem}
+    table,th,td{ border:1px solid #ccc; border-collapse:collapse; padding:0.5rem; }
+  </style>
+</head>
+<body>
+  <button onclick="logout()">Logout</button>
+  <h2>Available Books</h2>
+  <table>
+    <thead><tr><th>Img</th><th>Title</th><th>Price</th><th>Owner</th></tr></thead>
+    <tbody id="list"></tbody>
+  </table>
+  <script>
+    /* const u = JSON.parse(localStorage.getItem('currentUser'));
+    if(!u) {alert('Login');location='login.html'}
+    const all = JSON.parse(localStorage.getItem('books')||'[]');
+    const tbody = document.getElementById('list');
+    all.forEach(b=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td><img src="${b.img}" width="50"></td><td>${b.title}</td><td>$${b.price}</td><td>${b.owner}</td>`;
+      tbody.appendChild(tr);
+    });
+    function logout(){ localStorage.removeItem('currentUser'); location='login.html'; } */
+
+    const all = JSON.parse(localStorage.getItem('books')||'[]');
+    function render() {
+      const tbody = document.getElementById('bookList'); tbody.innerHTML = '';
+      all.forEach((b,i) => {
+        if (u.role==='admin' || b.owner===u.username) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td><img src="${b.img}" width="50"></td><td>${b.title}</td><td>$${b.price}</td><td>${b.owner}</td>`;
+          tbody.appendChild(tr);
+        }
+      });
+    }
+    render();
+  </script>
+</body>
+</html>
