@@ -515,19 +515,26 @@
           }
           const adminEmail = "cst-team5@iti.com";
           const adminPassword = "123456789";
-          // First check if admin login
+          // Admin login
           if (email === adminEmail && password === adminPassword) {
+            const adminUser = {
+              username: "Admin",
+              email: adminEmail,
+              role: "admin",
+            };
             localStorage.setItem("role", "admin");
+            localStorage.setItem("currentUser", JSON.stringify(adminUser));
             window.location.href = "./admin.html";
             return;
           }
-          // Otherwise check normal users
+          // Normal users
           let users = JSON.parse(localStorage.getItem("users")) || [];
           const user = users.find(
             (u) => u.email === email && u.password === password
           );
           if (user) {
             localStorage.setItem("role", user.role);
+            localStorage.setItem("currentUser", JSON.stringify(user));
             if (user.role === "seller") {
               window.location.href = "./seller.html";
             } else {
