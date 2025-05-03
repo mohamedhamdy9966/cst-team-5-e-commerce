@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="../style/css/top_of_pages.css">
   </head>
   <style>
     * {
@@ -24,22 +25,10 @@
     .prev:hover,
     .next:hover,
     .fab:hover {
-      background-color: #f4c430;
+      background-color:#ff6500;
       color: white;
     }
-    .left-img {
-      position: absolute;
-      left: -0.25%;
-      top: 20%;
-      max-height: 400px;
-    }
-    .right-img {
-      position: absolute;
-      right: 0;
-      width: 300px;
-      top: 20%;
-      max-height: 350px;
-    }
+   
     .fab {
       width: 30px;
       height: 30px;
@@ -72,7 +61,7 @@
       font-weight: 500;
     }
     .stars {
-      color: #f4c430;
+      color: #ff6500;
     }
     .add-to-cart {
       background-color: #e0e7ff;
@@ -135,7 +124,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: orange;
+      background-color: #ff6500;
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.4s ease;
@@ -147,6 +136,7 @@
     .add-to-cart:hover {
       color: white;
     }
+  
   </style>
   <body>
     <nav class="d-flex align-items-stretch sticky" style="height: 100px">
@@ -313,35 +303,14 @@
         </div>
       </div>
     </nav>
-    <div class="container-fluid bg-light py-5" style="min-height: 400px">
-      <div class="row align-items-center">
-        <!-- Left Image -->
-        <div class="col-md-4 d-none d-md-block text-center py-2">
-          <img
-            src="../assets/checkout/book1.png"
-            class="left-img"
-            alt="Left books"
-          />
-        </div>
-        <!-- Center Text -->
-        <div class="col-12 col-md-4 text-center py-5">
-          <h2 class="fw-bold" style="color: #012e7c">Product List</h2>
-          <p>
-            <span style="color: #012e7c">Home</span> >
-            <span style="color: #036280">Product List</span>
-          </p>
-        </div>
-        <!-- Right Image -->
-        <div class="col-md-4 d-none d-md-block text-center py-2">
-          <img
-            src="../assets/checkout/book2.png"
-            class="right-img"
-            alt="Right books"
-            style="width: 250px; height: 300px"
-          />
-        </div>
+    <section class="top d-flex align-items-center justify-content-between">
+      <img src="../assets/shop_details/top.png" alt="top image" class="col-auto d-none d-xl-block">
+      <div class="text-center col-12 col-xl-4 py-5">
+
+        <h1>Shop List</h1>
       </div>
-    </div>
+      <img src="../assets/shop_details/book2.png" alt="logo" class="col-auto d-none d-xl-block">
+    </section>
     <div class="row align-items-center mb-4 show">
       <!-- Left side: Result count -->
       <div class="col-12 col-md-6">
@@ -379,7 +348,7 @@
     <div class="container-fluid">
       <div class="product-card row">
         <!-- Image -->
-        <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+        <div class="col-12 col-xl-4 text-center mb-4 mb-md-0">
           <img
             src="../assets/checkout/01.png"
             class="img-fluid product-img"
@@ -388,8 +357,8 @@
         </div>
 
         <!-- Info -->
-        <div class="col-12 col-md-8">
-          <h2 style="color: #012e7c" class="product-name">Castle In The Sky</h2>
+        <div class="col-12 col-xl-8">
+          <h2 style="color: #012e4a;" class="product-name">Castle In The Sky</h2>
           <div class="price mb-2 product-price">$16.00</div>
           <div class="stars mb-2">★★★★☆</div>
           <p class="text-muted">
@@ -410,7 +379,7 @@
     <div class="container-fluid">
       <div class="product-card row">
         <!-- Image -->
-        <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+        <div class="col-12 col-xl-4 text-center mb-4 mb-md-0">
           <img
             src="../assets/checkout/02.png"
             class="img-fluid product-img"
@@ -419,8 +388,8 @@
         </div>
 
         <!-- Info -->
-        <div class="col-12 col-md-8">
-          <h2 style="color: #012e7c" class="product-name">
+        <div class="col-12 col-xl-8">
+          <h2 style="color: #012e4a;" class="product-name">
             Simple things you to Save to Book
           </h2>
           <div class="price mb-2 product-price">$30.00</div>
@@ -444,7 +413,7 @@
     <div class="container-fluid">
       <div class="product-card row">
         <!-- Image -->
-        <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+        <div class="col-12 col-xl-4 text-center mb-4 mb-md-0">
           <img
             src="../assets/checkout/03.png"
             class="img-fluid product-img"
@@ -453,8 +422,8 @@
         </div>
 
         <!-- Info -->
-        <div class="col-12 col-md-8">
-          <h2 style="color: #012e7c" class="product-name">
+        <div class="col-12 col-xl-8">
+          <h2 style="color: #012e4a;" class="product-name">
             Flovely And Unicom Erna
           </h2>
           <div class="price mb-2 product-price">$19.00</div>
@@ -478,7 +447,7 @@
     <div class="container-fluid">
       <div class="product-card row">
         <!-- Image -->
-        <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+        <div class="col-12 col-xl-4 text-center mb-4 mb-md-0">
           <img
             src="../assets/checkout/04.png"
             class="img-fluid product-img"
@@ -487,8 +456,8 @@
         </div>
 
         <!-- Info -->
-        <div class="col-12 col-md-8">
-          <h2 style="color: #012e7c" class="product-name">
+        <div class="col-12 col-xl-8">
+          <h2 style="color: #012e4a;" class="product-name">
             Qple Gpod with Retina Sisplay
           </h2>
           <div class="price mb-2 product-price">$39.00</div>
