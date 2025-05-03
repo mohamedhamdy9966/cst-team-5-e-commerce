@@ -1,0 +1,289 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+      }
+      .sidebar {
+        background-color: #036280;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 400px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1000;
+      }
+      .sidebar .nav-link {
+        color: white;
+        background-color: #0f84a9;
+        margin: 20px auto;
+        text-align: center;
+        width: 50%;
+        border-radius: 20px;
+        font-size: 1.25rem;
+        padding: 10px 20px;
+      }
+      .sidebar .nav-link:hover {
+        background-color: #0c6c8a;
+        box-shadow: 4px 4px 4px 4px rgba(36, 19, 194, 0.3);
+      }
+      .sidebar span,
+      .sidebar i {
+        color: black;
+      }
+      .main-content {
+        margin-left: 400px;
+        padding: 2rem;
+      }
+      .header {
+        background: white;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+      }
+      .img-placeholder {
+        width: 100%;
+        height: 250px;
+        cursor: pointer;
+        max-width: 250px;
+        background-color: #e9ecef;
+        border: 2px dashed #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #999;
+      }
+      .test {
+        max-width: 50%;
+      }
+      .mx-w {
+        max-width: 700px;
+      }
+      .product-form-container {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+      .product-image {
+        max-width: 500px;
+        margin-top: 10%;
+        border-radius: 20px;
+        min-height: 400px;
+        width: 100%;
+      }
+      .zz {
+        position: relative;
+        padding: 14px;
+        overflow: hidden;
+        z-index: 1;
+        border: none;
+        color: white;
+      }
+      .zz::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: orange;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+        z-index: -1;
+      }
+      .zz:hover::before {
+        transform: scaleX(1);
+      }
+      @media (max-width: 768px) {
+        .sidebar {
+          height: auto;
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-around;
+          padding: 0.5rem;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+        }
+        .test {
+          max-width: 100%;
+        }
+        .sidebar span {
+          display: none;
+        }
+
+        .sidebar .nav-link {
+          margin: 0;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .main-content {
+          margin-left: 0;
+          padding-top: 4rem;
+        }
+
+        .header {
+          padding-top: 20px;
+        }
+
+        .product-form-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .product-image {
+          min-height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <a href="/" class="nav-link ff15" title="Add Items"
+        ><i class="bi bi-plus-square"></i><span> Book</span></a
+      >
+      <a href="/booklist.html" class="nav-link" title="List Items"
+        ><i class="bi bi-list-ul"></i><span> Book list</span></a
+      >
+      <a href="/Orders.html" class="nav-link" title="Orders"
+        ><i class="bi bi-receipt"></i><span> Orders</span></a
+      >
+      <a href="/Users.html" class="nav-link" title="Users"
+        ><i class="bi bi-people"></i><span> Users</span></a
+      >
+      <a href="#" class="nav-link" title="Logout" onclick="logout()"
+        ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
+      >
+    </nav>
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">
+        <h3 class="text-center mb-0">Admin Panel</h3>
+      </div>
+      <!-- Form and Image -->
+      <div class="product-form-container mt-4">
+        <!-- Left: Form -->
+        <form class="flex-grow-1 test">
+          <div class="d-flex flex-column gap-4 mb-4">
+            <label class="img-placeholder" id="imgLabel">
+              <span id="imgText">Image</span>
+              <input type="file" id="imgInput" accept="image/*" hidden />
+            </label>
+            <div class="mb-3">
+              <label class="form-label">Book Name</label>
+              <input
+                type="text"
+                class="form-control mx-w"
+                placeholder="Enter product name"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea
+                class="form-control mx-w"
+                rows="3"
+                placeholder="Enter product description"
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Category</label>
+              <input
+                type="text"
+                class="form-control mx-w"
+                placeholder="Enter category"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Price</label>
+              <input
+                type="number"
+                class="form-control mx-w"
+                placeholder="Enter price"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn text-white zz"
+            style="background-color: #0f84a9"
+          >
+            Add Product
+          </button>
+        </form>
+        <!-- Right: Image -->
+        <img
+          src="../assets/admin/premium_photo-1661582120130-03b9bdc47a75.avif"
+          alt="admin illustration"
+          class="product-image"
+        />
+      </div>
+    </div>
+  </body>
+  <script>
+    // Access control
+    // Ensure currentUser is valid and has the proper role
+    const u = JSON.parse(localStorage.getItem("currentUser"));
+    if (!u || (u.role !== "admin" && u.role !== "seller")) {
+      alert("Access Denied");
+      window.location.href = "./login.html";
+    }
+    // Initialize books array from localStorage or empty
+    let all = JSON.parse(localStorage.getItem("books")) || [];
+    // Function to add a new book
+    function addBook() {
+      const img = document.getElementById("imgUrl").value.trim();
+      const title = document.getElementById("title").value.trim();
+      const price = document.getElementById("price").value.trim();
+      if (!img || !title || !price) {
+        alert("Please fill in all fields.");
+        return;
+      }
+      all.push({
+        img,
+        title,
+        price: parseFloat(price),
+        owner: u.username,
+      });
+      localStorage.setItem("books", JSON.stringify(all));
+      render(); // Assumes render() is defined elsewhere
+    }
+    // Logout function
+    function logout() {
+      localStorage.removeItem("currentUser");
+      window.location.href = "../index.html";
+    }
+  </script>
+</html>

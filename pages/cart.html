@@ -18,73 +18,32 @@
       referrerpolicy="no-referrer"
     />
     <style>
-      .header-top {
-        background-color: #005670;
-        color: white;
-        font-size: 0.9rem;
-      }
-      .top-bar {
-        background-color: #036280;
-        color: white;
-        font-size: 0.9rem;
-      }
-      .top-bar a {
-        color: white;
-        text-decoration: none;
-        margin-right: 15px;
-      }
-      .left-logo {
-        background-color: #012e4a;
-        border-top-right-radius: 75%;
-        height: 100%;
-      }
-      .left-logo img {
-        max-height: 100%;
-      }
-      .nav-icons i {
-        font-size: 1.2rem;
-        position: relative;
-      }
-      .nav-icons span.badge {
-        font-size: 0.7rem;
-        position: absolute;
-        top: -8px;
-        right: -10px;
-        background-color: #036280;
-      }
       .relative {
         position: relative;
       }
-
       #left-img {
         position: absolute;
         left: -0.25%;
         top: 30%;
-
         max-height: 400px;
       }
-
       #right-img {
         position: absolute;
         right: 0;
         width: 300px;
         top: 20%;
-
         max-height: 350px;
       }
-
       .center-dev {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
-
       #last-dev {
         background-color: #e6eff2;
         height: 70vh;
       }
-
       .wrapper {
         width: 95vw;
         display: grid;
@@ -95,40 +54,27 @@
           "main aside"
           "footer aside";
       }
-
       .main {
         grid-area: main;
       }
-
       .aside {
         grid-area: aside;
       }
-
       .gridfooter {
         grid-area: footer;
       }
-
-      .footer {
-        background-color: #036280;
-        border-radius: 5px;
-        padding: 40px;
-      }
-
       .btn-custom {
         background-color: #036280;
         color: white;
       }
-
       .btn-custom:hover {
         background-color: #f4c430;
         color: white;
       }
-
       .fab:hover {
         background-color: #f4c430;
         color: white;
       }
-
       .fab {
         width: 30px;
         height: 30px;
@@ -355,8 +301,7 @@
               href="./checkout.html"
               class="btn w-100"
               style="background-color: #036280; color: white"
-              >Proceed to Checkout</a
-            >
+              >Proceed to Checkout</a>
           </div>
         </div>
       </section>
@@ -388,7 +333,7 @@
         </div>
       </section>
     </section>
-    <div class="footer text-white">
+    <footer class="text-white">
       <div class="container">
         <div class="row text-center text-md-start">
           <div class="col-md-3 mb-4">
@@ -455,7 +400,7 @@
         </div>
       </div>
         
-    </div>
+    </footer>
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
