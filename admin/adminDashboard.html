@@ -189,7 +189,7 @@
       >
     </nav>
     <!-- Main Content -->
-    <div class="main-content">
+    <section class="main-content">
       <div class="header">
         <h3 class="text-center mb-0">Admin Panel</h3>
       </div>
@@ -250,40 +250,40 @@
           class="product-image"
         />
       </div>
-    </div>
-  </body>
-  <script>
-    // Access control
-    // Ensure currentUser is valid and has the proper role
-    const u = JSON.parse(localStorage.getItem("currentUser"));
-    if (!u || (u.role !== "admin" && u.role !== "seller")) {
-      alert("Access Denied");
-      window.location.href = "./login.html";
-    }
-    // Initialize books array from localStorage or empty
-    let all = JSON.parse(localStorage.getItem("books")) || [];
-    // Function to add a new book
-    function addBook() {
-      const img = document.getElementById("imgUrl").value.trim();
-      const title = document.getElementById("title").value.trim();
-      const price = document.getElementById("price").value.trim();
-      if (!img || !title || !price) {
-        alert("Please fill in all fields.");
-        return;
+    </section>
+    <script>
+      // Access control
+      // Ensure currentUser is valid and has the proper role
+      const u = JSON.parse(localStorage.getItem("currentUser"));
+      if (!u || (u.role !== "admin" && u.role !== "seller")) {
+        alert("Access Denied");
+        window.location.href = "./login.html";
       }
-      all.push({
-        img,
-        title,
-        price: parseFloat(price),
-        owner: u.username,
-      });
-      localStorage.setItem("books", JSON.stringify(all));
-      render(); // Assumes render() is defined elsewhere
-    }
-    // Logout function
-    function logout() {
-      localStorage.removeItem("currentUser");
-      window.location.href = "../index.html";
-    }
-  </script>
+      // Initialize books array from localStorage or empty
+      let all = JSON.parse(localStorage.getItem("books")) || [];
+      // Function to add a new book
+      function addBook() {
+        const img = document.getElementById("imgUrl").value.trim();
+        const title = document.getElementById("title").value.trim();
+        const price = document.getElementById("price").value.trim();
+        if (!img || !title || !price) {
+          alert("Please fill in all fields.");
+          return;
+        }
+        all.push({
+          img,
+          title,
+          price: parseFloat(price),
+          owner: u.username,
+        });
+        localStorage.setItem("books", JSON.stringify(all));
+        render(); // Assumes render() is defined elsewhere
+      }
+      // Logout function
+      function logout() {
+        localStorage.removeItem("currentUser");
+        window.location.href = "../index.html";
+      }
+    </script>
+  </body>
 </html>
