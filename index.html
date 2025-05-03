@@ -263,7 +263,7 @@
   <body>
     <nav class="d-flex align-items-stretch sticky" style="height: 100px">
       <!-- Left Logo -->
-      <div
+      <section
         class="d-flex align-items-center px-4"
         style="
           background-color: #012e4a;
@@ -277,9 +277,9 @@
           class="img-fluid"
           style="max-height: 100%"
         />
-      </div>
+      </section>
       <!-- Right Section -->
-      <div class="flex-grow-1 d-flex flex-column">
+      <section class="flex-grow-1 d-flex flex-column">
         <!-- Top Nav -->
         <div
           class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
@@ -342,24 +342,15 @@
                       >
                     </li>
                     <!-- Shop Dropdown -->
-                    <li class="nav-item dropdown fw-bold px-2">
+                    <li class="nav-item fw-bold px-2">
                       <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="shopDropdown"
+                        class="nav-link"
+                        href="./pages/shoplist.html"
                         role="button"
-                        data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
                         <i class="fa-solid fa-shop"></i> Shop
                       </a>
-                      <ul class="dropdown-menu" aria-labelledby="shopDropdown">
-                        <li>
-                          <a class="dropdown-item" href="./pages/shoplist.html"
-                            >Shop List</a
-                          >
-                        </li>
-                      </ul>
                     </li>
                     <!-- Pages Dropdown -->
                     <li class="nav-item dropdown fw-bold px-2">
@@ -445,7 +436,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </nav>
     <section
       class="header d-flex justify-content-between align-items-end position-relative vh-100 px-3"

@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop Details</title>
-  <!-- Swiper CSS -->
 <link
 rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -383,7 +381,7 @@ p {
     <!-- Right Section -->
     <div class="flex-grow-1 d-flex flex-column">
       <!-- Top Nav -->
-      <div
+      <section
         class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50"
       >
         <div>
@@ -394,10 +392,10 @@ p {
         <div>
           <a href="./login.html"><i class="fas fa-user ms-3 me-1"></i>Login</a>
         </div>
-      </div>
+      </section>
 
       <!-- Bottom Nav -->
-      <div
+      <section
         class="main-header d-flex justify-content-between align-items-center px-3 flex-grow-1"
       >
         <!-- Navbar -->
@@ -418,24 +416,15 @@ p {
                 </li>
 
                 <!-- Shop Dropdown -->
-                <li class="nav-item dropdown fw-bold px-2">
+                <li class="nav-item fw-bold px-2">
                   <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    id="shopDropdown"
+                    class="nav-link"
+                    href="./shoplist.html"
                     role="button"
-                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Shop
                   </a>
-                  <ul class="dropdown-menu" aria-labelledby="shopDropdown">
-                    <li><a class="dropdown-item" href="./shoplist.html">Shop List</a></li>
-                    <li>
-                      <a class="dropdown-item" href="./shop_details.html">Shop Details</a>
-                    </li>
-                    <li><a class="dropdown-item" href="./checkout.html">CheckOut</a></li>
-                  </ul>
                 </li>
 
                 <!-- Pages Dropdown -->
@@ -515,18 +504,18 @@ p {
             </a>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </nav>
   <div class="wraper">
-      <div class="top d-flex align-items-center justify-content-between">
+      <section class="top d-flex align-items-center justify-content-between">
         <img src="../assets/shop_details/top.png" alt="top image" class="col-auto d-none d-xl-block">
         <div class="text-center col-12 col-md-4 py-5">
           <h1>Shop Details</h1>
         </div>
         <img src="../assets/shop_details/book2.png" alt="logo" class="col-auto d-none d-xl-block">
-      </div>
-    <div class="container-fluid mt-5">
+      </section>
+    <section class="container-fluid mt-5">
       <div class="row">
         <div class="col-md-6">
           <div class="product-image">
@@ -919,7 +908,7 @@ p {
           <div class="swiper-button-prev"></div>
         </div>
     </div>
-  </div>
+  </section>
   <section class="footer text-white">
     <div class="container">
       <div class="row text-center text-md-start">
