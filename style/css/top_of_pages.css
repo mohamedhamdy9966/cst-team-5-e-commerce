@@ -1,0 +1,25 @@
+  /* الجزء :عنوان */
+  .top {
+    height: 400px;
+    background-color: #e6eff2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+  }
+  .top img {
+    padding-top: 60px;
+    height: auto;
+  }
+  h1,
+  h5 {
+    color: #012e4a;
+  }
+  p {
+    color: #52556c;
+  }
+  .top h1 {
+    text-align: center;
+    font-weight: 640;
+    font-size:42px;
+  }
