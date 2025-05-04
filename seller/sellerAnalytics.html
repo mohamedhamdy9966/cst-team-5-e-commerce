@@ -1,23 +1,20 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seller Dashboard</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <title>seller Analytics</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
     />
     <style>
       body {
@@ -194,103 +191,37 @@
     </nav>
     <!-- Main Content -->
     <main class="main-content">
-      <div class="header bg-secondary rounded">
-        <h3 class="text-center mb-0">Seller Dashboard</h3>
+      <div class="bg-secondary p-4 shadow-sm rounded bg-secondary">
+        <h2 class="section-title mb-4"> <i class="fa-solid text-light fa-chart-simple"></i> Analytics</h2>
       </div>
-      <!-- Form and Image -->
-      <div class="product-form-container mt-4">
-        <!-- Left: Form -->
-        <form class="flex-grow-1 test">
-          <div class="d-flex flex-column gap-4 mb-4">
-            <label class="img-placeholder" id="imgLabel">
-              <span id="imgText">Image</span>
-              <input type="file" id="imgInput" accept="image/*" hidden />
-            </label>
-            <div class="mb-3">
-              <label class="form-label">Book Name</label>
-              <input
-                type="text"
-                class="form-control mx-w"
-                placeholder="Enter product name"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Description</label>
-              <textarea
-                class="form-control mx-w"
-                rows="3"
-                placeholder="Enter product description"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Category</label>
-              <input
-                type="text"
-                class="form-control mx-w"
-                placeholder="Enter category"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Price</label>
-              <input
-                type="number"
-                class="form-control mx-w"
-                placeholder="Enter price"
-              />
-            </div>
-          </div>
-          <button
-            type="submit"
-            class="btn text-white zz"
-            style="background-color: #0f84a9"
-          >
-            Add Product
-          </button>
-        </form>
-        <!-- Right: Image -->
-        <img
-          src="../assets/seller/book-seller.png"
-          alt="admin illustration"
-          class="product-image"
-        />
+      <div>
+        <canvas id="myChart"></canvas>
       </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-      // Access control
-      // Ensure currentUser is valid and has the proper role
+      const ctx = document.getElementById("myChart");
 
-      // const u = JSON.parse(localStorage.getItem("currentUser"));
-      // if (!u || u.role !== "admin") {
-      //   alert("Access Denied");
-      //   window.location.href = "../pages/login.html";
-      // }
-
-      // Initialize books array from localStorage or empty
-      let all = JSON.parse(localStorage.getItem("books")) || [];
-      // Function to add a new book
-      function addBook() {
-        const img = document.getElementById("imgUrl").value.trim();
-        const title = document.getElementById("title").value.trim();
-        const price = document.getElementById("price").value.trim();
-        if (!img || !title || !price) {
-          alert("Please fill in all fields.");
-          return;
-        }
-        all.push({
-          img,
-          title,
-          price: parseFloat(price),
-          owner: u.username,
-        });
-        localStorage.setItem("books", JSON.stringify(all));
-        render();
-      }
-      // Logout function
-      function logout() {
-        localStorage.removeItem("currentUser");
-        window.location.href = "../index.html";
-      }
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -19,11 +19,56 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
     <style>
       body {
         margin: 0;
         font-family: "Poppins", sans-serif;
         overflow-x: hidden;
+      }
+      h6 {
+        color: #012e4a;
+      }
+      .order-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      }
+      .order-image {
+        width: 60px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .status-badge {
+        background-color: #284e66;
+        color: white;
+        font-size: 12px;
+        border-radius: 12px;
+        padding: 3px 10px;
+      }
+      .status-dot {
+        height: 10px;
+        width: 10px;
+        background-color: #28a745;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 6px;
+      }
+      .section-title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #012e4a;
+      }
+      .order-info {
+        font-size: 14px;
+        color: #555;
+      }
+      .order-info b {
+        color: #012e4a;
       }
       .sidebar {
         background-color: #036280;
@@ -194,65 +239,107 @@
     </nav>
     <!-- Main Content -->
     <main class="main-content">
-      <div class="header bg-secondary rounded">
-        <h3 class="text-center mb-0">Seller Dashboard</h3>
-      </div>
-      <!-- Form and Image -->
-      <div class="product-form-container mt-4">
-        <!-- Left: Form -->
-        <form class="flex-grow-1 test">
-          <div class="d-flex flex-column gap-4 mb-4">
-            <label class="img-placeholder" id="imgLabel">
-              <span id="imgText">Image</span>
-              <input type="file" id="imgInput" accept="image/*" hidden />
-            </label>
-            <div class="mb-3">
-              <label class="form-label">Book Name</label>
-              <input
-                type="text"
-                class="form-control mx-w"
-                placeholder="Enter product name"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Description</label>
-              <textarea
-                class="form-control mx-w"
-                rows="3"
-                placeholder="Enter product description"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Category</label>
-              <input
-                type="text"
-                class="form-control mx-w"
-                placeholder="Enter category"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Price</label>
-              <input
-                type="number"
-                class="form-control mx-w"
-                placeholder="Enter price"
-              />
+      <div class="bg-white p-4 rounded shadow-sm">
+        <h2 class="section-title mb-4"><i class="fa-solid text-light fa-sort"></i> Orders List</h2>
+        <!-- Order 1 -->
+        <div class="order-card d-flex align-items-center">
+          <img
+            src="../assets/order-list/b1.png"
+            alt="Product"
+            class="order-image me-3"
+          />
+          <div class="flex-grow-1">
+            <h6 class="mb-1">How Deal With Very Bad BOOK</h6>
+            <div class="order-info">
+              <div><b>Price:</b> <span>$320</span></div>
+              <div><b>Quantity:</b> <span>1</span></div>
+              <div><b>Date:</b> <span>Tue Apr 29 2025</span></div>
+              <div><b>Payment:</b> <span>Stripe</span></div>
             </div>
           </div>
-          <button
-            type="submit"
-            class="btn text-white zz"
-            style="background-color: #0f84a9"
-          >
-            Add Product
-          </button>
-        </form>
-        <!-- Right: Image -->
-        <img
-          src="../assets/seller/book-seller.png"
-          alt="admin illustration"
-          class="product-image"
-        />
+          <div class="ms-auto d-flex align-items-center gap-2 text-end">
+            <div>
+              <span class="status-dot"></span>
+              <span class="order-status">Delivered</span>
+            </div>
+            <div class="status-badge">Order Status</div>
+          </div>
+        </div>
+
+        <!-- Order 2 -->
+        <div class="order-card d-flex align-items-center">
+          <img
+            src="../assets/order-list/b2.png"
+            alt="Product"
+            class="order-image me-3"
+          />
+          <div class="flex-grow-1">
+            <h6 class="mb-1">Stylish Women Basic Tee</h6>
+            <div class="order-info">
+              <div><b>Price:</b> <span>$140</span></div>
+              <div><b>Quantity:</b> <span>1</span></div>
+              <div><b>Date:</b> <span>Tue Apr 29 2025</span></div>
+              <div><b>Payment:</b> <span>Stripe</span></div>
+            </div>
+          </div>
+          <div class="ms-auto d-flex align-items-center gap-2 text-end">
+            <div>
+              <span class="status-dot"></span>
+              <span class="order-status">Delivered</span>
+            </div>
+            <div class="status-badge">Order Status</div>
+          </div>
+        </div>
+
+        <!-- Order 3 -->
+        <div class="order-card d-flex align-items-center">
+          <img
+            src="../assets/order-list/b3.png"
+            alt="Product"
+            class="order-image me-3"
+          />
+          <div class="flex-grow-1">
+            <h6 class="mb-1">Flovely and Unicom Erna</h6>
+            <div class="order-info">
+              <div><b>Price:</b> <span>$150</span></div>
+              <div><b>Quantity:</b> <span>3</span></div>
+              <div><b>Date:</b> <span>Tue Apr 29 2025</span></div>
+              <div><b>Payment:</b> <span>Stripe</span></div>
+            </div>
+          </div>
+          <div class="ms-auto d-flex align-items-center gap-2 text-end">
+            <div>
+              <span class="status-dot"></span>
+              <span class="order-status">Delivered</span>
+            </div>
+            <div class="status-badge">Order Status</div>
+          </div>
+        </div>
+
+        <!-- Order 4 -->
+        <div class="order-card d-flex align-items-center">
+          <img
+            src="../assets/order-list/b4.png"
+            alt="Product"
+            class="order-image me-3"
+          />
+          <div class="flex-grow-1">
+            <h6 class="mb-1">Castle In The Sky</h6>
+            <div class="order-info">
+              <div><b>Price:</b> <span>$290</span></div>
+              <div><b>Quantity:</b> <span>1</span></div>
+              <div><b>Date:</b> <span>Mon Apr 28 2025</span></div>
+              <div><b>Payment:</b> <span>Stripe</span></div>
+            </div>
+          </div>
+          <div class="ms-auto d-flex align-items-center gap-2 text-end">
+            <div>
+              <span class="status-dot"></span>
+              <span class="order-status">Order Placed</span>
+            </div>
+            <div class="status-badge">Order Status</div>
+          </div>
+        </div>
       </div>
     </main>
     <script>

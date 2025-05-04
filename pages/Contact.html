@@ -67,9 +67,9 @@
       #unique {
         padding: 15px 20px;
       }
-      #last-dev {
+      #header {
         background-color: #e6eff2;
-        height: 40vh;
+        height: 70vh;
       }
       .relative {
         position: relative;
@@ -77,8 +77,7 @@
       #left-img {
         position: absolute;
         left: -0.25%;
-        top: 30%;
-
+        top: 20%;
         max-height: 400px;
       }
       #right-img {
@@ -86,7 +85,6 @@
         right: 0;
         width: 300px;
         top: 20%;
-
         max-height: 350px;
       }
       .center-dev {
@@ -243,22 +241,15 @@
                       >
                     </li>
                     <!-- Shop Dropdown -->
-                    <li class="nav-item dropdown fw-bold px-2">
+                    <li class="nav-item fw-bold px-2">
                       <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="shopDropdown"
+                        class="nav-link"
+                        href="./shoplist.html"
                         role="button"
-                        data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
                         <i class="fa-solid fa-shop"></i> Shop
                       </a>
-                        <li>
-                          <a class="dropdown-item" href="./shop_details.html"
-                            >Shop List</a
-                          >
-                        </li>
                     </li>
                     <!-- Pages Dropdown -->
                     <li class="nav-item fw-bold px-2">
@@ -322,7 +313,7 @@
               </a>
             </div>
             <div class="position-relative">
-              <a href="./login.html" style="color: #02488d">
+              <a href="./login.html" class="d-md-none" style="color: #02488d">
                 <i
                   class="fas fa-user"
                   style="font-size: 1.2rem; position: relative"
@@ -334,8 +325,8 @@
       </div>
     </nav>
     <!--Extra Might Be deleted-->
-    <section class="pt-5">
-      <div id="last-dev" class="relative">
+    <section>
+      <div id="header" class="relative">
         <img src="../assets/cart/test1.png" id="left-img" />
         <h1 class="center-dev">Contact Us</h1>
         <img src="../assets/cart/test2.png" id="right-img" />
@@ -480,9 +471,7 @@
                 >
               </li>
               <li>
-                <a
-                  href="./Contact.html"
-                  class="text-white text-decoration-none"
+                <a href="./Contact.html" class="text-white text-decoration-none"
                   >Contact Us</a
                 >
               </li>

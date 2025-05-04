@@ -257,7 +257,7 @@
       const u = JSON.parse(localStorage.getItem("currentUser"));
       if (!u || (u.role !== "admin" && u.role !== "seller")) {
         alert("Access Denied");
-        window.location.href = "./login.html";
+        window.location.href = "../pages/login.html";
       }
       // Initialize books array from localStorage or empty
       let all = JSON.parse(localStorage.getItem("books")) || [];
