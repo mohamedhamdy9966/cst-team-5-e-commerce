@@ -12,17 +12,13 @@ const validationRules = {
 function validateInput(input) {
   const field = input.name;
   const regex = validationRules[field];
-
   if (!regex) return true;
-
 const trimmedValue = input.value.trim();
 if (!trimmedValue && !input.required) return true; // Allow empty optional fields
-
 const isValid = regex.test(trimmedValue);
 input.classList.toggle("is-invalid", !isValid);
 input.classList.toggle("is-valid", isValid);
 return isValid;
-
 }
 
 function setupLiveValidation(formInputs) {
@@ -41,16 +37,10 @@ function validateForm(formInputs) {
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("checkoutForm");
   const inputs = document.querySelectorAll(".checkout-form input");
-
   setupLiveValidation(inputs);
-
-
-
   form.addEventListener("submit", function (e) {
     e.preventDefault(); // Always prevent default first
-  
     const isFormValid = validateForm(inputs);
-  
     if (!isFormValid) {
       alert("Please correct the errors in the form before placing your order.");
     } else {
@@ -58,10 +48,5 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "Order Completed.html";
     }
   });
-  
   }
 );
-
-  
-
-  

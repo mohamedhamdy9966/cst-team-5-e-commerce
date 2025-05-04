@@ -9,7 +9,6 @@ const validationRules = {
 
   document.addEventListener("DOMContentLoaded", () => {
     const placeOrderBtn = document.querySelector(".place-order-btn");
-
     placeOrderBtn.addEventListener("click", function (e) {
       const firstName = document.getElementById("firstName").value.trim();
       const lastName = document.getElementById("secondName").value.trim();
@@ -17,7 +16,6 @@ const validationRules = {
       const address = document.getElementById("streetAddress1").value.trim();
       const city = document.getElementById("city").value.trim();
       const phone = document.getElementById("phone").value.trim();
-
       if (!validationRules.firstName.test(firstName)) {
         alert("Please enter a valid First Name.");
         return;
@@ -42,7 +40,6 @@ const validationRules = {
         alert("Please enter a valid Egyptian phone number.");
         return;
       }
-
-      window.location.href = "Order Completed.html";
+      window.location.href = "../pages/Order Completed.html";
     });
   });
