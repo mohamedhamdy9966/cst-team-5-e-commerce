@@ -172,118 +172,116 @@
   <body>
     <!-- Sidebar -->
     <nav class="sidebar">
-      <a href="./admin.html" class="nav-link ff15" title="Add Items"
+      <a href="./adminDashboard.html" class="nav-link ff15" title="Add Items"
         ><i class="bi bi-plus-square"></i><span> Book</span></a
       >
-      <a href="./booklist.html" class="nav-link" title="List Items"
+      <a href="./adminBookList.html" class="nav-link" title="List Items"
         ><i class="bi bi-list-ul"></i><span> Book list</span></a
       >
-      <a href="./order_list.html" class="nav-link" title="Orders"
+      <a href="./adminOrders.html" class="nav-link" title="Orders"
         ><i class="bi bi-receipt"></i><span> Orders</span></a
       >
-      <a href="./Users.html" class="nav-link" title="Users"
+      <a href="./adminUsers.html" class="nav-link" title="Users"
         ><i class="bi bi-people"></i><span> Users</span></a
       >
       <a href="#" class="nav-link" title="Logout" onclick="logout()"
         ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
       >
     </nav>
+
     <!-- Main Content -->
-    <div class="main-content">
-      <div class="header">
-        <h3 class="text-center mb-0">Admin Panel</h3>
-      </div>
-      <!-- Form and Image -->
-      <div class="product-form-container mt-4">
-        <!-- Left: Form -->
-        <form class="flex-grow-1 test">
-          <div class="d-flex flex-column gap-4 mb-4">
-            <label class="img-placeholder" id="imgLabel">
-              <span id="imgText">Image</span>
-              <input type="file" id="imgInput" accept="image/*" hidden />
-            </label>
-            <div class="mb-3">
-              <label class="form-label">Book Name</label>
-              <input
-                type="text"
-                class="form-control mx-w"
-                placeholder="Enter product name"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Description</label>
-              <textarea
-                class="form-control mx-w"
-                rows="3"
-                placeholder="Enter product description"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Category</label>
-              <input
-                type="text"
-                class="form-control mx-w"
-                placeholder="Enter category"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Price</label>
-              <input
-                type="number"
-                class="form-control mx-w"
-                placeholder="Enter price"
-              />
-            </div>
+    <main class="main-content">
+      <h3 class="mb-4">All Orders</h3>
+      <div class="d-flex flex-column gap-4">
+        <!-- Order Item -->
+        <div class="row bg-white rounded p-3 shadow-sm">
+          <div class="col-md-1 text-secondary fs-4">📦</div>
+          <div class="col-md-7">
+            <p class="mb-1">
+              <strong>Items:</strong> Product A x 2 <span>"Large"</span>
+            </p>
+            <p class="mb-1"><strong>Name:</strong> John Doe</p>
+            <p class="mb-1 text-muted">Address: 123 Main St, New York, NY</p>
+            <p class="mb-1 text-muted">Items: 1</p>
+            <p class="mb-1">Method: Cash on Delivery</p>
+            <p class="mb-1">Payment: Pending</p>
+            <p class="mb-0">Date: 04/29/2025</p>
           </div>
-          <button
-            type="submit"
-            class="btn text-white zz"
-            style="background-color: #0f84a9"
-          >
-            Add Product
-          </button>
-        </form>
-        <!-- Right: Image -->
-        <img
-          src="../assets/admin/premium_photo-1661582120130-03b9bdc47a75.avif"
-          alt="admin illustration"
-          class="product-image"
-        />
+          <div class="col-md-2 fw-semibold align-self-center">$49.99</div>
+          <div class="col-md-2 align-self-center">
+            <select class="form-select form-select-sm">
+              <option selected>Order Placed</option>
+              <option>Packing</option>
+              <option>Shipped</option>
+              <option>Out for delivery</option>
+              <option>Delivered</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Second Order -->
+        <div class="row bg-white rounded p-3 shadow-sm">
+          <div class="col-md-1 text-secondary fs-4">📦</div>
+          <div class="col-md-7">
+            <p class="mb-1">
+              <strong>Items:</strong> Product B x 1 <span>"Medium"</span>
+            </p>
+            <p class="mb-1"><strong>Name:</strong> Jane Smith</p>
+            <p class="mb-1 text-muted">
+              Address: 456 Market Ave, San Francisco, CA
+            </p>
+            <p class="mb-1 text-muted">Items: 1</p>
+            <p class="mb-1">Method: Credit Card</p>
+            <p class="mb-1">Payment: Done</p>
+            <p class="mb-0">Date: 04/28/2025</p>
+          </div>
+          <div class="col-md-2 fw-semibold align-self-center">$79.50</div>
+          <div class="col-md-2 align-self-center">
+            <select class="form-select form-select-sm">
+              <option>Order Placed</option>
+              <option selected>Packing</option>
+              <option>Shipped</option>
+              <option>Out for delivery</option>
+              <option>Delivered</option>
+            </select>
+          </div>
+        </div>
       </div>
-    </div>
-  </body>
-  <script>
-    // Access control
-    // Ensure currentUser is valid and has the proper role
-    const u = JSON.parse(localStorage.getItem("currentUser"));
-    if (!u || (u.role !== "admin" && u.role !== "seller")) {
-      alert("Access Denied");
-      window.location.href = "./login.html";
-    }
-    // Initialize books array from localStorage or empty
-    let all = JSON.parse(localStorage.getItem("books")) || [];
-    // Function to add a new book
-    function addBook() {
-      const img = document.getElementById("imgUrl").value.trim();
-      const title = document.getElementById("title").value.trim();
-      const price = document.getElementById("price").value.trim();
-      if (!img || !title || !price) {
-        alert("Please fill in all fields.");
-        return;
+    </main>
+
+    <script>
+      // Access control
+      // Ensure currentUser is valid and has the proper role
+      const u = JSON.parse(localStorage.getItem("currentUser"));
+      if (!u || (u.role !== "admin" && u.role !== "seller")) {
+        alert("Access Denied");
+        window.location.href = "../pages/login.html";
       }
-      all.push({
-        img,
-        title,
-        price: parseFloat(price),
-        owner: u.username,
-      });
-      localStorage.setItem("books", JSON.stringify(all));
-      render(); // Assumes render() is defined elsewhere
-    }
-    // Logout function
-    function logout() {
-      localStorage.removeItem("currentUser");
-      window.location.href = "../index.html";
-    }
-  </script>
+      // Initialize books array from localStorage or empty
+      let all = JSON.parse(localStorage.getItem("books")) || [];
+      // Function to add a new book
+      function addBook() {
+        const img = document.getElementById("imgUrl").value.trim();
+        const title = document.getElementById("title").value.trim();
+        const price = document.getElementById("price").value.trim();
+        if (!img || !title || !price) {
+          alert("Please fill in all fields.");
+          return;
+        }
+        all.push({
+          img,
+          title,
+          price: parseFloat(price),
+          owner: u.username,
+        });
+        localStorage.setItem("books", JSON.stringify(all));
+        render(); // Assumes render() is defined elsewhere
+      }
+      // Logout function
+      function logout() {
+        localStorage.removeItem("currentUser");
+        window.location.href = "../index.html";
+      }
+    </script>
+  </body>
 </html>

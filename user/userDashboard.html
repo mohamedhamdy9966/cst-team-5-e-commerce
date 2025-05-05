@@ -1,389 +1,296 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap Product Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seller Dashboard</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
     />
     <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
       body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        color: #333;
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
       }
-      h1,
-      h2,
-      h3 {
-        color: #007bff;
-        margin-bottom: 15px;
-      }
-
-      .features {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      .features li {
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-        font-size: 18px;
-      }
-
-      .checkout-form {
+      .sidebar {
+        background-color: #036280;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 400px;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        z-index: 1000;
       }
-
-      .checkout-form input {
-        padding: 10px;
-        margin-bottom: 10px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        font-size: 16px;
-      }
-
-      .order-summary {
-        background-color: #f1f1f1;
-        padding: 10px;
-        margin-bottom: 15px;
-        border-radius: 6px;
-      }
-
-      button {
-        padding: 12px;
-        font-size: 16px;
+      .sidebar .nav-link {
         color: white;
-        background-color: #28a745;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
+        background-color: #0f84a9;
+        margin: 20px auto;
+        text-align: center;
+        width: 50%;
+        border-radius: 20px;
+        font-size: 1.25rem;
+        padding: 10px 20px;
       }
-
-      button:hover {
-        background-color: #218838;
+      .sidebar .nav-link:hover {
+        background-color: #0c6c8a;
+        box-shadow: 4px 4px 4px 4px rgba(36, 19, 194, 0.3);
       }
-      label {
-        color: #036280;
-        font-size: 20px;
+      .sidebar span,
+      .sidebar i {
+        color: black;
       }
-      input {
-        height: 55px;
+      .main-content {
+        margin-left: 400px;
+        padding: 2rem;
       }
-      .note {
+      .header {
+        background: white;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+      }
+      .img-placeholder {
+        width: 100%;
         height: 250px;
+        cursor: pointer;
+        max-width: 250px;
+        background-color: #e9ecef;
+        border: 2px dashed #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #999;
       }
-      span {
-        color: #012e4a;
-        font-size: 20px;
+      .test {
+        max-width: 50%;
+      }
+      .mx-w {
+        max-width: 700px;
+      }
+      .product-form-container {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+      .product-image {
+        max-width: 500px;
+        margin-top: 10%;
+        border-radius: 20px;
+        min-height: 400px;
+        width: 100%;
+      }
+      .zz {
+        position: relative;
+        padding: 14px;
+        overflow: hidden;
+        z-index: 1;
+        border: none;
+        color: white;
+      }
+      .zz::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: orange;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+        z-index: -1;
+      }
+      .zz:hover::before {
+        transform: scaleX(1);
+      }
+      @media (max-width: 768px) {
+        .sidebar {
+          height: auto;
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-around;
+          padding: 0.5rem;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+        }
+        .test {
+          max-width: 100%;
+        }
+        .sidebar span {
+          display: none;
+        }
+
+        .sidebar .nav-link {
+          margin: 0;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .main-content {
+          margin-left: 0;
+          padding-top: 4rem;
+        }
+
+        .header {
+          padding-top: 20px;
+        }
+
+        .product-form-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .product-image {
+          min-height: auto;
+        }
       }
     </style>
   </head>
   <body>
-    <nav class="d-flex align-items-stretch sticky" style="height: 100px">
-      <!-- Left Logo -->
-      <section
-        class="d-flex align-items-center px-4"
-        style="
-          background-color: #012e4a;
-          border-top-right-radius: 75%;
-          height: 100%;
-        "
-      >
-        <img
-          src="../assets/home/white-logo.svg"
-          alt="Bookle"
-          class="img-fluid"
-          style="max-height: 100%"
-        />
-      </section>
-      <!-- Right Section -->
-      <section class="flex-grow-1 d-flex flex-column">
-        <!-- Top Nav -->
-        <div
-          class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
-          style="background-color: #036280; color: white; font-size: 0.9rem"
-        >
-          <div class="">
-            <i class="fas fa-phone me-2"></i> +208-6666-0112 |
-            <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
-            <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
-          </div>
-          <div>
-            <a
-              href="./pages/login.html"
-              style="color: white; text-decoration: none; margin-right: 15px"
-              ><i class="fas fa-user ms-3 me-1"></i>Login</a
-            >
-          </div>
-        </div>
-        <!-- Bottom Nav -->
-        <div
-          class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
-          style="background-color: #fff; border-bottom: 1px solid #ddd"
-        >
-          <!-- Navbar -->
-          <nav class="navbar navbar-expand-lg p-0">
-            <div class="container-fluid">
-              <!-- Toggle Button for Offcanvas -->
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <!-- Offcanvas Menu -->
-              <div
-                class="offcanvas offcanvas-start"
-                tabindex="-1"
-                id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel"
-              >
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                    <i class="fa-solid fa-bars"></i> Menu
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="offcanvas"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="offcanvas-body">
-                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item fw-bold px-2">
-                      <a class="nav-link" href="#"
-                        ><i class="fa-solid fa-house"></i> Home</a
-                      >
-                    </li>
-                    <!-- Shop Dropdown -->
-                    <li class="nav-item fw-bold px-2">
-                      <a
-                        class="nav-link"
-                        href="./pages/shoplist.html"
-                        role="button"
-                        aria-expanded="false"
-                      >
-                        <i class="fa-solid fa-shop"></i> Shop
-                      </a>
-                    </li>
-                    <!-- Pages Dropdown -->
-                    <li class="nav-item fw-bold px-2">
-                      <a
-                        class="nav-link"
-                        href="./pages/aboutUs.html"
-                        role="button"
-                        aria-expanded="false"
-                      >
-                        <i class="fa-solid fa-file"></i> About Us
-                      </a>
-                    </li>
-                    <li class="nav-item fw-bold px-2">
-                      <a class="nav-link" href="./pages/Contact.html"
-                        ><i class="fa-solid fa-address-book"></i> Contact</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </nav>
-          <!-- Icons -->
-          <div class="d-flex gap-3">
-            <div class="position-relative">
-              <a href="./pages/wishlist.html" class="text-danger">
-                <i
-                  class="far fa-heart"
-                  style="font-size: 1.2rem; position: relative"
-                ></i>
-                <span
-                  class="rounded-circle text-bg-light"
-                  style="
-                    font-size: 0.7rem;
-                    position: absolute;
-                    top: -8px;
-                    right: -10px;
-                    background-color: #036280;
-                  "
-                  >0</span
-                >
-              </a>
-            </div>
-            <div class="position-relative">
-              <a href="./pages/cart.html" class="text-success">
-                <i
-                  class="fas fa-shopping-cart"
-                  style="font-size: 1.2rem; position: relative"
-                ></i>
-                <span
-                  class="rounded-circle text-bg-light"
-                  style="
-                    font-size: 0.7rem;
-                    position: absolute;
-                    top: -8px;
-                    right: -10px;
-                    background-color: #036280;
-                  "
-                  >0</span
-                >
-              </a>
-            </div>
-            <div class="position-relative">
-              <a
-                href="./pages/login.html"
-                class="d-md-none"
-                style="color: #02488d"
-              >
-                <i
-                  class="fas fa-user"
-                  style="font-size: 1.2rem; position: relative"
-                ></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+
+    <nav class="sidebar">
+      <a href="../index.html" class="nav-link" title="Home">
+        <i class="bi bi-house"></i><span>Home</span>
+      </a>
+      <a href="../index.html" class="nav-link" title="My Account">
+        <i class="bi bi-person"></i><span>My Account</span>
+      </a>
+      <a href="./userOrderList.html" class="nav-link" title="Orders">
+        <i class="bi bi-list-ul"></i><span>My Orders</span>
+      </a>
+      <a href="./userWishlist.html" class="nav-link active" title="Wishlist">
+        <i class="bi bi-heart-fill"></i><span>My Wish List</span>
+      </a>
+      <a href="#" class="nav-link" title="Logout" onclick="logout()">
+        <i class="bi bi-box-arrow-right"></i><span>Logout</span>
+      </a>
     </nav>
-    <section class="container">
-      <form class="checkout-form">
-        <h3>Shipping Details</h3>
-        <input type="text" placeholder="Full Name" required />
-        <input type="text" placeholder="Address" required />
-        <input type="text" placeholder="City" required />
-        <input type="text" placeholder="Postal Code" required />
-
-        <h3>Payment Details</h3>
-        <input type="text" placeholder="Card Number" required />
-        <input type="text" placeholder="Expiration Date (MM/YY)" required />
-        <input type="text" placeholder="CVV" required />
-
-        <h3>Order Summary</h3>
-        <div class="order-summary">
-          <p>Product 1 × 1 — $29.99</p>
-          <p>Product 2 × 2 — $39.98</p>
-          <hr />
-          <strong>Total: $69.97</strong>
-        </div>
-
-        <button type="submit">Complete Purchase</button>
-      </form>
-    </section>
-    <footer
-      class="text-white"
-      style="background-color: #012e4a; border-radius: 5px; padding: 40px"
-    >
-      <div class="container">
-        <div class="row text-center text-md-start">
-          <div class="col-md-3 mb-4">
-            <h5>📚 Bookle</h5>
-            <p>
-              Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
-              lacinia curabitur lacinia mollis
-            </p>
-            <div>
-              <a href="#" class="text-white me-2"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="#" class="text-white me-2"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a href="#" class="text-white me-2"
-                ><i class="fab fa-linkedin"></i
-              ></a>
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="header bg-secondary rounded">
+        <h3 class="text-center mb-0">User Dashboard</h3>
+      </div>
+      <!-- Form and Image -->
+      <div class="product-form-container mt-4">
+        <!-- Left: Form -->
+        <form class="flex-grow-1 test">
+          <div class="d-flex flex-column gap-4 mb-4">
+            <label class="img-placeholder" id="imgLabel">
+              <span id="imgText">Image</span>
+              <input type="file" id="imgInput" accept="image/*" hidden />
+            </label>
+            <div class="mb-3">
+              <label class="form-label">Book Name</label>
+              <input
+                type="text"
+                class="form-control mx-w"
+                placeholder="Enter product name"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea
+                class="form-control mx-w"
+                rows="3"
+                placeholder="Enter product description"
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Category</label>
+              <input
+                type="text"
+                class="form-control mx-w"
+                placeholder="Enter category"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Price</label>
+              <input
+                type="number"
+                class="form-control mx-w"
+                placeholder="Enter price"
+              />
             </div>
           </div>
-          <div class="col-md-3 mb-4">
-            <h6>Customers Support</h6>
-            <ul class="list-unstyled">
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Store List</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Opening Hours</a
-                >
-              </li>
-              <li>
-                <a href="./Contact.html" class="text-white text-decoration-none"
-                  >Contact Us</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Return Policy</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-4">
-            <h6>Categories</h6>
-            <ul class="list-unstyled">
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Novel Books</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Poetry Books</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >Political Books</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-white text-decoration-none"
-                  >History Books</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-4">
-            <h6>Newsletter</h6>
-            <p>
-              Sign up to receive weekly newsletter to get the latest updates.
-            </p>
-            <form class="d-flex">
-              <input
-                type="email"
-                class="form-control me-2"
-                placeholder="Enter Email Address"
-              />
-              <button class="btn btn-primary" type="submit">
-                <i class="fa fa-paper-plane" style="color: white"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-        <hr class="bg-white" />
-        <div class="text-center">
-          <p>
-            <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
-            <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
-            <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
-            &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
-          </p>
-        </div>
+          <button
+            type="submit"
+            class="btn text-white zz"
+            style="background-color: #0f84a9"
+          >
+            Add Product
+          </button>
+        </form>
+        <!-- Right: Image -->
+        <img
+          src="../assets/seller/book-seller.png"
+          alt="admin illustration"
+          class="product-image"
+        />
       </div>
-    </footer>
+    </main>
+    <script>
+      // Access control
+      // Ensure currentUser is valid and has the proper role
+
+      // const u = JSON.parse(localStorage.getItem("currentUser"));
+      // if (!u || u.role !== "admin") {
+      //   alert("Access Denied");
+      //   window.location.href = "../pages/login.html";
+      // }
+
+      // Initialize books array from localStorage or empty
+      let all = JSON.parse(localStorage.getItem("books")) || [];
+      // Function to add a new book
+      function addBook() {
+        const img = document.getElementById("imgUrl").value.trim();
+        const title = document.getElementById("title").value.trim();
+        const price = document.getElementById("price").value.trim();
+        if (!img || !title || !price) {
+          alert("Please fill in all fields.");
+          return;
+        }
+        all.push({
+          img,
+          title,
+          price: parseFloat(price),
+          owner: u.username,
+        });
+        localStorage.setItem("books", JSON.stringify(all));
+        render();
+      }
+      // Logout function
+      function logout() {
+        localStorage.removeItem("currentUser");
+        window.location.href = "../index.html";
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -144,19 +144,19 @@
   <body>
     <!-- Sidebar -->
     <nav class="sidebar">
-      <a href="./admin.html" class="nav-link ff15" title="Add Items"
+      <a href="./adminDashboard.html" class="nav-link ff15" title="Add Items"
         ><i class="bi bi-plus-square"></i><span> Book</span></a
       >
-      <a href="./booklist.html" class="nav-link" title="List Items"
+      <a href="./adminBookList.html" class="nav-link" title="List Items"
         ><i class="bi bi-list-ul"></i><span> Book list</span></a
       >
-      <a href="./Orders.html" class="nav-link" title="Orders"
+      <a href="./adminOrders.html" class="nav-link" title="Orders"
         ><i class="bi bi-receipt"></i><span> Orders</span></a
       >
-      <a href="./Users.html" class="nav-link" title="Users"
+      <a href="./adminUsers.html" class="nav-link" title="Users"
         ><i class="bi bi-people"></i><span> Users</span></a
       >
-      <a href="./login.html" class="nav-link" title="Logout"
+      <a href="../pages/login.html" class="nav-link" title="Logout"
         ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
       >
     </nav>
@@ -165,7 +165,6 @@
       <div class="header">
         <h3>All Users</h3>
       </div>
-
       <div class="user-list-container mt-4">
         <table class="table table-striped user-table" id="gg">
           <thead class="table-light">
@@ -180,7 +179,6 @@
         </table>
       </div>
     </main>
-
     <section
       class="modal fade"
       id="editUserModal"
@@ -238,7 +236,6 @@
         </div>
       </div>
     </section>
-
     <script>
       const users = JSON.parse(localStorage.getItem("users")) || [];
       if (users.length === 0) {
@@ -269,7 +266,6 @@
       tbody.innerHTML = "";
       users.forEach((user, index) => {
         const row = document.createElement("tr");
-
         row.innerHTML = `
         <td>${user.fname + " " + user.lname}</td>
         <td>${user.email}</td>
@@ -285,7 +281,6 @@
       `;
         tbody.appendChild(row);
       });
-
       function deleteUser(index) {
         if (users[index].role === "admin") {
           alert("Cannot delete the admin account.");
@@ -297,7 +292,6 @@
           location.reload();
         }
       }
-
       function editUser(index) {
         const user = users[index];
         if (user.role === "admin") {
