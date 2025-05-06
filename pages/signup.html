@@ -21,12 +21,10 @@
       h1[class="card-title"] {
         color: #012e4a;
       }
-
       #signupBtn {
         background-color: #012e4a;
         color: white;
       }
-
       #signupBtn:hover {
         background-color: #f4c430;
         color: white;
@@ -36,7 +34,7 @@
   <body>
     <nav class="d-flex align-items-stretch sticky" style="height: 100px">
       <!-- Left Logo -->
-      <div
+      <section
         class="d-flex align-items-center px-4"
         style="
           background-color: #012e4a;
@@ -50,35 +48,35 @@
           class="img-fluid"
           style="max-height: 100%"
         />
-      </div>
+      </section>
       <!-- Right Section -->
-      <div class="flex-grow-1 d-flex flex-column">
+      <section class="flex-grow-1 d-flex flex-column">
         <!-- Top Nav -->
-        <div
+        <section
           class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
           style="background-color: #036280; color: white; font-size: 0.9rem"
         >
-          <div class="">
+          <section class="">
             <i class="fas fa-phone me-2"></i> +208-6666-0112 |
             <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
             <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
-          </div>
-          <div>
+          </section>
+          <section>
             <a
               href="./login.html"
               style="color: white; text-decoration: none; margin-right: 15px"
               ><i class="fas fa-user ms-3 me-1"></i>Login</a
             >
-          </div>
-        </div>
+          </section>
+        </section>
         <!-- Bottom Nav -->
-        <div
+        <section
           class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
           style="background-color: #fff; border-bottom: 1px solid #ddd"
         >
           <!-- Navbar -->
           <nav class="navbar navbar-expand-lg p-0">
-            <div class="container-fluid">
+            <section class="container-fluid">
               <!-- Toggle Button for Offcanvas -->
               <button
                 class="navbar-toggler"
@@ -90,13 +88,13 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <!-- Offcanvas Menu -->
-              <div
+              <section
                 class="offcanvas offcanvas-start"
                 tabindex="-1"
                 id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel"
               >
-                <div class="offcanvas-header">
+                <section class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
                     <i class="fa-solid fa-bars"></i> Menu
                   </h5>
@@ -106,8 +104,8 @@
                     data-bs-dismiss="offcanvas"
                     aria-label="Close"
                   ></button>
-                </div>
-                <div class="offcanvas-body">
+                </section>
+                <section class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item fw-bold px-2">
                       <a class="nav-link" href="../index.html"
@@ -142,13 +140,13 @@
                       >
                     </li>
                   </ul>
-                </div>
-              </div>
-            </div>
+                </section>
+              </section>
+            </section>
           </nav>
           <!-- Icons -->
-          <div class="d-flex gap-3">
-            <div class="position-relative">
+          <section class="d-flex gap-3">
+            <section class="position-relative">
               <a href="./wishlist.html" class="text-danger">
                 <i
                   class="far fa-heart"
@@ -166,8 +164,8 @@
                   >0</span
                 >
               </a>
-            </div>
-            <div class="position-relative">
+            </section>
+            <section class="position-relative">
               <a href="./cart.html" class="text-success">
                 <i
                   class="fas fa-shopping-cart"
@@ -185,25 +183,26 @@
                   >0</span
                 >
               </a>
-            </div>
-            <div class="position-relative">
+            </section>
+            <section class="position-relative">
               <a href="./login.html" class="d-md-none" style="color: #02488d">
                 <i
                   class="fas fa-user"
                   style="font-size: 1.2rem; position: relative"
                 ></i>
               </a>
-            </div>
-          </div>
-        </div>
-      </div>
+            </section>
+          </section>
+        </section>
+      </section>
     </nav>
     <section class="container">
-      <div class="card p-5 m-5 col-sm-12 col-md-8 col-lg-6 mx-auto shadow">
-        <div class="card-body">
+      <section class="card p-5 m-5 col-sm-12 col-md-8 col-lg-6 mx-auto shadow">
+        <section class="card-body">
           <h1 class="card-title">Create an Account</h1>
-          <div class="d-flex justify-content-between gap-2">
-            <div class="form-floating col-6 mb-3">
+          <div id="message" class="alert d-none" role="alert"></div>
+          <section class="d-flex justify-content-between gap-2">
+            <section class="form-floating col-6 mb-3">
               <input
                 type="text"
                 class="form-control"
@@ -211,8 +210,8 @@
                 placeholder="First Name"
               />
               <label for="email">First Name</label>
-            </div>
-            <div class="form-floating col-6 mb-3">
+            </section>
+            <section class="form-floating col-6 mb-3">
               <input
                 type="text"
                 class="form-control"
@@ -220,9 +219,9 @@
                 placeholder="Last Name"
               />
               <label for="email">Last Name</label>
-            </div>
-          </div>
-          <div class="form-floating mb-3">
+            </section>
+          </section>
+          <section class="form-floating mb-3">
             <input
               type="email"
               class="form-control"
@@ -230,8 +229,8 @@
               placeholder="name@example.com"
             />
             <label for="email">Email address</label>
-          </div>
-          <div class="form-floating mb-3">
+          </section>
+          <section class="form-floating mb-3">
             <input
               type="password"
               class="form-control"
@@ -239,16 +238,16 @@
               placeholder="Password"
             />
             <label for="password">Password</label>
-          </div>
-          <div class="form-floating mb-3">
+          </section>
+          <section class="form-floating mb-3">
             <select class="form-select" id="role">
               <option value="" disabled selected>Select Role</option>
               <option value="seller">Seller</option>
               <option value="customer">User</option>
             </select>
             <label for="role">Role</label>
-          </div>
-          <div class="form-check mb-3 fw-bold d-flex justify-content-center">
+          </section>
+          <section class="form-check mb-3 fw-bold d-flex justify-content-center">
             <input
               class="form-check-input"
               type="checkbox"
@@ -258,32 +257,32 @@
             <label class="form-check-label" for="checkTerms">
               I Accept Your Terms & Conditions
             </label>
-          </div>
-          <div class="text-center mt-3 mb-3">
+          </section>
+          <section class="text-center mt-3 mb-3">
             <span>Already have an account ?</span>
             <a href="./login.html" class="text-decoration-none">Login Here</a>
-          </div>
-          <div class="d-grid mb-3">
+          </section>
+          <section class="d-grid mb-3">
             <button class="btn btn-primary" type="submit" id="signupBtn">
               <strong>Signup</strong>
             </button>
-          </div>
-        </div>
-      </div>
+          </section>
+        </section>
+      </section>
     </section>
     <footer
       class="text-white"
       style="background-color: #012e4a; border-radius: 5px; padding: 40px"
     >
-      <div class="container">
-        <div class="row text-center text-md-start">
-          <div class="col-md-3 mb-4">
+      <section class="container">
+        <section class="row text-center text-md-start">
+          <section class="col-md-3 mb-4">
             <h5>📚 Bookle</h5>
             <p>
               Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
               lacinia curabitur lacinia mollis
             </p>
-            <div>
+            <section>
               <a href="#" class="text-white me-2"
                 ><i class="fab fa-facebook-f"></i
               ></a>
@@ -293,9 +292,9 @@
               <a href="#" class="text-white me-2"
                 ><i class="fab fa-linkedin"></i
               ></a>
-            </div>
-          </div>
-          <div class="col-md-3 mb-4">
+            </section>
+          </section>
+          <section class="col-md-3 mb-4">
             <h6>Customers Support</h6>
             <ul class="list-unstyled">
               <li>
@@ -319,8 +318,8 @@
                 >
               </li>
             </ul>
-          </div>
-          <div class="col-md-3 mb-4">
+          </section>
+          <section class="col-md-3 mb-4">
             <h6>Categories</h6>
             <ul class="list-unstyled">
               <li>
@@ -344,8 +343,8 @@
                 >
               </li>
             </ul>
-          </div>
-          <div class="col-md-3 mb-4">
+          </section>
+          <section class="col-md-3 mb-4">
             <h6>Newsletter</h6>
             <p>
               Sign up to receive weekly newsletter to get the latest updates.
@@ -360,18 +359,18 @@
                 <i class="fa fa-paper-plane" style="color: white"></i>
               </button>
             </form>
-          </div>
-        </div>
+          </section>
+        </section>
         <hr class="bg-white" />
-        <div class="text-center">
+        <section class="text-center">
           <p>
             <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
             <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
             <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
             &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
           </p>
-        </div>
-      </div>
+        </section>
+      </section>
     </footer>
     <script>
       const signupBtn = document.getElementById("signupBtn");
@@ -389,7 +388,7 @@
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
         const role = document.getElementById("role").value.trim().toLowerCase();
-        const termsChecked = document.getElementById("checkterms").checked;
+        const termsChecked = document.getElementById("checkTerms").checked;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!fname) return showMessage("Please enter your first name.");
         if (!lname) return showMessage("Please enter your last name.");
