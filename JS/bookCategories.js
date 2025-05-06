@@ -1,0 +1,16 @@
+const categories = [
+  "Action",
+  "Romance",
+  "Fiction",
+  "Adventure",
+  "Novels",
+  "Philosophy",
+  "Dystopia",
+  "Classic",
+  "Self-help",
+  "Finance",
+  "Fantasy",
+  "Motivation",
+  "History",
+  "Spiritual",
+];

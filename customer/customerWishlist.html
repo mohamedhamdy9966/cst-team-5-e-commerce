@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seller Dashboard</title>
+    <title>Customer WishList</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,7 +17,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
       body {
@@ -174,19 +174,22 @@
     </style>
   </head>
   <body>
-
     <nav class="sidebar">
       <a href="../index.html" class="nav-link" title="Home">
-        <i class="bi bi-house"></i><span>Home</span>
+        <i class="bi bi-house"></i><span> Home</span>
       </a>
-      <a href="../index.html" class="nav-link" title="My Account">
-        <i class="bi bi-person"></i><span>My Account</span>
+      <a href="./customerDashboard.html" class="nav-link" title="My Account">
+        <i class="bi bi-person"></i><span> My Account</span>
       </a>
-      <a href="./userOrderList.html" class="nav-link" title="Orders">
-        <i class="bi bi-list-ul"></i><span>My Orders</span>
+      <a href="./customerOrderList.html" class="nav-link" title="Orders">
+        <i class="bi bi-list-ul"></i><span> My Orders</span>
       </a>
-      <a href="./userWishlist.html" class="nav-link active" title="Wishlist">
-        <i class="bi bi-heart-fill"></i><span>My Wish List</span>
+      <a
+        href="./customerWishlist.html"
+        class="nav-link active"
+        title="Wishlist"
+      >
+        <i class="bi bi-heart"></i><span> My Wish List</span>
       </a>
       <a href="#" class="nav-link" title="Logout" onclick="logout()">
         <i class="bi bi-box-arrow-right"></i><span>Logout</span>
@@ -194,103 +197,82 @@
     </nav>
     <!-- Main Content -->
     <main class="main-content">
-      <div class="header bg-secondary rounded">
-        <h3 class="text-center mb-0">User Dashboard</h3>
-      </div>
-      <!-- Form and Image -->
-      <div class="product-form-container mt-4">
-        <!-- Left: Form -->
-        <form class="flex-grow-1 test">
-          <div class="d-flex flex-column gap-4 mb-4">
-            <label class="img-placeholder" id="imgLabel">
-              <span id="imgText">Image</span>
-              <input type="file" id="imgInput" accept="image/*" hidden />
-            </label>
-            <div class="mb-3">
-              <label class="form-label">Book Name</label>
-              <input
-                type="text"
-                class="form-control mx-w"
-                placeholder="Enter product name"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Description</label>
-              <textarea
-                class="form-control mx-w"
-                rows="3"
-                placeholder="Enter product description"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Category</label>
-              <input
-                type="text"
-                class="form-control mx-w"
-                placeholder="Enter category"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Price</label>
-              <input
-                type="number"
-                class="form-control mx-w"
-                placeholder="Enter price"
-              />
-            </div>
-          </div>
-          <button
-            type="submit"
-            class="btn text-white zz"
-            style="background-color: #0f84a9"
-          >
-            Add Product
-          </button>
-        </form>
-        <!-- Right: Image -->
-        <img
-          src="../assets/seller/book-seller.png"
-          alt="admin illustration"
-          class="product-image"
-        />
-      </div>
+      <section class="header bg-secondary rounded">
+        <h3 class="text-center mb-0">
+          <i class="fa-solid text-light fa-book"></i> My Wish List
+        </h3>
+      </section>
+      <section class="container-fluid my-5">
+        <section class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr>
+                <th></th>
+                <th style="color: #012e4a; font-size: 30px">Book</th>
+                <th style="color: #012e4a; font-size: 30px">Category</th>
+                <th style="color: #012e4a; font-size: 30px">Price</th>
+                <th style="color: #012e4a; font-size: 30px">Stock</th>
+                <th style="color: #012e4a; font-size: 30px">Rating</th>
+              </tr>
+            </thead>
+            <tbody id="customerBooksTable"></tbody>
+          </table>
+        </section>
+      </section>
     </main>
     <script>
-      // Access control
-      // Ensure currentUser is valid and has the proper role
-
-      // const u = JSON.parse(localStorage.getItem("currentUser"));
-      // if (!u || u.role !== "admin") {
-      //   alert("Access Denied");
-      //   window.location.href = "../pages/login.html";
-      // }
-
-      // Initialize books array from localStorage or empty
-      let all = JSON.parse(localStorage.getItem("books")) || [];
-      // Function to add a new book
-      function addBook() {
-        const img = document.getElementById("imgUrl").value.trim();
-        const title = document.getElementById("title").value.trim();
-        const price = document.getElementById("price").value.trim();
-        if (!img || !title || !price) {
-          alert("Please fill in all fields.");
-          return;
-        }
-        all.push({
-          img,
-          title,
-          price: parseFloat(price),
-          owner: u.username,
-        });
-        localStorage.setItem("books", JSON.stringify(all));
-        render();
+      const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+      const customerBooks = u.wishlist || [];
+      const customerBooksTable = document.getElementById("customerBooksTable");
+      customerBooks.forEach((book, index) => {
+        const row = document.createElement("tr");
+        const removeTd = document.createElement("td");
+        removeTd.innerHTML = `<span class='remove-btn' onclick='remove(this)'>×</span>`;
+        removeTd.style = "cursor: pointer;";
+        row.appendChild(removeTd);
+        const bookTd = document.createElement("td");
+        bookTd.classList.add("d-flex", "align-items-center", "bookImage");
+        bookTd.style = "cursor: pointer;";
+        bookTd.innerHTML = `
+          <img src="${book.image}" class="product-img me-2 w-25 h-25" alt="book" />
+          <p class="title mb-0">${book.title}</p>
+        `;
+        row.appendChild(bookTd);
+        const categoryTd = document.createElement("td");
+        categoryTd.classList.add("price");
+        categoryTd.style = "font-weight: bold; font-size: 20px; color: #ff8117";
+        categoryTd.innerHTML = `<p class="title mb-0">${book.category}</p>`;
+        row.appendChild(categoryTd);
+        const priceTd = document.createElement("td");
+        priceTd.classList.add("price");
+        priceTd.style = "font-weight: bold; font-size: 20px; color: #ff8117";
+        priceTd.textContent = `$${parseFloat(book.price).toFixed(2)}`;
+        row.appendChild(priceTd);
+        const stockTd = document.createElement("td");
+        stockTd.classList.add("stock");
+        stockTd.style = "color: #ff8117; font-weight: bold";
+        stockTd.textContent =
+          book.stock > 0 ? `${book.stock} in stock` : "Out Of Stock";
+        row.appendChild(stockTd);
+        const ratingTd = document.createElement("td");
+        ratingTd.classList.add("rating");
+        ratingTd.style = "color: #ff8117; font-weight: bold";
+        ratingTd.textContent = book.rating ? `${book.rating} ★` : "N/A";
+        row.appendChild(ratingTd);
+        customerBooksTable.appendChild(row);
+      });
+      function remove(element) {
+        const row = element.closest("tr");
+        const index = [...row.parentElement.children].indexOf(row);
+        row.remove();
+        u.books.splice(index, 1);
+        localStorage.setItem("currentUser", JSON.stringify(u));
       }
-      // Logout function
       function logout() {
         localStorage.removeItem("currentUser");
         window.location.href = "../index.html";
       }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

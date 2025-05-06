@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seller Dashboard</title>
+    <title>Customer Dashboard</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,7 +17,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
       body {
@@ -81,7 +81,6 @@
         justify-content: center;
         font-size: 1.5rem;
         color: #999;
-        border-radius: 25%;
       }
       .test {
         max-width: 50%;
@@ -95,14 +94,12 @@
         flex-wrap: wrap;
         align-items: flex-start;
       }
-      .seller-image {
+      .product-image {
         max-width: 500px;
         margin-top: 10%;
         border-radius: 20px;
         min-height: 400px;
         width: 100%;
-        position: sticky;
-        top: 50;
       }
       .zz {
         position: relative;
@@ -177,31 +174,31 @@
     </style>
   </head>
   <body>
-    <!-- Sidebar -->
     <nav class="sidebar">
-      <a href="./sellerDashboard.html" class="nav-link ff15" title="Add Items"
-        ><i class="bi bi-person-circle"></i><span id="sellerDashboard"></span
-      ></a>
-      <a href="./sellerAddBook.html" class="nav-link ff15" title="Add Items"
-        ><i class="bi bi-plus-square"></i><span> Sell A Book</span></a
+      <a href="../index.html" class="nav-link" title="Home">
+        <i class="bi bi-house"></i><span> Home</span>
+      </a>
+      <a href="./customerDashboard.html" class="nav-link" title="My Account">
+        <i class="bi bi-person"></i><span> My Account</span>
+      </a>
+      <a href="./customerOrderList.html" class="nav-link" title="Orders">
+        <i class="bi bi-list-ul"></i><span> My Orders</span>
+      </a>
+      <a
+        href="./customerWishlist.html"
+        class="nav-link active"
+        title="Wishlist"
       >
-      <a href="./sellerBookList.html" class="nav-link" title="List Items"
-        ><i class="bi bi-list-ul"></i><span> My Books list</span></a
-      >
-      <a href="./sellerOrdersList.html" class="nav-link" title="Orders"
-        ><i class="bi bi-receipt"></i><span> My Orders</span></a
-      >
-      <a href="./sellerAnalytics.html" class="nav-link" title="Analytics"
-        ><i class="bi bi-receipt"></i><span> My Analytics</span></a
-      >
-      <a href="../index.html" class="nav-link" title="Logout" onclick="logout()"
-        ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
-      >
+        <i class="bi bi-heart"></i><span> My Wish List</span>
+      </a>
+      <a href="#" class="nav-link" title="Logout" onclick="logout()">
+        <i class="bi bi-box-arrow-right"></i><span>Logout</span>
+      </a>
     </nav>
     <!-- Main Content -->
     <main class="main-content">
       <div class="header bg-secondary rounded">
-        <h3 class="text-center mb-0">Seller DashBoard</h3>
+        <h3 id="customerDashboard" class="text-center mb-0"></h3>
       </div>
       <!-- Form and Image -->
       <div class="product-form-container mt-4">
@@ -212,42 +209,37 @@
               <label class="form-label">First Name</label>
               <input
                 type="text"
-                id="title"
                 class="form-control mx-w"
-                placeholder="Enter First name"
+                placeholder="Update Your First Name"
               />
             </div>
             <div class="mb-3">
               <label class="form-label">Last Name</label>
               <input
                 type="text"
-                id="author"
                 class="form-control mx-w"
-                placeholder="Enter Last name"
+                placeholder="Update Your Last name"
               />
             </div>
             <div class="mb-3">
               <label class="form-label">Email</label>
               <input
                 type="text"
-                id="author"
                 class="form-control mx-w"
-                placeholder="Enter Email"
+                placeholder="Update Your Email"
               />
             </div>
             <div class="mb-3">
-              <label class="form-label">Password</label>
+              <label class="form-label">New Password</label>
               <input
                 type="text"
-                id="title"
                 class="form-control mx-w"
-                placeholder="Enter Password"
+                placeholder="Update Your Password"
               />
             </div>
           </div>
           <button
             type="submit"
-            id="addBookButton"
             class="btn text-white zz"
             style="background-color: #0f84a9"
           >
@@ -256,98 +248,25 @@
         </form>
         <!-- Right: Image -->
         <img
-          src="../assets/seller/bookseller2.png"
+          src="../assets/customer/customer.png"
           alt="admin illustration"
-          class="seller-image"
+          class="product-image"
         />
       </div>
     </main>
     <script>
+      // Access control
+      // Ensure currentUser is valid and has the proper role
       const u = JSON.parse(localStorage.getItem("currentUser"));
-      if (!u || u.role !== "seller") {
+      if (!u || (u.role == "admin" && u.role == "seller")) {
         alert("Access Denied");
         window.location.href = "../pages/login.html";
       }
-      // alert(`welcome back ${u.fname}`);
-      const sellerDashboard = document.getElementById("sellerDashboard");
-      sellerDashboard.innerText += `${u.fname} Dashboard`;
+      // alert(`welcome back ${u.fname} !`)
+      const customerDashboard = document.getElementById("customerDashboard");
+      customerDashboard.innerText += `${u.fname} ${u.lname} Dashboard`;
+      // Initialize books array from localStorage or empty
       let all = JSON.parse(localStorage.getItem("books")) || [];
-      document
-        .querySelector(".product-form-container form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          addBook();
-        });
-      function addBook() {
-        const imgInput = document.getElementById("imgInput");
-        const file = imgInput.files[0];
-        if (!file) {
-          alert("Please select an image.");
-          return;
-        }
-        const reader = new FileReader();
-        reader.onload = function () {
-          const image = reader.result;
-          const title = document.getElementById("title").value.trim();
-          const author = document.getElementById("author").value.trim();
-          const description = document
-            .getElementById("description")
-            .value.trim();
-          const category = document.getElementById("category").value;
-          const price = document.getElementById("price").value.trim();
-          const stock = document.getElementById("stock").value.trim();
-          if (
-            !title ||
-            !price ||
-            !stock ||
-            !author ||
-            !description ||
-            !category
-          ) {
-            alert("Please fill in all fields.");
-            return;
-          }
-          sellerBooks = u.books || [];
-          const lastIdAllBooks =
-            all.length > 0 ? Math.max(...all.map((b) => b.id || 0)) : 1;
-          const id = lastIdAllBooks + 1;
-          const lastIdSellerBooks =
-            sellerBooks.length > 0
-              ? Math.max(...sellerBooks.map((b) => b.id || 0))
-              : 1;
-          const idSellerBooks = lastIdSellerBooks + 1;
-          sellerBooks.push({
-            idSellerBooks,
-            title,
-            author,
-            price: parseFloat(price),
-            category,
-            rating: 4.7,
-            sold: 0,
-            image,
-            description,
-            stock,
-          });
-          all.push({
-            id,
-            title,
-            author,
-            price: parseFloat(price),
-            category,
-            rating: 4.7,
-            image,
-            description,
-            stock,
-            sold: 0,
-            owner: u.username,
-          });
-          localStorage.setItem("currentUser", JSON.stringify(u));
-          localStorage.setItem("books", JSON.stringify(all));
-          alert("Book added successfully!");
-          document.querySelector(".product-form-container form").reset();
-        };
-        reader.readAsDataURL(file);
-      }
       // Logout function
       function logout() {
         localStorage.removeItem("currentUser");

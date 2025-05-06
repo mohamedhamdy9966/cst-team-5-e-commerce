@@ -182,7 +182,7 @@
       <a href="./sellerDashboard.html" class="nav-link ff15" title="Add Items"
         ><i class="bi bi-person-circle"></i><span id="sellerDashboard"></span
       ></a>
-      <a href="./sellerAddBook.html" class="nav-link ff15" title="Add Items"
+      <a href="./sellerDashboard.html" class="nav-link ff15" title="Add Items"
         ><i class="bi bi-plus-square"></i><span> Sell A Book</span></a
       >
       <a href="./sellerBookList.html" class="nav-link" title="List Items"
@@ -201,47 +201,81 @@
     <!-- Main Content -->
     <main class="main-content">
       <div class="header bg-secondary rounded">
-        <h3 class="text-center mb-0">Seller DashBoard</h3>
+        <h3 class="text-center mb-0">Sell A Book</h3>
       </div>
       <!-- Form and Image -->
       <div class="product-form-container mt-4">
         <!-- Left: Form -->
         <form class="flex-grow-1 test">
           <div class="d-flex flex-column gap-4 mb-4">
+            <label class="img-placeholder" id="imgLabel">
+              <span id="imgText">Image</span>
+              <input type="file" id="imgInput" accept="image/*" hidden />
+            </label>
             <div class="mb-3">
-              <label class="form-label">First Name</label>
+              <label class="form-label">Book Name</label>
               <input
                 type="text"
                 id="title"
                 class="form-control mx-w"
-                placeholder="Enter First name"
+                placeholder="Enter book name"
               />
             </div>
             <div class="mb-3">
-              <label class="form-label">Last Name</label>
+              <label class="form-label">Author Name</label>
               <input
                 type="text"
                 id="author"
                 class="form-control mx-w"
-                placeholder="Enter Last name"
+                placeholder="Enter book name"
               />
             </div>
             <div class="mb-3">
-              <label class="form-label">Email</label>
-              <input
-                type="text"
-                id="author"
+              <label class="form-label">Description</label>
+              <textarea
                 class="form-control mx-w"
-                placeholder="Enter Email"
+                rows="3"
+                id="description"
+                placeholder="Enter product description"
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Category</label>
+              <div class="form-floating mb-3">
+                <select class="form-select" id="category">
+                  <option value="" disabled selected>Category</option>
+                  <option value="action">Action</option>
+                  <option value="finance">Finance</option>
+                  <option value="romance">Romance</option>
+                  <option value="adventure">Adventure</option>
+                  <option value="novels">Novels</option>
+                  <option value="philosophy">Philosophy</option>
+                  <option value="dystopia">Dystopia</option>
+                  <option value="classic">Classic</option>
+                  <option value="self-help">Self-help</option>
+                  <option value="fantasy">Fantasy</option>
+                  <option value="Motivation">Motivation</option>
+                  <option value="History">History</option>
+                  <option value="Spiritual">Spiritual</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Price</label>
+              <input
+                type="number"
+                id="price"
+                class="form-control mx-w"
+                placeholder="Enter price"
               />
             </div>
             <div class="mb-3">
-              <label class="form-label">Password</label>
+              <label class="form-label">Stock</label>
               <input
-                type="text"
-                id="title"
+                type="number"
+                id="stock"
                 class="form-control mx-w"
-                placeholder="Enter Password"
+                placeholder="Enter stock"
               />
             </div>
           </div>
@@ -251,12 +285,12 @@
             class="btn text-white zz"
             style="background-color: #0f84a9"
           >
-            Update
+            Add Book
           </button>
         </form>
         <!-- Right: Image -->
         <img
-          src="../assets/seller/bookseller2.png"
+          src="../assets/seller/book-seller.png"
           alt="admin illustration"
           class="seller-image"
         />

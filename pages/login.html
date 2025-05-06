@@ -17,48 +17,41 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="../JS/users.js"></script>
+    <script src="../JS/books.js"></script>
     <style>
       .card-title {
         color: #012e4a;
       }
-
       [type="checkbox"]:checked {
         background-color: #f4c430;
         border-color: #f4c430;
       }
-
       [type="radio"]:checked {
         background-color: #f4c430;
         border-color: #f4c430;
       }
-
       #forget-pass {
         color: #012e4a;
       }
-
       #forget-pass:hover {
         color: #f4c430;
       }
-
       #login {
         background-color: #012e4a;
         color: white;
       }
-
       #login:hover {
         background-color: #f4c430;
         color: white;
       }
-
       [href="signup.html"] {
         font-weight: bold;
         color: #012e4a;
       }
-
       [href="signup.html"]:hover {
         color: #f4c430;
       }
-
       .continue button {
         border: 1px solid #012e4a;
         padding: 10px;
@@ -169,7 +162,7 @@
                     <li class="nav-item fw-bold px-2">
                       <a
                         class="nav-link"
-                        href="./aboutUs.html"
+                        href="#"
                         role="button"
                         aria-expanded="false"
                       >
@@ -227,7 +220,7 @@
               </a>
             </div>
             <div class="position-relative">
-              <a href="./login.html" style="color: #02488d">
+              <a href="./login.html" class="d-md-none" style="color: #02488d">
                 <i
                   class="fas fa-user"
                   style="font-size: 1.2rem; position: relative"
@@ -353,9 +346,7 @@
                 >
               </li>
               <li>
-                <a
-                  href="./Contact.html"
-                  class="text-white text-decoration-none"
+                <a href="./Contact.html" class="text-white text-decoration-none"
                   >Contact Us</a
                 >
               </li>
@@ -421,7 +412,7 @@
     </footer>
     <script>
       const sellerArray = [];
-      const buyerArray = [];
+      const customerArray = [];
       document
         .getElementById("login")
         .addEventListener("click", function (event) {
@@ -443,6 +434,7 @@
             const adminUser = {
               username: "Admin",
               email: adminEmail,
+              password: adminPassword,
               role: "admin",
             };
             localStorage.setItem("role", "admin");
@@ -459,9 +451,9 @@
             localStorage.setItem("role", user.role);
             localStorage.setItem("currentUser", JSON.stringify(user));
             if (user.role === "seller") {
-              window.location.href = "./seller.html";
-            } else {
-              window.location.href = "../index.html";
+              window.location.href = "../seller/sellerDashboard.html";
+            } else if (user.role === "customer") {
+              window.location.href = "../customer/customerDashboard.html";
             }
           } else {
             alert("Invalid credentials");

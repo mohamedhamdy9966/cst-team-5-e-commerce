@@ -1,142 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      h1[class="card-title"] {
+        color: #012e4a;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Signup</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
-  <style>
-    h1[class="card-title"] {
-      color: #012e4a;
-    }
+      #signupBtn {
+        background-color: #012e4a;
+        color: white;
+      }
 
-    #signupBtn {
-      background-color: #012e4a;
-      color: white;
-    }
-
-    #signupBtn:hover {
-      background-color: #f4c430;
-      color: white;
-    }
-  </style>
-  <script src="/JS/users.js"></script>
-</head>
-
-<body>
-  <div class="container">
-    <div class="card p-5 m-5 col-sm-12 col-md-8 col-lg-6 mx-auto shadow">
-      <div class="card-body">
-        <h1 class="card-title">Create an Account</h1>
-        <div class="d-flex justify-content-between gap-2">
-          <div class="form-floating col-6 mb-3">
-            <input type="text" class="form-control" id="fname" placeholder="First Name" />
-            <label for="email">First Name</label>
+      #signupBtn:hover {
+        background-color: #f4c430;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="d-flex align-items-stretch sticky" style="height: 100px">
+      <!-- Left Logo -->
+      <div
+        class="d-flex align-items-center px-4"
+        style="
+          background-color: #012e4a;
+          border-top-right-radius: 75%;
+          height: 100%;
+        "
+      >
+        <img
+          src="../assets/home/white-logo.svg"
+          alt="Bookle"
+          class="img-fluid"
+          style="max-height: 100%"
+        />
+      </div>
+      <!-- Right Section -->
+      <div class="flex-grow-1 d-flex flex-column">
+        <!-- Top Nav -->
+        <div
+          class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
+          style="background-color: #036280; color: white; font-size: 0.9rem"
+        >
+          <div class="">
+            <i class="fas fa-phone me-2"></i> +208-6666-0112 |
+            <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
+            <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
           </div>
-          <div class="form-floating col-6 mb-3">
-            <input type="text" class="form-control" id="lname" placeholder="Last Name" />
-            <label for="email">Last Name</label>
+          <div>
+            <a
+              href="./login.html"
+              style="color: white; text-decoration: none; margin-right: 15px"
+              ><i class="fas fa-user ms-3 me-1"></i>Login</a
+            >
           </div>
         </div>
-        <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="email" placeholder="name@example.com" />
-          <label for="email">Email address</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="password" placeholder="Password" />
-          <label for="password">Password</label>
-        </div>
-        <div class="form-floating mb-3">
-          <select class="form-select" id="role">
-            <option value="" disabled selected>Select Role</option>
-            <option value="seller">Seller</option>
-            <option value="user">User</option>
-          </select>
-          <label for="role">Role</label>
-        </div>
-        <div class="form-check mb-3">
-          <input class="form-check-input" type="radio" value="" id="checkterms" />
-          <label class="form-check-label" for="checkterms">
-            I Accept Your Terms & Conditions
-          </label>
-        </div>
-        <div class="d-grid mb-3">
-          <button class="btn btn-primary" type="submit" id="signupBtn">
-            <strong>Signup</strong>
-          </button>
+        <!-- Bottom Nav -->
+        <div
+          class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
+          style="background-color: #fff; border-bottom: 1px solid #ddd"
+        >
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg p-0">
+            <div class="container-fluid">
+              <!-- Toggle Button for Offcanvas -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <!-- Offcanvas Menu -->
+              <div
+                class="offcanvas offcanvas-start"
+                tabindex="-1"
+                id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel"
+              >
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    <i class="fa-solid fa-bars"></i> Menu
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="../index.html"
+                        ><i class="fa-solid fa-house"></i> Home</a
+                      >
+                    </li>
+                    <!-- Shop Dropdown -->
+                    <li class="nav-item fw-bold px-2">
+                      <a
+                        class="nav-link"
+                        href="./shoplist.html"
+                        role="button"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-shop"></i> Shop
+                      </a>
+                    </li>
+                    <!-- Pages Dropdown -->
+                    <li class="nav-item fw-bold px-2">
+                      <a
+                        class="nav-link"
+                        href="#"
+                        role="button"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-file"></i> About Us
+                      </a>
+                    </li>
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="./Contact.html"
+                        ><i class="fa-solid fa-address-book"></i> Contact</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <!-- Icons -->
+          <div class="d-flex gap-3">
+            <div class="position-relative">
+              <a href="./wishlist.html" class="text-danger">
+                <i
+                  class="far fa-heart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  >0</span
+                >
+              </a>
+            </div>
+            <div class="position-relative">
+              <a href="./cart.html" class="text-success">
+                <i
+                  class="fas fa-shopping-cart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  >0</span
+                >
+              </a>
+            </div>
+            <div class="position-relative">
+              <a href="./login.html" class="d-md-none" style="color: #02488d">
+                <i
+                  class="fas fa-user"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </nav>
+    <section class="container">
+      <div class="card p-5 m-5 col-sm-12 col-md-8 col-lg-6 mx-auto shadow">
+        <div class="card-body">
+          <h1 class="card-title">Create an Account</h1>
+          <div class="d-flex justify-content-between gap-2">
+            <div class="form-floating col-6 mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="fname"
+                placeholder="First Name"
+              />
+              <label for="email">First Name</label>
+            </div>
+            <div class="form-floating col-6 mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="lname"
+                placeholder="Last Name"
+              />
+              <label for="email">Last Name</label>
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="name@example.com"
+            />
+            <label for="email">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Password"
+            />
+            <label for="password">Password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <select class="form-select" id="role">
+              <option value="" disabled selected>Select Role</option>
+              <option value="seller">Seller</option>
+              <option value="customer">User</option>
+            </select>
+            <label for="role">Role</label>
+          </div>
+          <div class="form-check mb-3 fw-bold d-flex justify-content-center">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="terms"
+              id="checkTerms"
+            />
+            <label class="form-check-label" for="checkTerms">
+              I Accept Your Terms & Conditions
+            </label>
+          </div>
+          <div class="text-center mt-3 mb-3">
+            <span>Already have an account ?</span>
+            <a href="./login.html" class="text-decoration-none">Login Here</a>
+          </div>
+          <div class="d-grid mb-3">
+            <button class="btn btn-primary" type="submit" id="signupBtn">
+              <strong>Signup</strong>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer
+      class="text-white"
+      style="background-color: #012e4a; border-radius: 5px; padding: 40px"
+    >
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-3 mb-4">
+            <h5>📚 Bookle</h5>
+            <p>
+              Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
+              lacinia curabitur lacinia mollis
+            </p>
+            <div>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Customers Support</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Store List</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Opening Hours</a
+                >
+              </li>
+              <li>
+                <a href="./Contact.html" class="text-white text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Return Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Categories</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Novel Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Poetry Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Political Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >History Books</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Newsletter</h6>
+            <p>
+              Sign up to receive weekly newsletter to get the latest updates.
+            </p>
+            <form class="d-flex">
+              <input
+                type="email"
+                class="form-control me-2"
+                placeholder="Enter Email Address"
+              />
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-paper-plane" style="color: white"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <hr class="bg-white" />
+        <div class="text-center">
+          <p>
+            <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
+            <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
+            <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
+            &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document
+        .getElementById("signupBtn")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          const checkTerms = document.getElementById("checkTerms");
+          if (!checkTerms.checked) {
+            alert("Please Agree First To Terms & Conditions !");
+          } else {
+            const fname = document.getElementById("fname").value.trim();
+            const lname = document.getElementById("lname").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const role = document
+              .getElementById("role")
+              .value.trim()
+              .toLowerCase();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!fname) {
+              alert("Please enter your first name.");
+              return;
+            }
 
-  
-  <script>
-    document
-      .getElementById("signupBtn")
-      .addEventListener("click", function (event) {
-        event.preventDefault();
+            if (!lname) {
+              alert("Please enter your last name.");
+              return;
+            }
 
-        const fname = document.getElementById("fname").value.trim();
-        const lname = document.getElementById("lname").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value.trim();
-        const role = document
-          .getElementById("role")
-          .value.trim()
-          .toLowerCase();
+            if (!email || !emailRegex.test(email)) {
+              alert("Please enter a valid email address.");
+              return;
+            }
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!password || password.length < 6) {
+              alert("Password must be at least 6 characters.");
+              return;
+            }
 
-        if (!fname) {
-          alert("Please enter your first name.");
-          return;
-        }
+            if (role !== "seller" && role !== "customer") {
+              alert("Role must be 'seller' or 'customer'.");
+              return;
+            }
 
-        if (!lname) {
-          alert("Please enter your last name.");
-          return;
-        }
+            let users = JSON.parse(localStorage.getItem("users")) || [];
 
-        if (!email || !emailRegex.test(email)) {
-          alert("Please enter a valid email address.");
-          return;
-        }
+            const existingUser = users.find((user) => user.email === email);
+            if (existingUser) {
+              alert("This email is already registered.");
+              return;
+            }
 
-        if (!password || password.length < 6) {
-          alert("Password must be at least 6 characters.");
-          return;
-        }
+            const newUser = {
+              firstName: fname,
+              lastName: lname,
+              email: email,
+              password: password,
+              role: role,
+              books: [],
+              wishlist: [],
+              orders: [],
+            };
 
-        if (role !== "seller" && role !== "user") {
-          alert("Role must be 'seller' or 'user'.");
-          return;
-        }
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
 
-        let users = JSON.parse(localStorage.getItem("users")) || [];
-
-        const existingUser = users.find((user) => user.email === email);
-        if (existingUser) {
-          alert("This email is already registered.");
-          return;
-        }
-
-        const newUser = {
-          firstname: fname,
-          lastname: lname,
-          email: email,
-          password: password,
-          role: role,
-        };
-
-        users.push(newUser);
-        localStorage.setItem("users", JSON.stringify(users));
-
-        alert("Signup successful!");
-        window.location.href = "login.html";
-      });
-  </script>
-</body>
-
+            alert("Signup successful!");
+            window.location.href = "./login.html";
+          }
+        });
+    </script>
+  </body>
 </html>

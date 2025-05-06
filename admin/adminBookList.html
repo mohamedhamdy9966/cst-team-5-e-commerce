@@ -17,17 +17,7 @@
     <tbody id="list"></tbody>
   </table>
   <script>
-    /* const u = JSON.parse(localStorage.getItem('currentUser'));
-    if(!u) {alert('Login');location='login.html'}
-    const all = JSON.parse(localStorage.getItem('books')||'[]');
-    const tbody = document.getElementById('list');
-    all.forEach(b=>{
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td><img src="${b.img}" width="50"></td><td>${b.title}</td><td>$${b.price}</td><td>${b.owner}</td>`;
-      tbody.appendChild(tr);
-    });
-    function logout(){ localStorage.removeItem('currentUser'); location='login.html'; } */
-
+     const u = JSON.parse(localStorage.getItem('currentUser'));
     const all = JSON.parse(localStorage.getItem('books')||'[]');
     function render() {
       const tbody = document.getElementById('bookList'); tbody.innerHTML = '';

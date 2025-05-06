@@ -181,6 +181,9 @@
     <!-- Sidebar -->
     <nav class="sidebar">
       <a href="./sellerDashboard.html" class="nav-link ff15" title="Add Items"
+        ><i class="bi bi-person-circle"></i><span id="sellerDashboard"></span
+      ></a>
+      <a href="./sellerDashboard.html" class="nav-link ff15" title="Add Items"
         ><i class="bi bi-plus-square"></i><span> Sell A Book</span></a
       >
       <a href="./sellerBookList.html" class="nav-link" title="List Items"
@@ -199,231 +202,87 @@
     <!-- Main Content -->
     <main class="main-content">
       <div class="header bg-secondary rounded">
-        <h3 class="text-center mb-0"><i class="fa-solid text-light fa-book"></i> My Books List</h3>
+        <h3 class="text-center mb-0">
+          <i class="fa-solid text-light fa-book"></i> My Books List
+        </h3>
       </div>
+      <form class="d-flex m-5" role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
       <section class="container-fluid my-5">
         <div class="table">
           <table class="table align-middle">
             <thead>
               <tr>
                 <th></th>
-                <th style="color: #012e4a; font-size: 30px">Product</th>
+                <th style="color: #012e4a; font-size: 30px">Book</th>
+                <th style="color: #012e4a; font-size: 30px">Category</th>
                 <th style="color: #012e4a; font-size: 30px">Price</th>
                 <th style="color: #012e4a; font-size: 30px">Stock</th>
-                <th style="color: #012e4a; font-size: 30px">Subtotal</th>
+                <th style="color: #012e4a; font-size: 30px">Rating</th>
               </tr>
             </thead>
-            <tbody>
-              <!-- Row 1 -->
-              <tr>
-                <td>
-                  <span class="remove-btn" onclick="remove(this)">×</span>
-                </td>
-                <td class="d-flex align-items-center bookImage">
-                  <img
-                    src="../assets/checkout/01.png"
-                    class="product-img me-2 w-50 h-50"
-                    alt="book"
-                  />
-                  <p class="title">Castle In The Sky</p>
-                </td>
-                <td
-                  class="price"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $16.00
-                </td>
-                <td class="stock" style="color: #ff8117; font-weight: bold">
-                  Out Of Stock
-                </td>
-                <td
-                  class="subtotal"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $120.00
-                </td>
-              </tr>
-              <!-- Row 2 -->
-              <tr>
-                <td>
-                  <span class="remove-btn" onclick="remove(this)">×</span>
-                </td>
-                <td class="d-flex align-items-center bookImage">
-                  <img
-                    src="../assets/checkout/02.png"
-                    class="product-img me-2 w-50 h-50"
-                    alt="book"
-                  />
-                  <p class="title">Simple Things You To Save Book</p>
-                </td>
-                <td
-                  class="price"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $30.00
-                </td>
-                <td class="stock" style="font-weight: bold; color: green">
-                  In Stock
-                </td>
-                <td
-                  class="subtotal"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $120.00
-                </td>
-              </tr>
-              <!-- Row 3 -->
-              <tr>
-                <td>
-                  <span class="remove-btn" onclick="remove(this)">×</span>
-                </td>
-                <td class="d-flex align-items-center bookImage">
-                  <img
-                    src="../assets/checkout/03.png"
-                    class="product-img me-2 w-50 h-50"
-                    alt="book"
-                  />
-                  <p class="title">Qple GPad With Retina Sisplay</p>
-                </td>
-                <td
-                  class="price"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $39.00
-                </td>
-                <td class="stock" style="font-weight: bold; color: green">
-                  In Stock
-                </td>
-                <td
-                  class="subtotal"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $120.00
-                </td>
-              </tr>
-              <!-- Row 4 -->
-              <tr>
-                <td>
-                  <span class="remove-btn" onclick="remove(this)">×</span>
-                </td>
-                <td class="d-flex align-items-center bookImage">
-                  <img
-                    src="../assets/checkout/04.png"
-                    class="product-img me-2 w-50 h-50"
-                    alt="book"
-                  />
-                  <p class="title">Flovely and Unicom Erna</p>
-                </td>
-                <td
-                  class="price"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $19.00
-                </td>
-                <td class="stock" style="color: #ff8117; font-weight: bold">
-                  Out Of Stock
-                </td>
-                <td
-                  class="subtotal"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $120.00
-                </td>
-              </tr>
-              <!-- row 5 -->
-              <tr>
-                <td>
-                  <span class="remove-btn" onclick="remove(this)">×</span>
-                </td>
-                <td class="d-flex align-items-center bookImage">
-                  <img
-                    src="../assets/checkout/01.png"
-                    class="product-img me-2 w-50 h-50"
-                    alt="book"
-                  />
-                  <p class="title">Castle In The Sky</p>
-                </td>
-                <td
-                  class="price"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $16.00
-                </td>
-                <td class="stock" style="color: #ff8117; font-weight: bold">
-                  Out Of Stock
-                </td>
-                <td
-                  class="subtotal"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $120.00
-                </td>
-              </tr>
-              <!-- row 6 -->
-              <tr>
-                <td>
-                  <span class="remove-btn" onclick="remove(this)">×</span>
-                </td>
-                <td class="d-flex align-items-center bookImage">
-                  <img
-                    src="../assets/checkout/01.png"
-                    class="product-img me-2 w-50 h-50"
-                    alt="book"
-                  />
-                  <p class="title">Castle In The Sky</p>
-                </td>
-                <td
-                  class="price"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $16.00
-                </td>
-                <td class="stock" style="color: #ff8117; font-weight: bold">
-                  Out Of Stock
-                </td>
-                <td
-                  class="subtotal"
-                  style="font-weight: bold; font-size: 20px; color: #ff8117"
-                >
-                  $120.00
-                </td>
-              </tr>
-            </tbody>
+            <tbody id="sellerBooksTable"></tbody>
           </table>
         </div>
       </section>
     </main>
     <script>
-      // Access control
-      // Ensure currentUser is valid and has the proper role
-
-      // const u = JSON.parse(localStorage.getItem("currentUser"));
-      // if (!u || u.role !== "admin") {
-      //   alert("Access Denied");
-      //   window.location.href = "../pages/login.html";
-      // }
-
-      // Initialize books array from localStorage or empty
-      let all = JSON.parse(localStorage.getItem("books")) || [];
-      // Function to add a new book
-      function addBook() {
-        const img = document.getElementById("imgUrl").value.trim();
-        const title = document.getElementById("title").value.trim();
-        const price = document.getElementById("price").value.trim();
-        if (!img || !title || !price) {
-          alert("Please fill in all fields.");
-          return;
-        }
-        all.push({
-          img,
-          title,
-          price: parseFloat(price),
-          owner: u.username,
-        });
-        localStorage.setItem("books", JSON.stringify(all));
-        render();
+      const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+      const sellerDashboard = document.getElementById("sellerDashboard");
+      sellerDashboard.innerText += `${u.fname} Dashboard`;
+      const sellerBooks = u.books || [];
+      const sellerBooksTable = document.getElementById("sellerBooksTable");
+      sellerBooks.forEach((book, index) => {
+        const row = document.createElement("tr");
+        const removeTd = document.createElement("td");
+        removeTd.innerHTML = `<span class='remove-btn' onclick='remove(this)'>×</span>`;
+        removeTd.style = "cursor: pointer;";
+        row.appendChild(removeTd);
+        const bookTd = document.createElement("td");
+        bookTd.classList.add("d-flex", "align-items-center", "bookImage");
+        bookTd.style = "cursor: pointer;";
+        bookTd.innerHTML = `
+          <img src="${book.image}" class="product-img me-2 w-50 h-50" alt="book" />
+          <p class="title mb-0">${book.title}</p>
+        `;
+        row.appendChild(bookTd);
+        const categoryTd = document.createElement("td");
+        categoryTd.classList.add("price");
+        categoryTd.style = "font-weight: bold; font-size: 20px; color: #ff8117";
+        categoryTd.innerHTML = `<p class="title mb-0">${book.category}</p>`;
+        row.appendChild(categoryTd);
+        const priceTd = document.createElement("td");
+        priceTd.classList.add("price");
+        priceTd.style = "font-weight: bold; font-size: 20px; color: #ff8117";
+        priceTd.textContent = `$${parseFloat(book.price).toFixed(2)}`;
+        row.appendChild(priceTd);
+        const stockTd = document.createElement("td");
+        stockTd.classList.add("stock");
+        stockTd.style = "color: #ff8117; font-weight: bold";
+        stockTd.textContent =
+          book.stock > 0 ? `${book.stock} in stock` : "Out Of Stock";
+        row.appendChild(stockTd);
+        const ratingTd = document.createElement("td");
+        ratingTd.classList.add("rating");
+        ratingTd.style = "color: #ff8117; font-weight: bold";
+        ratingTd.textContent = book.rating ? `${book.rating} ★` : "N/A";
+        row.appendChild(ratingTd);
+        sellerBooksTable.appendChild(row);
+      });
+      function remove(element) {
+        const row = element.closest("tr");
+        const index = [...row.parentElement.children].indexOf(row);
+        row.remove();
+        u.books.splice(index, 1);
+        localStorage.setItem("currentUser", JSON.stringify(u));
       }
-      // Logout function
       function logout() {
         localStorage.removeItem("currentUser");
         window.location.href = "../index.html";

@@ -9,7 +9,11 @@ const books = [
         description: "Vestibulum consectetur fringilla tellus, et pulvinar massa tempus nec. Fusce nibh nibh, consectetur vitae felis quis, sagittis ullamcorper enim. Nullam maximus vehicula justo, vel vestibulum turpis dictum at. Nam sed laoreet sem.",
         rating: 4.7,
         sold: 160,
-        isFeatured: true
+        stock: 200,
+        isFeatured: true,
+        isTopCategories: false,
+        isTopBooks: false,
+        isTopRating: false,
     },
     {
         id: 2,
@@ -21,7 +25,11 @@ const books = [
         description: "A practical guide with actionable steps for environmental conservation and grassroots movements.",
         rating: 4.5,
         sold: 120,
-        isFeatured: false
+        stock: 200,
+        isFeatured: false,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 3,
@@ -33,7 +41,11 @@ const books = [
         description: "A children's activity book categorized under kids’ literature, published in 2014.",
         rating: 4.2,
         sold: 90,
-        isFeatured: true
+        stock: 200,
+        isFeatured: true,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 4,
@@ -45,7 +57,11 @@ const books = [
         description: "Explores Apple's Retina Display technology introduced in 2010 and its visual clarity.",
         rating: 4.1,
         sold: 75,
-        isFeatured: false
+        stock: 20,
+        isFeatured: false,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 5,
@@ -55,9 +71,13 @@ const books = [
         category: "Philosophy",
         image: "static/img/book1.jpg",
         description: "A journey of self-discovery through the deserts of Egypt.",
-        isFeatured: true,
         rating: 4.7,
-        sold: 150
+        sold: 150,
+        stock: 100,
+        isFeatured: true,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 6,
@@ -67,9 +87,13 @@ const books = [
         category: "Dystopia",
         image: "static/img/book2.jpg",
         description: "A chilling vision of a totalitarian future.",
-        isFeatured: true,
         rating: 4.9,
-        sold: 200
+        sold: 200,
+        stock: 50,
+        isFeatured: true,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 7,
@@ -79,9 +103,13 @@ const books = [
         category: "Classic",
         image: "static/img/book3.jpg",
         description: "A deep look into racial injustice and childhood.",
-        isFeatured: false,
         rating: 4.8,
-        sold: 180
+        sold: 180,
+        stock: 2,
+        isFeatured: false,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 8,
@@ -91,9 +119,13 @@ const books = [
         category: "Self-help",
         image: "static/img/book4.jpg",
         description: "Tiny changes make a big difference.",
-        isFeatured: true,
         rating: 4.6,
-        sold: 250
+        sold: 250,
+        stock: 77,
+        isFeatured: true,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 9,
@@ -103,9 +135,13 @@ const books = [
         category: "Finance",
         image: "static/img/book5.jpg",
         description: "What the rich teach their kids about money.",
-        isFeatured: false,
         rating: 4.4,
-        sold: 170
+        sold: 170,
+        stock: 56,
+        isFeatured: false,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 10,
@@ -115,9 +151,13 @@ const books = [
         category: "Fantasy",
         image: "static/img/book6.jpg",
         description: "A hobbit’s unexpected adventure.",
-        isFeatured: true,
         rating: 4.8,
-        sold: 300
+        sold: 300,
+        stock: 900,
+        isFeatured: true,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 11,
@@ -127,9 +167,13 @@ const books = [
         category: "Motivation",
         image: "static/img/book7.jpg",
         description: "Classic strategies for success.",
-        isFeatured: false,
         rating: 4.3,
-        sold: 110
+        sold: 110,
+        stock: 58,
+        isFeatured: false,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 12,
@@ -139,9 +183,13 @@ const books = [
         category: "History",
         image: "static/img/book8.jpg",
         description: "A brief history of humankind.",
-        isFeatured: false,
         rating: 4.9,
-        sold: 260
+        sold: 260,
+        stock: 83,
+        isFeatured: false,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 13,
@@ -151,9 +199,13 @@ const books = [
         category: "Spiritual",
         image: "static/img/book9.jpg",
         description: "Living in the present moment.",
-        isFeatured: false,
         rating: 4.6,
-        sold: 140
+        sold: 140,
+        stock: 93,
+        isFeatured: false,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     },
     {
         id: 14,
@@ -163,9 +215,13 @@ const books = [
         category: "Finance",
         image: "static/img/book10.jpg",
         description: "Timeless lessons on wealth and behavior.",
-        isFeatured: true,
         rating: 4.7,
-        sold: 210
+        sold: 210,
+        stock: 295,
+        isFeatured: true,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     }
 ];
 
