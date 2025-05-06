@@ -22,11 +22,6 @@
         padding: 0;
         box-sizing: border-box;
       }
-      .footer {
-        background-color: #012e4a;
-        border-radius: 5px;
-        padding: 40px;
-      }
       label {
         color: #036280;
         font-size: 20px;
@@ -292,10 +287,11 @@
           </section>
           <section>
             <a
-              href="./pages/login.html"
+              href=""
               style="color: white; text-decoration: none; margin-right: 15px"
-              ><i class="fas fa-user ms-3 me-1"></i>Login</a
-            >
+              id="loginTopNav"
+              ><i class="fas fa-user ms-3 me-1"></i
+            ></a>
           </section>
         </section>
         <!-- Bottom Nav -->
@@ -376,7 +372,7 @@
           <!-- Icons -->
           <section class="d-flex gap-3">
             <section class="position-relative">
-              <a href="./user/userWishlist.html" class="text-danger">
+              <a href="" id="wishlistIcon" class="text-danger">
                 <i
                   class="far fa-heart"
                   style="font-size: 1.2rem; position: relative"
@@ -395,7 +391,7 @@
               </a>
             </section>
             <section class="position-relative">
-              <a href="./pages/cart.html" class="text-success">
+              <a href="./pages/cart.html" id="cartIcon" class="text-success">
                 <i
                   class="fas fa-shopping-cart"
                   style="font-size: 1.2rem; position: relative"
@@ -417,6 +413,7 @@
             <section class="position-relative">
               <a
                 href="./pages/login.html"
+                id="loginBottomNav"
                 class="d-md-none"
                 style="color: #02488d"
               >
@@ -1082,7 +1079,7 @@
     </section>
     <section id="homeFifthSection" class="first-slider container pt-5">
       <section class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="fw-bold mb-0" style="color: #003366;">Bookle Top Books</h3>
+        <h3 class="fw-bold mb-0" style="color: #003366">Bookle Top Books</h3>
         <a
           href="#"
           class="btn homeAddToCartButton rounded text-secondary border px-4 px-md-5 py-2"
@@ -1090,17 +1087,21 @@
           Explore More &rarr;
         </a>
       </section>
-      <div id="bookleTopBooks" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
+      <section
+        id="bookleTopBooks"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <section class="carousel-inner">
           <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <div class="container">
-              <div class="row g-4 justify-content-center">
+          <section class="carousel-item active">
+            <section class="container">
+              <section class="row g-4 justify-content-center">
                 <!-- Card 1 -->
-                <div
+                <section
                   class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn"
                 >
-                  <div class="card h-100 border-0 shadow-sm">
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded h-75"
                       style="background-color: rgb(221, 221, 221)"
@@ -1111,7 +1112,7 @@
                         alt="Book Cover"
                       />
                     </section>
-                    <div class="card-body">
+                    <section class="card-body">
                       <h5 class="card-title product-name">Book Title 13</h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none"
@@ -1122,7 +1123,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price"> $20.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -1130,7 +1131,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -1138,14 +1139,14 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CART</a
                       >
-                    </div>
-                  </div>
-                </div>
+                    </section>
+                  </section>
+                </section>
                 <!-- Card 2 -->
-                <div
+                <section
                   class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn"
                 >
-                  <div class="card h-100 border-0 shadow-sm">
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded h-75"
                       style="background-color: rgb(221, 221, 221)"
@@ -1156,7 +1157,7 @@
                         alt="Book Cover"
                       />
                     </section>
-                    <div class="card-body">
+                    <section class="card-body">
                       <h5 class="card-title product-name">Book Title 15</h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none"
@@ -1167,7 +1168,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price">$29.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -1175,7 +1176,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -1183,14 +1184,14 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CART</a
                       >
-                    </div>
-                  </div>
-                </div>
+                    </section>
+                  </section>
+                </section>
                 <!-- Card 3 -->
-                <div
+                <section
                   class="col-md-6 col-lg-4 col-xl-3 d-none d-lg-block product-card addToCartBtn"
                 >
-                  <div class="card h-100 border-0 shadow-sm">
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded h-75"
                       style="background-color: rgb(221, 221, 221)"
@@ -1201,7 +1202,7 @@
                         alt="Book Cover"
                       />
                     </section>
-                    <div class="card-body">
+                    <section class="card-body">
                       <h5 class="card-title product-name">Book Title 16</h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none"
@@ -1212,7 +1213,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price">$80.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -1220,7 +1221,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -1228,14 +1229,14 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CART</a
                       >
-                    </div>
-                  </div>
-                </div>
+                    </section>
+                  </section>
+                </section>
                 <!-- Card 4 -->
-                <div
+                <section
                   class="col-md-6 col-lg-4 col-xl-3 d-none d-xl-block product-card addToCartBtn"
                 >
-                  <div class="card h-100 border-0 shadow-sm">
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded h-75"
                       style="background-color: rgb(221, 221, 221)"
@@ -1246,7 +1247,7 @@
                         alt="Book Cover"
                       />
                     </section>
-                    <div class="card-body">
+                    <section class="card-body">
                       <h5 class="card-title product-name">Book Title 7</h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none"
@@ -1257,7 +1258,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price">$64.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -1265,7 +1266,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -1273,14 +1274,14 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CART</a
                       >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                    </section>
+                  </section>
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
+      </section>
     </section>
     <section
       id="homeSixthSection"
@@ -1343,7 +1344,7 @@
         <section
           class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mt-4 mb-5 gap-3"
         >
-          <h3 class="mb-0 fw-bold" style="color: #003366;">Top Rating Books</h3>
+          <h3 class="mb-0 fw-bold" style="color: #003366">Top Rating Books</h3>
           <a
             href="#"
             class="btn homeAddToCartButton rounded text-secondary border px-4 px-md-5 py-2"
@@ -2542,8 +2543,8 @@
         </section>
       </section>
     </section>
-    <footer class="footer text-white">
-      <section class="container-fluid">
+    <footer class="footer text-white p-5" style="background-color: #012e4a;">
+      <section class="container">
         <section class="row text-center text-md-start">
           <section class="col-md-3 mb-4">
             <h5>📚 Bookle</h5>
@@ -2611,12 +2612,30 @@
     </footer>
     <script>
       const container = document.getElementById("carousel-card-container");
+      const loginTopNav = document.getElementById("loginTopNav");
+      const loginBottomNav = document.getElementById("loginBottomNav");
+      const wishlistIcon = document.getElementById("wishlistIcon");
+      const cartIcon = document.getElementById("cartIcon");
+      const u = JSON.parse(localStorage.getItem("currentUser"));
+      if (u) {
+        loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.fname}`;
+        loginTopNav.href = "./customer/customerDashboard.html";
+        loginBottomNav.href = "./customer/customerDashboard.html";
+        wishlistIcon.href = "./customer/customerWishlist.html"
+        cartIcon.href = "./pages/cart.html"
+      } else {
+        loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
+        loginTopNav.href = "./pages/login.html";
+        loginBottomNav.href = "./pages/login.html";
+        wishlistIcon.href = "./pages/login.html";
+        cartIcon.href = "./pages/login.html";
+      }
       let currentIndex = 0;
       const visibleCards = 4;
       const grids = document.querySelectorAll(".dot-grid");
       grids.forEach((grid) => {
         for (let i = 0; i < 50; i++) {
-          const dot = document.createElement("div");
+          const dot = document.createElement("section");
           grid.appendChild(dot);
         }
       });
