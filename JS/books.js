@@ -222,7 +222,64 @@ const books = [
         isTopCategories: true,
         isTopBooks: true,
         isTopRating: true,
+    },
+    {
+        id: 15,
+        title: "Deep Work",
+        author: "Cal Newport",
+        price: 17.25,
+        category: "Romance",
+        image: "../assets/home/book-15.jpg",
+        description: "Rules for focused success in a distracted world.",
+        isFeatured: true,
+        rating: 4.8,
+        sold: 190,
+        stock: 25,
+        isFeatured: true,
+        isTopCategories: true,
+        isTopBooks: true,
+        isTopRating: true,
     }
 ];
 
 localStorage.setItem("books", JSON.stringify(books));
+
+const featuredBooks = JSON.parse(localStorage.getItem("books")).filter(book => book.isFeatured);
+
+const featuredCards = document.querySelectorAll("#booksCarousel .card");
+
+featuredCards.forEach((card, index) => {
+    const book = featuredBooks[index];
+
+    if (book) {
+        const img = card.querySelector(".card > section > .product-img");
+        img.src = book.image;
+        img.alt = book.title;
+        img.style.width = "200px";
+        img.style.height = "260px";
+        card.querySelector(".card>.card-body>.product-name").textContent = book.title;
+        card.querySelector(".card>.card-body>.author").textContent = book.author;
+        card.querySelector(".card>.card-body>section>.product-price").textContent = `$${book.price}`;
+    } else {
+
+        card.style.display = "none";
+    }
+});
+
+const topRatedBooks = books.slice().sort((a, b) => b.rating - a.rating).slice(0, );
+const topRatedCards = document.querySelectorAll("#homeEightthSection .card")
+
+topRatedCards.forEach((card, index) => {
+    const book = topRatedBooks[index];
+    if(book){
+        const img = card.querySelector(".card img");
+        img.src = book.image;
+        img.alt = book.title;
+        img.style.width = "115px";
+        img.style.height = "160px";
+
+        card.querySelector(".card h5.card-title").textContent = book.category;
+        card.querySelector(".card p.fs-6").textContent = book.title;
+        card.querySelector(".card p.price").textContent = `$${book.price}`;
+    }
+});
