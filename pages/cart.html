@@ -12,7 +12,24 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+    <!-- Toastify CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <!-- Toastify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <style>
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
       .relative {
         position: relative;
       }
@@ -283,12 +300,12 @@
             </div>
             <div class="d-flex justify-content-between">
               <span>Shipping</span>
-              <span>$0.00</span>
+              <span id="shipping">$0.00</span>
             </div>
             <hr />
             <div class="d-flex justify-content-between fw-bold">
               <span>Total</span>
-              <span id="subTotal">$0.00</span>
+              <span id="total">$0.00</span>
             </div>
           </div>
           <div class="card-footer bg-transparent border-0">
@@ -329,7 +346,7 @@
         </div>
       </section>
     </section>
-    <footer class="text-white py-5" style="background-color: #012e4a;">
+    <footer class="text-white py-5" style="background-color: #012e4a">
       <div class="container">
         <div class="row text-center text-md-start">
           <div class="col-md-3 mb-4">
@@ -403,45 +420,55 @@
         const selectedProduct = JSON.parse(
           localStorage.getItem("selectedProduct")
         );
-        // Add the selected product to the cart if it doesn't already exist
+
+        const badge = document.querySelector("#count");
+        const cartItemsContainer = document.querySelector("#cartItems");
+        const subTotalElement = document.querySelector("#subTotal");
+        const shippingElement = document.querySelector("#shipping");
+        const totalElement = document.querySelector("#total");
+        const checkoutButton = document.querySelector(".btn.w-100");
+
+        // Add selected product to cart if not already there
         if (selectedProduct) {
-          const exists = cart.some(
+          const existing = cart.find(
             (item) => item.name === selectedProduct.name
           );
-          if (!exists) {
+          if (!existing) {
             selectedProduct.quantity = 1;
             cart.push(selectedProduct);
             localStorage.setItem("cart", JSON.stringify(cart));
           }
           localStorage.removeItem("selectedProduct");
         }
-        const badge = document.querySelector("#count");
-        const cartItemsContainer = document.querySelector("#cartItems");
-        const subTotalElement = document.querySelector("#subTotal");
-        const shippingElement = document.querySelector("#shipping");
-        const totalElement = document.querySelector("#total");
-        // Update cart badge
-        if (badge) {
-          badge.textContent = cart.length;
+
+        function updateCartBadge() {
+          const totalCount = cart.reduce(
+            (sum, item) => sum + (item.quantity || 1),
+            0
+          );
+          if (badge) badge.textContent = totalCount;
         }
-        // Function to update totals
+
         function updateTotals(subTotal) {
-          const shipping = 5; // Fixed shipping cost (you can change this based on your needs)
+          const shipping = 5;
           const total = subTotal + shipping;
           subTotalElement.textContent = `$${subTotal.toFixed(2)}`;
           shippingElement.textContent = `$${shipping.toFixed(2)}`;
           totalElement.textContent = `$${total.toFixed(2)}`;
         }
-        // Display cart items in the cart page
+
         function displayCartItems() {
           cartItemsContainer.innerHTML = "";
           if (cart.length === 0) {
             cartItemsContainer.innerHTML =
               '<tr><td colspan="4" class="text-center">Your cart is empty</td></tr>';
             updateTotals(0);
+            updateCartBadge();
             return;
           }
+
           let subTotal = 0;
+
           cart.forEach((item, index) => {
             const price =
               typeof item.price === "string"
@@ -450,10 +477,11 @@
             const quantity = item.quantity || 1;
             const itemTotal = price * quantity;
             subTotal += itemTotal;
+
             const row = document.createElement("tr");
             row.innerHTML = `
               <td>
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center ">
                   <button class="btn btn-sm border rounded-circle d-flex align-items-center justify-content-center me-2 remove-btn" 
                     style="width: 32px; height: 32px" title="Remove item" data-index="${index}">
                     <i class="fas fa-times"></i>
@@ -469,68 +497,114 @@
               <td class="detailPrice">$${price.toFixed(2)}</td>
               <td>
                 <div class="d-flex align-items-center">
-                  <button class="btn btn-outline-secondary btn-sm dec-btn" data-index="${index}">-</button>
+                  <button id="minus" class="btn btn-outline-secondary btn-sm dec-btn" data-index="${index}">-</button>
                   <input type="text" value="${quantity}" class="form-control text-center mx-1 quantity-input" style="width: 50px" data-index="${index}" />
-                  <button class="btn btn-outline-secondary btn-sm inc-btn" data-index="${index}">+</button>
+                  <button id="plus" class="btn btn-outline-secondary btn-sm inc-btn" data-index="${index}">+</button>
                 </div>
               </td>
               <td class="item-total">$${itemTotal.toFixed(2)}</td>
             `;
             cartItemsContainer.appendChild(row);
           });
+          // Save subtotal to localStorage
+          localStorage.setItem("subTotal", subTotal.toFixed(2));
 
-          // Update totals after displaying the cart items
           updateTotals(subTotal);
+          updateCartBadge();
         }
 
-        // Event listener for button clicks (increment, decrement, and remove)
         document.addEventListener("click", (e) => {
           const button = e.target.closest(".inc-btn, .dec-btn, .remove-btn");
-          if (button) {
-            const index = button.dataset.index;
+          if (!button) return;
+          const index = button.dataset.index;
 
-            if (button.classList.contains("inc-btn")) {
-              // Increment quantity
-              cart[index].quantity = (cart[index].quantity || 1) + 1;
-            } else if (button.classList.contains("dec-btn")) {
-              // Decrement quantity, but only if it's greater than 1
-              if ((cart[index].quantity || 1) > 1) {
-                cart[index].quantity = (cart[index].quantity || 1) - 1;
-              } else {
-                // Remove item if quantity is 0
-                cart.splice(index, 1);
-              }
-            } else if (button.classList.contains("remove-btn")) {
-              // Remove item entirely from cart
+          if (button.classList.contains("inc-btn")) {
+            cart[index].quantity = (cart[index].quantity || 1) + 1;
+          } else if (button.classList.contains("dec-btn")) {
+            if ((cart[index].quantity || 1) > 1) {
+              cart[index].quantity -= 1;
+            } else {
               cart.splice(index, 1);
             }
+          } else if (button.classList.contains("remove-btn")) {
+            cart.splice(index, 1);
+          }
 
-            // Save updated cart to localStorage
+          localStorage.setItem("cart", JSON.stringify(cart));
+          displayCartItems();
+        });
+
+        document.addEventListener("change", (e) => {
+          if (e.target.classList.contains("quantity-input")) {
+            const index = e.target.dataset.index;
+            const value = parseInt(e.target.value);
+            if (!isNaN(value) && value > 0) {
+              cart[index].quantity = value;
+            } else {
+              e.target.value = cart[index].quantity || 1;
+            }
             localStorage.setItem("cart", JSON.stringify(cart));
-
-            // Refresh the display
             displayCartItems();
           }
         });
 
-        // Event listener for quantity input change
-        document.addEventListener("change", (e) => {
-          if (e.target.classList.contains("quantity-input")) {
-            const index = e.target.dataset.index;
-            const newQuantity = parseInt(e.target.value);
-            // Validate and update quantity
-            if (!isNaN(newQuantity) && newQuantity > 0) {
-              cart[index].quantity = newQuantity;
-              localStorage.setItem("cart", JSON.stringify(cart));
-              displayCartItems();
-            } else {
-              // Revert to original quantity if invalid
-              e.target.value = cart[index].quantity || 1;
+        if (checkoutButton) {
+          checkoutButton.addEventListener("click", (e) => {
+            const totalCount = cart.reduce(
+              (sum, item) => sum + (item.quantity || 1),
+              0
+            );
+            if (totalCount === 0) {
+              e.preventDefault();
             }
-          }
-        });
-        // Initial display of cart items
+          });
+        }
+
         displayCartItems();
+      });
+    </script>
+
+    <script>
+      // Toastify checkout button with spinner
+      document.querySelector(".btn.w-100").addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if (cart.length === 0) {
+          Toastify({
+            text: "No products added to the cart.",
+            duration: 3000,
+            gravity: "top",
+            position: "center",
+            backgroundColor: "#dc3545",
+          }).showToast();
+        } else {
+          const loadingToast = document.createElement("div");
+          loadingToast.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="
+            width: 16px;
+            height: 16px;
+            border: 2px solid #fff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+          "></span>
+          <span>Proceeding to checkout...</span>
+        </div>
+      `;
+          Toastify({
+            node: loadingToast,
+            duration: 1000,
+            gravity: "top",
+            position: "center",
+            backgroundColor: "#28a745",
+          }).showToast();
+          setTimeout(() => {
+            window.location.href = "checkout.html";
+          }, 1000);
+        }
       });
     </script>
   </body>

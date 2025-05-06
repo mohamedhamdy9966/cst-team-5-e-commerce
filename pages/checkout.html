@@ -6,6 +6,9 @@
   <title>CheckOut</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!--Toastify-->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <style>
     * {
       padding: 0;
@@ -50,6 +53,11 @@
         color:#012E4A;
         font-size: 20px;
      }
+     .footer {
+        background-color: #012e4a;
+        border-radius: 5px;
+        padding: 40px;
+      }
   </style>
 </head>
 <body>
@@ -201,6 +209,7 @@
                   right: -10px;
                   background-color: #036280;
                 "
+                id="count"
                 >0</span
               >
             </a>
@@ -217,265 +226,422 @@
       </div>
     </div>
   </nav>
-    <section class="container-fluid bg-light py-5" style="min-height: 400px;">
-        <div class="row align-items-center">
-          <!-- Left Image -->
-          <div class="col-md-4 d-none d-md-block text-center py-2">
-            <img src="../assets/checkout/book1.png" class="left-img" alt="Left books"/>
-          </div>
-          <!-- Center Text -->
-          <div class="col-12 col-md-4 text-center py-5">
-            <h2 class="fw-bold" style="color: #012E7C;">Checkout</h2>
-            <p><span style="color: #012E7C;">Home</span> > <span style="color: #036280;">Checkout</span></p>
-          </div>
-          <!-- Right Image -->
-          <div class="col-md-4 d-none d-md-block text-center py-2">
-            <img src="../assets/checkout/book2.png" class="right-img" alt="Right books" style="width: 250px; height: 300px;"/>
-          </div>
-        </div>
-    </section>
-        <div class="container-fluid mt-3">
-            <h2>Billing Details</h2>
-            <div class="row">
-              <!-- Billing Form - Left Column -->
-              <div class="col-md-8">
-                <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <label for="firstName">First Name*</label>
-                    <input type="text" class="form-control mt-2" id="firstName" name="firstName" placeholder="Enter your first name" required>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="secondName">Second Name*</label>
-                    <input type="text" class="form-control mt-2" id="secondName" name="secondName" placeholder="Enter your second name" required>
-                  </div>
-                  <div class="col-12 mb-3">
-                    <label for="companyName">Company Name (optional)</label>
-                    <input type="text" class="form-control mt-2" id="companyName" name="companyName">
-                  </div>
-                  <div class="col-12 mb-3">
-                    <label for="country">Country*</label>
-                    <input type="text" class="form-control mt-2" id="country" name="country" placeholder="Select a country" required>
-                  </div>
-                  <div class="col-12 mb-3">
-                    <label for="streetAddress1">Street Address*</label>
-                    <input type="text" class="form-control mt-2" id="streetAddress1" name="streetAddress1" placeholder="Home number and street name" required>
-                  </div>
-                  <div class="col-12 mb-3">
-                    <label for="streetAddress2">Street Address</label>
-                    <input type="text" class="form-control mt-2" id="streetAddress2" name="streetAddress2" placeholder="Apartment, suite, unit, etc.">
-                  </div>
-          
-                  <div class="col-12 mb-3">
-                    <label for="city">Town/City*</label>
-                    <input type="text" class="form-control mt-2" id="city" name="city" required>
-                  </div>
-          
-                  <div class="col-12 mb-3">
-                    <label for="phone">Phone*</label>
-                    <input type="tel" class="form-control mt-2" id="phone" name="phone" placeholder="Phone number" required>
-                  </div>
-          
-                  <div class="col-12 mb-3">
-                    <label for="email">Email Address*</label>
-                    <input type="email" class="form-control mt-2" id="email" name="email" placeholder="Email" required>
-                  </div>
-                </div>
-              </div>
-          
-              <!-- Order Summary - Right Column -->
-              <div class="col-md-4 text-center">
-                <h2>Our Order</h2>
-                <div class="d-flex justify-content-between">
-                    <span>Product</span>
-                    <span> Subtotal</span>
-                </div>
-                <hr>
-                <div class="d-flex justify-content-between">
-                    <span>Castle In The Sky</span>
-                    <span>$16.00</span>
-                </div>
-                <hr>
-                <div class="row align-items-center">
-                    <!-- Shipping Label Column -->
-                    <div class="col-md-6 col-12 mb-2">
-                      <span class="fw-bold">Shipping</span>
-                    </div>
-                  
-                    <!-- Radio Buttons Column -->
-                    <div class="col-md-6 col-12 ">
-                        <div class="form-check d-flex align-items-center">
-                            <input class="form-check-input me-2" type="radio" id="shipping1" name="shipping">
-                            <label class="form-check-label" for="shipping1">Free Shipping</label>
-                          </div>
-                        <div>
-                          <input class="form-check-input me-2" type="radio" id="shipping2" name="shipping">
-                          <label class="form-check-label" for="shipping2">Express Shipping</label>
-                        </div>
-                        <div>
-                          <input class="form-check-input me-2" type="radio" id="shipping3" name="shipping">
-                          <label class="form-check-label" for="shipping3">Next Day Delivery</label>
-                        </div>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <span>Total </span>
-                        <span> $55.00</span>
-                    </div>
-                    <hr>
-                    <div class="col-12 ">
-                        <div class="form-check d-flex align-items-center">
-                            <input class="form-check-input me-2" type="radio" id="radio1">
-                            <label class="form-check-label" for="radio1">Direct bank transfer</label>
-                          </div>
-                          <p>Make your payment directly into our bank account please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
-                        <div class="form-check d-flex align-items-center">
-                          <input class="form-check-input me-2" type="radio" id="radio2">
-                          <label class="form-check-label" for="radio2">Cash on delivery</label>
-                        </div>
-                        <div class="form-check d-flex align-items-center">
-                          <input class="form-check-input me-2" type="radio" id="radio3" >
-                          <label class="form-check-label" for="radio3">Paypal</label>
-                        </div>
-                        <hr>
-                        <button class="btn btn-success w-100 place-order-btn rounded-5" style="background-color: #012E4A;">
-                          Place Order
-                        </button>
-                      </div>
-                  </div>
-              </div>
-            </div>
-    <div class="container-fluid mt-5">
+  <div class="container-fluid bg-light py-5" style="min-height: 400px;">
+    <div class="row align-items-center">
+      <!-- Left Image -->
+      <div class="col-md-4 d-none d-md-block text-center py-2">
+        <img src="../assets/checkout/book1.png" class="left-img" alt="Left books"/>
+      </div>
+      <!-- Center Text -->
+      <div class="col-12 col-md-4 text-center py-5">
+        <h2 class="fw-bold" style="color: #012E7C;">Checkout</h2>
+        <p><span style="color: #012E7C;">Home</span> > <span style="color: #036280;">Checkout</span></p>
+      </div>
+      <!-- Right Image -->
+      <div class="col-md-4 d-none d-md-block text-center py-2">
+        <img src="../assets/checkout/book2.png" class="right-img" alt="Right books" style="width: 250px; height: 300px;"/>
+      </div>
+    </div>
+</div>
+    <div class="container-fluid mt-3">
+        <h2>Billing Details</h2>
+        <form id="checkoutForm" onsubmit="return placeOrder()" novalidate>
         <div class="row">
-          <!-- Checkbox -->
-          <div class="col-12 mb-3">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="Check1">
-                <label class="form-check-label" for="Check1">
-                    Save for my next payment
-                </label>
+          <!-- Billing Form - Left Column -->
+          
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">First Name*</label>
+                <input type="text" class="form-control mt-2" id="firstName" name="firstName" placeholder="Enter your first name" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="secondName">Second Name*</label>
+                <input type="text" class="form-control mt-2" id="secondName" name="secondName" placeholder="Enter your second name" required>
+              </div>
+              <div class="col-12 mb-3">
+                <label for="companyName">Company Name (optional)</label>
+                <input type="text" class="form-control mt-2" id="companyName" name="companyName">
+              </div>
+              <div class="col-12 mb-3">
+                <label for="country">Country*</label>
+                <input type="text" class="form-control mt-2" id="country" name="country" placeholder="Select a country" required>
+              </div>
+            
+              <div class="col-12 mb-3">
+                <label for="streetAddress">Street Address</label>
+                <input type="text" class="form-control mt-2" id="streetAddress" name="streetAddress" placeholder="Apartment, suite, unit, etc." required>
+              </div>
+      
+              <div class="col-12 mb-3">
+                <label for="city">Town/City*</label>
+                <input type="text" class="form-control mt-2" id="city" name="city" required>
+              </div>
+      
+              <div class="col-12 mb-3">
+                <label for="phone">Phone*</label>
+                <input type="tel" class="form-control mt-2" id="phone" name="phone" placeholder="Phone number" required>
+              </div>
+      
+              <div class="col-12 mb-3">
+                <label for="email">Email Address*</label>
+                <input type="email" class="form-control mt-2" id="email" name="email" placeholder="Email" required>
+              </div>
             </div>
           </div>
-          <div class="col-12 mb-3">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="Check2">
-                <label class="form-check-label" for="Check2">
-                    Ship to a different address?
-                </label>
-            </div>
+      <!-- Order Summary - Right Column -->
+<div class="col-md-4 text-center">
+<h2>Our Order</h2>
+
+<!-- Order Table -->
+<table class="table">
+<thead>
+  <tr>
+    <th scope="col">Product</th>
+    <th scope="col">Quantity</th>
+    <th scope="col">Subtotal</th>
+  </tr>
+</thead>
+<tbody id="cartItems">
+
+</tbody>
+</table>
+
+<hr>
+
+<!-- Shipping Options -->
+<div class="row align-items-center">
+<!-- Shipping Label Column -->
+<div class="col-md-6 col-12 mb-2">
+  <span class="fw-bold">Shipping</span>
+</div>
+
+<!-- Radio Buttons Column -->
+<div class="col-md-6 col-12">
+  <div>
+    <input class="form-check-input me-2" type="radio" id="shipping2" name="shipping">
+    <label class="form-check-label" for="shipping2">Express Shipping</label>
+  </div>
+  <div>
+    <input class="form-check-input me-2" type="radio" id="shipping3" name="shipping">
+    <label class="form-check-label" for="shipping3">Next Day Delivery</label>
+  </div>
+</div>
+</div>
+
+<hr>
+
+<!-- Total -->
+<div class="d-flex justify-content-between">
+<span>Total</span>
+<span id="orderTotal">$55.00</span>
+</div>
+<hr>
+
+<!-- Payment Methods -->
+<div class="col-12">
+<div class="form-check d-flex align-items-center">
+  <input class="form-check-input me-2" type="radio" id="radio1">
+  <label class="form-check-label" for="radio1">Direct bank transfer</label>
+</div>
+<p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
+
+<div class="form-check d-flex align-items-center">
+  <input class="form-check-input me-2" type="radio" id="radio2">
+  <label class="form-check-label" for="radio2">Cash on delivery</label>
+</div>
+
+<div class="form-check d-flex align-items-center">
+  <input class="form-check-input me-2" type="radio" id="radio3">
+  <label class="form-check-label" for="radio3">Paypal</label>
+</div>
+
+<hr>
+<!-- Place Order Button -->
+<button type="submit" class="btn btn-success w-100 place-order-btn rounded-5" style="background-color: #012E4A;" >
+  Place Order
+</button>
+</div>
+</div>
+
+              </div>
           </div>
         </div>
       </div>
-        <div class="col-12 col-md-8 mx-3 my-3">
-            <label for="name">order notes (optional)</label>
-            <input type="text" class="form-control mt-2 note" id="name" placeholder="Note about your Order , E.G Special Notes for Delivery">
+      
+<div class="container-fluid mt-5">
+    <div class="row">
+      <!-- Checkbox -->
+      <div class="col-12 mb-3">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="Check1">
+            <label class="form-check-label" for="Check1">
+                Save for my next payment
+            </label>
+        </div>
+      </div>
+      <div class="col-12 mb-3">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="Check2">
+            <label class="form-check-label" for="Check2">
+                Ship to a different address?
+            </label>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="col-12 col-md-8 mx-3 my-3">
+        <label for="name">order notes (optional)</label>
+        <input type="text" class="form-control mt-2 note" id="name" placeholder="Note about your Order , E.G Special Notes for Delivery">
+      </div>
+    </form>
+
+
+  <div class="footer text-white">
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <div class="col-md-3 mb-4">
+          <h5>📚 Bookle</h5>
+          <p>Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia curabitur lacinia mollis</p>
+          <div>
+            <a href="#" class="text-white me-2" ><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-2"><i class="fab fa-linkedin"></i></a>
           </div>
-        <footer
-          class="text-white"
-          style="background-color: #012e4a; border-radius: 5px; padding: 40px"
-        >
-          <div class="container">
-            <div class="row text-center text-md-start">
-              <div class="col-md-3 mb-4">
-                <h5>📚 Bookle</h5>
-                <p>
-                  Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
-                  lacinia curabitur lacinia mollis
-                </p>
-                <div>
-                  <a href="#" class="text-white me-2"
-                    ><i class="fab fa-facebook-f "></i
-                  ></a>
-                  <a href="#" class="text-white me-2"
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a href="#" class="text-white me-2"
-                    ><i class="fab fa-linkedin"></i
-                  ></a>
-                </div>
-              </div>
-              <div class="col-md-3 mb-4">
-                <h6>Customers Support</h6>
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="#" class="text-white text-decoration-none"
-                      >Store List</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="text-white text-decoration-none"
-                      >Opening Hours</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./Contact.html"
-                      class="text-white text-decoration-none"
-                      >CheckOut</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="text-white text-decoration-none"
-                      >Return Policy</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-3 mb-4">
-                <h6>Categories</h6>
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="#" class="text-white text-decoration-none"
-                      >Novel Books</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="text-white text-decoration-none"
-                      >Poetry Books</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="text-white text-decoration-none"
-                      >Political Books</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="text-white text-decoration-none"
-                      >History Books</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-3 mb-4">
-                <h6>Newsletter</h6>
-                <p>
-                  Sign up to receive weekly newsletter to get the latest updates.
-                </p>
-                <form class="d-flex">
-                  <input
-                    type="email"
-                    class="form-control me-2"
-                    placeholder="Enter Email Address"
-                  />
-                  <button class="btn btn-primary" type="submit">
-                    <i class="fa fa-paper-plane" style="color: white"></i>
-                  </button>
-                </form>
-              </div>
-            </div>
-            <hr class="bg-white" />
-            <div class="text-center">
-              <p>
-                <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
-                <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
-                <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
-                &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
-              </p>
-            </div>
-          </div>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-<script src="../JS/checkout.js"></script>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6>Customers Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Store List</a></li>
+            <li><a href="#" class="text-white">Opening Hours</a></li>
+            <li><a href="#" class="text-white">Contact Us</a></li>
+            <li><a href="#" class="text-white">Return Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6>Categories</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Novel Books</a></li>
+            <li><a href="#" class="text-white">Poetry Books</a></li>
+            <li><a href="#" class="text-white">Political Books</a></li>
+            <li><a href="#" class="text-white">History Books</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6>Newsletter</h6>
+          <p>Sign up to receive weekly newsletter to get the latest updates.</p>
+          <section class="d-flex">
+            <input type="email" class="form-control me-2" placeholder="Enter Email Address" />
+            <button class="btn btn-primary" type="submit">
+                <i class="fa fa-paper-plane" style="color: white;"></i>
+              </button>
+          </section>
+        </div>
+      </div>
+      <hr class="bg-white" />
+      <div class="text-center">
+        <p>
+          <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
+          <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
+          <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; | &nbsp;
+          <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
+        </p>
+      </div>
+    </div>
+  </div>
 </body>
+
+<script>
+
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const badge = document.querySelector('#count');
+     console.log(badge);
+    if (badge) {
+  
+      const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+      badge.textContent = totalItems;
+    }
+  });
+</script>
+<script>
+  // Get cart data from localStorage
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartItemsTable = document.getElementById('cartItems');
+  const orderTotalElement = document.getElementById('orderTotal');
+
+  let totalAmount = 0;
+
+  // Loop through cart items
+  cart.forEach(item => {
+    const row = document.createElement('tr');
+    
+    // Product name cell with image
+    const productCell = document.createElement('td');
+    
+    // Create image element
+    const img = document.createElement('img');
+    img.src = item.img;  
+    img.alt = item.name;
+    img.style.width = '30px';
+    img.style.height = 'auto'; 
+    img.style.marginRight = '10px'; 
+    
+    // Add the image and product name together
+    productCell.appendChild(img);
+    productCell.appendChild(document.createTextNode(item.name)); // Add product name next to the image
+
+    // Quantity cell
+    const quantityCell = document.createElement('td');
+    quantityCell.textContent = item.quantity || 1; // Use 1 if quantity is missing
+
+    // Price and subtotal calculation
+    const price = typeof item.price === 'string' ? parseFloat(item.price.replace('$', '')) : item.price; // Ensure price is a number
+    const quantity = item.quantity || 1; // Default to 1 if quantity is missing or invalid
+    const subtotal = (price * quantity).toFixed(2); // Calculate subtotal for each product
+
+    const subtotalCell = document.createElement('td');
+    subtotalCell.textContent = `$${subtotal}`;
+
+    // Append cells to the row
+    row.appendChild(productCell);
+    row.appendChild(quantityCell);
+    row.appendChild(subtotalCell);
+
+    // Append row to the table body
+    cartItemsTable.appendChild(row);
+
+    // Update the total amount
+    totalAmount += parseFloat(subtotal); // Add subtotal to the totalAmount
+  });
+
+  // Add shipping row (hardcoded)
+  const shippingRow = document.createElement('tr');
+  const shippingProductCell = document.createElement('td');
+  shippingProductCell.textContent = 'Shipping Charges';
+
+  const shippingQuantityCell = document.createElement('td');
+  shippingQuantityCell.textContent = ''; 
+
+  const shippingSubtotalCell = document.createElement('td');
+  const shippingPrice = 5; 
+  shippingSubtotalCell.textContent = `$${shippingPrice.toFixed(2)}`;
+
+  // Append shipping row
+  shippingRow.appendChild(shippingProductCell);
+  shippingRow.appendChild(shippingQuantityCell);
+  shippingRow.appendChild(shippingSubtotalCell);
+  cartItemsTable.appendChild(shippingRow);
+
+  // Update totalAmount with shipping charges
+  totalAmount += shippingPrice;
+
+  // Display the total amount in the order total
+  orderTotalElement.textContent = `$${totalAmount.toFixed(2)}`;
+
+  // Update the "total" element on the page (if needed)
+  document.getElementById("total").innerHTML = totalAmount.toFixed(2);
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  function showToast(message, type = "error") {
+    Toastify({
+      text: message,
+      duration: 3000,
+      gravity: "top",
+      position: "right",
+      backgroundColor: type === "error" ? "#ff4d4d" : "#4BB543",
+      close: true
+    }).showToast();
+  }
+
+  function placeOrder(event) {
+    event.preventDefault();
+
+    // ✅ Check if user is logged in
+    const loggedInUser = localStorage.getItem("currentUser");
+    if (!loggedInUser) {
+      showToast("Please log in to place an order.");
+      return;
+    }
+
+    const fields = [
+      'firstName',
+      'secondName',
+      'companyName',
+      'country',
+      'streetAddress',
+      'city',
+      'phone',
+      'email'
+    ];
+
+    for (const fieldId of fields) {
+      const value = document.getElementById(fieldId)?.value.trim();
+      if (!value) {
+        showToast(`Please fill in the ${fieldId} field.`);
+        return;
+      }
+    }
+
+    const userDetails = {
+      firstName: document.getElementById('firstName').value.trim(),
+      secondName: document.getElementById('secondName').value.trim(),
+      companyName: document.getElementById('companyName').value.trim(),
+      country: document.getElementById('country').value.trim(),
+      streetAddress: document.getElementById('streetAddress')?.value.trim() || '',
+      city: document.getElementById('city').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      email: document.getElementById('email').value.trim()
+    };
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cart.length === 0) {
+      showToast("Your cart is empty.");
+      return;
+    }
+
+    const fullOrder = {
+      userDetails: userDetails,
+      items: cart.map(item => ({
+        name: item.name,
+        price: item.price,
+        img: item.img,
+        quantity: item.quantity || 1,
+        total: (parseFloat(item.price.replace('$', '')) * item.quantity).toFixed(2),
+      })),
+      date: new Date().toISOString()
+    };
+
+    const existingOrders = JSON.parse(localStorage.getItem('orders')) || [];
+    existingOrders.push(fullOrder);
+    localStorage.setItem('orders', JSON.stringify(existingOrders));
+
+    const existingUserData = JSON.parse(localStorage.getItem('userDetails')) || [];
+    existingUserData.push(userDetails);
+    localStorage.setItem('userDetails', JSON.stringify(existingUserData));
+
+    localStorage.setItem('cart', JSON.stringify([]));
+
+    showToast("Order placed successfully!", "success");
+
+    setTimeout(() => {
+      window.location.href = "./completedOrder.html";
+    }, 1500);
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("checkoutForm").addEventListener("submit", placeOrder);
+  });
+</script>
 </html>

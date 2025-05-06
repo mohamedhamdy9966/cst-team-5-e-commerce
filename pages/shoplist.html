@@ -12,7 +12,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="../style/css/top_of_pages.css">
+    <link rel="stylesheet" href="../style/css/top_of_pages.css" />
   </head>
   <style>
     * {
@@ -25,16 +25,10 @@
     .prev:hover,
     .next:hover,
     .fab:hover {
-      background-color:#ff6500;
+      background-color: #ff6500;
       color: white;
     }
-   
-    .fab {
-      width: 30px;
-      height: 30px;
-      border: 1px solid white;
-      padding: 5px 8px;
-    }
+
     .product-card {
       background-color: white;
       border: 1px solid #dee2e6;
@@ -117,6 +111,9 @@
     .pages {
       margin: 20px 500px;
     }
+    .pages button {
+      border: none;
+    }
     .add-to-cart::before {
       content: "";
       position: absolute;
@@ -136,7 +133,11 @@
     .add-to-cart:hover {
       color: white;
     }
-  
+    .footer {
+      background-color: #012e4a;
+      border-radius: 5px;
+      padding: 40px;
+    }
   </style>
   <body>
     <nav class="d-flex align-items-stretch sticky" style="height: 100px">
@@ -287,6 +288,7 @@
                     right: -10px;
                     background-color: #036280;
                   "
+                  id="count"
                   >0</span
                 >
               </a>
@@ -304,12 +306,19 @@
       </div>
     </nav>
     <section class="top d-flex align-items-center justify-content-between">
-      <img src="../assets/shop_details/top.png" alt="top image" class="col-auto d-none d-xl-block">
+      <img
+        src="../assets/shop_details/top.png"
+        alt="top image"
+        class="col-auto d-none d-xl-block"
+      />
       <div class="text-center col-12 col-xl-4 py-5">
-
         <h1>Shop List</h1>
       </div>
-      <img src="../assets/shop_details/book2.png" alt="logo" class="col-auto d-none d-xl-block">
+      <img
+        src="../assets/shop_details/book2.png"
+        alt="logo"
+        class="col-auto d-none d-xl-block"
+      />
     </section>
     <div class="row align-items-center mb-4 show">
       <!-- Left side: Result count -->
@@ -358,7 +367,7 @@
 
         <!-- Info -->
         <div class="col-12 col-xl-8">
-          <h2 style="color: #012e4a;" class="product-name">Castle In The Sky</h2>
+          <h2 style="color: #012e4a" class="product-name">Castle In The Sky</h2>
           <div class="price mb-2 product-price">$16.00</div>
           <div class="stars mb-2">★★★★☆</div>
           <p class="text-muted">
@@ -389,7 +398,7 @@
 
         <!-- Info -->
         <div class="col-12 col-xl-8">
-          <h2 style="color: #012e4a;" class="product-name">
+          <h2 style="color: #012e4a" class="product-name">
             Simple things you to Save to Book
           </h2>
           <div class="price mb-2 product-price">$30.00</div>
@@ -423,7 +432,7 @@
 
         <!-- Info -->
         <div class="col-12 col-xl-8">
-          <h2 style="color: #012e4a;" class="product-name">
+          <h2 style="color: #012e4a" class="product-name">
             Flovely And Unicom Erna
           </h2>
           <div class="price mb-2 product-price">$19.00</div>
@@ -457,7 +466,7 @@
 
         <!-- Info -->
         <div class="col-12 col-xl-8">
-          <h2 style="color: #012e4a;" class="product-name">
+          <h2 style="color: #012e4a" class="product-name">
             Qple Gpod with Retina Sisplay
           </h2>
           <div class="price mb-2 product-price">$39.00</div>
@@ -485,12 +494,16 @@
       <button class="num-btn">...</button>
       <button class="next">Next</button>
     </div>
-    <footer class="footer text-white">
+    <!-- Footer -->
+    <footer
+      class="text-white"
+      style="background-color: #012e4a; border-radius: 5px; padding: 40px"
+    >
       <div class="container">
         <div class="row text-center text-md-start">
           <div class="col-md-3 mb-4">
             <h5>📚 Bookle</h5>
-            <p>
+            <p class="text-white">
               Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
               lacinia curabitur lacinia mollis
             </p>
@@ -509,24 +522,56 @@
           <div class="col-md-3 mb-4">
             <h6>Customers Support</h6>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Store List</a></li>
-              <li><a href="#" class="text-white">Opening Hours</a></li>
-              <li><a href="#" class="text-white">Contact Us</a></li>
-              <li><a href="#" class="text-white">Return Policy</a></li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Store List</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Opening Hours</a
+                >
+              </li>
+              <li>
+                <a href="./Contact.html" class="text-white text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Return Policy</a
+                >
+              </li>
             </ul>
           </div>
           <div class="col-md-3 mb-4">
             <h6>Categories</h6>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Novel Books</a></li>
-              <li><a href="#" class="text-white">Poetry Books</a></li>
-              <li><a href="#" class="text-white">Political Books</a></li>
-              <li><a href="#" class="text-white">History Books</a></li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Novel Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Poetry Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Political Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >History Books</a
+                >
+              </li>
             </ul>
           </div>
           <div class="col-md-3 mb-4">
             <h6>Newsletter</h6>
-            <p>
+            <p class="text-white">
               Sign up to receive weekly newsletter to get the latest updates.
             </p>
             <form class="d-flex">
@@ -568,6 +613,20 @@
           // Redirect to details page
           window.location.href = "./shop_details.html";
         });
+      });
+    </script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const badge = document.querySelector("#count");
+
+        if (badge) {
+          const totalItems = cart.reduce(
+            (sum, item) => sum + (item.quantity || 1),
+            0
+          );
+          badge.textContent = totalItems;
+        }
       });
     </script>
   </body>

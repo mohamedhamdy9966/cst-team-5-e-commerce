@@ -402,6 +402,7 @@
                 ></i>
                 <span
                   class="rounded-circle text-bg-light"
+                  id="count"
                   style="
                     font-size: 0.7rem;
                     position: absolute;
@@ -1089,7 +1090,7 @@
           Explore More &rarr;
         </a>
       </section>
-      <div id="booksCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div id="bookleTopBooks" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <!-- Slide 1 -->
           <div class="carousel-item active">
@@ -2732,6 +2733,17 @@
       if (badge) {
         badge.textContent = cart.length;
       }
+      window.addEventListener("DOMContentLoaded", () => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const badge = document.querySelector("#count");
+        if (badge) {
+          const totalItems = cart.reduce(
+            (sum, item) => sum + (item.quantity || 1),
+            0
+          );
+          badge.textContent = totalItems;
+        }
+      });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>

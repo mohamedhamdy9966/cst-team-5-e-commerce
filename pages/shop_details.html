@@ -990,26 +990,51 @@ li {
   }
       
     });
-    window.addEventListener('DOMContentLoaded', () => {
-  const product = JSON.parse(localStorage.getItem('selectedProduct'));
-  if (product) {
-    document.querySelectorAll('.detailImg').forEach(img => {
-      img.src = product.img;
+    </script>
+ <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const product = JSON.parse(localStorage.getItem('selectedProduct'));
+
+    // Update product details display
+    if (product) {
+      document.querySelectorAll('.detailImg').forEach(img => {
+        img.src = product.img;
+      });
+      document.querySelector('#detailName').textContent = product.name;
+      document.querySelector('#detailPrice').textContent = product.price;
+    }
+
+    const badge = document.getElementById('cartBadge');
+    const addToCartBtn = document.querySelector('.add-cart-btn2');
+
+    // Load current cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // FIX: Calculate total items (sum quantities instead of cart.length)
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    if (badge) badge.textContent = totalItems;
+
+    addToCartBtn.addEventListener('click', () => {
+      // Check if product already exists in cart
+      const existingProductIndex = cart.findIndex(item => item.id === product.id); // Use unique ID if available
+      
+      if (existingProductIndex !== -1) {
+        // Product exists - increment quantity
+        cart[existingProductIndex].quantity = (cart[existingProductIndex].quantity || 1) + 1;
+      } else {
+        // New product - add with quantity 1
+        product.quantity = 1;
+        cart.push(product);
+      }
+
+      // Save updated cart
+      localStorage.setItem('cart', JSON.stringify(cart));
+      
+      // FIX: Update badge with total quantity
+      const newTotalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+      if (badge) badge.textContent = newTotalItems;
     });
-    document.querySelector('#detailName').textContent = product.name;
-    document.querySelector('#detailPrice').textContent = product.price;
-  }
-  const badge = document.getElementById('cartBadge');
-  const addToCartBtn = document.querySelector('.add-cart-btn2');
-  // Load current cart from localStorage
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  badge.textContent = cart.length; // Set correct initial count
-  addToCartBtn.addEventListener('click', () => {
-    cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    badge.textContent = cart.length; // Update badge immediately
   });
-});
-  </script>
+</script>
 </body>
 </html> 
