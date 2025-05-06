@@ -112,7 +112,7 @@
         opacity: 0.3;
         z-index: 1;
       }
-      .dot-grid div {
+      .dot-grid section {
         width: 8px;
         height: 8px;
         background-color: #036280;
@@ -281,31 +281,31 @@
       <!-- Right Section -->
       <section class="flex-grow-1 d-flex flex-column">
         <!-- Top Nav -->
-        <div
+        <section
           class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
           style="background-color: #036280; color: white; font-size: 0.9rem"
         >
-          <div class="">
+          <section class="">
             <i class="fas fa-phone me-2"></i> +208-6666-0112 |
             <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
             <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
-          </div>
-          <div>
+          </section>
+          <section>
             <a
               href="./pages/login.html"
               style="color: white; text-decoration: none; margin-right: 15px"
               ><i class="fas fa-user ms-3 me-1"></i>Login</a
             >
-          </div>
-        </div>
+          </section>
+        </section>
         <!-- Bottom Nav -->
-        <div
+        <section
           class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
           style="background-color: #fff; border-bottom: 1px solid #ddd"
         >
           <!-- Navbar -->
           <nav class="navbar navbar-expand-lg p-0">
-            <div class="container-fluid">
+            <section class="container-fluid">
               <!-- Toggle Button for Offcanvas -->
               <button
                 class="navbar-toggler"
@@ -317,13 +317,13 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <!-- Offcanvas Menu -->
-              <div
+              <section
                 class="offcanvas offcanvas-start"
                 tabindex="-1"
                 id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel"
               >
-                <div class="offcanvas-header">
+                <section class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
                     <i class="fa-solid fa-bars"></i> Menu
                   </h5>
@@ -333,8 +333,8 @@
                     data-bs-dismiss="offcanvas"
                     aria-label="Close"
                   ></button>
-                </div>
-                <div class="offcanvas-body">
+                </section>
+                <section class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item fw-bold px-2">
                       <a class="nav-link" href="#"
@@ -369,13 +369,13 @@
                       >
                     </li>
                   </ul>
-                </div>
-              </div>
-            </div>
+                </section>
+              </section>
+            </section>
           </nav>
           <!-- Icons -->
-          <div class="d-flex gap-3">
-            <div class="position-relative">
+          <section class="d-flex gap-3">
+            <section class="position-relative">
               <a href="./user/userWishlist.html" class="text-danger">
                 <i
                   class="far fa-heart"
@@ -393,8 +393,8 @@
                   >0</span
                 >
               </a>
-            </div>
-            <div class="position-relative">
+            </section>
+            <section class="position-relative">
               <a href="./pages/cart.html" class="text-success">
                 <i
                   class="fas fa-shopping-cart"
@@ -412,8 +412,8 @@
                   >0</span
                 >
               </a>
-            </div>
-            <div class="position-relative">
+            </section>
+            <section class="position-relative">
               <a
                 href="./pages/login.html"
                 class="d-md-none"
@@ -424,9 +424,9 @@
                   style="font-size: 1.2rem; position: relative"
                 ></i>
               </a>
-            </div>
-          </div>
-        </div>
+            </section>
+          </section>
+        </section>
       </section>
     </nav>
     <section
@@ -442,18 +442,20 @@
         style="height: 22%; left: 1%; bottom: 0"
       />
       <!-- Top Dot Grid -->
-      <div
+      <section
         class="dot-grid position-absolute top-grid animate-right-image"
-      ></div>
+      ></section>
       <!-- Bottom Dot Grid -->
-      <div class="dot-grid position-absolute bottom-grid animate-dot"></div>
+      <section
+        class="dot-grid position-absolute bottom-grid animate-dot"
+      ></section>
       <!-- Center: Text & Button -->
       <section
         class="position-absolute text-center"
         style="top: 50%; left: 40%; transform: translate(-50%, -50%)"
       >
         <p class="text-danger fs-5">Up To 30% off</p>
-        <h1 class="fw-bold fs-1 mb-3 z-9999" style="color: #012e4a;">
+        <h1 class="fw-bold fs-1 mb-3 z-9999" style="color: #012e4a">
           Get Your New Book <br />With The Best Price
         </h1>
         <a
@@ -476,70 +478,70 @@
       class="container rounded mt-5"
       style="background-color: #d0e1e7"
     >
-      <div class="container p-5">
-        <div class="row g-4 justify-content-center">
+      <section class="container p-5">
+        <section class="row g-4 justify-content-center">
           <!-- Return & Refund Card -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 bg-transparent text-center h-100">
-              <div class="card-body d-flex flex-column align-items-center">
-                <div
+          <section class="col-md-6 col-lg-3">
+            <section class="card border-0 bg-transparent text-center h-100">
+              <section class="card-body d-flex flex-column align-items-center">
+                <section
                   class="rounded-3 d-flex align-items-center justify-content-center mb-3"
                   style="width: 60px; height: 60px; background-color: #036280"
                 >
                   <i class="fas fa-truck fa-lg text-white"></i>
-                </div>
+                </section>
                 <h5 class="card-title">Return & Refund</h5>
                 <p class="card-text text-muted">Money back guarantee</p>
-              </div>
-            </div>
-          </div>
+              </section>
+            </section>
+          </section>
           <!-- Daily Offers Card -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 bg-transparent text-center h-100">
-              <div class="card-body d-flex flex-column align-items-center">
-                <div
+          <section class="col-md-6 col-lg-3">
+            <section class="card border-0 bg-transparent text-center h-100">
+              <section class="card-body d-flex flex-column align-items-center">
+                <section
                   class="rounded-3 d-flex align-items-center justify-content-center mb-3"
                   style="width: 60px; height: 60px; background-color: #036280"
                 >
                   <i class="fas fa-tags fa-lg text-white"></i>
-                </div>
+                </section>
                 <h5 class="card-title">Daily Offers</h5>
                 <p class="card-text text-muted">20% off by subscribing</p>
-              </div>
-            </div>
-          </div>
+              </section>
+            </section>
+          </section>
           <!-- Secure Payment Card -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 bg-transparent text-center h-100">
-              <div class="card-body d-flex flex-column align-items-center">
-                <div
+          <section class="col-md-6 col-lg-3">
+            <section class="card border-0 bg-transparent text-center h-100">
+              <section class="card-body d-flex flex-column align-items-center">
+                <section
                   class="rounded-3 d-flex align-items-center justify-content-center mb-3"
                   style="width: 60px; height: 60px; background-color: #036280"
                 >
                   <i class="fas fa-credit-card fa-lg text-white"></i>
-                </div>
+                </section>
                 <h5 class="card-title">Secure Payment</h5>
                 <p class="card-text text-muted">30% off by subscribing</p>
-              </div>
-            </div>
-          </div>
+              </section>
+            </section>
+          </section>
           <!-- Quality Support Card -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 bg-transparent text-center h-100">
-              <div class="card-body d-flex flex-column align-items-center">
-                <div
+          <section class="col-md-6 col-lg-3">
+            <section class="card border-0 bg-transparent text-center h-100">
+              <section class="card-body d-flex flex-column align-items-center">
+                <section
                   class="rounded-3 d-flex align-items-center justify-content-center mb-3"
                   style="width: 60px; height: 60px; background-color: #036280"
                 >
                   <i class="fas fa-headphones fa-lg text-white"></i>
-                </div>
+                </section>
                 <h5 class="card-title">Quality Support</h5>
                 <p class="card-text text-muted">Always online 24/7</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              </section>
+            </section>
+          </section>
+        </section>
+      </section>
     </section>
     <section id="homeThirdSection" class="first-slider container pt-5">
       <section class="d-flex justify-content-between align-items-center mb-4">
@@ -551,15 +553,21 @@
           Explore More &rarr;
         </a>
       </section>
-      <div id="booksCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
+      <section
+        id="booksCarousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <section class="carousel-inner">
           <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <div class="container">
-              <div class="row g-4 justify-content-center">
+          <section class="carousel-item active">
+            <section class="container">
+              <section class="row g-4 justify-content-center">
                 <!-- Card 1 -->
-                <div class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn">
-                  <div class="card h-100 border-0 shadow-sm">
+                <section
+                  class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn"
+                >
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
                       style="background-color: rgb(221, 221, 221)"
@@ -570,8 +578,10 @@
                         alt="Book Cover"
                       />
                     </section>
-                    <div class="card-body">
-                      <h5 class="card-title product-name h-25 w-100">Book Title 7</h5>
+                    <section class="card-body">
+                      <h5 class="card-title product-name h-25 w-100">
+                        Book Title 7
+                      </h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none author"
                         href="#"
@@ -581,7 +591,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price">$20.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -589,7 +599,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -597,12 +607,14 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CARTT</a
                       >
-                    </div>
-                  </div>
-                </div>
+                    </section>
+                  </section>
+                </section>
                 <!-- Card 2 -->
-                <div class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn">
-                  <div class="card h-100 border-0 shadow-sm">
+                <section
+                  class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn"
+                >
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
                       style="background-color: rgb(221, 221, 221)"
@@ -613,8 +625,10 @@
                         alt="Book Cover"
                       />
                     </section>
-                    <div class="card-body">
-                      <h5 class="card-title product-name h-25 w-100">Book Title 5</h5>
+                    <section class="card-body">
+                      <h5 class="card-title product-name h-25 w-100">
+                        Book Title 5
+                      </h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none author"
                         href="#"
@@ -624,7 +638,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price"> $22.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -632,7 +646,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -640,14 +654,14 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CART</a
                       >
-                    </div>
-                  </div>
-                </div>
+                    </section>
+                  </section>
+                </section>
                 <!-- Card 3 -->
-                <div
+                <section
                   class="col-md-6 col-lg-4 col-xl-3 d-none d-lg-block product-card addToCartBtn"
                 >
-                  <div class="card h-100 border-0 shadow-sm">
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
                       style="background-color: rgb(221, 221, 221)"
@@ -658,8 +672,10 @@
                         alt="Book Cover"
                       />
                     </section>
-                    <div class="card-body">
-                      <h5 class="card-title product-name h-25 w-100">Book Title 2</h5>
+                    <section class="card-body">
+                      <h5 class="card-title product-name h-25 w-100">
+                        Book Title 2
+                      </h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none author"
                         href="#"
@@ -669,7 +685,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price">$24.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -677,7 +693,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -685,14 +701,14 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CART</a
                       >
-                    </div>
-                  </div>
-                </div>
+                    </section>
+                  </section>
+                </section>
                 <!-- Card 4 -->
-                <div
+                <section
                   class="col-md-6 col-lg-4 col-xl-3 d-none d-xl-block product-card addToCartBtn"
                 >
-                  <div class="card h-100 border-0 shadow-sm">
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
                       style="background-color: rgb(221, 221, 221)"
@@ -703,8 +719,10 @@
                         alt="Book Cover"
                       />
                     </section>
-                    <div class="card-body">
-                      <h5 class="card-title product-name h-25 w-100">Book Title 7</h5>
+                    <section class="card-body">
+                      <h5 class="card-title product-name h-25 w-100">
+                        Book Title 7
+                      </h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none author"
                         href="#"
@@ -714,7 +732,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price">$20.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -722,7 +740,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -730,19 +748,21 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CART</a
                       >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                    </section>
+                  </section>
+                </section>
+              </section>
+            </section>
+          </section>
           <!-- Slide 2 -->
-          <div class="carousel-item">
-            <div class="container">
-              <div class="row g-4 justify-content-center">
+          <section class="carousel-item">
+            <section class="container">
+              <section class="row g-4 justify-content-center">
                 <!-- Card 5 -->
-                <div class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn">
-                  <div class="card h-100 border-0 shadow-sm">
+                <section
+                  class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn"
+                >
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
                       style="background-color: rgb(221, 221, 221)"
@@ -753,8 +773,10 @@
                         alt="Book Cover"
                       />
                     </section>
-                    <div class="card-body">
-                      <h5 class="card-title product-name h-25 w-100">Book Title 10</h5>
+                    <section class="card-body">
+                      <h5 class="card-title product-name h-25 w-100">
+                        Book Title 10
+                      </h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none author"
                         href="#"
@@ -764,7 +786,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price">$20.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -772,7 +794,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -780,12 +802,14 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CART</a
                       >
-                    </div>
-                  </div>
-                </div>
+                    </section>
+                  </section>
+                </section>
                 <!-- Card 6 -->
-                <div class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn">
-                  <div class="card h-100 border-0 shadow-sm">
+                <section
+                  class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn"
+                >
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
                       style="background-color: rgb(221, 221, 221)"
@@ -796,8 +820,10 @@
                         alt="Book-Cover"
                       />
                     </section>
-                    <div class="card-body">
-                      <h5 class="card-title product-name h-25 w-100">Book Title 11</h5>
+                    <section class="card-body">
+                      <h5 class="card-title product-name h-25 w-100">
+                        Book Title 11
+                      </h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none author"
                         href="#"
@@ -807,7 +833,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price">$20.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -815,7 +841,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -823,14 +849,14 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CART</a
                       >
-                    </div>
-                  </div>
-                </div>
+                    </section>
+                  </section>
+                </section>
                 <!-- Card 7 -->
-                <div
+                <section
                   class="col-md-6 col-lg-4 col-xl-3 d-none d-lg-block product-card addToCartBtn"
                 >
-                  <div class="card h-100 border-0 shadow-sm">
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
                       style="background-color: rgb(221, 221, 221)"
@@ -841,8 +867,10 @@
                         alt="Book Cover"
                       />
                     </section>
-                    <div class="card-body">
-                      <h5 class="card-title product-name h-25 w-100">Book Title 7</h5>
+                    <section class="card-body">
+                      <h5 class="card-title product-name h-25 w-100">
+                        Book Title 7
+                      </h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none author"
                         href="#"
@@ -852,7 +880,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price">$20.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -860,7 +888,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -868,14 +896,14 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CART</a
                       >
-                    </div>
-                  </div>
-                </div>
+                    </section>
+                  </section>
+                </section>
                 <!-- Card 8 -->
-                <div
+                <section
                   class="col-md-6 col-lg-4 col-xl-3 d-none d-xl-block product-card addToCartBtn"
                 >
-                  <div class="card h-100 border-0 shadow-sm">
+                  <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
                       style="background-color: rgb(221, 221, 221)"
@@ -886,8 +914,10 @@
                         alt="Book Cover"
                       />
                     </section>
-                    <div class="card-body">
-                      <h5 class="card-title product-name h-25 w-100">Book Title 12</h5>
+                    <section class="card-body">
+                      <h5 class="card-title product-name h-25 w-100">
+                        Book Title 12
+                      </h5>
                       <a
                         class="card-text text-warning-emphasis text-decoration-none author"
                         href="#"
@@ -896,7 +926,7 @@
                       <section class="fw-bold" style="color: orangered">
                         <span class="product-price">$40.99</span>
                       </section>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center"
                       >
                         <section>
@@ -904,7 +934,7 @@
                           <span>manmanam</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
-                      </div>
+                      </section>
                       <a
                         href="#"
                         class="addToCartBtn btn homeAddToCartButton w-100 rounded btn-sm text-primary m-1 mt-4 p-1"
@@ -912,13 +942,13 @@
                         ><i class="fa-solid fa-basket-shopping"></i>ADD TO
                         CART</a
                       >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                    </section>
+                  </section>
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
         <!-- Carousel Controls -->
         <button
           class="carousel-control-prev"
@@ -944,7 +974,7 @@
           ></span>
           <span class="visually-hidden">Next</span>
         </button>
-      </div>
+      </section>
     </section>
     <section
       class="container-fluid position-relative p-5 mt-5 d-flex flex-column justify-content-center align-items-center"
@@ -959,94 +989,94 @@
         class="splide splide-four px-2 pt-5 border border-black w-75"
         aria-label="Book Categories Carousel"
       >
-        <div class="splide__track text-center">
+        <section class="splide__track text-center">
           <ul class="splide__list">
             <li class="splide__slide rounded-circle px-0 addToCartBtn">
-              <div class="text-center">
-                <div class="book-wrapper mx-auto">
-                  <div class="border-circle"></div>
+              <section class="text-center">
+                <section class="book-wrapper mx-auto">
+                  <section class="border-circle"></section>
                   <img
                     src="./assets/home/book-5.png"
                     alt="Book Cover"
                     class="book-image"
                   />
-                  <div class="badge-number">01</div>
-                </div>
+                  <section class="badge-number">01</section>
+                </section>
                 <p class="mt-3 fw-bold">Romance Books (80)</p>
-              </div>
+              </section>
             </li>
             <li class="splide__slide addToCartBtn">
-              <div class="text-center">
-                <div class="book-wrapper mx-auto">
-                  <div class="border-circle"></div>
+              <section class="text-center">
+                <section class="book-wrapper mx-auto">
+                  <section class="border-circle"></section>
                   <img
                     src="./assets/home/book-5.png"
                     alt="Book Cover"
                     class="book-image"
                   />
-                  <div class="badge-number">01</div>
-                </div>
+                  <section class="badge-number">01</section>
+                </section>
                 <p class="mt-3 fw-bold">Romance Books (80)</p>
-              </div>
+              </section>
             </li>
             <li class="splide__slide addToCartBtn">
-              <div class="text-center">
-                <div class="book-wrapper mx-auto">
-                  <div class="border-circle"></div>
+              <section class="text-center">
+                <section class="book-wrapper mx-auto">
+                  <section class="border-circle"></section>
                   <img
                     src="./assets/home/book-5.png"
                     alt="Book Cover"
                     class="book-image"
                   />
-                  <div class="badge-number">01</div>
-                </div>
+                  <section class="badge-number">01</section>
+                </section>
                 <p class="mt-3 fw-bold">Romance Books (80)</p>
-              </div>
+              </section>
             </li>
             <li class="splide__slide addToCartBtn">
-              <div class="text-center">
-                <div class="book-wrapper mx-auto">
-                  <div class="border-circle"></div>
+              <section class="text-center">
+                <section class="book-wrapper mx-auto">
+                  <section class="border-circle"></section>
                   <img
                     src="./assets/home/book-5.png"
                     alt="Book Cover"
                     class="book-image"
                   />
-                  <div class="badge-number">01</div>
-                </div>
+                  <section class="badge-number">01</section>
+                </section>
                 <p class="mt-3 fw-bold">Romance Books (80)</p>
-              </div>
+              </section>
             </li>
             <li class="splide__slide addToCartBtn">
-              <div class="text-center">
-                <div class="book-wrapper mx-auto">
-                  <div class="border-circle"></div>
+              <section class="text-center">
+                <section class="book-wrapper mx-auto">
+                  <section class="border-circle"></section>
                   <img
                     src="./assets/home/book-5.png"
                     alt="Book Cover"
                     class="book-image"
                   />
-                  <div class="badge-number">01</div>
-                </div>
+                  <section class="badge-number">01</section>
+                </section>
                 <p class="mt-3 fw-bold">Romance Books (80)</p>
-              </div>
+              </section>
             </li>
             <li class="splide__slide addToCartBtn">
-              <div class="text-center">
-                <div class="book-wrapper mx-auto">
-                  <div class="border-circle"></div>
+              <section class="text-center">
+                <section class="book-wrapper mx-auto">
+                  <section class="border-circle"></section>
                   <img
                     src="./assets/home/book-5.png"
                     alt="Book Cover"
                     class="book-image"
                   />
-                  <div class="badge-number">01</div>
-                </div>
+                  <section class="badge-number">01</section>
+                </section>
                 <p class="mt-3 fw-bold">Romance Books (80)</p>
-              </div>
+              </section>
             </li>
           </ul>
-        </div>
+        </section>
       </section>
     </section>
     <section id="homeFifthSection" class="first-slider container pt-5">
@@ -1066,7 +1096,9 @@
             <div class="container">
               <div class="row g-4 justify-content-center">
                 <!-- Card 1 -->
-                <div class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn">
+                <div
+                  class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn"
+                >
                   <div class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
@@ -1109,7 +1141,9 @@
                   </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn">
+                <div
+                  class="col-md-6 col-lg-4 col-xl-3 product-card addToCartBtn"
+                >
                   <div class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
@@ -1251,8 +1285,8 @@
       id="homeSixthSection"
       class="container mt-5 d-flex justify-content-center justify-content-md-start"
     >
-      <div class="card" style="width: 18rem; background-color: #036280">
-        <div class="card-body">
+      <section class="card" style="width: 18rem; background-color: #036280">
+        <section class="card-body">
           <h2 class="card-title fw-bold fs-1 text-white">
             Find <br />
             Your <br />
@@ -1267,8 +1301,8 @@
             class="btn homeAddToCartButton fw-bold btn-light text-secondary rounded"
             >Shop Now &rarr;</a
           >
-        </div>
-      </div>
+        </section>
+      </section>
     </section>
     <section
       id="homeSeventhSection"
@@ -1318,47 +1352,47 @@
         </section>
 
         <section class="container">
-          <div class="row g-4" id="cards-grid">
-            <div class="col-12 col-md-6 addToCartBtn">
-              <div class="card h-100 shadow-sm">
-                <div class="row g-0 align-items-center">
-                  <div
+          <section class="row g-4" id="cards-grid">
+            <section class="col-12 col-md-6 addToCartBtn">
+              <section class="card h-100 shadow-sm">
+                <section class="row g-0 align-items-center">
+                  <section
                     class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
                       src="./assets/home/book-5.png"
-                      class="img-fluid rounded-start hover-zoom "
+                      class="img-fluid rounded-start hover-zoom"
                       alt="book"
                       style="max-height: 160px"
                     />
-                  </div>
-                  <div class="col-8">
-                    <div class="card-body p-2">
+                  </section>
+                  <section class="col-8">
+                    <section class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex flex-wrap">
-                          <div
+                        <section class="d-flex flex-wrap">
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-heart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Cart"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-shopping-cart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="View Details"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-eye mx-1"></i>
-                          </div>
-                        </div>
+                          </section>
+                        </section>
                       </h5>
                       <p class="fs-6 fw-bold text-primary mb-1">
                         Flovely And Unicom Erna
@@ -1373,10 +1407,10 @@
                         />
                         Wilson
                       </p>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center mt-3"
                       >
-                        <div class="stars">★★★★☆</div>
+                        <section class="stars">★★★★☆</section>
                         <a
                           href="#"
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2 d-flex justify-content-between gap-1 align-items-center"
@@ -1385,16 +1419,16 @@
                           <i class="fa-solid fa-basket-shopping"></i>
                           <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 addToCartBtn">
-              <div class="card h-100 shadow-sm">
-                <div class="row g-0 align-items-center">
-                  <div
+                      </section>
+                    </section>
+                  </section>
+                </section>
+              </section>
+            </section>
+            <section class="col-12 col-md-6 addToCartBtn">
+              <section class="card h-100 shadow-sm">
+                <section class="row g-0 align-items-center">
+                  <section
                     class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
@@ -1403,34 +1437,34 @@
                       alt="book"
                       style="max-height: 160px"
                     />
-                  </div>
-                  <div class="col-8">
-                    <div class="card-body p-2">
+                  </section>
+                  <section class="col-8">
+                    <section class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex flex-wrap">
-                          <div
+                        <section class="d-flex flex-wrap">
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-heart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Cart"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-shopping-cart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="View Details"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-eye mx-1"></i>
-                          </div>
-                        </div>
+                          </section>
+                        </section>
                       </h5>
                       <p class="fs-6 fw-bold text-primary mb-1">
                         Flovely And Unicom Erna
@@ -1445,10 +1479,10 @@
                         />
                         Wilson
                       </p>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center mt-3"
                       >
-                        <div class="stars">★★★★☆</div>
+                        <section class="stars">★★★★☆</section>
                         <a
                           href="#"
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
@@ -1457,16 +1491,16 @@
                           <i class="fa-solid fa-basket-shopping"></i>
                           <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 addToCartBtn">
-              <div class="card h-100 shadow-sm">
-                <div class="row g-0 align-items-center">
-                  <div
+                      </section>
+                    </section>
+                  </section>
+                </section>
+              </section>
+            </section>
+            <section class="col-12 col-md-6 addToCartBtn">
+              <section class="card h-100 shadow-sm">
+                <section class="row g-0 align-items-center">
+                  <section
                     class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
@@ -1475,34 +1509,34 @@
                       alt="book"
                       style="max-height: 160px"
                     />
-                  </div>
-                  <div class="col-8">
-                    <div class="card-body p-2">
+                  </section>
+                  <section class="col-8">
+                    <section class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex flex-wrap">
-                          <div
+                        <section class="d-flex flex-wrap">
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-heart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Cart"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-shopping-cart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="View Details"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-eye mx-1"></i>
-                          </div>
-                        </div>
+                          </section>
+                        </section>
                       </h5>
                       <p class="fs-6 fw-bold text-primary mb-1">
                         Flovely And Unicom Erna
@@ -1517,10 +1551,10 @@
                         />
                         Wilson
                       </p>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center mt-3"
                       >
-                        <div class="stars">★★★★☆</div>
+                        <section class="stars">★★★★☆</section>
                         <a
                           href="#"
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
@@ -1529,16 +1563,16 @@
                           <i class="fa-solid fa-basket-shopping"></i>
                           <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 addToCartBtn">
-              <div class="card h-100 shadow-sm">
-                <div class="row g-0 align-items-center">
-                  <div
+                      </section>
+                    </section>
+                  </section>
+                </section>
+              </section>
+            </section>
+            <section class="col-12 col-md-6 addToCartBtn">
+              <section class="card h-100 shadow-sm">
+                <section class="row g-0 align-items-center">
+                  <section
                     class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
@@ -1547,34 +1581,34 @@
                       alt="book"
                       style="max-height: 160px"
                     />
-                  </div>
-                  <div class="col-8">
-                    <div class="card-body p-2">
+                  </section>
+                  <section class="col-8">
+                    <section class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex flex-wrap">
-                          <div
+                        <section class="d-flex flex-wrap">
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-heart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Cart"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-shopping-cart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="View Details"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-eye mx-1"></i>
-                          </div>
-                        </div>
+                          </section>
+                        </section>
                       </h5>
                       <p class="fs-6 fw-bold text-primary mb-1">
                         Flovely And Unicom Erna
@@ -1589,10 +1623,10 @@
                         />
                         Wilson
                       </p>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center mt-3"
                       >
-                        <div class="stars">★★★★☆</div>
+                        <section class="stars">★★★★☆</section>
                         <a
                           href="#"
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
@@ -1601,16 +1635,16 @@
                           <i class="fa-solid fa-basket-shopping"></i>
                           <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 addToCartBtn">
-              <div class="card h-100 shadow-sm">
-                <div class="row g-0 align-items-center">
-                  <div
+                      </section>
+                    </section>
+                  </section>
+                </section>
+              </section>
+            </section>
+            <section class="col-12 col-md-6 addToCartBtn">
+              <section class="card h-100 shadow-sm">
+                <section class="row g-0 align-items-center">
+                  <section
                     class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
@@ -1619,34 +1653,34 @@
                       alt="book"
                       style="max-height: 160px"
                     />
-                  </div>
-                  <div class="col-8">
-                    <div class="card-body p-2">
+                  </section>
+                  <section class="col-8">
+                    <section class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex flex-wrap">
-                          <div
+                        <section class="d-flex flex-wrap">
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-heart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Cart"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-shopping-cart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="View Details"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-eye mx-1"></i>
-                          </div>
-                        </div>
+                          </section>
+                        </section>
                       </h5>
                       <p class="fs-6 fw-bold text-primary mb-1">
                         Flovely And Unicom Erna
@@ -1661,10 +1695,10 @@
                         />
                         Wilson
                       </p>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center mt-3"
                       >
-                        <div class="stars">★★★★☆</div>
+                        <section class="stars">★★★★☆</section>
                         <a
                           href="#"
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
@@ -1673,16 +1707,16 @@
                           <i class="fa-solid fa-basket-shopping"></i>
                           <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 addToCartBtn">
-              <div class="card h-100 shadow-sm">
-                <div class="row g-0 align-items-center">
-                  <div
+                      </section>
+                    </section>
+                  </section>
+                </section>
+              </section>
+            </section>
+            <section class="col-12 col-md-6 addToCartBtn">
+              <section class="card h-100 shadow-sm">
+                <section class="row g-0 align-items-center">
+                  <section
                     class="col-4 d-flex align-items-center justify-content-center bg-light p-2"
                   >
                     <img
@@ -1691,34 +1725,34 @@
                       alt="book"
                       style="max-height: 160px"
                     />
-                  </div>
-                  <div class="col-8">
-                    <div class="card-body p-2">
+                  </section>
+                  <section class="col-8">
+                    <section class="card-body p-2">
                       <h5 class="card-title d-flex justify-content-between">
                         Design Low Book
-                        <div class="d-flex flex-wrap">
-                          <div
+                        <section class="d-flex flex-wrap">
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-heart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="Add to Cart"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-shopping-cart mx-1"></i>
-                          </div>
-                          <div
+                          </section>
+                          <section
                             class="border rounded-circle p-1 m-1"
                             title="View Details"
                             style="cursor: pointer"
                           >
                             <i class="fa-solid fa-eye mx-1"></i>
-                          </div>
-                        </div>
+                          </section>
+                        </section>
                       </h5>
                       <p class="fs-6 fw-bold text-primary mb-1">
                         Flovely And Unicom Erna
@@ -1733,10 +1767,10 @@
                         />
                         Wilson
                       </p>
-                      <div
+                      <section
                         class="d-flex justify-content-between align-items-center mt-3"
                       >
-                        <div class="stars">★★★★☆</div>
+                        <section class="stars">★★★★☆</section>
                         <a
                           href="#"
                           class="btn homeAddToCartButton rounded btn-sm text-primary m-1 p-1 px-2"
@@ -1745,13 +1779,13 @@
                           <i class="fa-solid fa-basket-shopping"></i>
                           <span class="d-none d-lg-inline-block"> Add </span>
                         </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                      </section>
+                    </section>
+                  </section>
+                </section>
+              </section>
+            </section>
+          </section>
         </section>
       </section>
     </section>
@@ -1759,7 +1793,7 @@
       <section
         class="d-flex justify-content-between align-items-center mt-4 mb-5"
       >
-        <h3 class="mb-0 fw-bold" style="color: #003366">Top Rating Books</h3>
+        <h3 class="mb-0 fw-bold" style="color: #003366">Top Selling Books</h3>
         <a
           href="#"
           class="btn homeAddToCartButton rounded text-secondary border px-4 px-md-5 py-2"
@@ -1768,11 +1802,11 @@
         </a>
       </section>
       <section class="splide splide-one" aria-label="Splide Basic HTML Example">
-        <div class="splide__track">
+        <section class="splide__track">
           <ul class="splide__list">
             <li class="splide__slide addToCartBtn">
-              <div class="col-12">
-                <div class="card h-100 border-0 shadow-sm">
+              <section class="col-12">
+                <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded"
                     style="background-color: rgb(221, 221, 221)"
@@ -1783,7 +1817,7 @@
                       alt="Book Cover"
                     />
                   </section>
-                  <div class="card-body">
+                  <section class="card-body">
                     <h5 class="card-title">Book Title 7</h5>
                     <a
                       class="card-text text-warning-emphasis text-decoration-none"
@@ -1794,7 +1828,7 @@
                     <section class="fw-bold" style="color: orangered">
                       $20.99
                     </section>
-                    <div
+                    <section
                       class="d-flex justify-content-between align-items-center"
                     >
                       <section>
@@ -1802,20 +1836,20 @@
                         <span>manmanam</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
-                    </div>
+                    </section>
                     <a
                       href="#"
                       class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
                       style="background-color: #d0e1e7"
                       ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
                     >
-                  </div>
-                </div>
-              </div>
+                  </section>
+                </section>
+              </section>
             </li>
             <li class="splide__slide addToCartBtn">
-              <div class="col-12">
-                <div class="card h-100 border-0 shadow-sm">
+              <section class="col-12">
+                <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded"
                     style="background-color: rgb(221, 221, 221)"
@@ -1826,7 +1860,7 @@
                       alt="Book Cover"
                     />
                   </section>
-                  <div class="card-body">
+                  <section class="card-body">
                     <h5 class="card-title">Book Title 7</h5>
                     <a
                       class="card-text text-warning-emphasis text-decoration-none"
@@ -1837,7 +1871,7 @@
                     <section class="fw-bold" style="color: orangered">
                       $20.99
                     </section>
-                    <div
+                    <section
                       class="d-flex justify-content-between align-items-center"
                     >
                       <section>
@@ -1845,20 +1879,20 @@
                         <span>manmanam</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
-                    </div>
+                    </section>
                     <a
                       href="#"
                       class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
                       style="background-color: #d0e1e7"
                       ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
                     >
-                  </div>
-                </div>
-              </div>
+                  </section>
+                </section>
+              </section>
             </li>
             <li class="splide__slide addToCartBtn">
-              <div class="col-12">
-                <div class="card h-100 border-0 shadow-sm">
+              <section class="col-12">
+                <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded"
                     style="background-color: rgb(221, 221, 221)"
@@ -1869,7 +1903,7 @@
                       alt="Book Cover"
                     />
                   </section>
-                  <div class="card-body">
+                  <section class="card-body">
                     <h5 class="card-title">Book Title 7</h5>
                     <a
                       class="card-text text-warning-emphasis text-decoration-none"
@@ -1880,7 +1914,7 @@
                     <section class="fw-bold" style="color: orangered">
                       $20.99
                     </section>
-                    <div
+                    <section
                       class="d-flex justify-content-between align-items-center"
                     >
                       <section>
@@ -1888,20 +1922,20 @@
                         <span>manmanam</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
-                    </div>
+                    </section>
                     <a
                       href="#"
                       class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
                       style="background-color: #d0e1e7"
                       ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
                     >
-                  </div>
-                </div>
-              </div>
+                  </section>
+                </section>
+              </section>
             </li>
             <li class="splide__slide addToCartBtn">
-              <div class="col-12">
-                <div class="card h-100 border-0 shadow-sm">
+              <section class="col-12">
+                <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded"
                     style="background-color: rgb(221, 221, 221)"
@@ -1912,7 +1946,7 @@
                       alt="Book Cover"
                     />
                   </section>
-                  <div class="card-body">
+                  <section class="card-body">
                     <h5 class="card-title">Book Title 7</h5>
                     <a
                       class="card-text text-warning-emphasis text-decoration-none"
@@ -1923,7 +1957,7 @@
                     <section class="fw-bold" style="color: orangered">
                       $20.99
                     </section>
-                    <div
+                    <section
                       class="d-flex justify-content-between align-items-center"
                     >
                       <section>
@@ -1931,20 +1965,20 @@
                         <span>manmanam</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
-                    </div>
+                    </section>
                     <a
                       href="#"
                       class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
                       style="background-color: #d0e1e7"
                       ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
                     >
-                  </div>
-                </div>
-              </div>
+                  </section>
+                </section>
+              </section>
             </li>
             <li class="splide__slide addToCartBtn">
-              <div class="col-12">
-                <div class="card h-100 border-0 shadow-sm">
+              <section class="col-12">
+                <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded"
                     style="background-color: rgb(221, 221, 221)"
@@ -1955,7 +1989,7 @@
                       alt="Book Cover"
                     />
                   </section>
-                  <div class="card-body">
+                  <section class="card-body">
                     <h5 class="card-title">Book Title 7</h5>
                     <a
                       class="card-text text-warning-emphasis text-decoration-none"
@@ -1966,7 +2000,7 @@
                     <section class="fw-bold" style="color: orangered">
                       $20.99
                     </section>
-                    <div
+                    <section
                       class="d-flex justify-content-between align-items-center"
                     >
                       <section>
@@ -1974,20 +2008,20 @@
                         <span>manmanam</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
-                    </div>
+                    </section>
                     <a
                       href="#"
                       class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
                       style="background-color: #d0e1e7"
                       ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
                     >
-                  </div>
-                </div>
-              </div>
+                  </section>
+                </section>
+              </section>
             </li>
             <li class="splide__slide addToCartBtn">
-              <div class="col-12">
-                <div class="card h-100 border-0 shadow-sm">
+              <section class="col-12">
+                <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded"
                     style="background-color: rgb(221, 221, 221)"
@@ -1998,7 +2032,7 @@
                       alt="Book Cover"
                     />
                   </section>
-                  <div class="card-body">
+                  <section class="card-body">
                     <h5 class="card-title">Book Title 7</h5>
                     <a
                       class="card-text text-warning-emphasis text-decoration-none"
@@ -2009,7 +2043,7 @@
                     <section class="fw-bold" style="color: orangered">
                       $20.99
                     </section>
-                    <div
+                    <section
                       class="d-flex justify-content-between align-items-center"
                     >
                       <section>
@@ -2017,19 +2051,19 @@
                         <span>manmanam</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
-                    </div>
+                    </section>
                     <a
                       href="#"
                       class="btn w-100 homeAddToCartButton rounded btn-sm text-primary m-1 mt-4 p-1"
                       style="background-color: #d0e1e7"
                       ><i class="fa-solid fa-basket-shopping"></i>ADD TO CART</a
                     >
-                  </div>
-                </div>
-              </div>
+                  </section>
+                </section>
+              </section>
             </li>
           </ul>
-        </div>
+        </section>
       </section>
     </section>
     <section id="homeTenthSection" class="container pt-5">
@@ -2039,109 +2073,109 @@
         </h3>
       </section>
       <section class="splide splide-two" aria-label="Client Testimonials">
-        <div class="splide__track">
+        <section class="splide__track">
           <ul class="splide__list">
             <li class="splide__slide">
-              <div class="card h-100">
-                <div class="card-body">
+              <section class="card h-100">
+                <section class="card-body">
                   <p class="card-text">
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content. Lorem ipsum dolor sit
                     amet consectetur adipisicing elit. Eveniet.
                   </p>
-                </div>
-                <div
+                </section>
+                <section
                   class="card-footer bg-white border-0 d-flex justify-content-between align-items-center"
                 >
-                  <div class="d-flex align-items-center">
+                  <section class="d-flex align-items-center">
                     <img
                       src="./assets/home/seller-2.png"
                       class="rounded-circle"
                       style="width: 60px; height: 60px; object-fit: cover"
                       alt="user"
                     />
-                    <div class="ms-3">
+                    <section class="ms-3">
                       <h6 class="mb-0">Ronald Richards</h6>
                       <small class="text-muted">Marketing Director</small>
-                      <div class="stars text-warning">★★★★☆</div>
-                    </div>
-                  </div>
+                      <section class="stars text-warning">★★★★☆</section>
+                    </section>
+                  </section>
                   <img
                     src="./assets/home/amazon-logo.png"
                     style="height: 40px"
                     alt="logo"
                   />
-                </div>
-              </div>
+                </section>
+              </section>
             </li>
             <li class="splide__slide">
-              <div class="card h-100">
-                <div class="card-body">
+              <section class="card h-100">
+                <section class="card-body">
                   <p class="card-text">
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content. Lorem ipsum dolor sit
                     amet consectetur adipisicing elit. Eveniet.
                   </p>
-                </div>
-                <div
+                </section>
+                <section
                   class="card-footer bg-white border-0 d-flex justify-content-between align-items-center"
                 >
-                  <div class="d-flex align-items-center">
+                  <section class="d-flex align-items-center">
                     <img
                       src="./assets/home/seller-2.png"
                       class="rounded-circle"
                       style="width: 60px; height: 60px; object-fit: cover"
                       alt="user"
                     />
-                    <div class="ms-3">
+                    <section class="ms-3">
                       <h6 class="mb-0">Ronald Richards</h6>
                       <small class="text-muted">Marketing Director</small>
-                      <div class="stars text-warning">★★★★☆</div>
-                    </div>
-                  </div>
+                      <section class="stars text-warning">★★★★☆</section>
+                    </section>
+                  </section>
                   <img
                     src="./assets/home/amazon-logo.png"
                     style="height: 40px"
                     alt="logo"
                   />
-                </div>
-              </div>
+                </section>
+              </section>
             </li>
             <li class="splide__slide">
-              <div class="card h-100">
-                <div class="card-body">
+              <section class="card h-100">
+                <section class="card-body">
                   <p class="card-text">
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content. Lorem ipsum dolor sit
                     amet consectetur adipisicing elit. Eveniet.
                   </p>
-                </div>
-                <div
+                </section>
+                <section
                   class="card-footer bg-white border-0 d-flex justify-content-between align-items-center"
                 >
-                  <div class="d-flex align-items-center">
+                  <section class="d-flex align-items-center">
                     <img
                       src="./assets/home/seller-2.png"
                       class="rounded-circle"
                       style="width: 60px; height: 60px; object-fit: cover"
                       alt="user"
                     />
-                    <div class="ms-3">
+                    <section class="ms-3">
                       <h6 class="mb-0">Ronald Richards</h6>
                       <small class="text-muted">Marketing Director</small>
-                      <div class="stars text-warning">★★★★☆</div>
-                    </div>
-                  </div>
+                      <section class="stars text-warning">★★★★☆</section>
+                    </section>
+                  </section>
                   <img
                     src="./assets/home/amazon-logo.png"
                     style="height: 40px"
                     alt="logo"
                   />
-                </div>
-              </div>
+                </section>
+              </section>
             </li>
           </ul>
-        </div>
+        </section>
       </section>
     </section>
     <section id="homeEleventhSection" class="container pt-5 pb-5">
@@ -2156,10 +2190,10 @@
         class="splide splide-three"
         aria-label="Splide Basic HTML Example"
       >
-        <div class="splide__track">
+        <section class="splide__track">
           <ul class="splide__list">
             <li class="splide__slide mx-4">
-              <div class="card align-items-center" style="width: 18rem">
+              <section class="card align-items-center" style="width: 18rem">
                 <section
                   class="position-relative d-flex justify-content-center align-items-center"
                   style="width: 150px; height: 150px"
@@ -2183,20 +2217,20 @@
                     alt="seller"
                   />
                 </section>
-                <div class="card-body text-center">
-                  <div
+                <section class="card-body text-center">
+                  <section
                     class="border rounded border-2 border-primary border-secondary border-dashed p-3"
                   >
                     <a href="a" class="fw-bold mb-1" style="color: #012e4a">
                       ETHER HOWARD
                     </a>
                     <h6 class="text-muted">10 published books</h6>
-                  </div>
-                </div>
-              </div>
+                  </section>
+                </section>
+              </section>
             </li>
             <li class="splide__slide mx-4">
-              <div class="card align-items-center" style="width: 18rem">
+              <section class="card align-items-center" style="width: 18rem">
                 <section
                   class="position-relative d-flex justify-content-center align-items-center"
                   style="width: 150px; height: 150px"
@@ -2220,20 +2254,20 @@
                     alt="seller"
                   />
                 </section>
-                <div class="card-body text-center">
-                  <div
+                <section class="card-body text-center">
+                  <section
                     class="border rounded border-2 border-primary border-secondary border-dashed p-3"
                   >
                     <a href="a" class="fw-bold mb-1" style="color: #012e4a">
                       ETHER HOWARD
                     </a>
                     <h6 class="text-muted">10 published books</h6>
-                  </div>
-                </div>
-              </div>
+                  </section>
+                </section>
+              </section>
             </li>
             <li class="splide__slide mx-4">
-              <div class="card align-items-center" style="width: 18rem">
+              <section class="card align-items-center" style="width: 18rem">
                 <section
                   class="position-relative d-flex justify-content-center align-items-center"
                   style="width: 150px; height: 150px"
@@ -2257,20 +2291,20 @@
                     alt="seller"
                   />
                 </section>
-                <div class="card-body text-center">
-                  <div
+                <section class="card-body text-center">
+                  <section
                     class="border rounded border-2 border-primary border-secondary border-dashed p-3"
                   >
                     <a href="a" class="fw-bold mb-1" style="color: #012e4a">
                       ETHER HOWARD
                     </a>
                     <h6 class="text-muted">10 published books</h6>
-                  </div>
-                </div>
-              </div>
+                  </section>
+                </section>
+              </section>
             </li>
             <li class="splide__slide mx-4">
-              <div class="card align-items-center" style="width: 18rem">
+              <section class="card align-items-center" style="width: 18rem">
                 <section
                   class="position-relative d-flex justify-content-center align-items-center"
                   style="width: 150px; height: 150px"
@@ -2294,20 +2328,20 @@
                     alt="seller"
                   />
                 </section>
-                <div class="card-body text-center">
-                  <div
+                <section class="card-body text-center">
+                  <section
                     class="border rounded border-2 border-primary border-secondary border-dashed p-3"
                   >
                     <a href="a" class="fw-bold mb-1" style="color: #012e4a">
                       ETHER HOWARD
                     </a>
                     <h6 class="text-muted">10 published books</h6>
-                  </div>
-                </div>
-              </div>
+                  </section>
+                </section>
+              </section>
             </li>
             <li class="splide__slide mx-4">
-              <div class="card align-items-center" style="width: 18rem">
+              <section class="card align-items-center" style="width: 18rem">
                 <section
                   class="position-relative d-flex justify-content-center align-items-center"
                   style="width: 150px; height: 150px"
@@ -2331,20 +2365,20 @@
                     alt="seller"
                   />
                 </section>
-                <div class="card-body text-center">
-                  <div
+                <section class="card-body text-center">
+                  <section
                     class="border rounded border-2 border-primary border-secondary border-dashed p-3"
                   >
                     <a href="a" class="fw-bold mb-1" style="color: #012e4a">
                       ETHER HOWARD
                     </a>
                     <h6 class="text-muted">10 published books</h6>
-                  </div>
-                </div>
-              </div>
+                  </section>
+                </section>
+              </section>
             </li>
           </ul>
-        </div>
+        </section>
       </section>
     </section>
     <section
@@ -2360,9 +2394,9 @@
         </h6>
       </section>
       <section class="container py-5">
-        <div class="row g-4 justify-content-center">
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100">
+        <section class="row g-4 justify-content-center">
+          <section class="col-sm-6 col-md-4 col-lg-3">
+            <section class="card h-100">
               <section class="p-3">
                 <img
                   src="./assets/home/blog-1.jpg"
@@ -2370,7 +2404,7 @@
                   alt="Blog 1"
                 />
               </section>
-              <div class="card-body d-flex flex-column">
+              <section class="card-body d-flex flex-column">
                 <a
                   href="#"
                   class="text-decoration-none card-title fw-bold fs-4 mb-2"
@@ -2393,13 +2427,13 @@
                     />
                   </svg>
                 </a>
-              </div>
-            </div>
-          </div>
+              </section>
+            </section>
+          </section>
 
           <!-- Repeat for other cards -->
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100">
+          <section class="col-sm-6 col-md-4 col-lg-3">
+            <section class="card h-100">
               <section class="p-3">
                 <img
                   src="./assets/home/blog-2.jpg"
@@ -2407,7 +2441,7 @@
                   alt="Blog 2"
                 />
               </section>
-              <div class="card-body d-flex flex-column">
+              <section class="card-body d-flex flex-column">
                 <a
                   href="#"
                   class="text-decoration-none card-title fw-bold fs-4 mb-2"
@@ -2430,12 +2464,12 @@
                     />
                   </svg>
                 </a>
-              </div>
-            </div>
-          </div>
+              </section>
+            </section>
+          </section>
 
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100">
+          <section class="col-sm-6 col-md-4 col-lg-3">
+            <section class="card h-100">
               <section class="p-3">
                 <img
                   src="./assets/home/blog-4.jpg"
@@ -2443,7 +2477,7 @@
                   alt="Blog 2"
                 />
               </section>
-              <div class="card-body d-flex flex-column">
+              <section class="card-body d-flex flex-column">
                 <a
                   href="#"
                   class="text-decoration-none card-title fw-bold fs-4 mb-2"
@@ -2466,11 +2500,11 @@
                     />
                   </svg>
                 </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100">
+              </section>
+            </section>
+          </section>
+          <section class="col-sm-6 col-md-4 col-lg-3">
+            <section class="card h-100">
               <section class="p-3">
                 <img
                   src="./assets/home/blog-3.jpg"
@@ -2478,7 +2512,7 @@
                   alt="Blog 2"
                 />
               </section>
-              <div class="card-body d-flex flex-column">
+              <section class="card-body d-flex flex-column">
                 <a
                   href="#"
                   class="text-decoration-none card-title fw-bold fs-4 mb-2"
@@ -2501,22 +2535,22 @@
                     />
                   </svg>
                 </a>
-              </div>
-            </div>
-          </div>
-        </div>
+              </section>
+            </section>
+          </section>
+        </section>
       </section>
     </section>
     <footer class="footer text-white">
-      <div class="container-fluid">
-        <div class="row text-center text-md-start">
-          <div class="col-md-3 mb-4">
+      <section class="container-fluid">
+        <section class="row text-center text-md-start">
+          <section class="col-md-3 mb-4">
             <h5>📚 Bookle</h5>
             <p>
               Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
               lacinia curabitur lacinia mollis
             </p>
-            <div>
+            <section>
               <a href="#" class="text-white me-2"
                 ><i class="fab fa-facebook-f"></i
               ></a>
@@ -2526,9 +2560,9 @@
               <a href="#" class="text-white me-2"
                 ><i class="fab fa-linkedin"></i
               ></a>
-            </div>
-          </div>
-          <div class="col-md-3 mb-4">
+            </section>
+          </section>
+          <section class="col-md-3 mb-4">
             <h6>Customers Support</h6>
             <ul class="list-unstyled">
               <li><a href="#" class="text-white">Store List</a></li>
@@ -2536,8 +2570,8 @@
               <li><a href="#" class="text-white">Contact Us</a></li>
               <li><a href="#" class="text-white">Return Policy</a></li>
             </ul>
-          </div>
-          <div class="col-md-3 mb-4">
+          </section>
+          <section class="col-md-3 mb-4">
             <h6>Categories</h6>
             <ul class="list-unstyled">
               <li><a href="#" class="text-white">Novel Books</a></li>
@@ -2545,8 +2579,8 @@
               <li><a href="#" class="text-white">Political Books</a></li>
               <li><a href="#" class="text-white">History Books</a></li>
             </ul>
-          </div>
-          <div class="col-md-3 mb-4">
+          </section>
+          <section class="col-md-3 mb-4">
             <h6>Newsletter</h6>
             <p>
               Sign up to receive weekly newsletter to get the latest updates.
@@ -2561,18 +2595,18 @@
                 <i class="fa fa-paper-plane" style="color: white"></i>
               </button>
             </form>
-          </div>
-        </div>
+          </section>
+        </section>
         <hr class="bg-white" />
-        <div class="text-center">
+        <section class="text-center">
           <p>
             <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
             <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
             <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
             &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
           </p>
-        </div>
-      </div>
+        </section>
+      </section>
     </footer>
     <script>
       const container = document.getElementById("carousel-card-container");
