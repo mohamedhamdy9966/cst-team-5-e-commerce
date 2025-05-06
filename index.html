@@ -254,6 +254,8 @@
         }
       }
     </style>
+    <script src="./JS/books.js"></script>
+    <script src="./JS/users.js"></script>
   </head>
   <body>
     <nav class="d-flex align-items-stretch sticky" style="height: 100px">
@@ -1766,7 +1768,7 @@
       <section
         class="d-flex justify-content-between align-items-center mt-4 mb-5"
       >
-        <h3 class="mb-0 fw-bold" style="color: #003366">Top Rating Books</h3>
+        <h3 class="mb-0 fw-bold" style="color: #003366">Top Selling Books</h3>
         <a
           href="#"
           class="btn homeAddToCartButton rounded text-secondary border px-4 px-md-5 py-2"
@@ -2687,24 +2689,19 @@
       document.querySelectorAll(".addToCartBtn").forEach((btn) => {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
-
           const productCard = btn.closest(".product-card");
           const name = productCard.querySelector(".product-name").textContent;
           const price = productCard.querySelector(".product-price").textContent;
           const img = productCard.querySelector(".product-img").src;
-
           const product = { name, price, img };
-
           // Save product temporarily to localStorage
           localStorage.setItem("selectedProduct", JSON.stringify(product));
-
           // Redirect to details page
           window.location.href = "./pages/shop_details.html";
         });
       });
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
       const badge = document.querySelector("#count");
-
       if (badge) {
         badge.textContent = cart.length;
       }
