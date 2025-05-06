@@ -374,74 +374,57 @@
       </div>
     </footer>
     <script>
-      document
-        .getElementById("signupBtn")
-        .addEventListener("click", function (event) {
-          event.preventDefault();
-          const checkTerms = document.getElementById("checkTerms");
-          if (!checkTerms.checked) {
-            alert("Please Agree First To Terms & Conditions !");
-          } else {
-            const fname = document.getElementById("fname").value.trim();
-            const lname = document.getElementById("lname").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
-            const role = document
-              .getElementById("role")
-              .value.trim()
-              .toLowerCase();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!fname) {
-              alert("Please enter your first name.");
-              return;
-            }
-
-            if (!lname) {
-              alert("Please enter your last name.");
-              return;
-            }
-
-            if (!email || !emailRegex.test(email)) {
-              alert("Please enter a valid email address.");
-              return;
-            }
-
-            if (!password || password.length < 6) {
-              alert("Password must be at least 6 characters.");
-              return;
-            }
-
-            if (role !== "seller" && role !== "customer") {
-              alert("Role must be 'seller' or 'customer'.");
-              return;
-            }
-
-            let users = JSON.parse(localStorage.getItem("users")) || [];
-
-            const existingUser = users.find((user) => user.email === email);
-            if (existingUser) {
-              alert("This email is already registered.");
-              return;
-            }
-
-            const newUser = {
-              firstName: fname,
-              lastName: lname,
-              email: email,
-              password: password,
-              role: role,
-              books: [],
-              wishlist: [],
-              orders: [],
-            };
-
-            users.push(newUser);
-            localStorage.setItem("users", JSON.stringify(users));
-
-            alert("Signup successful!");
-            window.location.href = "./login.html";
-          }
-        });
+      const signupBtn = document.getElementById("signupBtn");
+      const spinner = document.getElementById("spinner");
+      function showMessage(msg, type = "danger") {
+        const messageDiv = document.getElementById("message");
+        messageDiv.className = `alert alert-${type}`;
+        messageDiv.textContent = msg;
+        messageDiv.classList.remove("d-none");
+      }
+      signupBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        const fname = document.getElementById("fname").value.trim();
+        const lname = document.getElementById("lname").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const role = document.getElementById("role").value.trim().toLowerCase();
+        const termsChecked = document.getElementById("checkterms").checked;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!fname) return showMessage("Please enter your first name.");
+        if (!lname) return showMessage("Please enter your last name.");
+        if (!email || !emailRegex.test(email))
+          return showMessage("Please enter a valid email address.");
+        if (!password || password.length < 6)
+          return showMessage("Password must be at least 6 characters.");
+        if (role !== "seller" && role !== "user")
+          return showMessage("Role must be 'seller' or 'user'.");
+        if (!termsChecked)
+          return showMessage("You must accept the terms and conditions.");
+        spinner.classList.remove("d-none");
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        const existingUser = users.find((user) => user.email === email);
+        if (existingUser) {
+          spinner.classList.add("d-none");
+          return showMessage("This email is already registered.");
+        }
+        const newUser = {
+          firstName: fname,
+          lastName: lname,
+          email: email,
+          password: password,
+          role: role,
+          books: [],
+          wishlist: [],
+          orders: [],
+        };
+        users.push(newUser);
+        localStorage.setItem("users", JSON.stringify(users));
+        showMessage("Signup successful! Redirecting to login...", "success");
+        setTimeout(() => {
+          window.location.href = "./login.html";
+        }, 1500);
+      });
     </script>
   </body>
 </html>
