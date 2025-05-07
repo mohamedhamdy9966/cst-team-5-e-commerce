@@ -63,7 +63,7 @@
 <body>
   <nav class="d-flex align-items-stretch sticky" style="height: 100px">
     <!-- Left Logo -->
-    <div
+    <section
       class="d-flex align-items-center px-4"
       style="
         background-color: #012e4a;
@@ -77,35 +77,35 @@
         class="img-fluid"
         style="max-height: 100%"
       />
-    </div>
+    </section>
     <!-- Right Section -->
-    <div class="flex-grow-1 d-flex flex-column">
+    <section class="flex-grow-1 d-flex flex-column">
       <!-- Top Nav -->
-      <div
+      <section
         class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
         style="background-color: #036280; color: white; font-size: 0.9rem"
       >
-        <div class="">
+        <section class="">
           <i class="fas fa-phone me-2"></i> +208-6666-0112 |
           <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
           <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
-        </div>
-        <div>
+        </section>
+        <section>
           <a
             href="./login.html"
             style="color: white; text-decoration: none; margin-right: 15px"
             ><i class="fas fa-user ms-3 me-1"></i>Login</a
           >
-        </div>
-      </div>
+        </section>
+      </section>
       <!-- Bottom Nav -->
-      <div
+      <section
         class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
         style="background-color: #fff; border-bottom: 1px solid #ddd"
       >
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg p-0">
-          <div class="container-fluid">
+          <section class="container-fluid">
             <!-- Toggle Button for Offcanvas -->
             <button
               class="navbar-toggler"
@@ -117,13 +117,13 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Offcanvas Menu -->
-            <div
+            <section
               class="offcanvas offcanvas-start"
               tabindex="-1"
               id="offcanvasNavbar"
               aria-labelledby="offcanvasNavbarLabel"
             >
-              <div class="offcanvas-header">
+              <section class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
                   <i class="fa-solid fa-bars"></i> Menu
                 </h5>
@@ -133,8 +133,8 @@
                   data-bs-dismiss="offcanvas"
                   aria-label="Close"
                 ></button>
-              </div>
-              <div class="offcanvas-body">
+              </section>
+              <section class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li class="nav-item fw-bold px-2">
                     <a class="nav-link" href="../index.html"
@@ -169,13 +169,13 @@
                     >
                   </li>
                 </ul>
-              </div>
-            </div>
-          </div>
+              </section>
+            </section>
+          </section>
         </nav>
         <!-- Icons -->
-        <div class="d-flex gap-3">
-          <div class="position-relative">
+        <section class="d-flex gap-3">
+          <section class="position-relative">
             <a href="./wishlist.html" class="text-danger">
               <i
                 class="far fa-heart"
@@ -193,8 +193,8 @@
                 >0</span
               >
             </a>
-          </div>
-          <div class="position-relative">
+          </section>
+          <section class="position-relative">
             <a href="./cart.html" class="text-success">
               <i
                 class="fas fa-shopping-cart"
@@ -213,84 +213,84 @@
                 >0</span
               >
             </a>
-          </div>
-          <div class="position-relative">
+          </section>
+          <section class="position-relative">
             <a href="./login.html" style="color: #02488d;">
               <i
                 class="fas fa-user"
                 style="font-size: 1.2rem; position: relative"
               ></i>
             </a>
-          </div>
-        </div>
-      </div>
-    </div>
+          </section>
+        </section>
+      </section>
+    </section>
   </nav>
-  <div class="container-fluid bg-light py-5" style="min-height: 400px;">
-    <div class="row align-items-center">
+  <section class="container-fluid bg-light py-5" style="min-height: 400px;">
+    <section class="row align-items-center">
       <!-- Left Image -->
-      <div class="col-md-4 d-none d-md-block text-center py-2">
+      <section class="col-md-4 d-none d-md-block text-center py-2">
         <img src="../assets/checkout/book1.png" class="left-img" alt="Left books"/>
-      </div>
+      </section>
       <!-- Center Text -->
-      <div class="col-12 col-md-4 text-center py-5">
+      <section class="col-12 col-md-4 text-center py-5">
         <h2 class="fw-bold" style="color: #012E7C;">Checkout</h2>
         <p><span style="color: #012E7C;">Home</span> > <span style="color: #036280;">Checkout</span></p>
-      </div>
+      </section>
       <!-- Right Image -->
-      <div class="col-md-4 d-none d-md-block text-center py-2">
+      <section class="col-md-4 d-none d-md-block text-center py-2">
         <img src="../assets/checkout/book2.png" class="right-img" alt="Right books" style="width: 250px; height: 300px;"/>
-      </div>
-    </div>
-</div>
-    <div class="container-fluid mt-3">
+      </section>
+    </section>
+</section>
+    <section class="container-fluid mt-3">
         <h2>Billing Details</h2>
         <form id="checkoutForm" onsubmit="return placeOrder()" novalidate>
-        <div class="row">
+        <section class="row">
           <!-- Billing Form - Left Column -->
           
-          <div class="col-md-8">
-            <div class="row">
-              <div class="col-md-6 mb-3">
+          <section class="col-md-8">
+            <section class="row">
+              <section class="col-md-6 mb-3">
                 <label for="firstName">First Name*</label>
                 <input type="text" class="form-control mt-2" id="firstName" name="firstName" placeholder="Enter your first name" required>
-              </div>
-              <div class="col-md-6 mb-3">
+              </section>
+              <section class="col-md-6 mb-3">
                 <label for="secondName">Second Name*</label>
                 <input type="text" class="form-control mt-2" id="secondName" name="secondName" placeholder="Enter your second name" required>
-              </div>
-              <div class="col-12 mb-3">
+              </section>
+              <section class="col-12 mb-3">
                 <label for="companyName">Company Name (optional)</label>
                 <input type="text" class="form-control mt-2" id="companyName" name="companyName">
-              </div>
-              <div class="col-12 mb-3">
+              </section>
+              <section class="col-12 mb-3">
                 <label for="country">Country*</label>
                 <input type="text" class="form-control mt-2" id="country" name="country" placeholder="Select a country" required>
-              </div>
+              </section>
             
-              <div class="col-12 mb-3">
+              <section class="col-12 mb-3">
                 <label for="streetAddress">Street Address</label>
                 <input type="text" class="form-control mt-2" id="streetAddress" name="streetAddress" placeholder="Apartment, suite, unit, etc." required>
-              </div>
+              </section>
       
-              <div class="col-12 mb-3">
+              <section class="col-12 mb-3">
                 <label for="city">Town/City*</label>
                 <input type="text" class="form-control mt-2" id="city" name="city" required>
-              </div>
+              </section>
       
-              <div class="col-12 mb-3">
+              <section class="col-12 mb-3">
                 <label for="phone">Phone*</label>
                 <input type="tel" class="form-control mt-2" id="phone" name="phone" placeholder="Phone number" required>
-              </div>
+              </section>
       
-              <div class="col-12 mb-3">
+              <section class="col-12 mb-3">
                 <label for="email">Email Address*</label>
                 <input type="email" class="form-control mt-2" id="email" name="email" placeholder="Email" required>
-              </div>
-            </div>
-          </div>
+              </section>
+            </section>
+          </section>
       <!-- Order Summary - Right Column -->
-<div class="col-md-4 text-center">
+<section class="col-md-4 text-center">
 <h2>Our Order</h2>
 
 <!-- Order Table -->
@@ -310,106 +310,106 @@
 <hr>
 
 <!-- Shipping Options -->
-<div class="row align-items-center">
+<section class="row align-items-center">
 <!-- Shipping Label Column -->
-<div class="col-md-6 col-12 mb-2">
+<section class="col-md-6 col-12 mb-2">
   <span class="fw-bold">Shipping</span>
-</div>
+</section>
 
 <!-- Radio Buttons Column -->
-<div class="col-md-6 col-12">
-  <div>
+<section class="col-md-6 col-12">
+  <section>
     <input class="form-check-input me-2" type="radio" id="shipping2" name="shipping">
     <label class="form-check-label" for="shipping2">Express Shipping</label>
-  </div>
-  <div>
+  </section>
+  <section>
     <input class="form-check-input me-2" type="radio" id="shipping3" name="shipping">
     <label class="form-check-label" for="shipping3">Next Day Delivery</label>
-  </div>
-</div>
-</div>
+  </section>
+</section>
+</section>
 
 <hr>
 
 <!-- Total -->
-<div class="d-flex justify-content-between">
+<section class="d-flex justify-content-between">
 <span>Total</span>
 <span id="orderTotal">$55.00</span>
-</div>
+</section>
 <hr>
 
 <!-- Payment Methods -->
-<div class="col-12">
-<div class="form-check d-flex align-items-center">
+<section class="col-12">
+<section class="form-check d-flex align-items-center">
   <input class="form-check-input me-2" type="radio" id="radio1">
   <label class="form-check-label" for="radio1">Direct bank transfer</label>
-</div>
+</section>
 <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
 
-<div class="form-check d-flex align-items-center">
+<section class="form-check d-flex align-items-center">
   <input class="form-check-input me-2" type="radio" id="radio2">
   <label class="form-check-label" for="radio2">Cash on delivery</label>
-</div>
+</section>
 
-<div class="form-check d-flex align-items-center">
+<section class="form-check d-flex align-items-center">
   <input class="form-check-input me-2" type="radio" id="radio3">
   <label class="form-check-label" for="radio3">Paypal</label>
-</div>
+</section>
 
 <hr>
 <!-- Place Order Button -->
 <button type="submit" class="btn btn-success w-100 place-order-btn rounded-5" style="background-color: #012E4A;" >
   Place Order
 </button>
-</div>
-</div>
+</section>
+</section>
 
-              </div>
-          </div>
-        </div>
-      </div>
+              </section>
+          </section>
+        </section>
+      </section>
       
-<div class="container-fluid mt-5">
-    <div class="row">
+<section class="container-fluid mt-5">
+    <section class="row">
       <!-- Checkbox -->
-      <div class="col-12 mb-3">
-        <div class="form-check">
+      <section class="col-12 mb-3">
+        <section class="form-check">
             <input class="form-check-input" type="checkbox" id="Check1">
             <label class="form-check-label" for="Check1">
                 Save for my next payment
             </label>
-        </div>
-      </div>
-      <div class="col-12 mb-3">
-        <div class="form-check">
+        </section>
+      </section>
+      <section class="col-12 mb-3">
+        <section class="form-check">
             <input class="form-check-input" type="checkbox" id="Check2">
             <label class="form-check-label" for="Check2">
                 Ship to a different address?
             </label>
-        </div>
-      </div>
-    </div>
-  </div>
-    <div class="col-12 col-md-8 mx-3 my-3">
+        </section>
+      </section>
+    </section>
+  </section>
+    <section class="col-12 col-md-8 mx-3 my-3">
         <label for="name">order notes (optional)</label>
         <input type="text" class="form-control mt-2 note" id="name" placeholder="Note about your Order , E.G Special Notes for Delivery">
-      </div>
+      </section>
     </form>
 
 
-  <div class="footer text-white">
-    <div class="container">
-      <div class="row text-center text-md-start">
-        <div class="col-md-3 mb-4">
+  <section class="footer text-white">
+    <section class="container">
+      <section class="row text-center text-md-start">
+        <section class="col-md-3 mb-4">
           <h5>📚 Bookle</h5>
           <p>Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia curabitur lacinia mollis</p>
-          <div>
+          <section>
             <a href="#" class="text-white me-2" ><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
             <a href="#" class="text-white me-2"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="col-md-3 mb-4">
+          </section>
+        </section>
+        <section class="col-md-3 mb-4">
           <h6>Customers Support</h6>
           <ul class="list-unstyled">
             <li><a href="#" class="text-white">Store List</a></li>
@@ -417,8 +417,8 @@
             <li><a href="#" class="text-white">Contact Us</a></li>
             <li><a href="#" class="text-white">Return Policy</a></li>
           </ul>
-        </div>
-        <div class="col-md-3 mb-4">
+        </section>
+        <section class="col-md-3 mb-4">
           <h6>Categories</h6>
           <ul class="list-unstyled">
             <li><a href="#" class="text-white">Novel Books</a></li>
@@ -426,8 +426,8 @@
             <li><a href="#" class="text-white">Political Books</a></li>
             <li><a href="#" class="text-white">History Books</a></li>
           </ul>
-        </div>
-        <div class="col-md-3 mb-4">
+        </section>
+        <section class="col-md-3 mb-4">
           <h6>Newsletter</h6>
           <p>Sign up to receive weekly newsletter to get the latest updates.</p>
           <section class="d-flex">
@@ -436,19 +436,19 @@
                 <i class="fa fa-paper-plane" style="color: white;"></i>
               </button>
           </section>
-        </div>
-      </div>
+        </section>
+      </section>
       <hr class="bg-white" />
-      <div class="text-center">
+      <section class="text-center">
         <p>
           <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
           <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
           <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; | &nbsp;
           <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
         </p>
-      </div>
-    </div>
-  </div>
+      </section>
+    </section>
+  </section>
 </body>
 
 <script>

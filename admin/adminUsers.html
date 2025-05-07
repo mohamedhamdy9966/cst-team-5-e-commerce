@@ -165,10 +165,10 @@
     </nav>
     <!-- Main Content -->
     <main class="main-content">
-      <div class="header">
+      <section class="header">
         <h3>All Users</h3>
-      </div>
-      <div class="user-list-container mt-4">
+      </section>
+      <section class="user-list-container mt-4">
         <table class="table table-striped user-table" id="gg">
           <thead class="table-light">
             <tr>
@@ -180,7 +180,7 @@
           </thead>
           <tbody></tbody>
         </table>
-      </div>
+      </section>
     </main>
     <section
       class="modal fade"
@@ -189,10 +189,10 @@
       aria-labelledby="editUserModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
-        <div class="modal-content">
+      <section class="modal-dialog">
+        <section class="modal-content">
           <form id="editForm">
-            <div class="modal-header">
+            <section class="modal-header">
               <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
               <button
                 type="button"
@@ -200,10 +200,10 @@
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
-            </div>
-            <div class="modal-body">
+            </section>
+            <section class="modal-body">
               <input type="hidden" id="editIndex" />
-              <div class="mb-3">
+              <section class="mb-3">
                 <label for="editFname" class="form-label">First Name</label>
                 <input
                   type="text"
@@ -211,8 +211,8 @@
                   id="editFname"
                   required
                 />
-              </div>
-              <div class="mb-3">
+              </section>
+              <section class="mb-3">
                 <label for="editEmail" class="form-label">Email</label>
                 <input
                   type="email"
@@ -220,24 +220,24 @@
                   id="editEmail"
                   required
                 />
-              </div>
-              <div class="mb-3">
+              </section>
+              <section class="mb-3">
                 <label for="editRole" class="form-label">Role</label>
                 <select class="form-select" id="editRole" required>
                   <option value="admin">Admin</option>
                   <option value="seller">Seller</option>
                   <option value="user">User</option>
                 </select>
-              </div>
-            </div>
-            <div class="modal-footer">
+              </section>
+            </section>
+            <section class="modal-footer">
               <button type="submit" class="btn btn-primary">
                 Save Changes
               </button>
-            </div>
+            </section>
           </form>
-        </div>
-      </div>
+        </section>
+      </section>
     </section>
     <script>
       const users = JSON.parse(localStorage.getItem("users")) || [];

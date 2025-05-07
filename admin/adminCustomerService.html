@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Panel</title>
+    <title>Admin Customer Service</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -193,95 +193,60 @@
     </nav>
     <!-- Main Content -->
     <section class="main-content">
-      <div class="header">
+      <section class="header">
         <h3 class="text-center mb-0">Admin Customer Services</h3>
-      </div>
-      <!-- Form and Image -->
-      <div class="product-form-container mt-4">
-        <!-- Left: Form -->
-        <form class="flex-grow-1 test">
-          <div class="d-flex flex-column gap-4 mb-4">
-            <label class="img-placeholder" id="imgLabel">
-              <span id="imgText">Image</span>
-              <input type="file" id="imgInput" accept="image/*" hidden />
-            </label>
-            <div class="mb-3">
-              <label class="form-label">Book Name</label>
-              <input
-                type="text"
-                class="form-control mx-w"
-                placeholder="Enter product name"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Description</label>
-              <textarea
-                class="form-control mx-w"
-                rows="3"
-                placeholder="Enter product description"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Category</label>
-              <input
-                type="text"
-                class="form-control mx-w"
-                placeholder="Enter category"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Price</label>
-              <input
-                type="number"
-                class="form-control mx-w"
-                placeholder="Enter price"
-              />
-            </div>
-          </div>
-          <button
-            type="submit"
-            class="btn text-white zz"
-            style="background-color: #0f84a9"
-          >
-            Add Product
-          </button>
-        </form>
+      </section>
+      <section
+        class="product-form-container mt-4 d-flex flex-wrap justify-content-between"
+      >
+      
         <!-- Right: Image -->
         <img
-          src="../assets/admin/premium_photo-1661582120130-03b9bdc47a75.avif"
+          src="../assets/admin/admin-customer-service.png"
           alt="admin illustration"
-          class="product-image"
+          class="product-image align-content-center"
+          style="max-width: 60%; height: auto"
         />
-      </div>
+        <!-- Left: Messages -->
+        <section
+          id="messagesWrapper"
+          class="test flex-grow-1 me-3"
+          style="min-width: 300px; max-width: 60%"
+        ></section>
+      </section>
     </section>
     <script>
-      // Access control
-      // Ensure currentUser is valid and has the proper role
       const u = JSON.parse(localStorage.getItem("currentUser"));
-      if (!u || (u.role !== "admin" && u.role !== "seller")) {
+      if (!u || u.role !== "admin") {
         alert("Access Denied");
         window.location.href = "../pages/login.html";
       }
-      // Initialize books array from localStorage or empty
-      let all = JSON.parse(localStorage.getItem("books")) || [];
-      // Function to add a new book
-      function addBook() {
-        const img = document.getElementById("imgUrl").value.trim();
-        const title = document.getElementById("title").value.trim();
-        const price = document.getElementById("price").value.trim();
-        if (!img || !title || !price) {
-          alert("Please fill in all fields.");
-          return;
-        }
-        all.push({
-          img,
-          title,
-          price: parseFloat(price),
-          owner: u.username,
+      document.addEventListener("DOMContentLoaded", () => {
+        const messages = JSON.parse(localStorage.getItem("messages")) || [];
+        const messagesWrapper = document.getElementById("messagesWrapper");
+        messages.forEach((message, index) => {
+          const nameBtn = document.createElement("button");
+          const emailBtn = document.createElement("button");
+          const messageSection = document.createElement("section");
+          nameBtn.innerText = message.name;
+          emailBtn.innerText = message.email;
+          messageSection.innerText = message.message;
+          nameBtn.classList.add("btn", "btn-primary", "me-2");
+          emailBtn.classList.add("btn", "btn-secondary", "me-2");
+          messageSection.classList.add(
+            "mt-2",
+            "mb-4",
+            "w-75",
+            "border",
+            "rounded",
+            "fw-bold",
+            "p-5"
+          );
+          messagesWrapper.appendChild(nameBtn);
+          messagesWrapper.appendChild(emailBtn);
+          messagesWrapper.appendChild(messageSection);
         });
-        localStorage.setItem("books", JSON.stringify(all));
-        render(); // Assumes render() is defined elsewhere
-      }
+      });
       // Logout function
       function logout() {
         localStorage.removeItem("currentUser");

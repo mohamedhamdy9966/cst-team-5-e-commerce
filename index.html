@@ -2731,24 +2731,19 @@
       document.querySelectorAll(".addToCartBtn").forEach((btn) => {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
-
           const productCard = btn.closest(".product-card");
           const name = productCard.querySelector(".product-name").textContent;
           const price = productCard.querySelector(".product-price").textContent;
           const img = productCard.querySelector(".product-img").src;
-
           const product = { name, price, img };
-
           // Save product temporarily to localStorage
           localStorage.setItem("selectedProduct", JSON.stringify(product));
-
           // Redirect to details page
           window.location.href = "./pages/shop_details.html";
         });
       });
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
       const badge = document.querySelector("#count");
-
       if (badge) {
         badge.textContent = cart.length;
       }
@@ -2768,5 +2763,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="./JS/books.js"></script>
     <script src="./JS/users.js"></script>
+    <script src="./JS/messages.js"></script>
   </body>
 </html>
