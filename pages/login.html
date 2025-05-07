@@ -17,8 +17,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="../JS/users.js"></script>
-    <script src="../JS/books.js"></script>
     <style>
       .card-title {
         color: #012e4a;
@@ -411,8 +409,6 @@
       </section>
     </footer>
     <script>
-      const sellerArray = [];
-      const customerArray = [];
       document
         .getElementById("login")
         .addEventListener("click", function (event) {
@@ -424,10 +420,12 @@
           const password = document
             .getElementById("floatingPassword")
             .value.trim();
+          // Validation
           if (!email || !password) {
             alert("Please fill in both email and password.");
             return;
           }
+          // Admin check
           const adminEmail = "admin@gmail.com";
           const adminPassword = "admin123";
           if (email === adminEmail && password === adminPassword) {
@@ -443,20 +441,26 @@
             return;
           }
           // Normal users
-          let users = JSON.parse(localStorage.getItem("users")) || [];
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          console.log("All users in storage:", users);
           const user = users.find(
-            (u) => u.email === email && u.password === password
+            (u) => u.email.toLowerCase() === email && u.password === password
           );
-          if (user) {
-            localStorage.setItem("role", user.role);
-            localStorage.setItem("currentUser", JSON.stringify(user));
-            if (user.role === "seller") {
-              window.location.href = "../seller/sellerDashboard.html";
-            } else if (user.role === "customer") {
-              window.location.href = "../customer/customerDashboard.html";
-            }
+          if (!user) {
+            console.error("User not found or password mismatch");
+            alert("Invalid credentials. Please try again.");
+            return;
+          }
+          // Successful login
+          localStorage.setItem("role", user.role);
+          localStorage.setItem("currentUser", JSON.stringify(user));
+          const userRole = user.role.toLowerCase();
+          if (userRole === "seller") {
+            window.location.href = "../seller/sellerDashboard.html";
+          } else if (userRole === "customer") {
+            window.location.href = "../customer/customerDashboard.html";
           } else {
-            alert("Invalid credentials");
+            alert("Unknown user role - contact support");
           }
         });
     </script>

@@ -1,7 +1,7 @@
 const users = [
   {
-    fname: "admin",
-    lname: "admin",
+    firstName: "admin",
+    lastName: "admin",
     email: "admin@gmail.com",
     password: "admin123",
     role: "admin",
@@ -10,8 +10,8 @@ const users = [
     orders: [],
   },
   {
-    fname: "Ahmed",
-    lname: "marwan",
+    firstName: "Ahmed",
+    lastName: "marwan",
     email: "ahmedmarwan200@gmail.com",
     password: "ahmed123",
     role: "customer",
@@ -76,8 +76,8 @@ const users = [
     ],
   },
   {
-    fname: "Asmaa",
-    lname: "mousaa",
+    firstName: "Asmaa",
+    lastName: "mousaa",
     email: "asmaamousa200@gmail.com",
     password: "asmaa123",
     role: "customer",
@@ -125,8 +125,8 @@ const users = [
     ],
   },
   {
-    fname: "Abelrahman",
-    lname: "Necro",
+    firstName: "Abelrahman",
+    lastName: "Necro",
     email: "abdelrahman200@gmail.com",
     password: "Abelrahman123",
     role: "customer",
@@ -135,8 +135,8 @@ const users = [
     orders: [],
   },
   {
-    fname: "Amira",
-    lname: "Mahmoud",
+    firstName: "Amira",
+    lastName: "Mahmoud",
     email: "amiramahmoud200@gmail.com",
     password: "amira123",
     role: "seller",
@@ -261,8 +261,8 @@ const users = [
     ],
   },
   {
-    fname: "Mohamed",
-    lname: "Hamdy",
+    firstName: "Mohamed",
+    lastName: "Hamdy",
     email: "mohamedhamdy200@gmail.com",
     password: "mohamed123",
     role: "seller",

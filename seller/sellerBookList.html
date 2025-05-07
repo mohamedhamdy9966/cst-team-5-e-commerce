@@ -236,7 +236,7 @@
     <script>
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
       const sellerDashboard = document.getElementById("sellerDashboard");
-      sellerDashboard.innerText += `${u.fname} Dashboard`;
+      sellerDashboard.innerText += `${u.firstName} Dashboard`;
       const sellerBooks = u.books || [];
       const sellerBooksTable = document.getElementById("sellerBooksTable");
       sellerBooks.forEach((book, index) => {

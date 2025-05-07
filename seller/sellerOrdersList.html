@@ -254,8 +254,8 @@
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
       const sellerOrders = u.orders || [];
       const sellerDashboard = document.getElementById("sellerDashboard");
-      if (sellerDashboard && u.fname) {
-        sellerDashboard.innerText += `${u.fname} Dashboard`;
+      if (sellerDashboard && u.firstName) {
+        sellerDashboard.innerText += `${u.firstName} Dashboard`;
       }
       const ordersSection = document.getElementById("orders");
       sellerOrders.forEach((order) => {

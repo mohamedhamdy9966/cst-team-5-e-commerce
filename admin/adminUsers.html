@@ -204,11 +204,11 @@
             <section class="modal-body">
               <input type="hidden" id="editIndex" />
               <section class="mb-3">
-                <label for="editFname" class="form-label">First Name</label>
+                <label for="editFirstName" class="form-label">First Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="editFname"
+                  id="editFirstName"
                   required
                 />
               </section>
@@ -244,20 +244,20 @@
       if (users.length === 0) {
         const dummyUsers = [
           {
-            fname: "admin",
-            lname: "admin",
+            firstName: "admin",
+            lastName: "admin",
             email: "admin@iti.com",
             role: "admin",
           },
           {
-            fname: "seller",
-            lname: "seller",
+            firstName: "seller",
+            lastName: "seller",
             email: "seller@iti.com",
             role: "seller",
           },
           {
-            fname: "customer",
-            lname: "customer",
+            firstName: "customer",
+            lastName: "customer",
             email: "customer@iti.com",
             role: "admin",
           },
@@ -270,7 +270,7 @@
       users.forEach((user, index) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-        <td>${user.fname + " " + user.lname}</td>
+        <td>${user.firstName + " " + user.lastName}</td>
         <td>${user.email}</td>
         <td>${user.role}</td>
         <td>
@@ -302,8 +302,8 @@
           return;
         }
         document.getElementById("editIndex").value = index;
-        document.getElementById("editFname").value =
-          user.fname || user.firstname;
+        document.getElementById("editFirstName").value =
+          user.firstName || user.fname;
         document.getElementById("editEmail").value = user.email;
         document.getElementById("editRole").value = user.role;
         const modal = new bootstrap.Modal(
@@ -316,14 +316,14 @@
         .addEventListener("submit", function (e) {
           e.preventDefault();
           const index = document.getElementById("editIndex").value;
-          const fname = document.getElementById("editFname").value.trim();
+          const firstName = document.getElementById("editFirstName").value.trim();
           const email = document.getElementById("editEmail").value.trim();
           const role = document.getElementById("editRole").value;
-          if (!fname || !email || !role) {
+          if (!firstName || !email || !role) {
             alert("All fields are required.");
             return;
           }
-          users[index].fname = fname;
+          users[index].firstName = firstName;
           users[index].email = email;
           users[index].role = role;
           localStorage.setItem("users", JSON.stringify(users));

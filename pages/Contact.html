@@ -154,6 +154,91 @@
           display: none;
         }
       }
+      /* Make header images responsive */
+      #left-img,
+      #right-img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Adjust center-dev on small screens */
+      @media (max-width: 768px) {
+        .center-dev {
+          position: static;
+          transform: none;
+          text-align: center;
+          margin-top: 2rem;
+        }
+
+        #header {
+          height: auto;
+          padding: 40px 10px;
+          text-align: center;
+        }
+
+        .contact-info {
+          border-radius: 10px;
+          margin-bottom: 20px;
+        }
+
+        .contact-form h2 {
+          font-size: 1.5rem;
+        }
+
+        .footer {
+          padding: 20px;
+        }
+
+        nav {
+          flex-direction: column !important;
+          height: auto !important;
+        }
+
+        .top-bar {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          padding: 10px;
+          gap: 5px;
+          font-size: 0.8rem;
+        }
+
+        .navbar-brand,
+        .nav-link {
+          font-size: 0.9rem;
+        }
+
+        .zz {
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      /* For very small screens (e.g., phones < 576px) */
+      @media (max-width: 576px) {
+        .contact-form h2 {
+          font-size: 1.25rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+          font-size: 0.9rem;
+        }
+
+        .header-top p {
+          font-size: 0.8rem;
+        }
+
+        .fab {
+          width: 25px;
+          height: 25px;
+          font-size: 0.75rem;
+          padding: 3px;
+        }
+
+        .xx i {
+          padding: 10px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -322,7 +407,6 @@
         </section>
       </section>
     </nav>
-    <!--Extra Might Be deleted-->
     <section>
       <section id="header" class="relative">
         <img src="../assets/cart/test1.png" id="left-img" />
@@ -330,7 +414,6 @@
         <img src="../assets/cart/test2.png" id="right-img" />
       </section>
     </section>
-    <!--End of extra-->
     <!-- Contact Section -->
     <section id="contact" class="container py-5">
       <section class="row g-5">
@@ -363,10 +446,9 @@
               </article>
             </section>
             <img
-              src="/premium_photo-1661582120130-03b9bdc47a75.avif"
+              src="../assets/contact/contact.png"
               alt="Contact"
               class="img-fluid w-100"
-              style="object-fit: cover"
             />
           </section>
         </section>
@@ -410,7 +492,12 @@
                   placeholder="Your Message"
                 ></textarea>
               </section>
-              <button type="submit" id="sendMessage" class="btn btn-send zz" style="background-color: #005670;">
+              <button
+                type="submit"
+                id="sendMessage"
+                class="btn btn-send zz"
+                style="background-color: #005670"
+              >
                 Send Message →
               </button>
             </form>

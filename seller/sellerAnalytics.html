@@ -214,7 +214,7 @@
       const titles = sellerBooks.map((book) => book.title);
       const soldCounts = sellerBooks.map((book) => book.sold);
       const sellerDashboard = document.getElementById("sellerDashboard");
-      sellerDashboard.innerText += `${u.fname} Dashboard`;
+      sellerDashboard.innerText += `${u.firstName} Dashboard`;
       const ctx = document.getElementById("myChart");
       new Chart(ctx, {
         type: "bar",

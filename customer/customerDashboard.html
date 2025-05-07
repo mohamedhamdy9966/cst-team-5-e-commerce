@@ -276,9 +276,9 @@
         alert("Access Denied");
         window.location.href = "../pages/login.html";
       }
-      // alert(`welcome back ${u.fname} !`)
+      // alert(`welcome back ${u.firstName} !`)
       const customerDashboard = document.getElementById("customerDashboard");
-      customerDashboard.innerText += `${u.fname} ${u.lname} Dashboard`;
+      customerDashboard.innerText += `${u.firstName} ${u.lastName} Dashboard`;
       document.addEventListener("DOMContentLoaded", () => {
         document
           .getElementById("updateCustomerCredentials")
@@ -315,8 +315,8 @@
               alert("Passwords don't match.");
               return;
             }
-            u.fname = firstName;
-            u.lname = lastName;
+            u.firstName = firstName;
+            u.lastName = lastName;
             u.email = email;
             u.password = password;
             localStorage.setItem("currentUser", JSON.stringify(u));

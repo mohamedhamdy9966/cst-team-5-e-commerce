@@ -22,6 +22,78 @@
         padding: 0;
         box-sizing: border-box;
       }
+      .bg-color {
+        background-color: #036280;
+        padding-top: 30px;
+        min-height: 25vh;
+      }
+      .header-top {
+        background-color: #036280;
+        color: white;
+      }
+      .navbar-brand {
+        font-weight: bold;
+      }
+      .contact-info {
+        background-color: #036280;
+        color: white;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .contact-info img {
+        width: 100%;
+        border-top: 1px solid #ffffff55;
+      }
+
+      .contact-form h2 {
+        font-weight: bold;
+      }
+
+      #ff {
+        background-color: #005670;
+        color: white;
+      }
+      #fix {
+        display: flex;
+      }
+      #fix p {
+        margin-top: 5px;
+        align-items: center;
+      }
+      .xx i {
+        border: 1px dashed white;
+        padding: 15px;
+        border-radius: 50%;
+      }
+      #unique {
+        padding: 15px 20px;
+      }
+      #header {
+        background-color: #e6eff2;
+        height: 70vh;
+      }
+      .relative {
+        position: relative;
+      }
+      #left-img {
+        position: absolute;
+        left: -0.25%;
+        top: 20%;
+        max-height: 400px;
+      }
+      #right-img {
+        position: absolute;
+        right: 0;
+        width: 300px;
+        top: 20%;
+        max-height: 350px;
+      }
+      .center-dev {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
       .footer {
         background-color: #012e4a;
         border-radius: 5px;
@@ -426,23 +498,12 @@
         </section>
       </section>
     </nav>
-    <section
-      class="top d-flex align-items-center justify-content-between"
-      style="background-color: #d0e1e7"
-    >
-      <img
-        src="../assets/shop_details/top.png"
-        alt="top image"
-        class="col-auto d-none d-xl-block"
-      />
-      <section class="text-center col-12 col-md-4 py-5">
-        <h1>About Us</h1>
+    <section>
+      <section id="header" class="relative">
+        <img src="../assets/cart/test1.png" id="left-img" />
+        <h1 class="center-dev">About Us</h1>
+        <img src="../assets/cart/test2.png" id="right-img" />
       </section>
-      <img
-        src="../assets/shop_details/book2.png"
-        alt="logo"
-        class="col-auto d-none d-xl-block"
-      />
     </section>
     <section
       id="homeSeventhSection"

@@ -277,9 +277,9 @@
         alert("Access Denied");
         window.location.href = "../pages/login.html";
       }
-      // alert(`welcome back ${u.fname}`);
+      // alert(`welcome back ${u.firstName}`);
       const sellerDashboard = document.getElementById("sellerDashboard");
-      sellerDashboard.innerText += `${u.fname} Dashboard`;
+      sellerDashboard.innerText += `${u.firstName} Dashboard`;
       let all = JSON.parse(localStorage.getItem("books")) || [];
       document.addEventListener("DOMContentLoaded", () => {
         document
@@ -317,8 +317,8 @@
               alert("Passwords don't match.");
               return;
             }
-            u.fname = firstName;
-            u.lname = lastName;
+            u.firstName = firstName;
+            u.lastName = lastName;
             u.email = email;
             u.password = password;
             localStorage.setItem("currentUser", JSON.stringify(u));
