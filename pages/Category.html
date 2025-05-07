@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<style>
+  body {
+    background-color: white
+  }
+  .sidebar {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+    /* الجزء :عنوان */
+    .top {
+    height: 400px;
+    background-color: #e6eff2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+  }
+  .top img {
+    padding-top: 60px;
+    height: auto;
+  }
+  h1,
+  h5 {
+    color: #012e4a;
+  }
+  .top h1 {
+    text-align: center;
+    font-weight: 640;
+    font-size:42px;
+  }
+  .book-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .book-image-wrapper {
+    background-color: #f1f5f9;
+    /* أي لون خلفية تريديه خلف الصورة */
+    padding: 10px;
+    text-align: center;
+  }
+   h1,h5,
+  .title,
+  .card-title
+  {
+    color: #012e4a;
+  }
+  .book-image {
+    max-height: 250px;
+    object-fit: contain;
+    width: 100%;
+  }
+   .rating ,
+  .price 
+  {
+    color: #ff6500;
+  }
+  
+.add-cart-btn {
+  border-radius: 30px;
+  background-color: #e6eff2;
+  color: #284e66;
+  border: none;
+  font-weight: bold;
+
+}
+.btn {
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  z-index: 1;
+  margin-top:10px;
+  /* لضمان بقاء النص فوق الشريط */
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background-color: #ff6500;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease;
+  z-index: -1;
+}
+.btn:hover::before {
+  transform: scaleX(1);
+}
+.btn:hover {
+  color: white;
+}
+.category-button{
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border: 1px solid #036280;;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    color: #012e4a;
+  }
+  .category-button.active,
+  .category-button:hover {
+    background-color: #ff6500;
+    border-color: #ff6500;
+    color: white;
+  }
+  .search-box input {
+    border-radius: 0.375rem;
+  }
+</style>
+</head>
+
+<body class="bg-light">
+  <!-- navbar -->
+  <nav class="d-flex align-items-stretch sticky" style="height: 100px">
+    <!-- Left Logo -->
+    <section
+      class="d-flex align-items-center px-4"
+      style="
+        background-color: #012e4a;
+        border-top-right-radius: 75%;
+        height: 100%;
+      "
+    >
+      <img
+        src="../assets/home/white-logo.svg"
+        alt="Bookle"
+        class="img-fluid"
+        style="max-height: 100%"
+      />
+    </section>
+    <!-- Right Section -->
+    <section class="flex-grow-1 d-flex flex-column">
+      <!-- Top Nav -->
+      <section
+        class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
+        style="background-color: #036280; color: white; font-size: 0.9rem"
+      >
+        <section class="">
+          <i class="fas fa-phone me-2"></i> +208-6666-0112 |
+          <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
+          <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
+        </section>
+        <section>
+          <a
+            href="./login.html"
+            style="color: white; text-decoration: none; margin-right: 15px"
+            ><i class="fas fa-user ms-3 me-1"></i>Login</a
+          >
+        </section>
+      </section>
+      <!-- Bottom Nav -->
+      <section
+        class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
+        style="background-color: #fff; border-bottom: 1px solid #ddd"
+      >
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg p-0">
+          <section class="container-fluid">
+            <!-- Toggle Button for Offcanvas -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Offcanvas Menu -->
+            <section
+              class="offcanvas offcanvas-start"
+              tabindex="-1"
+              id="offcanvasNavbar"
+              aria-labelledby="offcanvasNavbarLabel"
+            >
+              <section class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                  <i class="fa-solid fa-bars"></i> Menu
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </section>
+              <section class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item fw-bold px-2">
+                    <a class="nav-link" href="../index.html"
+                      ><i class="fa-solid fa-house"></i> Home</a
+                    >
+                  </li>
+                  <!-- Shop Dropdown -->
+                  <li class="nav-item fw-bold px-2">
+                    <a
+                      class="nav-link"
+                      href="./shoplist.html"
+                      role="button"
+                      aria-expanded="false"
+                    >
+                      <i class="fa-solid fa-shop"></i> Shop
+                    </a>
+                  </li>
+                  <!-- Pages Dropdown -->
+                  <li class="nav-item fw-bold px-2">
+                    <a
+                      class="nav-link"
+                      href="#"
+                      role="button"
+                      aria-expanded="false"
+                    >
+                      <i class="fa-solid fa-file"></i> About Us
+                    </a>
+                  </li>
+                  <li class="nav-item fw-bold px-2">
+                    <a class="nav-link" href="./Contact.html"
+                      ><i class="fa-solid fa-address-book"></i> Contact</a
+                    >
+                  </li>
+                </ul>
+              </section>
+            </section>
+          </section>
+        </nav>
+        <!-- Icons -->
+        <section class="d-flex gap-3">
+          <section class="position-relative">
+            <a href="./wishlist.html" class="text-danger">
+              <i
+                class="far fa-heart"
+                style="font-size: 1.2rem; position: relative"
+              ></i>
+              <span
+                class="rounded-circle text-bg-light"
+                style="
+                  font-size: 0.7rem;
+                  position: absolute;
+                  top: -8px;
+                  right: -10px;
+                  background-color: #036280;
+                "
+                >0</span
+              >
+            </a>
+          </section>
+          <section class="position-relative">
+            <a href="./cart.html" class="text-success">
+              <i
+                class="fas fa-shopping-cart"
+                style="font-size: 1.2rem; position: relative"
+              ></i>
+              <span
+                class="rounded-circle text-bg-light"
+                style="
+                  font-size: 0.7rem;
+                  position: absolute;
+                  top: -8px;
+                  right: -10px;
+                  background-color: #036280;
+                "
+                id="count"
+                >0</span
+              >
+            </a>
+          </section>
+          <section class="position-relative">
+            <a
+              href="./login.html"
+              class="d-md-none"
+              style="color: #02488d"
+            >
+              <i
+                class="fas fa-user"
+                style="font-size: 1.2rem; position: relative"
+              ></i>
+            </a>
+          </section>
+        </section>
+      </section>
+    </section>
+  </nav>
+
+  <section class="top d-flex align-items-center justify-content-between">
+    <img src="../assets/shop_details/book1.png" alt="top image" class="col-auto d-none d-xl-block">
+    <div class="text-center col-12 col-xl-4 py-5">
+
+      <h1>Categories</h1>
+    </div>
+    <img src="../assets/shop_details/book2.png" alt="logo" class="col-auto d-none d-xl-block">
+  </section>
+  <div class="container mt-5">
+    
+    <div class="row g-4">
+
+      <!-- Sidebar -->
+      <div class="col-md-3">
+        <div class="sidebar">
+          <h5>Search</h5>
+          <div class="search-box mb-4">
+            <input type="text" class="form-control" id="searchInput" placeholder="Search here">
+          </div>
+
+          <h5>Categories</h5>
+          
+          <div id="categoryContainer" class="mb-4">
+            <div class="row g-2">
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Adventure">Adventure</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Novels">Novels</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Philosophy">Philosophy</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Dystopia">Dystopia</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Action">Action</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Romance">Romance</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Fiction">Fiction</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Classic">Classic</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Self-help">Self-help</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Finance">Finance</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Fantasy">Fantasy</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Motivation">Motivation</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="History">History</button>
+              </div>
+              <div class="col-6">
+                <button class="category-button w-100" data-category="Spiritual">Spiritual</button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- Books Grid -->
+      <div class="col-md-9">
+        <h1 class="mb-5 cg-name"></h1>
+      <div id="bookList" class="row gy-4  "></div>
+    </div>
+
+  </div>
+</div>
+  <!-- footer -->
+  <footer class="footer text-white mt-5" style="background-color: #012e4a; border-radius: 5px; padding: 40px">
+    <div class="container-fluid">
+      <div class="row text-center text-md-start">
+        <div class="col-md-3 mb-4">
+          <h5 style="color: white;">📚 Bookle</h5>
+          <p>
+            Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
+            lacinia curabitur lacinia mollis
+          </p>
+          <div>
+            <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-2"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6>Customers Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Store List</a></li>
+            <li><a href="#" class="text-white">Opening Hours</a></li>
+            <li><a href="#" class="text-white">Contact Us</a></li>
+            <li><a href="#" class="text-white">Return Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6>Categories</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Novel Books</a></li>
+            <li><a href="#" class="text-white">Poetry Books</a></li>
+            <li><a href="#" class="text-white">Political Books</a></li>
+            <li><a href="#" class="text-white">History Books</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6>Newsletter</h6>
+          <p>
+            Sign up to receive weekly newsletter to get the latest updates.
+          </p>
+          <form class="d-flex">
+            <input type="email" class="form-control me-2" placeholder="Enter Email Address" />
+            <button class=" btn btn-primary" type="submit">
+              <i class="fa fa-paper-plane" style="color: white"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      <hr class="bg-white" />
+      <div class="text-center">
+        <p>
+          <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
+          <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
+          <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
+          &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../JS/books.js"></script>
+  <script>
+    const bookList = document.getElementById("bookList");
+    const categoryButtons = document.querySelectorAll(".category-button");
+
+    function renderBooks(filteredBooks) {
+      bookList.innerHTML = "";
+
+      if (filteredBooks.length === 0) {
+        bookList.innerHTML = "<p>No books found in this category.</p>";
+        return;
+      }
+
+      filteredBooks.forEach(book => {
+        const col = document.createElement("div");
+        col.className = "col-md-3";
+
+        col.innerHTML = `
+            
+            <div class="book-card p-0">
+
+            
+              <div class="book-image-wrapper p-3"
+                style="background-color: #f0f0f0; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                <img src="${book.image}" class="img-fluid book-image mx-auto d-block" alt="Book">
+              </div>
+
+
+              <div class="p-3">
+                <h5 class="mt-2 fs-5 mb-1 title">${book.title}</h5>
+                 <p class="author">${book.author}</p>
+                <div  class="d-flex justify-content-between align-items-center mb-2">
+                <p class="price fw-bold mb-1">$${book.price}</p>
+                <div><span class="rating mb-2">★</span> ${book.rating}</div>
+              </div>
+                <button class=" btn add-cart-btn w-100 py-3">
+                  <i class="fas fa-shopping-cart">Add to Cart</i>
+                </button>
+              </div>
+            </div>
+        `;
+        bookList.appendChild(col);
+      });
+    }
+    categoryButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        categoryButtons.forEach(btn => btn.classList.remove("active"));
+    // تفعيل الزر الحالي
+    button.classList.add("active");
+        const selectedCategory = button.dataset.category;
+        const allBooks = JSON.parse(localStorage.getItem("books")) || [];
+        const filtered = allBooks.filter(book => book.category === selectedCategory);
+        const categoryTitle = document.querySelector(".cg-name");
+        if(categoryTitle){
+          categoryTitle.textContent=selectedCategory
+        }
+        renderBooks(filtered);
+      });
+    });
+
+    // عرض الكتب الأولى تلقائياً (أو ممكن تخليه فاضي)
+    const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value.toLowerCase();
+  const allBooks = JSON.parse(localStorage.getItem("books")) || [];
+  const filteredBooks = allBooks.filter(book =>
+    book.title.toLowerCase().includes(searchTerm) ||
+    book.category.toLowerCase().includes(searchTerm)
+  );
+  renderBooks(filteredBooks);
+  // إزالة تفعيل الزر السابق لأن البحث مستقل
+  document.querySelectorAll('.category-button.active').forEach(btn => btn.classList.remove('active'));
+  document.querySelector('.cg-name').textContent = searchTerm ? `Results for "${searchTerm}"` : "category name";
+});
+document.addEventListener("DOMContentLoaded", ()=> {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const badge = document.querySelector("#count");
+        if (badge) {
+          const totalItems = cart.reduce(
+            (sum, item) => sum + (item.quantity || 1),
+            0
+          );
+          badge.textContent = totalItems;
+        }
+})
+  </script>
+</body>
+</html>
