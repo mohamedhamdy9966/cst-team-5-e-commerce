@@ -211,6 +211,7 @@
                 type="text"
                 class="form-control mx-w"
                 placeholder="Update Your First Name"
+                id="firstName"
               />
             </section>
             <section class="mb-3">
@@ -219,6 +220,7 @@
                 type="text"
                 class="form-control mx-w"
                 placeholder="Update Your Last name"
+                id="lastName"
               />
             </section>
             <section class="mb-3">
@@ -227,20 +229,32 @@
                 type="text"
                 class="form-control mx-w"
                 placeholder="Update Your Email"
+                id="email"
               />
             </section>
             <section class="mb-3">
               <label class="form-label">New Password</label>
               <input
-                type="text"
+                type="password"
                 class="form-control mx-w"
                 placeholder="Update Your Password"
+                id="password"
+              />
+            </section>
+            <section class="mb-3">
+              <label class="form-label">New Password</label>
+              <input
+                type="password"
+                class="form-control mx-w"
+                placeholder="Confirm New Password"
+                id="confirmPassword"
               />
             </section>
           </section>
           <button
             type="submit"
             class="btn text-white zz"
+            id="updateCustomerCredentials"
             style="background-color: #0f84a9"
           >
             Update
@@ -265,8 +279,51 @@
       // alert(`welcome back ${u.fname} !`)
       const customerDashboard = document.getElementById("customerDashboard");
       customerDashboard.innerText += `${u.fname} ${u.lname} Dashboard`;
-      // Initialize books array from localStorage or empty
-      let all = JSON.parse(localStorage.getItem("books")) || [];
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .getElementById("updateCustomerCredentials")
+          .addEventListener("click", (e) => {
+            e.preventDefault();
+            const firstName = document.getElementById("firstName").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirmPassword = document
+              .getElementById("confirmPassword")
+              .value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordRegex = /^.{6,}$/;
+            if (
+              !firstName ||
+              !lastName ||
+              !email ||
+              !password ||
+              !confirmPassword
+            ) {
+              alert("Please fill in all fields.");
+              return;
+            }
+            if (!emailRegex.test(email)) {
+              alert("Please enter a valid email address.");
+              return;
+            }
+            if (!passwordRegex.test(password)) {
+              alert("Password must be at least 6 characters long.");
+              return;
+            }
+            if (password !== confirmPassword) {
+              alert("Passwords don't match.");
+              return;
+            }
+            u.fname = firstName;
+            u.lname = lastName;
+            u.email = email;
+            u.password = password;
+            localStorage.setItem("currentUser", JSON.stringify(u));
+            alert("Updated Credentials!");
+            window.location.reload();
+          });
+      });
       // Logout function
       function logout() {
         localStorage.removeItem("currentUser");
