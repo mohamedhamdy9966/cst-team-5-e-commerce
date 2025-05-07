@@ -18,4 +18,6 @@ const messages = [
   },
 ];
 
-localStorage.setItem("messages", JSON.stringify(messages));
+if (!localStorage.getItem("messages")) {
+  localStorage.setItem("messages",JSON.stringify(messages))
+}

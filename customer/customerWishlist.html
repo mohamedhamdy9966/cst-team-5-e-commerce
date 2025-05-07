@@ -222,6 +222,10 @@
     </main>
     <script>
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+      if (!u || (u.role == "admin" && u.role == "seller")) {
+        alert("Access Denied");
+        window.location.href = "../pages/login.html";
+      }
       const customerBooks = u.wishlist || [];
       const customerBooksTable = document.getElementById("customerBooksTable");
       customerBooks.forEach((book, index) => {

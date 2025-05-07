@@ -297,7 +297,7 @@
       </section>
     </main>
     <script>
-      const u = JSON.parse(localStorage.getItem("currentUser"));
+      const u = JSON.parse(localStorage.getItem("currentUser")) || {};
       if (!u || u.role !== "seller") {
         alert("Access Denied");
         window.location.href = "../pages/login.html";

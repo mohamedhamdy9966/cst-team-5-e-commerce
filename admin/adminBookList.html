@@ -133,8 +133,12 @@
         </tbody>
       </table>
     </main>
-    <script src="../books.js"></script>
     <script>
+      const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+      if (!u || u.role !== "admin") {
+        alert("Access Denied");
+        window.location.href = "../pages/login.html";
+      }
       const books = JSON.parse(localStorage.getItem("books")) || [];
       const tableBody = document.getElementById("book-table-body");
       books.forEach((book) => {
@@ -158,7 +162,6 @@
         tableBody.appendChild(row);
       });
     </script>
-
     <script>
       function editUser(id) {
         alert(`Edit book with ID: ${id}`);
@@ -170,5 +173,6 @@
         }
       }
     </script>
+    <script src="../books.js"></script>
   </body>
 </html>

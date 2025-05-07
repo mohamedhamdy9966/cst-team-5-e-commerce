@@ -2544,7 +2544,10 @@
         </section>
       </section>
     </section>
-    <footer class="footer text-white p-5" style="background-color: #012e4a;">
+    <footer
+      class="text-white"
+      style="background-color: #012e4a; border-radius: 5px; padding: 40px"
+    >
       <section class="container">
         <section class="row text-center text-md-start">
           <section class="col-md-3 mb-4">
@@ -2568,19 +2571,51 @@
           <section class="col-md-3 mb-4">
             <h6>Customers Support</h6>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Store List</a></li>
-              <li><a href="#" class="text-white">Opening Hours</a></li>
-              <li><a href="#" class="text-white">Contact Us</a></li>
-              <li><a href="#" class="text-white">Return Policy</a></li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Store List</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Opening Hours</a
+                >
+              </li>
+              <li>
+                <a href="./Contact.html" class="text-white text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Return Policy</a
+                >
+              </li>
             </ul>
           </section>
           <section class="col-md-3 mb-4">
             <h6>Categories</h6>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Novel Books</a></li>
-              <li><a href="#" class="text-white">Poetry Books</a></li>
-              <li><a href="#" class="text-white">Political Books</a></li>
-              <li><a href="#" class="text-white">History Books</a></li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Novel Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Poetry Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Political Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >History Books</a
+                >
+              </li>
             </ul>
           </section>
           <section class="col-md-3 mb-4">
@@ -2624,8 +2659,8 @@
         loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
         loginTopNav.href = "./customer/customerDashboard.html";
         loginBottomNav.href = "./customer/customerDashboard.html";
-        wishlistIcon.href = "./customer/customerWishlist.html"
-        cartIcon.href = "./pages/cart.html"
+        wishlistIcon.href = "./customer/customerWishlist.html";
+        cartIcon.href = "./pages/cart.html";
       } else {
         loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
         loginTopNav.href = "./pages/login.html";
@@ -2761,50 +2796,78 @@
           badge.textContent = totalItems;
         }
       });
-    </script>
-    <script>
       $(document).ready(function () {
         // Animate the header book image
         $('.header img[alt="Book"]').hide().fadeIn(1500);
-    
+
         // Animate the text section
-        $('.header .text-center')
-          .css({ opacity: 0, top: '60%' })
-          .animate({ opacity: 1, top: '50%' }, 1200);
-    
+        $(".header .text-center")
+          .css({ opacity: 0, top: "60%" })
+          .animate({ opacity: 1, top: "50%" }, 1200);
+
         // Animate the girl image from the right
         $('.header img[alt="Girl"]')
-          .css({ opacity: 0, right: '-20%' })
+          .css({ opacity: 0, right: "-20%" })
           .delay(800)
-          .animate({ opacity: 1, right: '1%' }, 1500);
-    
+          .animate({ opacity: 1, right: "1%" }, 1500);
+
         // Dot grid pulse animation
-        $('.dot-grid').fadeOut(500).fadeIn(1000);
+        $(".dot-grid").fadeOut(500).fadeIn(1000);
       });
-    </script>
-    <script>
       $(document).ready(function () {
         // Animate the book-shape background image
         $('#homeSeventhSection img[src$="book-shape.png"]')
           .css({ opacity: 0 })
           .delay(300)
           .animate({ opacity: 1 }, 1000);
-    
+
         // Animate the girl image from the right
         $('#homeSeventhSection img[src$="girl-shape-2.png"]')
-          .css({ right: '-20%', opacity: 0 })
+          .css({ right: "-20%", opacity: 0 })
           .delay(600)
-          .animate({ right: '1%', opacity: 1 }, 1200);
-    
+          .animate({ right: "1%", opacity: 1 }, 1200);
+
         // Animate the central text content
-        $('#homeSeventhSection .text-center')
-          .css({ opacity: 0, top: '60%' })
+        $("#homeSeventhSection .text-center")
+          .css({ opacity: 0, top: "60%" })
           .delay(900)
-          .animate({ opacity: 1, top: '50%' }, 1000);
+          .animate({ opacity: 1, top: "50%" }, 1000);
       });
-    </script>        
-    <script src="./JS/books.js"></script>
-    <script src="./JS/users.js"></script>
-    <script src="./JS/messages.js"></script>
+      $(document).ready(function () {
+        // Animate each card in sequence
+        $("#homeSecondSection .card").each(function (index) {
+          $(this)
+            .css({ opacity: 0, transform: "translateY(30px)" })
+            .delay(200 * index)
+            .animate(
+              { opacity: 1, top: 0 },
+              {
+                duration: 600,
+                step: function (now, fx) {
+                  if (fx.prop === "top") {
+                    $(this).css("transform", `translateY(${30 - now * 30}px)`);
+                  }
+                },
+              }
+            );
+        });
+      });
+    </script>
+    <script>
+      (function () {
+        if (!localStorage.getItem("scriptsLoadedOnce")) {
+          const booksScript = document.createElement("script");
+          booksScript.src = "./JS/books.js";
+          document.body.appendChild(booksScript);
+          const usersScript = document.createElement("script");
+          usersScript.src = "./JS/users.js";
+          document.body.appendChild(usersScript);
+          const messagesScript = document.createElement("script");
+          messagesScript.src = "./JS/messages.js";
+          document.body.appendChild(messagesScript);
+          localStorage.setItem("scriptsLoadedOnce", "true");
+        }
+      })();
+    </script>
   </body>
 </html>

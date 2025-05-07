@@ -252,6 +252,10 @@
     </main>
     <script>
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+      if (!u || u.role !== "seller") {
+        alert("Access Denied");
+        window.location.href = "../pages/login.html";
+      }
       const sellerOrders = u.orders || [];
       const sellerDashboard = document.getElementById("sellerDashboard");
       if (sellerDashboard && u.firstName) {

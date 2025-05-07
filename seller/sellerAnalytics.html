@@ -210,6 +210,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+      if (!u || u.role !== "seller") {
+        alert("Access Denied");
+        window.location.href = "../pages/login.html";
+      }
       const sellerBooks = u.books || [];
       const titles = sellerBooks.map((book) => book.title);
       const soldCounts = sellerBooks.map((book) => book.sold);

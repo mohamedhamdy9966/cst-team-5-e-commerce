@@ -7,7 +7,60 @@ const users = [
     role: "admin",
     books: [],
     wishlist: [],
-    orders: [],
+    orders: [
+      {
+        id: 1,
+        title: "Flovely And Unicom Erna",
+        author: "Agatha Christie",
+        price: 18.99,
+        category: "Novels",
+        image: "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+        description:
+          "A children's activity book categorized under kids’ literature, published in 2014.",
+        rating: 4.2,
+        sold: 90,
+        isFeatured: true,
+        status: 'packing',
+      },
+      {
+        id: 2,
+        title: "Qple Gpod with Retina Sisplay",
+        author: "Dan Brown",
+        price: 39.99,
+        category: "Novels",
+        image: "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+        description:
+          "Explores Apple's Retina Display technology introduced in 2010 and its visual clarity.",
+        rating: 4.1,
+        sold: 75,
+        isFeatured: false,
+        status: 'packing',
+      },
+      {
+        id: 3,
+        title: "Atomic Habits",
+        author: "James Clear",
+        price: 16.0,
+        category: "Self-help",
+        image: "static/img/book4.jpg",
+        description: "Tiny changes make a big difference.",
+        isFeatured: true,
+        rating: 4.6,
+        sold: 250,
+      },
+      {
+        id: 4,
+        title: "Rich Dad Poor Dad",
+        author: "Robert Kiyosaki",
+        price: 13.25,
+        category: "Finance",
+        image: "static/img/book5.jpg",
+        description: "What the rich teach their kids about money.",
+        isFeatured: false,
+        rating: 4.4,
+        sold: 170,
+      },
+    ],
   },
   {
     firstName: "Ahmed",
@@ -404,4 +457,6 @@ const users = [
   },
 ];
 
-localStorage.setItem("users", JSON.stringify(users));
+if (!localStorage.getItem("users")) {
+  localStorage.setItem("users",JSON.stringify(users))
+}

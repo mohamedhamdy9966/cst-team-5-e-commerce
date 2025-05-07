@@ -144,7 +144,7 @@
   <body>
     <!-- Sidebar -->
     <nav class="sidebar">
-      <a href="./adminDashboard.html" class="nav-link ff15" title="Add Items"
+      <a href="./adminAddBook.html" class="nav-link ff15" title="Add Items"
         ><i class="bi bi-plus-square"></i><span> Book</span></a
       >
       <a href="./adminBookList.html" class="nav-link" title="List Items"
@@ -240,6 +240,11 @@
       </section>
     </section>
     <script>
+      const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+      if (!u || u.role !== "admin") {
+        alert("Access Denied");
+        window.location.href = "../pages/login.html";
+      }
       const users = JSON.parse(localStorage.getItem("users")) || [];
       if (users.length === 0) {
         const dummyUsers = [
