@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="../assets/home/favicon (1).ico">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -187,6 +188,7 @@
                 ></i>
                 <span
                   class="rounded-circle text-bg-light"
+                  id="wishCount"
                   style="
                     font-size: 0.7rem;
                     position: absolute;
@@ -206,6 +208,7 @@
                 ></i>
                 <span
                   class="rounded-circle text-bg-light"
+                  id="count"
                   style="
                     font-size: 0.7rem;
                     position: absolute;
@@ -463,6 +466,25 @@
             alert("Unknown user role - contact support");
           }
         });
+        window.addEventListener("DOMContentLoaded", () => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const badge = document.querySelector("#count");
+        const wishlistBadge = document.querySelector("#wishCount");
+        if (wishlistBadge) {
+          const totalItems = cart.reduce(
+            (sum, item) => sum + (item.quantity || 1),
+            0
+          );
+          wishlistBadge.textContent = totalItems;
+        }
+        if (badge) {
+          const totalItems = cart.reduce(
+            (sum, item) => sum + (item.quantity || 1),
+            0
+          );
+          badge.textContent = totalItems;
+        }
+      });
     </script>
   </body>
 </html>
