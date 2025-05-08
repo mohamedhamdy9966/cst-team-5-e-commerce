@@ -205,6 +205,7 @@ const users = [
         isFeatured: true,
         rating: 4.6,
         sold: 250,
+        stock: 240,
       },
       {
         id: 2,
@@ -217,6 +218,7 @@ const users = [
         isFeatured: false,
         rating: 4.4,
         sold: 170,
+        stock: 290,
       },
       {
         id: 3,
@@ -229,6 +231,7 @@ const users = [
         isFeatured: true,
         rating: 4.8,
         sold: 300,
+        stock: 540,
       },
       {
         id: 4,
@@ -241,6 +244,7 @@ const users = [
         isFeatured: false,
         rating: 4.3,
         sold: 110,
+        stock: 2000,
       },
       {
         id: 5,
@@ -253,6 +257,7 @@ const users = [
         isFeatured: false,
         rating: 4.9,
         sold: 260,
+        stock: 2407,
       },
       {
         id: 6,
@@ -265,6 +270,7 @@ const users = [
         isFeatured: false,
         rating: 4.6,
         sold: 140,
+        stock: 2408,
       },
       {
         id: 7,
@@ -277,6 +283,7 @@ const users = [
         isFeatured: true,
         rating: 4.7,
         sold: 210,
+        stock: 2560,
       },
     ],
     wishlist: [],
@@ -332,6 +339,7 @@ const users = [
         rating: 4.7,
         Payment: "stripe",
         sold: 160,
+        stock: 240,
         isFeatured: true,
       },
       {
@@ -346,6 +354,7 @@ const users = [
         rating: 4.5,
         Payment: "stripe",
         sold: 120,
+        stock: 240,
         isFeatured: false,
       },
       {
@@ -358,6 +367,7 @@ const users = [
         description:
           "A children's activity book categorized under kids’ literature, published in 2014.",
         rating: 4.2,
+        stock: 240,
         sold: 90,
         isFeatured: true,
       },
@@ -371,6 +381,7 @@ const users = [
         description:
           "Explores Apple's Retina Display technology introduced in 2010 and its visual clarity.",
         rating: 4.1,
+        stock: 240,
         sold: 75,
         isFeatured: false,
       },
@@ -384,6 +395,7 @@ const users = [
         description:
           "A journey of self-discovery through the deserts of Egypt.",
         isFeatured: true,
+        stock: 240,
         rating: 4.7,
         sold: 150,
       },
@@ -397,6 +409,7 @@ const users = [
         description: "A chilling vision of a totalitarian future.",
         isFeatured: true,
         rating: 4.9,
+        stock: 240,
         sold: 200,
       },
       {
@@ -409,6 +422,7 @@ const users = [
         description: "A deep look into racial injustice and childhood.",
         isFeatured: false,
         rating: 4.8,
+        stock: 240,
         sold: 180,
       },
     ],
@@ -424,6 +438,7 @@ const users = [
         description:
           "Vestibulum consectetur fringilla tellus, et pulvinar massa tempus nec. Fusce nibh nibh, consectetur vitae felis quis, sagittis ullamcorper enim. Nullam maximus vehicula justo, vel vestibulum turpis dictum at. Nam sed laoreet sem.",
         rating: 4.7,
+        stock: 240,
         sold: 160,
         isFeatured: true,
       },
@@ -437,6 +452,7 @@ const users = [
         description:
           "A practical guide with actionable steps for environmental conservation and grassroots movements.",
         rating: 4.5,
+        stock: 240,
         sold: 120,
         isFeatured: false,
       },
@@ -450,6 +466,7 @@ const users = [
         description:
           "A children's activity book categorized under kids’ literature, published in 2014.",
         rating: 4.2,
+        stock: 240,
         sold: 90,
         isFeatured: true,
       },

@@ -326,6 +326,7 @@
     </section>
     <script>
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+      const books = JSON.parse(localStorage.getItem("books"));
       if (!u || u.role !== "seller") {
         alert("Access Denied");
         window.location.href = "../pages/login.html";
@@ -385,7 +386,8 @@
           confirm(`Are you sure you want to delete the book "${book.title}"?`)
         ) {
           sellerBooks.splice(index, 1); // Remove the book
-          localStorage.setItem("sellerBooks", JSON.stringify(u.books)); // Update localStorage
+          u.books = sellerBooks; // update the user object with the updated book list
+          localStorage.setItem("currentUser", JSON.stringify(u));
           renderBooks(); // Re-render the books table
         }
       }
