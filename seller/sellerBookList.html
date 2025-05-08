@@ -435,7 +435,7 @@
             image,
           };
           u.books = sellerBooks;
-          localStorage.setItem("currentUser", JSON.stringify(u));
+          localStorage.setItem("currentUser", JSON.stringify(sellerBooks));
           alert("Book updated successfully!");
           const modal = bootstrap.Modal.getInstance(
             document.getElementById("editBookModal")
