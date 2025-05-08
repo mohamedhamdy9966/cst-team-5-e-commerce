@@ -3,7 +3,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Seller Book List</title>
-    <link rel="icon" type="image/x-icon" href="../assets/home/favicon (1).ico">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../assets/home/favicon (1).ico"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -211,17 +215,21 @@
         <input
           class="form-control me-2"
           type="search"
+          id="searchInput"
           placeholder="Search"
           aria-label="Search"
         />
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-success" id="searchButton" type="submit">
+          Search
+        </button>
       </form>
       <section class="container-fluid my-5">
         <section class="table">
           <table class="table align-middle">
             <thead>
               <tr>
-                <th></th>
+                <th style="color: #012e4a;">X</th>
+                <th style="color: #012e4a;">Edit</th>
                 <th style="color: #012e4a; font-size: 30px">Book</th>
                 <th style="color: #012e4a; font-size: 30px">Category</th>
                 <th style="color: #012e4a; font-size: 30px">Price</th>
@@ -244,12 +252,18 @@
       sellerDashboard.innerText += `${u.firstName} Dashboard`;
       const sellerBooks = u.books || [];
       const sellerBooksTable = document.getElementById("sellerBooksTable");
+      const searchInput = document.getElementById("searchInput").value;
+      const searchButton = document.getElementById("searchButton");
       sellerBooks.forEach((book, index) => {
         const row = document.createElement("tr");
         const removeTd = document.createElement("td");
-        removeTd.innerHTML = `<span class='remove-btn' onclick='remove(this)'>×</span>`;
+        removeTd.innerHTML = `<span class='btn btn-danger' onclick='remove(this)'>×</span>`;
         removeTd.style = "cursor: pointer;";
         row.appendChild(removeTd);
+        const editTd = document.createElement("td");
+        editTd.innerHTML = `<span class='btn btn-success' onclick='edit(this)'>edit</span>`;
+        editTd.style = "cursor: pointer;";
+        row.appendChild(editTd);
         const bookTd = document.createElement("td");
         bookTd.classList.add("d-flex", "align-items-center", "bookImage");
         bookTd.style = "cursor: pointer;";
