@@ -443,88 +443,114 @@
   <script>
     const bookList = document.getElementById("bookList");
     const categoryButtons = document.querySelectorAll(".category-button");
-
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedCategoryFromUrl = urlParams.get('category');
     function renderBooks(filteredBooks) {
       bookList.innerHTML = "";
-
       if (filteredBooks.length === 0) {
         bookList.innerHTML = "<p>No books found in this category.</p>";
         return;
       }
-
       filteredBooks.forEach(book => {
         const col = document.createElement("section");
         col.className = "col-md-3";
-
         col.innerHTML = `
-            
-            <section class="book-card p-0">
-
-            
-              <section class="book-image-wrapper p-3"
-                style="background-color: #f0f0f0; border-top-left-radius: 10px; border-top-right-radius: 10px;">
-                <img src="${book.image}" class="img-fluid book-image mx-auto d-block" alt="Book">
-              </section>
-
-
-              <section class="p-3">
-                <h5 class="mt-2 fs-5 mb-1 title">${book.title}</h5>
-                 <p class="author">${book.author}</p>
-                <section  class="d-flex justify-content-between align-items-center mb-2">
+          <section class="book-card p-0">
+            <section class="book-image-wrapper p-3"
+              style="background-color: #f0f0f0; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+              <img src="${book.image}" class="img-fluid book-image mx-auto d-block" alt="Book" style="width: 200px; height: 260px;">
+            </section>
+            <section class="p-3">
+              <h5 class="mt-2 fs-5 mb-1 title">${book.title}</h5>
+              <p class="author">${book.author}</p>
+              <section class="d-flex justify-content-between align-items-center mb-2">
                 <p class="price fw-bold mb-1">$${book.price}</p>
                 <section><span class="rating mb-2">★</span> ${book.rating}</section>
               </section>
-                <button class=" btn add-cart-btn w-100 py-3">
-                  <i class="fas fa-shopping-cart">Add to Cart</i>
-                </button>
-              </section>
+              <button class="btn add-cart-btn w-100 py-3">
+                <i class="fas fa-shopping-cart">Add to Cart</i>
+              </button>
             </section>
+          </section>
         `;
+        col.addEventListener("click", () => {
+          localStorage.setItem("selectedProduct", JSON.stringify(book));
+          window.location.href = "shop_details.html"; // عدل المسار حسب مكانك الفعلي
+        });
         bookList.appendChild(col);
       });
+    }
+    if (selectedCategoryFromUrl) {
+      const allBooks = JSON.parse(localStorage.getItem("books")) || [];
+      const filteredBooks = allBooks.filter(book => book.category === selectedCategoryFromUrl);
+      const categoryTitle = document.querySelector(".cg-name");
+      if (categoryTitle) {
+        categoryTitle.textContent = selectedCategoryFromUrl;
+      }
+      renderBooks(filteredBooks);
     }
     categoryButtons.forEach(button => {
       button.addEventListener("click", () => {
         categoryButtons.forEach(btn => btn.classList.remove("active"));
-    // تفعيل الزر الحالي
-    button.classList.add("active");
+        // تفعيل الزر الحالي
+        button.classList.add("active");
         const selectedCategory = button.dataset.category;
         const allBooks = JSON.parse(localStorage.getItem("books")) || [];
         const filtered = allBooks.filter(book => book.category === selectedCategory);
         const categoryTitle = document.querySelector(".cg-name");
-        if(categoryTitle){
-          categoryTitle.textContent=selectedCategory
+        if (categoryTitle) {
+          categoryTitle.textContent = selectedCategory
         }
         renderBooks(filtered);
+        window.history.pushState({}, '', `category.html?category=${encodeURIComponent(selectedCategory)}`);
       });
     });
-
+    if (!selectedCategoryFromUrl) {
+      const allBooks = JSON.parse(localStorage.getItem("books")) || [];
+      renderBooks(allBooks); // عرض كل الكتب إذا مفيش تصنيف في الـ URL
+    }
     // عرض الكتب الأولى تلقائياً (أو ممكن تخليه فاضي)
     const searchInput = document.getElementById("searchInput");
-
-searchInput.addEventListener("input", () => {
-  const searchTerm = searchInput.value.toLowerCase();
-  const allBooks = JSON.parse(localStorage.getItem("books")) || [];
-  const filteredBooks = allBooks.filter(book =>
-    book.title.toLowerCase().includes(searchTerm) ||
-    book.category.toLowerCase().includes(searchTerm)
-  );
-  renderBooks(filteredBooks);
-  // إزالة تفعيل الزر السابق لأن البحث مستقل
-  document.querySelectorAll('.category-button.active').forEach(btn => btn.classList.remove('active'));
-  document.querySelector('.cg-name').textContent = searchTerm ? `Results for "${searchTerm}"` : "category name";
-});
-document.addEventListener("DOMContentLoaded", ()=> {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const badge = document.querySelector("#count");
-        if (badge) {
-          const totalItems = cart.reduce(
-            (sum, item) => sum + (item.quantity || 1),
-            0
-          );
-          badge.textContent = totalItems;
+    searchInput.addEventListener("input", () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const allBooks = JSON.parse(localStorage.getItem("books")) || [];
+      const filteredBooks = allBooks.filter(book =>
+        book.title.toLowerCase().includes(searchTerm) ||
+        book.category.toLowerCase().includes(searchTerm)
+      );
+      renderBooks(filteredBooks);
+      // إزالة تفعيل الزر السابق لأن البحث مستقل
+      document.querySelectorAll('.category-button.active').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('.cg-name').textContent = searchTerm ? `Results for "${searchTerm}"` : "category name";
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const badge = document.querySelector("#count");
+      if (badge) {
+        const totalItems = cart.reduce(
+          (sum, item) => sum + (item.quantity || 1),
+          0
+        );
+        badge.textContent = totalItems;
+      }
+    });
+    // استماع لتغيير الـ URL عند الرجوع للصفحة
+    window.addEventListener("popstate", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const selectedCategoryFromUrl = urlParams.get('category');
+      if (selectedCategoryFromUrl) {
+        const allBooks = JSON.parse(localStorage.getItem("books")) || [];
+        const filteredBooks = allBooks.filter(book => book.category === selectedCategoryFromUrl);
+        const categoryTitle = document.querySelector(".cg-name");
+        if (categoryTitle) {
+          categoryTitle.textContent = selectedCategoryFromUrl;
         }
-})
+        renderBooks(filteredBooks);
+      } else {
+        const allBooks = JSON.parse(localStorage.getItem("books")) || [];
+        renderBooks(allBooks); // عرض كل الكتب إذا مفيش تصنيف
+      }
+    });
   </script>
 </body>
 </html>
