@@ -156,23 +156,25 @@
   <body>
     <!-- Sidebar -->
     <nav class="sidebar">
-      <a href="./adminDashboard.html" class="nav-link ff15" title="Add Items">
-        <i class="bi bi-plus-square"></i><span> Book</span>
-      </a>
-      <a href="./adminBookList.html" class="nav-link" title="List Items">
-        <i class="bi bi-list-ul"></i><span> Book list</span>
-      </a>
-      <a href="./adminOrders.html" class="nav-link" title="Orders">
-        <i class="bi bi-receipt"></i><span> Orders</span>
-      </a>
-      <a href="./adminUsers.html" class="nav-link" title="Users">
-        <i class="bi bi-people"></i><span> Users</span>
-      </a>
-      <a href="#" class="nav-link" title="Logout" onclick="logout()">
-        <i class="bi bi-box-arrow-right"></i><span> LogOut</span>
-      </a>
+      <a href="./adminAddBook.html" class="nav-link ff15" title="Add Items"
+        ><i class="bi bi-plus-square"></i><span> Book</span></a
+      >
+      <a href="./adminBookList.html" class="nav-link" title="List Items"
+        ><i class="bi bi-list-ul"></i><span> Book list</span></a
+      >
+      <a href="./adminOrders.html" class="nav-link" title="Orders"
+        ><i class="bi bi-receipt"></i><span> Orders</span></a
+      >
+      <a href="./adminUsers.html" class="nav-link" title="Users"
+        ><i class="bi bi-people"></i><span> Users</span></a
+      >
+      <a href="./adminCustomerService.html" class="nav-link" title="Users"
+        ><i class="bi bi-people"></i><span> Customer Services</span></a
+      >
+      <a href="#" class="nav-link" title="Logout" onclick="logout()"
+        ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
+      >
     </nav>
-
     <!-- Main Content -->
     <main class="main-content">
       <header class="navbar">
@@ -265,13 +267,17 @@
     </div>
     <script src="../JS/books.js"></script>
     <script>
+      const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+      if (!u || u.role !== "admin") {
+        alert("Access Denied");
+        window.location.href = "../pages/login.html";
+      }
       document.addEventListener("DOMContentLoaded", function () {
         document
           .querySelector(".search")
           .addEventListener("input", function () {
             const filter = this.value.toLowerCase().trim();
             const rows = document.querySelectorAll("#book-table-body tr");
-
             rows.forEach((row) => {
               const title = row
                 .querySelector("td:nth-child(2)")
@@ -284,13 +290,10 @@
             });
           });
       });
-
       const tbody = document.querySelector("#book-table-body");
       renderBooks();
-
       function renderBooks() {
         tbody.innerHTML = "";
-
         books.forEach((book, index) => {
           const row = document.createElement("tr");
           row.innerHTML = `
@@ -320,7 +323,6 @@
           renderBooks(); // Re-render the books table
         }
       }
-
       function editBook(index) {
         const book = books[index];
         document.getElementById("editBookIndex").value = index;
@@ -328,46 +330,36 @@
         document.getElementById("editAuthor").value = book.author;
         document.getElementById("editPrice").value = book.price;
         document.getElementById("editImage").value = book.image;
-
         const modal = new bootstrap.Modal(
           document.getElementById("editBookModal")
         );
         modal.show();
       }
-
       document
         .getElementById("editBookForm")
         .addEventListener("submit", function (e) {
           e.preventDefault();
-
           const index = document.getElementById("editBookIndex").value;
           const title = document.getElementById("editTitle").value.trim();
           const author = document.getElementById("editAuthor").value.trim();
           const price = parseFloat(document.getElementById("editPrice").value);
           const image = document.getElementById("editImage").value.trim();
-
           if (!title || !author || isNaN(price) || !image) {
             alert("All fields are required.");
             return;
           }
-
           books[index].title = title;
           books[index].author = author;
           books[index].price = price;
           books[index].image = image;
-
           localStorage.setItem("books", JSON.stringify(books));
-
           alert("Book updated successfully!");
-
           const modal = bootstrap.Modal.getInstance(
             document.getElementById("editBookModal")
           );
           modal.hide();
-
           renderBooks();
         });
-
       function logout() {
         localStorage.clear();
         window.location.href = "../pages/login.html";
