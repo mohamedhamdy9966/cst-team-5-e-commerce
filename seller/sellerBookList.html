@@ -365,7 +365,7 @@
         <td>${book.author}</td>
         <td>${book.category}</td>
         <td class="price">$${book.price}</td>
-        <td class="price">${book.stock}</td>
+        <td>${book.stock}</td>
         <td>${book.rating}</td>
         <td>
           <button class="btn btn-sm btn-primary" onclick="editBook(${index})">
@@ -435,7 +435,7 @@
             image,
           };
           u.books = sellerBooks;
-          localStorage.setItem("currentUser", JSON.stringify(sellerBooks));
+          localStorage.setItem("currentUser", JSON.stringify(u));
           alert("Book updated successfully!");
           const modal = bootstrap.Modal.getInstance(
             document.getElementById("editBookModal")
