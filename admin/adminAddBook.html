@@ -140,6 +140,7 @@
       .zz:hover::before {
         transform: scaleX(1);
       }
+
       @media (max-width: 768px) {
         .sidebar {
           height: auto;
@@ -152,9 +153,11 @@
           left: 0;
           right: 0;
         }
+
         .test {
           max-width: 100%;
         }
+
         .sidebar span {
           display: none;
         }
@@ -177,10 +180,12 @@
         .header {
           padding-top: 20px;
         }
+
         .product-form-container {
           flex-direction: column;
           align-items: center;
         }
+
         .product-image {
           min-height: auto;
         }
@@ -308,111 +313,139 @@
       </section>
     </section>
     <script>
-      // Access control
-      // Ensure currentUser is valid and has the proper role
-      const u = JSON.parse(localStorage.getItem("currentUser"));
+          // Access control
+          const u = JSON.parse(localStorage.getItem("currentUser"));
       if (!u || u.role !== "admin") {
-        alert("Access Denied");
-        window.location.href = "../pages/login.html";
-      }
-      // Initialize books array from localStorage or empty
-      let all = JSON.parse(localStorage.getItem("books")) || [];
-      // Function to add a new book
-      document
-        .querySelector(".product-form-container form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          addBook();
-        });
-      function addBook() {
-        const imgInput = document.getElementById("imgInput");
-        const file = imgInput.files[0];
-        if (!file) {
-          alert("Please select an image.");
-          return;
-        }
-        const reader = new FileReader();
-        reader.onload = function () {
-          const image = reader.result;
-          const title = document.getElementById("title").value.trim();
-          const author = document.getElementById("author").value.trim();
-          const description = document
-            .getElementById("description")
-            .value.trim();
-          const category = document.getElementById("category").value;
-          const price = document.getElementById("price").value.trim();
-          const stock = document.getElementById("stock").value.trim();
-          if (
-            !title ||
-            !price ||
-            !stock ||
-            !author ||
-            !description ||
-            !category
-          ) {
-            alert("Please fill in all fields.");
-            return;
+            alert("Access Denied");
+            window.location.href = "../pages/login.html";
           }
-          sellerBooks = u.books || [];
-          const lastIdAllBooks =
-            all.length > 0 ? Math.max(...all.map((b) => b.id || 0)) : 1;
-          const id = lastIdAllBooks + 1;
-          const lastIdSellerBooks =
-            sellerBooks.length > 0
-              ? Math.max(...sellerBooks.map((b) => b.id || 0))
-              : 1;
-          const idSellerBooks = lastIdSellerBooks + 1;
-          sellerBooks.push({
-            idSellerBooks,
-            title,
-            author,
-            price: parseFloat(price),
-            category,
-            rating: 4.7,
-            sold: 0,
-            image,
-            description,
-            stock,
-          });
-          all.push({
-            id,
-            title,
-            author,
-            price: parseFloat(price),
-            category,
-            rating: 4.7,
-            image,
-            description,
-            stock,
-            sold: 0,
-            owner: u.username,
-          });
-          localStorage.setItem("currentUser", JSON.stringify(u));
-          localStorage.setItem("books", JSON.stringify(all));
-          alert("Book added successfully!");
-          document.querySelector(".product-form-container form").reset();
-        };
-        reader.readAsDataURL(file);
-      }
-      document
-        .getElementById("imgInput")
-        .addEventListener("change", function () {
-          const file = this.files[0];
-          if (file) {
+
+          let all = JSON.parse(localStorage.getItem("books")) || [];
+
+          document
+            .querySelector(".product-form-container form")
+            .addEventListener("submit", function (e) {
+              e.preventDefault();
+              console.log("Form submitted");
+              addBook();
+            });
+
+          function addBook() {
+            const imgInput = document.getElementById("imgInput");
+            const file = imgInput.files[0];
+            if (!file) {
+              alert("Please select an image.");
+              return;
+            }
+
             const reader = new FileReader();
             reader.onload = function () {
-              const label = document.getElementById("imgLabel");
-              label.innerHTML = `<img src="${reader.result}" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="Preview">`;
+              const image = reader.result;
+              const title = document.getElementById("title").value.trim();
+              const author = document.getElementById("author").value.trim();
+              const description = document.getElementById("description").value.trim();
+              const category = document.getElementById("category").value;
+              const price = document.getElementById("price").value.trim();
+              const stock = document.getElementById("stock").value.trim();
+
+              if (!title || !price || !stock || !author || !description || !category) {
+                alert("Please fill in all fields.");
+                return;
+              }
+
+              sellerBooks = u.books || [];
+              const lastIdAllBooks =
+                all.length > 0 ? Math.max(...all.map((b) => b.id || 0)) : 1;
+              const id = lastIdAllBooks + 1;
+              const lastIdSellerBooks =
+                sellerBooks.length > 0
+                  ? Math.max(...sellerBooks.map((b) => b.id || 0))
+                  : 1;
+              const idSellerBooks = lastIdSellerBooks + 1;
+
+              sellerBooks.push({
+                idSellerBooks,
+                title,
+                author,
+                price: parseFloat(price),
+                category,
+                rating: 4.7,
+                sold: 0,
+                image,
+                description,
+                stock,
+              });
+
+              all.push({
+                id,
+                title,
+                author,
+                price: parseFloat(price),
+                category,
+                rating: 4.7,
+                image,
+                description,
+                stock,
+                sold: 0,
+                owner: u.username,
+              });
+
+              u.books = sellerBooks;
+              localStorage.setItem("currentUser", JSON.stringify(u));
+              localStorage.setItem("books", JSON.stringify(all));
+
+              console.log("Current user", JSON.parse(localStorage.getItem("currentUser")));
+              console.log("All books", JSON.parse(localStorage.getItem("books")));
+
+
+              alert("Book added successfully!");
+              document.querySelector(".product-form-container form").reset();
+
+              // Reset image preview
+              document.getElementById("imgText").style.display = "block";
+              const preview = document.querySelector("#imgLabel img");
+              if (preview) preview.remove();
             };
+
             reader.readAsDataURL(file);
           }
-        });
 
-      // Logout function
-      function logout() {
-        localStorage.removeItem("currentUser");
-        window.location.href = "../index.html";
-      }
+          // ✅ image preview without removing input
+          document.getElementById("imgInput").addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function () {
+                const label = document.getElementById("imgLabel");
+                const img = document.createElement("img");
+                img.src = reader.result;
+                img.style.maxWidth = "100%";
+                img.style.maxHeight = "100%";
+                img.style.objectFit = "contain";
+
+                // Remove old preview if any
+                const oldPreview = label.querySelector("img");
+                if (oldPreview) {
+                  oldPreview.remove();
+                }
+
+                // Hide "Image" text
+                const text = document.getElementById("imgText");
+                if (text) {
+                  text.style.display = "none";
+                }
+
+                label.appendChild(img);
+              };
+              reader.readAsDataURL(file);
+            }
+          });
+
+          // Logout
+          function logout() {
+            localStorage.removeItem("currentUser");
+            window.location.href = "../index.html";
+          }
     </script>
   </body>
 </html>
