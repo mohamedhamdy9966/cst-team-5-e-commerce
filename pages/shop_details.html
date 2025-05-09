@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop Details</title>
-  <link rel="icon" type="image/x-icon" href="../assets/home/favicon (1).ico">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../style/css/top_of_pages.css">
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-    .top-bar {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Details</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../assets/home/favicon (1).ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style/css/top_of_pages.css" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .top-bar {
         background-color: #036280;
         color: white;
         font-size: 0.9rem;
@@ -49,288 +62,303 @@
         right: -10px;
         background-color: #036280;
       }
-    body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-hr {
-  margin: 40px 0px;
-}
-li {
-  color: #52556c;
-}
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      hr {
+        margin: 40px 0px;
+      }
+      li {
+        color: #52556c;
+      }
 
-/* الصورة الكبيرة وعيالها */
-.product-image img {
-  border: 2px solid #ccc;
-  padding: 5% 10%;
-  background-color: #f8f8f8;
-  border-radius: 20px;
-  margin-bottom: 15px;
+      /* الصورة الكبيرة وعيالها */
+      .product-image img {
+        padding: 5% 10%;
+        background-color: #f8f8f8;
+        border-radius: 20px;
+        margin-bottom: 15px;
+      }
+      #mainImage {
+        padding: 10% 20%;
+        height: 550px;
+      }
+      .thumbnail {
+        cursor: pointer;
 
-}
-#mainImage {
-  padding: 10% 20%;
-  height:550px;
+        margin-right: 5px;
+        padding: 4px;
+        border-radius: 20px;
+        transition: border 0.2s;
+      }
 
-}
-.thumbnail {
-  cursor: pointer;
-  border: 1px solid #ddd;
-  margin-right: 5px;
-  padding: 4px;
-  border-radius: 20px;
-  transition: border 0.2s;
-}
+      .thumbnail:hover {
+        border: 2px solid#04314c;
+      }
 
-.thumbnail:hover {
-  border: 2px solid#04314c;
-}
+      /*تفاصيل المنتج */
+      .info {
+        padding-left: 50px;
+      }
+      .product-title {
+        color: #012e4a;
+      }
+      .product-price {
+        color: #ff6500;
+      }
+      #rating i,
+      .product-price {
+        color: #ff6500;
+      }
 
+      .product-actions {
+        display: flex;
+        justify-content: space-around;
+      }
 
-/*تفاصيل المنتج */
-.info{
-  padding-left: 50px;
-}
-.product-title {
-  color: #012e4a;
-}
-.product-price {
-  color: #ff6500;
+      .form-control {
+        padding: 15px;
+        border-radius: 30px;
+        border-color: #036280;
+        color: #04314c;
+      }
 
-}
-#rating i,
-.product-price {
-  color: #ff6500;
-}
+      .read {
+        border-color: #036280;
+        border-radius: 30px;
+        color: #036280;
+        font-weight: bold;
+        padding: 15px 40px;
+      }
 
-.product-actions {
-  display: flex;
-  justify-content: space-around;
-}
+      .add {
+        background-color: #036280;
+        border-radius: 30px;
+        color: white;
+        font-weight: bold;
+        padding: 15px;
+      }
 
-.form-control {
-  padding: 15px;
-  border-radius: 30px;
-  border-color: #036280;
-  color: #04314c;
+      .favourite {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #036280;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-}
+      .arrow {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border-color: #036280;
+        color: #036280;
 
-.read {
-  border-color: #036280;
-  border-radius: 30px;
-  color: #036280;
-  font-weight: bold;
-  padding: 15px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-}
+      .product-details-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        list-style: none;
+        /* تشيل النقط */
+        padding: 0;
+        margin: 0;
+        gap: 10px 20px;
+        /* مسافات بين العناصر */
+      }
 
-.add {
-  background-color: #036280;
-  border-radius: 30px;
-  color: white;
-  font-weight: bold;
-  padding: 15px;
-}
+      .product-details-list li {
+        font-size: 18px;
+        columns: #52556c;
 
-.favourite {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #036280;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+        b {
+          color: #012e4a;
+        }
+      }
 
-.arrow {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border-color: #036280;
-  color: #036280;
+      .responsive-hr {
+        display: none;
+      }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      .details {
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        padding: 40px;
+        background-color: #f8f8f8;
+        margin-bottom: 30px;
+      }
 
-.product-details-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  list-style: none;
-  /* تشيل النقط */
-  padding: 0;
-  margin: 0;
-  gap: 10px 20px;
-  /* مسافات بين العناصر */
-}
+      .product-details-list-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        list-style: none;
+        /* تشيل النقط */
+        padding: 0;
+        margin: 0;
+        gap: 10px 20px;
+        /* مسافات بين العناصر */
+      }
 
-.product-details-list li {
-  font-size: 18px;
-  columns: #52556c;
+      .available-on {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 100px;
+      }
 
-  b {
-    color: #012e4a;
-  }
+      /* الوصف */
+      .des {
+        font-size: 17px;
+        color: #52556c;
+      }
+      .book-card {
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+        width: 90%;
+        max-width: 360px;
+        min-height: 550px;
+        margin: auto;
+      }
+      .card-top {
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px 15px 0 0;
+        background-color: #f8f8f8;
+      }
 
-}
+      .card-img-top {
+        width: 60%;
+        height: 70%;
+        transition: transform 0.5s ease;
+      }
+      #header {
+        background-color: #e6eff2;
+        height: 50vh;
+      }
+      .relative {
+        position: relative;
+      }
+      #left-img {
+        position: absolute;
+        left: -0.25%;
+        top: 20%;
+        height: 300px !important;
+      }
+      #right-img {
+        position: absolute;
+        right: 0;
+        width: 300px;
+        top: 20%;
+        height: 350px !important;
+      }
+      .center-dev {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .book-card:hover .card-img-top {
+        transform: scale(1.1);
+      }
 
-.details {
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  padding: 40px;
-  background-color: #f8f8f8;
-  margin-bottom: 30px;
-}
+      .card-title {
+        color: #012e4a;
+      }
 
-.product-details-list-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  list-style: none;
-  /* تشيل النقط */
-  padding: 0;
-  margin: 0;
-  gap: 10px 20px;
-  /* مسافات بين العناصر */
-}
+      .price del {
+        color: #999;
+      }
 
-.available-on {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 100px;
-}
+      .price,
+      .fw-bold {
+        color: #ff6500;
+      }
 
+      .badge-hot {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: #ff6500;
+        font-weight: bold;
+        font-size: 0.75rem;
+      }
 
-/* الوصف */
-.des {
-  font-size: 17px;
-  color: #52556c
-}
-.book-card {
-  border: none;
-  border-radius: 15px;
-  transition: transform 0.3s ease;
-  width: 90%;
-  max-width: 360px;
-  min-height: 550px;
-  margin: auto;
+      .author-img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
 
-}
-.card-top {
-  height: 350px;
-  ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px 15px 0 0;
-  background-color: #f8f8f8;
-}
+      .rating {
+        font-size: 1.4rem;
+        /* تكبير النجوم */
+        color: #ff6500;
+        /* نفس لون النجوم */
+        line-height: 1;
+      }
 
-.card-img-top {
-  width: 60%;
-  height: 70%;
-  transition: transform 0.5s ease;
-}
+      .add-cart-btn {
+        border-radius: 30px;
+        background-color: #e6eff2;
+        color: #284e66;
+        border: none;
+        font-weight: bold;
+      }
+      .btn {
+        position: relative;
+        overflow: hidden;
+        font-weight: bold;
+        z-index: 1;
+        /* لضمان بقاء النص فوق الشريط */
+      }
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        background-color: #ff6500;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.6s ease;
+        z-index: -1;
+      }
 
-.book-card:hover .card-img-top {
-  transform: scale(1.1);
-}
+      .btn:hover::before {
+        transform: scaleX(1);
+      }
 
-.card-title {
-  color: #012e4a;
-  ;
-}
+      .btn:hover {
+        color: white;
+      }
 
-.price del {
-  color: #999;
-}
-
-.price,
-.fw-bold{
-  color: #ff6500;
-}
-
-.badge-hot {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #ff6500;
-  font-weight: bold;
-  font-size: 0.75rem;
-}
-
-.author-img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.rating {
-  font-size: 1.4rem;
-  /* تكبير النجوم */
-  color: #ff6500;
-  /* نفس لون النجوم */
-  line-height: 1;
-}
-
-.add-cart-btn {
-  border-radius: 30px;
-  background-color: #e6eff2;
-  color: #284e66;
-  border: none;
-  font-weight: bold;
-
-}
-.btn {
-  position: relative;
-  overflow: hidden;
-  font-weight: bold;
-  z-index: 1;
-  /* لضمان بقاء النص فوق الشريط */
-}
-.btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 30px;
-  background-color: #ff6500;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s ease;
-  z-index: -1;
-}
-
-.btn:hover::before {
-  transform: scaleX(1);
-}
-
-.btn:hover {
-  color: white;
-}
-
-
-.swiper-button-next,
-.swiper-button-prev {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  color: #ff6500;
-  /* display: flex; */
-  align-items: center;
-  justify-content: center;
-  opacity: 0.3;
-}
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  opacity: 1;
-}
-.footer {
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: #ff6500;
+        /* display: flex; */
+        align-items: center;
+        justify-content: center;
+        opacity: 0.3;
+      }
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        opacity: 1;
+      }
+      .footer {
         background-color: #012e4a;
         border-radius: 5px;
         padding: 40px;
@@ -350,351 +378,373 @@ li {
         color: #012e4a;
         font-size: 20px;
       }
-  </style>
-</head>
-<body>
-  <nav class="d-flex align-items-stretch sticky" style="height: 100px">
-    <!-- Left Logo -->
-    <section
-      class="d-flex align-items-center px-4"
-      style="
-        background-color: #012e4a;
-        border-top-right-radius: 75%;
-        height: 100%;
-      "
-    >
-      <img
-        src="../assets/home/white-logo.svg"
-        alt="Bookle"
-        class="img-fluid"
-        style="max-height: 100%"
-      />
-    </section>
-    <!-- Right Section -->
-    <section class="flex-grow-1 d-flex flex-column">
-      <!-- Top Nav -->
+      @media (max-width: 1280px) {
+        #left-img {
+          display: none;
+        }
+        #right-img {
+          display: none;
+        }
+      }
+      @media (max-width: 780px) {
+        .responsive-hr {
+          display: block;
+          margin: 1rem 0;
+          border: 1px solid #ddd;
+        }
+        .ss img {
+          padding-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="d-flex align-items-stretch sticky" style="height: 100px">
+      <!-- Left Logo -->
       <section
-        class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
-        style="background-color: #036280; color: white; font-size: 0.9rem"
+        class="d-flex align-items-center px-4"
+        style="
+          background-color: #012e4a;
+          border-top-right-radius: 75%;
+          height: 100%;
+        "
       >
-        <section class="">
-          <i class="fas fa-phone me-2"></i> +208-6666-0112 |
-          <i class="fas fa-envelope ms-2 me-2"></i> necro@sicko.com |
-          <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
-        </section>
-        <section>
-          <a
-            href="./login.html"
-            style="color: white; text-decoration: none; margin-right: 15px"
-            ><i class="fas fa-user ms-3 me-1"></i>Login</a
-          >
-        </section>
+        <img
+          src="../assets/home/white-logo.svg"
+          alt="Bookle"
+          class="img-fluid"
+          style="max-height: 100%"
+        />
       </section>
-      <!-- Bottom Nav -->
-      <section
-        class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
-        style="background-color: #fff; border-bottom: 1px solid #ddd"
-      >
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg p-0">
-          <section class="container-fluid">
-            <!-- Toggle Button for Offcanvas -->
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasNavbar"
-              aria-controls="offcanvasNavbar"
+      <!-- Right Section -->
+      <section class="flex-grow-1 d-flex flex-column">
+        <!-- Top Nav -->
+        <section
+          class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
+          style="background-color: #036280; color: white; font-size: 0.9rem"
+        >
+          <section class="">
+            <i class="fas fa-phone me-2"></i> +208-6666-0112 |
+            <i class="fas fa-envelope ms-2 me-2"></i> necro@sicko.com |
+            <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
+          </section>
+          <section>
+            <a
+              href="./login.html"
+              style="color: white; text-decoration: none; margin-right: 15px"
+              ><i class="fas fa-user ms-3 me-1"></i>Login</a
             >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Offcanvas Menu -->
-            <section
-              class="offcanvas offcanvas-start"
-              tabindex="-1"
-              id="offcanvasNavbar"
-              aria-labelledby="offcanvasNavbarLabel"
-            >
-              <section class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                  <i class="fa-solid fa-bars"></i> Menu
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </section>
-              <section class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li class="nav-item fw-bold px-2">
-                    <a class="nav-link" href="../index.html"
-                      ><i class="fa-solid fa-house"></i> Home</a
-                    >
-                  </li>
-                  <!-- Shop Dropdown -->
-                  <li class="nav-item fw-bold px-2">
-                    <a
-                      class="nav-link"
-                      href="./shoplist.html"
-                      role="button"
-                      aria-expanded="false"
-                    >
-                      <i class="fa-solid fa-shop"></i> Shop
-                    </a>
-                  </li>
-                  <!-- Pages Dropdown -->
-                  <li class="nav-item fw-bold px-2">
-                    <a
-                      class="nav-link"
-                      href="./aboutUs.html"
-                      role="button"
-                      aria-expanded="false"
-                    >
-                      <i class="fa-solid fa-file"></i> About Us
-                    </a>
-                  </li>
-                  <li class="nav-item fw-bold px-2">
-                    <a class="nav-link" href="./Contact.html"
-                      ><i class="fa-solid fa-address-book"></i> Contact</a
-                    >
-                  </li>
-                </ul>
-              </section>
-            </section>
-          </section>
-        </nav>
-        <!-- Icons -->
-        <section class="d-flex gap-3">
-          <section class="position-relative">
-            <a href="../user/userWishlist.html" class="text-danger">
-              <i
-                class="far fa-heart"
-                style="font-size: 1.2rem; position: relative"
-              ></i>
-              <span
-                class="rounded-circle text-bg-light"
-                style="
-                  font-size: 0.7rem;
-                  position: absolute;
-                  top: -8px;
-                  right: -10px;
-                  background-color: #036280;
-                "
-                >0</span
-              >
-            </a>
-          </section>
-          <section class="position-relative">
-            <a href="./cart.html" class="text-success">
-              <i
-                class="fas fa-shopping-cart"
-                style="font-size: 1.2rem; position: relative"
-              ></i>
-              <span
-                class="rounded-circle text-bg-light"
-                style="
-                  font-size: 0.7rem;
-                  position: absolute;
-                  top: -8px;
-                  right: -10px;
-                  background-color: #036280;
-                "
-                id="count"
-                >0</span
-              >
-            </a>
-          </section>
-          <section class="position-relative">
-            <a href="./login.html" class="d-md-none" style="color: #02488d">
-              <i
-                class="fas fa-user"
-                style="font-size: 1.2rem; position: relative"
-              ></i>
-            </a>
           </section>
         </section>
-      </section>
-    </section>
-  </nav>
-  <section class="wraper">
-      <section class="top d-flex align-items-center justify-content-between">
-        <img src="../assets/shop_details/top.png" alt="top image" class="col-auto d-none d-xl-block">
-        <section class="text-center col-12 col-xl-4 py-5">
-
-          <h1>Shop Details</h1>
-        </section>
-        <img src="../assets/shop_details/book2.png" alt="logo" class="col-auto d-none d-xl-block">
-      </section>
-    <section class="container-fluid mt-5">
-      <section class="row">
-        <section class="col-md-5">
-          <section class="product-image">
-            <img src="../assets/shop_details/book1.png"  class="col-xl-12 img-fluid rounded mb-3 detailImg" alt="Product Image" id="mainImage">
-            <section class="col-xl-12 row mt-2">
-              <section class="col-2">
-                <img src="../assets/shop_details/book1.png"  class="img-fluid rounded thumbnail detailImg" alt="Thumbnail 1" >
-              </section>
-              <section class="col-2">
-                <img src="../assets/shop_details/book1.png"  class="img-fluid rounded thumbnail detailImg" alt="Thumbnail 2">
-              </section>
-              <section class="col-2">
-                <img src="../assets/shop_details/book1.png"  class="img-fluid rounded thumbnail detailImg" alt="Thumbnail 3">
-              </section>
-              <section class="col-2">
-                <img src="../assets/shop_details/book1.png"  class="img-fluid rounded thumbnail detailImg" alt="Thumbnail 4">
-              </section>
-              <section class="row">
-                <section class="col-2">
-                  <img src="../assets/shop_details/book1.png"  class="img-fluid rounded thumbnail detailImg" alt="Thumbnail 5 detailImg">
+        <!-- Bottom Nav -->
+        <section
+          class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
+          style="background-color: #fff; border-bottom: 1px solid #ddd"
+        >
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg p-0">
+            <section class="container-fluid">
+              <!-- Toggle Button for Offcanvas -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <!-- Offcanvas Menu -->
+              <section
+                class="offcanvas offcanvas-start"
+                tabindex="-1"
+                id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel"
+              >
+                <section class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    <i class="fa-solid fa-bars"></i> Menu
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </section>
+                <section class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="../index.html"
+                        ><i class="fa-solid fa-house"></i> Home</a
+                      >
+                    </li>
+                    <!-- Shop Dropdown -->
+                    <li class="nav-item fw-bold px-2">
+                      <a
+                        class="nav-link"
+                        href="./shoplist.html"
+                        role="button"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-shop"></i> Shop
+                      </a>
+                    </li>
+                    <!-- Pages Dropdown -->
+                    <li class="nav-item fw-bold px-2">
+                      <a
+                        class="nav-link"
+                        href="#"
+                        role="button"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-file"></i> About Us
+                      </a>
+                    </li>
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="./Contact.html"
+                        ><i class="fa-solid fa-address-book"></i> Contact</a
+                      >
+                    </li>
+                  </ul>
                 </section>
               </section>
             </section>
+          </nav>
+          <!-- Icons -->
+          <section class="d-flex gap-3">
+            <!-- <section class="position-relative">
+              <a href="./wishlist.html" class="text-danger">
+                <i
+                  class="far fa-heart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  >0</span
+                >
+              </a>
+            </section>
+            <section class="position-relative">
+              <a href="./cart.html" class="text-success">
+                <i
+                  class="fas fa-shopping-cart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  id="count"
+                  >0</span
+                >
+              </a>
+            </section>
+            <section class="position-relative">
+              <a href="./login.html" class="d-md-none" style="color: #02488d">
+                <i
+                  class="fas fa-user"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+              </a>
+            </section> -->
           </section>
         </section>
-        <section class="col-lg-7 col-12 info">
-          <h1 class="product-title" id="detailName">Product Name Here</h1>
-          <section class="product-rating mb-2">
-            <span id="rating" class="text-warning">
-              <i class="fas fa-star " data-index="1"></i>
-              <i class="fas fa-star" data-index="2"></i>
-              <i class="fas fa-star" data-index="3"></i>
-              <i class="fas fa-star" data-index="4"></i>
-              <i class="fas fa-star" data-index="5"></i>
-            </span>
-            <span> (1 Customer Reviews)</span>
-          </section>
-          <p class="product-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar, tortor quis varius
-            pretium est felis scelerisque nulla, vitae placerat justo nunc a massa. Aenean nec montes
-            vestibulum urna vel imperdiet ipsum. Orci varius natoque penatibus et magnis dis ridicul
-            parturient montes.
-          </p>
-          <h2 class="product-price mb-3 " id="detailPrice"> $150 </h2>
-          <section class="product-actions row row-cols-auto g-2 align-items-center">
-            <section class="col-auto">
-           <!--      <input type="number" class="form-control" id="quantity" value="1" min="1" style="max-width: 80px;"> -->
-            </section>
-            <section class="col-auto">
-              <button class="btn  read">Read A Little</button>
-            </section>
-            <section class="col-auto">
-              <button class="btn me-2 add add-cart-btn2"><i class="fas fa-shopping-cart">Add to Cart</i></button>
-            </section>
-            <section class="col-auto">
-              <button class="btn rounded-circle favourite me-2"> <i class="far fa-heart me-1"></i></button>
-            </section>
-            <section class="col-auto">
-              <button class="btn rounded-circle arrow"> <i class="fas fa-exchange-alt"></i></button>
-            </section>
-          </section>
-          <hr>
-          <section class="details">
-            <ul class="product-details-list">
-              <li><b class="detail-label">SKU : </b> FTC1020865D</li>
-              <li><b class="detail-label">Tags : </b> Design, Low</li>
-              <li><b class="detail-label">Total page : </b> 330</li>
-              <li><b class="detail-label">Publish Years : </b> 2021</li>
-              <li><b class="detail-label">Category : </b> Kids Toys</li>
-              <li><b class="detail-label">Language : </b> English</li>
-              <li><b class="detail-label">Century : </b> United States</li>
+      </section>
+    </nav>
+    <section class="wraper">
+      <section id="header" class="relative">
+        <img src="../assets/cart/test1.png" id="left-img" />
+        <h1 class="center-dev">Shop Details</h1>
+        <img src="../assets/cart/test2.png" id="right-img" />
+      </section>
+      <section class="container mt-5">
+        <div class="row g-4">
+          <!-- Left Side: Product Image and Thumbnails -->
+          <div class="col-lg-6">
+            <div class="product-image mb-3">
+              <img
+                src="../assets/shop_details/book1.png"
+                class="img-fluid rounded detailImg w-100"
+                alt="Main Product"
+                id="mainImage"
+              />
+            </div>
+          </div>
+
+          <!-- Right Side: Product Info -->
+          <div class="col-lg-6">
+            <h1 class="product-title" id="detailName">Product Name Here</h1>
+            <div class="product-rating mb-2">
+              <span class="text-warning" id="rating">
+                <i class="fas fa-star" data-index="1"></i>
+                <i class="fas fa-star" data-index="2"></i>
+                <i class="fas fa-star" data-index="3"></i>
+                <i class="fas fa-star" data-index="4"></i>
+                <i class="fas fa-star" data-index="5"></i>
+              </span>
+              <span>(1 Customer Reviews)</span>
+            </div>
+
+            <p class="product-description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              pulvinar, tortor quis varius pretium.
+            </p>
+
+            <h2 class="product-price mb-3" id="detailPrice">$150</h2>
+
+            <div class="product-actions d-flex flex-wrap gap-2 mb-4">
+              <button class="btn read">Read A Little</button>
+              <button class="btn add add-cart-btn2">
+                <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+              </button>
+              <button class="btn rounded-circle favourite">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="btn rounded-circle arrow">
+                <i class="fas fa-exchange-alt"></i>
+              </button>
+            </div>
+
+            <hr />
+
+            <ul class="list-unstyled mb-3">
+              <li><strong>SKU:</strong> FTC1020865D</li>
+              <li><strong>Tags:</strong> Design, Low</li>
+              <li><strong>Total Pages:</strong> 330</li>
+              <li><strong>Publish Year:</strong> 2021</li>
+              <li><strong>Category:</strong> Kids Toys</li>
+              <li><strong>Language:</strong> English</li>
+              <li><strong>Country:</strong> United States</li>
             </ul>
-          </section>
-          <section class="details">
-            <ul class="product-details-list-2">
-              <li><i class="fas fa-check text-success me-2"></i>Free shipping orders from $150</li>
-              <li><i class="fas fa-check text-success me-2"></i>Manaya Flash Discount: Starting at 30% Off
+
+            <ul class="list-unstyled">
+              <li>
+                <i class="fas fa-check text-success me-2"></i>Free shipping
+                orders from $150
               </li>
-              <li><i class="fas fa-check text-success me-2"></i>30 days exchange & return</li>
-              <li><i class="fas fa-check text-success me-2"></i>Safe & Secure online shopping</li>
+              <li>
+                <i class="fas fa-check text-success me-2"></i>30% Off Flash
+                Discount
+              </li>
+              <li>
+                <i class="fas fa-check text-success me-2"></i>30 days exchange &
+                return
+              </li>
+              <li>
+                <i class="fas fa-check text-success me-2"></i>Safe & Secure
+                shopping
+              </li>
             </ul>
-          </section>
-          <section class="available-on">
-            <h5>Also Available On:</h5>
-            <img src="../assets/shop_details/cutomerio.png">
-            <img src="../assets/shop_details/dropbox.png">
-            <img src="../assets/shop_details/amazon.png">
-          </section>
-        </section>
+            <div
+              class="available-on mt-3 d-block d-md-flex flex-column flex-md-row align-items-start"
+            >
+              <h6 class="mb-2 me-md-3">Also Available On:</h6>
+              <div class="d-flex flex-wrap gap-5 ss">
+                <img
+                  src="../assets/shop_details/cutomerio.png"
+                  alt="Cutomerio"
+                />
+                <img src="../assets/shop_details/dropbox.png" alt="Dropbox" />
+                <img src="../assets/shop_details/amazon.png" alt="Amazon" />
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-      <section class="my-4">
-        <h5 style="text-align: center ">Description</h5>
-        <hr>
-        <p class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis erat interdum, tempor
-          turpis in, sodales ex. In hac habitasse platea dictumst. Etiam accumsan scelerisque urna, a lobortis
-          velit vehicula ut. Maecenas porttitor dolor a velit aliquet, et euismod nibh vulputate. Duis nunc
-          velit, lacinia vel risus in, finibus sodales augue. Aliquam lacinia imperdiet dictum. Etiam tempus
-          finibus tortor, quis placerat arcu tristique in. Sed vitae dui a diam luctus maximus. Quisque nec
-          felis dapibus, dapibus enim vitae, vestibulum libero. Aliquam erat volutpat. Phasellus luctus
-          rhoncus justo. Duis a nulla sit amet justo aliquam ullamcorper. Phasellus nulla lorem, pretium et
-          libero in, porta auctor dui. In a ornare purus, et efficitur elit. Etiam consectetur sit amet quam
-          ut tincidunt. Donec gravida ultricies tellus ac pharetra. Praesent a pulvinar purus. Proin
-          sollicitudin leo eget mi sagittis aliquam. Donec sollicitudin ex ac lobortis mollis. Sed eget libero
-          nec mi</p>
-      </section>
-      <hr>
-      <section class=" col-12 text-center mb-5" >
-        <h1>Related Products</h1>
-        <p>Interdum et malesuada fames ac ante ipsum primis in faucibus.<br>
-          Donec at nulla nulla. Duis posuere ex lacus</p>
-      </section>
-      <section class="container-fluid px-2 ">
+
+      <section class="container-fluid px-2">
         <section class="swiper mySwiper">
           <section class="swiper-wrapper">
             <!-- كل كارد يبقى جوه swiper-slide -->
             <section class="swiper-slide">
-        <!-- Book Card -->
-        <section class="col">
-          <section class="card book-card position-relative">
-            <section class="card-top d-flex justify-content-center align-items-center">
-              <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
-            </section>
-            <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
-            <section class="card-body">
-              <h6 class="text-muted">Design Low Book</h6>
-              <h5 class="card-title">How Deal With Very Bad BOOK</h5>
-              <section class="price mb-2">
-                <span class="fw-bold">$30.00</span> <del>$39.99</del>
-              </section>
-              <section class="d-flex justify-content-between align-items-center mb-4   mt-4">
-                <section class="d-flex align-items-center">
-                  <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
-                  <span>Alexander</span>
+              <!-- Book Card -->
+              <section class="col">
+                <section class="card book-card position-relative">
+                  <section
+                    class="card-top d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="../assets/shop_details/book3.png"
+                      class="card-img-top"
+                      alt="Book Cover"
+                    />
+                  </section>
+                  <span class="badge badge-hot text-white px-2 py-1 rounded"
+                    >Hot</span
+                  >
+                  <section class="card-body">
+                    <h6 class="text-muted">Design Low Book</h6>
+                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <section class="price mb-2">
+                      <span class="fw-bold">$30.00</span> <del>$39.99</del>
+                    </section>
+                    <section
+                      class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                    >
+                      <section class="d-flex align-items-center">
+                        <img
+                          src="../assets/shop_details/client-2.png"
+                          class="author-img me-1"
+                          alt="Author"
+                        />
+                        <span>Alexander</span>
+                      </section>
+                      <section class="rating mb-0">★★★★☆</section>
+                    </section>
+                    <button class="btn add-cart-btn w-100 py-3">
+                      <i class="fas fa-shopping-cart">Add to Cart</i>
+                    </button>
+                  </section>
                 </section>
-                <section class="rating mb-0">
-                  ★★★★☆
-                </section>
               </section>
-              <button class="btn add-cart-btn w-100 py-3">
-                <i class="fas fa-shopping-cart">Add to Cart</i>
-              </button>
-            </section>
-          </section>
-        </section>
             </section>
             <section class="swiper-slide">
               <!-- كارد تاني -->
               <section class="col">
                 <section class="card book-card position-relative">
-                  <section class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  <section
+                    class="card-top d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="../assets/shop_details/book3.png"
+                      class="card-img-top"
+                      alt="Book Cover"
+                    />
                   </section>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <span class="badge badge-hot text-white px-2 py-1 rounded"
+                    >Hot</span
+                  >
                   <section class="card-body">
                     <h6 class="text-muted">Design Low Book</h6>
                     <h5 class="card-title">How Deal With Very Bad BOOK</h5>
                     <section class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                      <span class="fw-bold">$30.00</span> <del>$39.99</del>
                     </section>
-                    <section class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                    <section
+                      class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                    >
                       <section class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <img
+                          src="../assets/shop_details/client-2.png"
+                          class="author-img me-1"
+                          alt="Author"
+                        />
                         <span>Alexander</span>
                       </section>
-                      <section class="rating mb-0">
-                        ★★★★☆
-                      </section>
+                      <section class="rating mb-0">★★★★☆</section>
                     </section>
                     <button class="btn add-cart-btn w-100 py-3">
                       <i class="fas fa-shopping-cart">Add to Cart</i>
@@ -707,24 +757,36 @@ li {
               <!-- كارد تالت -->
               <section class="col">
                 <section class="card book-card position-relative">
-                  <section class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  <section
+                    class="card-top d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="../assets/shop_details/book3.png"
+                      class="card-img-top"
+                      alt="Book Cover"
+                    />
                   </section>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <span class="badge badge-hot text-white px-2 py-1 rounded"
+                    >Hot</span
+                  >
                   <section class="card-body">
                     <h6 class="text-muted">Design Low Book</h6>
                     <h5 class="card-title">How Deal With Very Bad BOOK</h5>
                     <section class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                      <span class="fw-bold">$30.00</span> <del>$39.99</del>
                     </section>
-                    <section class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                    <section
+                      class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                    >
                       <section class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <img
+                          src="../assets/shop_details/client-2.png"
+                          class="author-img me-1"
+                          alt="Author"
+                        />
                         <span>Alexander</span>
                       </section>
-                      <section class="rating mb-0">
-                        ★★★★☆
-                      </section>
+                      <section class="rating mb-0">★★★★☆</section>
                     </section>
                     <button class="btn add-cart-btn w-100 py-3">
                       <i class="fas fa-shopping-cart">Add to Cart</i>
@@ -738,24 +800,36 @@ li {
               <!-- كارد تالت -->
               <section class="col">
                 <section class="card book-card position-relative">
-                  <section class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  <section
+                    class="card-top d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="../assets/shop_details/book3.png"
+                      class="card-img-top"
+                      alt="Book Cover"
+                    />
                   </section>
-                    <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <span class="badge badge-hot text-white px-2 py-1 rounded"
+                    >Hot</span
+                  >
                   <section class="card-body">
                     <h6 class="text-muted">Design Low Book</h6>
                     <h5 class="card-title">How Deal With Very Bad BOOK</h5>
                     <section class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                      <span class="fw-bold">$30.00</span> <del>$39.99</del>
                     </section>
-                    <section class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                    <section
+                      class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                    >
                       <section class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <img
+                          src="../assets/shop_details/client-2.png"
+                          class="author-img me-1"
+                          alt="Author"
+                        />
                         <span>Alexander</span>
                       </section>
-                      <section class="rating mb-0">
-                        ★★★★☆
-                      </section>
+                      <section class="rating mb-0">★★★★☆</section>
                     </section>
                     <button class="btn add-cart-btn w-100 py-3">
                       <i class="fas fa-shopping-cart">Add to Cart</i>
@@ -768,24 +842,36 @@ li {
               <!-- كارد تالت -->
               <section class="col">
                 <section class="card book-card position-relative">
-                  <section class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  <section
+                    class="card-top d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="../assets/shop_details/book3.png"
+                      class="card-img-top"
+                      alt="Book Cover"
+                    />
                   </section>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <span class="badge badge-hot text-white px-2 py-1 rounded"
+                    >Hot</span
+                  >
                   <section class="card-body">
                     <h6 class="text-muted">Design Low Book</h6>
                     <h5 class="card-title">How Deal With Very Bad BOOK</h5>
                     <section class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                      <span class="fw-bold">$30.00</span> <del>$39.99</del>
                     </section>
-                    <section class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                    <section
+                      class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                    >
                       <section class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <img
+                          src="../assets/shop_details/client-2.png"
+                          class="author-img me-1"
+                          alt="Author"
+                        />
                         <span>Alexander</span>
                       </section>
-                      <section class="rating mb-0">
-                        ★★★★☆
-                      </section>
+                      <section class="rating mb-0">★★★★☆</section>
                     </section>
                     <button class="btn add-cart-btn w-100 py-3">
                       <i class="fas fa-shopping-cart">Add to Cart</i>
@@ -798,24 +884,36 @@ li {
               <!-- كارد تالت -->
               <section class="col">
                 <section class="card book-card position-relative">
-                  <section class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  <section
+                    class="card-top d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="../assets/shop_details/book3.png"
+                      class="card-img-top"
+                      alt="Book Cover"
+                    />
                   </section>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <span class="badge badge-hot text-white px-2 py-1 rounded"
+                    >Hot</span
+                  >
                   <section class="card-body">
                     <h6 class="text-muted">Design Low Book</h6>
                     <h5 class="card-title">How Deal With Very Bad BOOK</h5>
                     <section class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                      <span class="fw-bold">$30.00</span> <del>$39.99</del>
                     </section>
-                    <section class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                    <section
+                      class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                    >
                       <section class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <img
+                          src="../assets/shop_details/client-2.png"
+                          class="author-img me-1"
+                          alt="Author"
+                        />
                         <span>Alexander</span>
                       </section>
-                      <section class="rating mb-0">
-                        ★★★★☆
-                      </section>
+                      <section class="rating mb-0">★★★★☆</section>
                     </section>
                     <button class="btn add-cart-btn w-100 py-3">
                       <i class="fas fa-shopping-cart">Add to Cart</i>
@@ -828,24 +926,36 @@ li {
               <!-- كارد تالت -->
               <section class="col">
                 <section class="card book-card position-relative">
-                  <section class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  <section
+                    class="card-top d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="../assets/shop_details/book3.png"
+                      class="card-img-top"
+                      alt="Book Cover"
+                    />
                   </section>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <span class="badge badge-hot text-white px-2 py-1 rounded"
+                    >Hot</span
+                  >
                   <section class="card-body">
                     <h6 class="text-muted">Design Low Book</h6>
                     <h5 class="card-title">How Deal With Very Bad BOOK</h5>
                     <section class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                      <span class="fw-bold">$30.00</span> <del>$39.99</del>
                     </section>
-                    <section class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                    <section
+                      class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                    >
                       <section class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <img
+                          src="../assets/shop_details/client-2.png"
+                          class="author-img me-1"
+                          alt="Author"
+                        />
                         <span>Alexander</span>
                       </section>
-                      <section class="rating mb-0">
-                        ★★★★☆
-                      </section>
+                      <section class="rating mb-0">★★★★☆</section>
                     </section>
                     <button class="btn add-cart-btn w-100 py-3">
                       <i class="fas fa-shopping-cart">Add to Cart</i>
@@ -858,24 +968,36 @@ li {
               <!-- كارد تالت -->
               <section class="col">
                 <section class="card book-card position-relative">
-                  <section class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  <section
+                    class="card-top d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="../assets/shop_details/book3.png"
+                      class="card-img-top"
+                      alt="Book Cover"
+                    />
                   </section>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <span class="badge badge-hot text-white px-2 py-1 rounded"
+                    >Hot</span
+                  >
                   <section class="card-body">
                     <h6 class="text-muted">Design Low Book</h6>
                     <h5 class="card-title">How Deal With Very Bad BOOK</h5>
                     <section class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                      <span class="fw-bold">$30.00</span> <del>$39.99</del>
                     </section>
-                    <section class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                    <section
+                      class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                    >
                       <section class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <img
+                          src="../assets/shop_details/client-2.png"
+                          class="author-img me-1"
+                          alt="Author"
+                        />
                         <span>Alexander</span>
                       </section>
-                      <section class="rating mb-0">
-                        ★★★★☆
-                      </section>
+                      <section class="rating mb-0">★★★★☆</section>
                     </section>
                     <button class="btn add-cart-btn w-100 py-3">
                       <i class="fas fa-shopping-cart">Add to Cart</i>
@@ -888,24 +1010,36 @@ li {
               <!-- كارد تالت -->
               <section class="col">
                 <section class="card book-card position-relative">
-                  <section class="card-top d-flex justify-content-center align-items-center">
-                    <img src="../assets/shop_details/book3.png" class="card-img-top" alt="Book Cover">
+                  <section
+                    class="card-top d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="../assets/shop_details/book3.png"
+                      class="card-img-top"
+                      alt="Book Cover"
+                    />
                   </section>
-                  <span class="badge badge-hot text-white px-2 py-1 rounded">Hot</span>
+                  <span class="badge badge-hot text-white px-2 py-1 rounded"
+                    >Hot</span
+                  >
                   <section class="card-body">
                     <h6 class="text-muted">Design Low Book</h6>
                     <h5 class="card-title">How Deal With Very Bad BOOK</h5>
                     <section class="price mb-2">
-                      <span class=" fw-bold">$30.00</span> <del>$39.99</del>
+                      <span class="fw-bold">$30.00</span> <del>$39.99</del>
                     </section>
-                    <section class="d-flex justify-content-between align-items-center mb-4   mt-4">
+                    <section
+                      class="d-flex justify-content-between align-items-center mb-4 mt-4"
+                    >
                       <section class="d-flex align-items-center">
-                        <img src="../assets/shop_details/client-2.png" class="author-img me-1" alt="Author">
+                        <img
+                          src="../assets/shop_details/client-2.png"
+                          class="author-img me-1"
+                          alt="Author"
+                        />
                         <span>Alexander</span>
                       </section>
-                      <section class="rating mb-0">
-                        ★★★★☆
-                      </section>
+                      <section class="rating mb-0">★★★★☆</section>
                     </section>
                     <button class="btn add-cart-btn w-100 py-3">
                       <i class="fas fa-shopping-cart">Add to Cart</i>
@@ -919,173 +1053,192 @@ li {
           <section class="swiper-button-next"></section>
           <section class="swiper-button-prev"></section>
         </section>
+      </section>
     </section>
-  </section>
-  <section class="footer text-white">
-    <section class="container">
-      <section class="row text-center text-md-start">
-        <section class="col-md-3 mb-4">
-          <h5>📚 Bookle</h5>
-          <p>
-            Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
-            lacinia curabitur lacinia mollis
-          </p>
-          <section>
-            <a href="#" class="text-white me-2"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" class="text-white me-2"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a href="#" class="text-white me-2"
-              ><i class="fab fa-linkedin"></i
-            ></a>
+    <section class="footer text-white">
+      <section class="container">
+        <section class="row text-center text-md-start">
+          <section class="col-md-3 mb-4">
+            <h5>📚 Bookle</h5>
+            <p class="text-white">
+              Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
+              lacinia curabitur lacinia mollis
+            </p>
+            <section>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </section>
+          </section>
+          <section class="col-md-3 mb-4">
+            <h6>Customers Support</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Store List</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Opening Hours</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Return Policy</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section class="col-md-3 mb-4">
+            <h6>Categories</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Novel Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Poetry Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >Political Books</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >History Books</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section class="col-md-3 mb-4">
+            <h6>Newsletter</h6>
+            <p class="text-white">
+              Sign up to receive weekly newsletter to get the latest updates.
+            </p>
+            <form class="d-flex">
+              <input
+                type="email"
+                class="form-control me-2"
+                placeholder="Enter Email Address"
+              />
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-paper-plane" style="color: white"></i>
+              </button>
+            </form>
           </section>
         </section>
-        <section class="col-md-3 mb-4">
-          <h6>Customers Support</h6>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Store List</a></li>
-            <li><a href="#" class="text-white">Opening Hours</a></li>
-            <li><a href="#" class="text-white">Contact Us</a></li>
-            <li><a href="#" class="text-white">Return Policy</a></li>
-          </ul>
-        </section>
-        <section class="col-md-3 mb-4">
-          <h6>Categories</h6>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Novel Books</a></li>
-            <li><a href="#" class="text-white">Poetry Books</a></li>
-            <li><a href="#" class="text-white">Political Books</a></li>
-            <li><a href="#" class="text-white">History Books</a></li>
-          </ul>
-        </section>
-        <section class="col-md-3 mb-4">
-          <h6>Newsletter</h6>
-          <p>
-            Sign up to receive weekly newsletter to get the latest updates.
+        <hr class="bg-white" />
+        <section class="text-center">
+          <p class="text-white">
+            <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
+            <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
+            <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
+            &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
           </p>
-          <form class="d-flex">
-            <input
-              type="email"
-              class="form-control me-2"
-              placeholder="Enter Email Address"
-            />
-            <button class="btn btn-primary" type="submit">
-              <i class="fa fa-paper-plane" style="color: white"></i>
-            </button>
-          </form>
         </section>
-      </section>
-      <hr class="bg-white" />
-      <section class="text-center">
-        <p>
-          <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
-          <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
-          <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
-          &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
-        </p>
       </section>
     </section>
-  </section>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 4,
-      spaceBetween: 20,
-      loop: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints: {
-    // من 0px لحد 576px (موبايل)
-    0: {
-      slidesPerView: 1,
-    },
-    // من 576px لحد 768px (تابلت صغير)
-    576: {
-      slidesPerView: 2,
-    },
-    // من 768px لحد 992px (تابلت كبير)
-    768: {
-      slidesPerView: 2,
-    },
-    // من 992px لحد 1200px (لابتوب)
-    992: {
-      slidesPerView: 3,
-    },
-    // من 1200px وطالع (ديسكتوب كبير)
-    1200: {
-      slidesPerView: 4,
-    }
-  }
-      
-    });
-    </script>
- <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const product = JSON.parse(localStorage.getItem('selectedProduct'));
-    const u = JSON.parse(localStorage.getItem("currentUser")) || {};
-    // const loginTopNav = document.getElementById("loginTopNav");
-    //     const loginBottomNav = document.getElementById("loginBottomNav");
-    //     const cartIcon = document.getElementById("cartIcon");
-    //     const wishlist = u.wishlist || [];
-    //     const wishlistBadge = document.getElementById("wishCount");
-    //     const wishlistIcon = document.getElementById("wishlistIcon");
-    //     if (u && u.firstName) {
-    //       loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
-    //       loginTopNav.href = "./customer/customerDashboard.html";
-    //       loginBottomNav.href = "./customer/customerDashboard.html";
-    //       wishlistIcon.href = "./customer/customerWishlist.html";
-    //       cartIcon.href = "./pages/cart.html";
-    //     } else {
-    //       loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
-    //       loginTopNav.href = "./pages/login.html";
-    //       loginBottomNav.href = "./pages/login.html";
-    //       wishlistIcon.href = "./pages/login.html";
-    //       cartIcon.href = "./pages/login.html";
-    //     }
-    // Update product details display
-    if (product) {
-      document.querySelectorAll('.detailImg').forEach(img => {
-        img.src = product.img;
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          // من 0px لحد 576px (موبايل)
+          0: {
+            slidesPerView: 1,
+          },
+          // من 576px لحد 768px (تابلت صغير)
+          576: {
+            slidesPerView: 2,
+          },
+          // من 768px لحد 992px (تابلت كبير)
+          768: {
+            slidesPerView: 2,
+          },
+          // من 992px لحد 1200px (لابتوب)
+          992: {
+            slidesPerView: 3,
+          },
+          // من 1200px وطالع (ديسكتوب كبير)
+          1200: {
+            slidesPerView: 4,
+          },
+        },
       });
-      document.querySelector('#detailName').textContent = product.name;
-      document.querySelector('#detailPrice').textContent = product.price;
-    }
+    </script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const product = JSON.parse(localStorage.getItem("selectedProduct"));
 
-    const badge = document.getElementById('cartBadge');
-    const addToCartBtn = document.querySelector('.add-cart-btn2');
+        // Update product details display
+        if (product) {
+          document.querySelectorAll(".detailImg").forEach((img) => {
+            img.src = product.img;
+          });
+          document.querySelector("#detailName").textContent = product.name;
+          document.querySelector("#detailPrice").textContent = product.price;
+        }
 
-    // Load current cart from localStorage
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    // FIX: Calculate total items (sum quantities instead of cart.length)
-    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-    if (badge) badge.textContent = totalItems;
+        const badge = document.getElementById("cartBadge");
+        const addToCartBtn = document.querySelector(".add-cart-btn2");
 
-    addToCartBtn.addEventListener('click', () => {
-      // Check if product already exists in cart
-      const existingProductIndex = cart.findIndex(item => item.id === product.id); // Use unique ID if available
-      
-      if (existingProductIndex !== -1) {
-        // Product exists - increment quantity
-        cart[existingProductIndex].quantity = (cart[existingProductIndex].quantity || 1) + 1;
-      } else {
-        // New product - add with quantity 1
-        product.quantity = 1;
-        cart.push(product);
-      }
+        // Load current cart from localStorage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      // Save updated cart
-      localStorage.setItem('cart', JSON.stringify(cart));
-      
-      // FIX: Update badge with total quantity
-      const newTotalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-      if (badge) badge.textContent = newTotalItems;
-    });
-  });
-</script>
-</body>
-</html> 
+        // FIX: Calculate total items (sum quantities instead of cart.length)
+        const totalItems = cart.reduce(
+          (sum, item) => sum + (item.quantity || 1),
+          0
+        );
+        if (badge) badge.textContent = totalItems;
+
+        addToCartBtn.addEventListener("click", () => {
+          const existingProductIndex = cart.findIndex(
+            (item) => item.id === product.id
+          ); // Use unique ID if available
+
+          if (existingProductIndex !== -1) {
+            cart[existingProductIndex].quantity =
+              (cart[existingProductIndex].quantity || 1) + 1;
+          } else {
+            // New product - add with quantity 1
+            product.quantity = 1;
+            cart.push(product);
+          }
+
+          localStorage.setItem("cart", JSON.stringify(cart));
+
+          // FIX: Update badge with total quantity
+          const newTotalItems = cart.reduce(
+            (sum, item) => sum + (item.quantity || 1),
+            0
+          );
+          if (badge) badge.textContent = newTotalItems;
+          window.location.href = "./cart.html";
+        });
+      });
+    </script>
+  </body>
+</html>
