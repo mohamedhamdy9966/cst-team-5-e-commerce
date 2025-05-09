@@ -263,7 +263,7 @@
         const orderCard = document.createElement("section");
         orderCard.className = "order-card d-flex align-items-center mb-3";
         const orderBookImage = document.createElement("img");
-        orderBookImage.src = order.img || "../assets/order-list/default.png";
+        orderBookImage.src = order.image || "../assets/order-list/default.png";
         orderBookImage.alt = "Book";
         orderBookImage.className = "order-image me-3";
         const orderDetails = document.createElement("section");
@@ -287,7 +287,7 @@
         }</span>`;
         const orderInfoPayment = document.createElement("section");
         orderInfoPayment.innerHTML = `<b>Payment:</b> <span>${
-          order.payment || "Unknown"
+          order.payment || "Delivery ON Cash"
         }</span>`;
         orderInfo.append(
           orderInfoPrice,
@@ -305,7 +305,7 @@
         statusDot.className = "status-dot";
         const statusSelect = document.createElement("select");
         statusSelect.className = "form-select fw-bold text-light";
-        statusSelect.style.backgroundColor = "#ce4c4c";
+        statusSelect.style.backgroundColor = "lightgreen";
         statusSelect.style.cursor = "pointer";
         const defaultOption = document.createElement("option");
         defaultOption.value = "";
@@ -319,7 +319,6 @@
           { value: "onWayDelivering", label: "On Way Delivering" },
           { value: "delivered", label: "Delivered" },
         ];
-
         statuses.forEach((s) => {
           const opt = document.createElement("option");
           opt.value = s.value;
@@ -327,15 +326,11 @@
           opt.style.cursor = "pointer";
           statusSelect.appendChild(opt);
         });
-
         statusWrapper.append(statusDot, statusSelect);
-
         const statusBadge = document.createElement("section");
         statusBadge.className = "status-badge";
         statusBadge.textContent = "Order Status";
-
         orderStatus.append(statusWrapper, statusBadge);
-
         orderCard.append(orderBookImage, orderDetails, orderStatus);
         ordersSection.appendChild(orderCard);
       });

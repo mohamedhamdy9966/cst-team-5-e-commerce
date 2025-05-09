@@ -232,10 +232,12 @@
       // Function to delete an order
       function deleteOrder(userIndex, orderIndex) {
         const user = users[userIndex];
-        if (user && user.orders && user.orders[orderIndex]) {
-          user.orders.splice(orderIndex, 1); // Remove the order
-          localStorage.setItem("users", JSON.stringify(users)); // Update localStorage
-          renderOrders(); // Re-render the orders table
+        if (confirm("Do You Really Want To Delete This Order ?")) {
+          if (user && user.orders && user.orders[orderIndex]) {
+            user.orders.splice(orderIndex, 1); // Remove the order
+            localStorage.setItem("users", JSON.stringify(users)); // Update localStorage
+            renderOrders(); // Re-render the orders table
+          }
         }
       }
 
@@ -260,7 +262,7 @@
               <td>${order.price || 0}</td>
               <td>${order.quantity || 1}</td>
               <td>
-                <select class="form-select form-select-sm" onchange="handleStatusChange(${userIndex}, ${orderIndex}, this.value)">
+                <select class="form-select form-select-sm border rounded bg-danger text-light" style="cursor: pointer;" onchange="handleStatusChange(${userIndex}, ${orderIndex}, this.value)">
                   <option value="packing" ${
                     order.status === "packing" ? "selected" : ""
                   }>Packing</option>

@@ -228,28 +228,44 @@
       document.addEventListener("DOMContentLoaded", () => {
         const messages = JSON.parse(localStorage.getItem("messages")) || [];
         const messagesWrapper = document.getElementById("messagesWrapper");
-        messages.forEach((message, index) => {
-          const nameBtn = document.createElement("button");
-          const emailBtn = document.createElement("button");
-          const messageSection = document.createElement("section");
-          nameBtn.innerText = message.name;
-          emailBtn.innerText = message.email;
-          messageSection.innerText = message.message;
-          nameBtn.classList.add("btn", "btn-primary", "me-2");
-          emailBtn.classList.add("btn", "btn-secondary", "me-2");
-          messageSection.classList.add(
-            "mt-2",
-            "mb-4",
-            "w-75",
-            "border",
-            "rounded",
-            "fw-bold",
-            "p-5"
-          );
-          messagesWrapper.appendChild(nameBtn);
-          messagesWrapper.appendChild(emailBtn);
-          messagesWrapper.appendChild(messageSection);
-        });
+        function renderMessages() {
+          messagesWrapper.innerHTML = "";
+          messages.forEach((message, index) => {
+            const nameBtn = document.createElement("button");
+            const emailBtn = document.createElement("button");
+            const deleteBtn = document.createElement("button");
+            const messageSection = document.createElement("section");
+            nameBtn.innerText = message.name;
+            emailBtn.innerText = message.email;
+            deleteBtn.innerText = "X";
+            messageSection.innerText = message.message;
+            nameBtn.classList.add("btn", "btn-primary", "me-2");
+            emailBtn.classList.add("btn", "btn-secondary", "me-2");
+            deleteBtn.classList.add("btn", "btn-danger", "ms-5");
+            messageSection.classList.add(
+              "mt-2",
+              "mb-4",
+              "w-75",
+              "border",
+              "rounded",
+              "fw-bold",
+              "p-5"
+            );
+            deleteBtn.addEventListener("click", () => deleteMessage(index));
+            messagesWrapper.appendChild(nameBtn);
+            messagesWrapper.appendChild(emailBtn);
+            messagesWrapper.appendChild(deleteBtn);
+            messagesWrapper.appendChild(messageSection);
+          });
+        }
+        function deleteMessage(index) {
+          if (confirm("Do you really want to delete this message?")) {
+            messages.splice(index, 1);
+            localStorage.setItem("messages", JSON.stringify(messages));
+            renderMessages(); // Re-render the list
+          }
+        }
+        renderMessages();
       });
       // Logout function
       function logout() {
