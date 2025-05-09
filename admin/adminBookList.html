@@ -457,9 +457,10 @@
         </div>
       </div>
     </div>
-    
+
     <script>
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+      const books = JSON.parse(localStorage.getItem("books")) || {};
       document.addEventListener("DOMContentLoaded", function () {
         document
           .querySelector(".search")
