@@ -1,9 +1,15 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Orders Panel</title>
-    <link rel="icon" type="image/x-icon" href="../assets/home/favicon (1).ico">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../assets/home/favicon (1).ico"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,10 +24,11 @@
     />
     <style>
       body {
-        margin: 0;
         font-family: "Poppins", sans-serif;
+        margin: 0;
         overflow-x: hidden;
       }
+
       .sidebar {
         background-color: #036280;
         color: white;
@@ -36,8 +43,9 @@
         justify-content: center;
         z-index: 1000;
       }
+
       .sidebar .nav-link {
-        color: white;
+        color: black;
         background-color: #0f84a9;
         margin: 20px auto;
         text-align: center;
@@ -46,252 +54,282 @@
         font-size: 1.25rem;
         padding: 10px 20px;
       }
+
       .sidebar .nav-link:hover {
         background-color: #0c6c8a;
         box-shadow: 4px 4px 4px 4px rgba(36, 19, 194, 0.3);
       }
-      .sidebar span,
-      .sidebar i {
-        color: black;
-      }
+
       .main-content {
         margin-left: 400px;
         padding: 2rem;
       }
+
       .header {
-        background: white;
+        background: #0c6c8a;
+        color: white;
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
         padding: 1rem;
         position: sticky;
         top: 0;
         z-index: 999;
+        text-align: center;
       }
-      .img-placeholder {
-        width: 100%;
-        height: 250px;
-        cursor: pointer;
-        max-width: 250px;
-        background-color: #e9ecef;
-        border: 2px dashed #ccc;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        color: #999;
-      }
-      .test {
-        max-width: 50%;
-      }
-      .mx-w {
-        max-width: 700px;
-      }
-      .product-form-container {
-        display: flex;
-        gap: 40px;
-        flex-wrap: wrap;
-        align-items: flex-start;
-      }
-      .product-image {
-        max-width: 500px;
-        margin-top: 10%;
-        border-radius: 20px;
-        min-height: 400px;
-        width: 100%;
-      }
-      .zz {
-        position: relative;
-        padding: 14px;
-        overflow: hidden;
-        z-index: 1;
-        border: none;
+
+      .order-table th {
+        background: #0c6c8a;
         color: white;
       }
-      .zz::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: orange;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.4s ease;
-        z-index: -1;
+
+      .order-table th,
+      .order-table td {
+        vertical-align: middle;
+        text-align: center;
       }
-      .zz:hover::before {
-        transform: scaleX(1);
+
+      .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
       }
+
+      .table-striped tbody tr:nth-of-type(even) {
+        background-color: #fff;
+      }
+
+      .btn-actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .btn-actions .btn {
+        padding: 6px 10px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      .btn-actions .btn-primary {
+        background-color: #036280;
+        color: white;
+      }
+
+      .btn-actions .btn-danger {
+        background-color: #e74c3c;
+        color: white;
+      }
+
+      @media (max-width: 1281px) {
+        .sidebar {
+          width: 330px;
+        }
+
+        .main-content {
+          margin-left: 300px;
+        }
+
+        .table {
+          font-size: 0.8rem;
+        }
+      }
+
       @media (max-width: 768px) {
         .sidebar {
-          height: auto;
-          width: 100%;
           flex-direction: row;
           justify-content: space-around;
-          padding: 0.5rem;
+          width: 100%;
+          height: auto;
           position: fixed;
           top: 0;
           left: 0;
-          right: 0;
+          padding: 0.5rem;
         }
-        .test {
-          max-width: 100%;
-        }
+
         .sidebar span {
           display: none;
         }
 
         .sidebar .nav-link {
           margin: 0;
-          border-radius: 50%;
           width: 50px;
           height: 50px;
+          border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
         }
 
         .main-content {
-          margin-left: 0;
-          padding-top: 4rem;
+          margin-left: 0 !important;
+          padding-top: 5rem;
         }
 
-        .header {
-          padding-top: 20px;
-        }
-
-        .product-form-container {
-          flex-direction: column;
-          align-items: center;
-        }
-        .product-image {
-          min-height: auto;
+        .order-table {
+          font-size: 0.7rem;
         }
       }
     </style>
   </head>
+
   <body>
     <!-- Sidebar -->
     <nav class="sidebar">
-      <a href="./adminAddBook.html" class="nav-link ff15" title="Add Items"
+      <a href="./adminAddBook.html" class="nav-link"
         ><i class="bi bi-plus-square"></i><span> Book</span></a
       >
-      <a href="./adminBookList.html" class="nav-link" title="List Items"
+      <a href="./adminBookList.html" class="nav-link"
         ><i class="bi bi-list-ul"></i><span> Book list</span></a
       >
-      <a href="./adminOrders.html" class="nav-link" title="Orders"
+      <a href="./adminOrders.html" class="nav-link"
         ><i class="bi bi-receipt"></i><span> Orders</span></a
       >
-      <a href="./adminUsers.html" class="nav-link" title="Users"
+      <a href="./adminUsers.html" class="nav-link"
         ><i class="bi bi-people"></i><span> Users</span></a
       >
-      <a href="./adminCustomerService.html" class="nav-link" title="Users"
+      <a href="./adminCustomerService.html" class="nav-link"
         ><i class="bi bi-people"></i><span> Customer Services</span></a
       >
-      <a href="#" class="nav-link" title="Logout" onclick="logout()"
+      <a href="#" class="nav-link" onclick="logout()"
         ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
       >
     </nav>
-     <!-- Main Content -->
-     <main class="main-content">
-      <section class="bg-white p-4 rounded shadow-sm" id="orders">
-        <h2 class="section-title mb-4">
-          <i class="fa-solid text-light fa-sort"></i> Orders List
-        </h2>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <section class="header">
+        <h3>All Orders</h3>
+      </section>
+
+      <section class="order-list-container mt-4">
+        <table class="table table-striped order-table">
+          <thead class="table-light">
+            <tr>
+              <th>User</th>
+              <th>Book Title</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTableBody">
+            <!-- Orders will be loaded here -->
+          </tbody>
+        </table>
       </section>
     </main>
+
     <script>
-      const u = JSON.parse(localStorage.getItem("currentUser")) || {};
-      if (!u || u.role !== "admin") {
+      const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
+      if (!currentUser || currentUser.role !== "admin") {
         alert("Access Denied");
         window.location.href = "../pages/login.html";
       }
-      let all = JSON.parse(localStorage.getItem("books")) || [];
-      const sellerOrders = u.orders || [];
-      const sellerDashboard = document.getElementById("sellerDashboard");
-      if (sellerDashboard && u.firstName) {
-        sellerDashboard.innerText += `${u.firstName} Dashboard`;
-      }
-      const ordersSection = document.getElementById("orders");
-      sellerOrders.forEach((order) => {
-        const orderCard = document.createElement("section");
-        orderCard.className = "order-card d-flex align-items-center mb-3";
-        const orderBookImage = document.createElement("img");
-        orderBookImage.src = order.img || "../assets/order-list/default.png";
-        orderBookImage.alt = "Book";
-        orderBookImage.className = "order-image me-3";
-        const orderDetails = document.createElement("section");
-        orderDetails.className = "flex-grow-1";
-        const orderBookTitle = document.createElement("h6");
-        orderBookTitle.className = "mb-1";
-        orderBookTitle.textContent = order.title || "Unknown Title";
-        const orderInfo = document.createElement("section");
-        orderInfo.className = "order-info";
-        const orderInfoPrice = document.createElement("section");
-        orderInfoPrice.innerHTML = `<b>Price:</b> <span>$${
-          order.price || 0
-        }</span>`;
-        const orderInfoQuantity = document.createElement("section");
-        orderInfoQuantity.innerHTML = `<b>Quantity:</b> <span>${
-          order.quantity || 1
-        }</span>`;
-        const orderInfoDate = document.createElement("section");
-        orderInfoDate.innerHTML = `<b>Date:</b> <span>${
-          order.date || new Date().toDateString()
-        }</span>`;
-        const orderInfoPayment = document.createElement("section");
-        orderInfoPayment.innerHTML = `<b>Payment:</b> <span>${
-          order.payment || "Unknown"
-        }</span>`;
-        orderInfo.append(
-          orderInfoPrice,
-          orderInfoQuantity,
-          orderInfoDate,
-          orderInfoPayment
-        );
-        orderDetails.append(orderBookTitle, orderInfo);
-        const orderStatus = document.createElement("section");
-        orderStatus.className =
-          "ms-auto d-flex align-items-center gap-2 text-end";
-        const statusWrapper = document.createElement("section");
-        statusWrapper.className = "d-flex align-items-center";
-        const statusDot = document.createElement("section");
-        statusDot.className = "status-dot";
-        const statusSelect = document.createElement("select");
-        statusSelect.className = "form-select fw-bold text-light";
-        statusSelect.style.backgroundColor = "#ce4c4c";
-        statusSelect.style.cursor = "pointer";
-        const defaultOption = document.createElement("option");
-        defaultOption.value = "";
-        defaultOption.disabled = true;
-        defaultOption.selected = true;
-        defaultOption.textContent = "Status";
-        statusSelect.appendChild(defaultOption);
-        const statuses = [
-          { value: "packing", label: "Packing" },
-          { value: "readyToShip", label: "Ready To Ship" },
-          { value: "onWayDelivering", label: "On Way Delivering" },
-          { value: "delivered", label: "Delivered" },
-        ];
-        statuses.forEach((s) => {
-          const opt = document.createElement("option");
-          opt.value = s.value;
-          opt.textContent = s.label;
-          opt.style.cursor = "pointer";
-          statusSelect.appendChild(opt);
-        });
-        statusWrapper.append(statusDot, statusSelect);
-        const statusBadge = document.createElement("section");
-        statusBadge.className = "status-badge";
-        statusBadge.textContent = "Order Status";
-        orderStatus.append(statusWrapper, statusBadge);
-        orderCard.append(orderBookImage, orderDetails, orderStatus);
-        ordersSection.appendChild(orderCard);
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const ordersTableBody = document.getElementById("ordersTableBody");
+      ordersTableBody.innerHTML = "";
+
+      users.forEach((user) => {
+        if (user.orders && Array.isArray(user.orders)) {
+          user.orders.forEach((order, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${user.firstName + " " + user.lastName}</td>
+              <td>${order.title || "N/A"}</td>
+              <td>${order.price || 0}</td>
+              <td>${order.quantity || 1}</td>
+              <td>
+                <select class="form-select form-select-sm">
+                  <option ${
+                    order.status === "packing" ? "selected" : ""
+                  }>Packing</option>
+                  <option ${
+                    order.status === "readyToShip" ? "selected" : ""
+                  }>Ready To Ship</option>
+                  <option ${
+                    order.status === "onWayDelivering" ? "selected" : ""
+                  }>On Way Delivering</option>
+                  <option ${
+                    order.status === "delivered" ? "selected" : ""
+                  }>Delivered</option>
+                </select>
+              </td>
+              <td class="btn-actions">
+                <button class="btn btn-sm btn-primary" onclick="editOrder(${index})">
+                  <i class="bi bi-pencil-square"></i> Edit
+                </button>
+                <button class="btn btn-sm btn-danger" onclick="deleteOrder(${index})">
+                  <i class="bi bi-trash"></i> Delete
+                </button>
+              </td>
+            `;
+            ordersTableBody.appendChild(row);
+          });
+        }
       });
-      // Logout function
-      function logout() {
-        localStorage.removeItem("currentUser");
-        window.location.href = "../index.html";
+
+      function deleteOrder(index) {
+        const user = users.find((u) => u.orders && u.orders[index]);
+        if (user) {
+          user.orders.splice(index, 1); // Remove the order
+          localStorage.setItem("users", JSON.stringify(users)); // Update localStorage
+          renderOrders(); // Re-render the orders table
+        }
+      }
+
+      function editOrder(index) {
+        const user = users.find((u) => u.orders && u.orders[index]);
+        if (user) {
+          const order = user.orders[index];
+          const newStatus = prompt("Edit the order status:", order.status);
+          if (newStatus) {
+            order.status = newStatus;
+            localStorage.setItem("users", JSON.stringify(users)); // Update localStorage
+            renderOrders(); // Re-render the orders table
+          }
+        }
+      }
+
+      function renderOrders() {
+        ordersTableBody.innerHTML = "";
+        users.forEach((user) => {
+          if (user.orders && Array.isArray(user.orders)) {
+            user.orders.forEach((order, index) => {
+              const row = document.createElement("tr");
+              row.innerHTML = `
+              <td>${user.firstName + " " + user.lastName}</td>
+              <td>${order.title || "N/A"}</td>
+              <td>${order.price || 0}</td>
+              <td>${order.quantity || 1}</td>
+              <td>
+                <select class="form-select form-select-sm">
+                  <option ${
+                    order.status === "packing" ? "selected" : ""
+                  }>Packing</option>
+                  <option ${
+                    order.status === "readyToShip" ? "selected" : ""
+                  }>Ready To Ship</option>
+                  <option ${
+                    order.status === "onWayDelivering" ? "selected" : ""
+                  }>On Way Delivering</option>
+                  <option ${
+                    order.status === "delivered" ? "selected" : ""
+                  }>Delivered</option>
+                </select>
+              </td>
+              <td class="btn-actions">
+                <button class="btn btn-sm btn-primary" onclick="editOrder(${index})">
+                  <i class="bi bi-pencil-square"></i> Edit
+                </button>
+                <button class="btn btn-sm btn-danger" onclick="deleteOrder(${index})">
+                  <i class="bi bi-trash"></i> Delete
+                </button>
+              </td>
+            `;
+              ordersTableBody.appendChild(row);
+            });
+          }
+        });
       }
     </script>
   </body>
