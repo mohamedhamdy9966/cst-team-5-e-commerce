@@ -336,70 +336,44 @@
       const sellerBooks = u.books || [];
       const searchInput = document.getElementById("searchInput");
       const searchButton = document.getElementById("searchButton");
-      document.addEventListener("DOMContentLoaded", function () {
-        document
-          .querySelector("#searchInput")
-          .addEventListener("input", function () {
-            const filter = this.value.toLowerCase().trim();
-            const rows = document.querySelectorAll(
-              "#sellerBooksTable tbody tr"
-            );
-            rows.forEach((row) => {
-              const title = row
-                .querySelector("td:nth-child(2)")
-                .textContent.toLowerCase();
-              const author = row
-                .querySelector("td:nth-child(3)")
-                .textContent.toLowerCase();
-              row.style.display =
-                title.includes(filter) || author.includes(filter) ? "" : "none";
-            });
-          });
-      });
       const tbody = document.querySelector("#sellerBooksTable");
-      renderBooks();
+      document.addEventListener("DOMContentLoaded", function () {
+        renderBooks();
+        searchInput.addEventListener("input", function () {
+          const filter = this.value.toLowerCase().trim();
+          const rows = tbody.querySelectorAll("tr");
+          rows.forEach((row) => {
+            const title = row
+              .querySelector("td:nth-child(2)")
+              .textContent.toLowerCase();
+            const category = row
+              .querySelector("td:nth-child(3)")
+              .textContent.toLowerCase();
+            row.style.display =
+              title.includes(filter) || category.includes(filter) ? "" : "none";
+          });
+        });
+      });
       function renderBooks() {
         tbody.innerHTML = "";
         sellerBooks.forEach((book, index) => {
           const row = document.createElement("tr");
           row.innerHTML = `
-        <td><img src="${book.image}" class="w-25 h-25" alt="${book.title}"></td>
-        <td>${book.title}</td>
-        <td>${book.author}</td>
-        <td>${book.category}</td>
-        <td class="price">$${book.price}</td>
-        <td>${book.stock}</td>
-        <td>${book.rating}</td>
-        <td>
-          <button class="btn btn-sm btn-primary" onclick="editBook(${index})">
-            <i class="bi bi-pencil-square"></i>
-          </button>
-          <button class="btn btn-sm btn-danger" onclick="deleteBook(${index})">
-            <i class="bi bi-trash"></i>
-          </button>
-        </td>
-      `;
+            <td><img src="${book.image}" class="bookImage rounded"/></td>
+            <td>${book.title}</td>
+            <td>${book.category}</td>
+            <td>${book.author}</td>
+            <td>$${book.price}</td>
+            <td>${book.stock}</td>
+            <td>${book.rating || "N/A"}</td>
+            <td>
+              <button class="btn btn-sm btn-warning me-2" onclick="openEditModal(${index})">Edit</button>
+              <button class="btn btn-sm btn-danger" onclick="deleteBook(${index})">Delete</button>
+            </td>`;
           tbody.appendChild(row);
         });
       }
-
-      function deleteBook(index) {
-        const book = sellerBooks[index];
-        if (
-          confirm(`Are you sure you want to delete the book "${book.title}"?`)
-        ) {
-          sellerBooks.splice(index, 1); // Remove the book
-          u.books = sellerBooks; // update the user object with the updated book list
-          localStorage.setItem("currentUser", JSON.stringify(u));
-          all = all.filter(
-            (b) => !(b.title === book.title && b.author === book.author)
-          );
-          localStorage.setItem("books", JSON.stringify(all));
-          renderBooks(); // Re-render the books table
-        }
-      }
-
-      function editBook(index) {
+      function openEditModal(index) {
         const book = sellerBooks[index];
         document.getElementById("editBookIndex").value = index;
         document.getElementById("editTitle").value = book.title;
@@ -408,64 +382,54 @@
         document.getElementById("editStock").value = book.stock;
         document.getElementById("editPrice").value = book.price;
         document.getElementById("editImage").value = book.image;
-        const modal = new bootstrap.Modal(
-          document.getElementById("editBookModal")
-        );
-        modal.show();
+        new bootstrap.Modal(document.getElementById("editBookModal")).show();
       }
-
       document
         .getElementById("editBookForm")
         .addEventListener("submit", function (e) {
           e.preventDefault();
           const index = document.getElementById("editBookIndex").value;
-          const title = document.getElementById("editTitle").value.trim();
-          const author = document.getElementById("editAuthor").value.trim();
-          const category = document.getElementById("editCategory").value.trim();
-          const stock = parseInt(document.getElementById("editStock").value);
-          const price = parseFloat(document.getElementById("editPrice").value);
-          const image = document.getElementById("editImage").value.trim();
-          if (
-            !title ||
-            !author ||
-            !category ||
-            isNaN(stock) ||
-            isNaN(price) ||
-            !image
-          ) {
-            alert("All fields are required.");
-            return;
-          }
-          const updatedSellerBook = {
+          const updatedBook = {
             ...sellerBooks[index],
-            title,
-            author,
-            category,
-            stock,
-            price,
-            image,
+            title: document.getElementById("editTitle").value,
+            author: document.getElementById("editAuthor").value,
+            category: document.getElementById("editCategory").value,
+            stock: parseInt(document.getElementById("editStock").value),
+            price: parseFloat(document.getElementById("editPrice").value),
+            image: document.getElementById("editImage").value,
           };
-          sellerBooks[index] = updatedSellerBook;
+          // Update in seller's books array
+          sellerBooks[index] = updatedBook;
           u.books = sellerBooks;
-          localStorage.setItem("currentUser", JSON.stringify(u));
-          const originalBook = sellerBooks[index];
-          const allIndex = all.findIndex(
-            (b) => b.title === originalBook.title && b.author === originalBook.author
-          );
-          if (allIndex !== -1) {
-            all[allIndex] = updatedSellerBook;
-            localStorage.setItem("books", JSON.stringify(all));
+          // Find and update in the all books array
+          const bookId = sellerBooks[index].id; // Assuming each book has a unique id
+          const allBookIndex = all.findIndex((book) => book.id === bookId);
+          if (allBookIndex !== -1) {
+            all[allBookIndex] = updatedBook;
           }
-          alert("Book updated successfully!");
-          const modal = bootstrap.Modal.getInstance(
+          // Save to localStorage
+          localStorage.setItem("currentUser", JSON.stringify(u));
+          localStorage.setItem("books", JSON.stringify(all));
+          bootstrap.Modal.getInstance(
             document.getElementById("editBookModal")
-          );
-          modal.hide();
+          ).hide();
           renderBooks();
         });
+      function deleteBook(index) {
+        if (confirm("Are you sure you want to delete this book?")) {
+          const bookId = sellerBooks[index].id;
+          sellerBooks.splice(index, 1);
+          u.books = sellerBooks;
+          // Remove from all books array
+          all = all.filter((book) => book.id !== bookId);
+          localStorage.setItem("currentUser", JSON.stringify(u));
+          localStorage.setItem("books", JSON.stringify(all));
+          renderBooks();
+        }
+      }
       function logout() {
         localStorage.removeItem("currentUser");
-        window.location.href = "../pages/login.html";
+        window.location.href = "../index.html";
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
