@@ -457,16 +457,15 @@
         </div>
       </div>
     </div>
-    <script src="../JS/books.js"></script>
-
+    
     <script>
+      const u = JSON.parse(localStorage.getItem("currentUser")) || {};
       document.addEventListener("DOMContentLoaded", function () {
         document
           .querySelector(".search")
           .addEventListener("input", function () {
             const filter = this.value.toLowerCase().trim();
             const rows = document.querySelectorAll("#book-table-body tr");
-
             rows.forEach((row) => {
               const title = row
                 .querySelector("td:nth-child(2)")
@@ -563,7 +562,7 @@
         });
 
       function logout() {
-        localStorage.clear();
+        localStorage.clear("currentUser");
         window.location.href = "../pages/login.html";
       }
     </script>

@@ -382,20 +382,20 @@
           document.querySelector(".product-form-container form").reset();
         };
         reader.readAsDataURL(file);
+        document
+          .getElementById("imgInput")
+          .addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function () {
+                const label = document.getElementById("imgLabel");
+                label.innerHTML = `<img src="${reader.result}" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="Preview">`;
+              };
+              reader.readAsDataURL(file);
+            }
+          });
       }
-      document
-        .getElementById("imgInput")
-        .addEventListener("change", function () {
-          const file = this.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = function () {
-              const label = document.getElementById("imgLabel");
-              label.innerHTML = `<img src="${reader.result}" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="Preview">`;
-            };
-            reader.readAsDataURL(file);
-          }
-        });
       // Logout function
       function logout() {
         localStorage.removeItem("currentUser");

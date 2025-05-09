@@ -635,19 +635,19 @@
       const wishlist = u.wishlist || [];
       const wishlistBadge = document.getElementById("wishCount");
       const wishlistIcon = document.getElementById("wishlistIcon");
-      if (u && u.firstName) {
-        loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
-        loginTopNav.href = "./customer/customerDashboard.html";
-        loginBottomNav.href = "./customer/customerDashboard.html";
-        wishlistIcon.href = "./customer/customerWishlist.html";
-        cartIcon.href = "./pages/cart.html";
-      } else {
-        loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
-        loginTopNav.href = "./pages/login.html";
-        loginBottomNav.href = "./pages/login.html";
-        wishlistIcon.href = "./pages/login.html";
-        cartIcon.href = "./pages/login.html";
-      }
+      // if (u && u.firstName) {
+      //   loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
+      //   loginTopNav.href = "./customer/customerDashboard.html";
+      //   loginBottomNav.href = "./customer/customerDashboard.html";
+      //   wishlistIcon.href = "./customer/customerWishlist.html";
+      //   cartIcon.href = "./pages/cart.html";
+      // } else {
+      //   loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
+      //   loginTopNav.href = "./pages/login.html";
+      //   loginBottomNav.href = "./pages/login.html";
+      //   wishlistIcon.href = "./pages/login.html";
+      //   cartIcon.href = "./pages/login.html";
+      // }
       document.getElementById("sendMessage").addEventListener("click", () => {
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
