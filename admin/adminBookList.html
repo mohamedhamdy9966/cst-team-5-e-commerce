@@ -364,11 +364,10 @@
         ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
       >
     </nav>
-
     <!-- Main Content -->
     <main class="main-content">
       <header class="navbar">
-        <div class="logo">📚 Necro BookStore</div>
+        <section class="logo">📚 Necro BookStore</section>
         <input type="text" class="search" placeholder="Search books..." />
         <!-- <button onclick="logout()">Logout</button> -->
       </header>
@@ -390,16 +389,16 @@
     </main>
 
     <!-- Edit Book Modal -->
-    <div
+    <section
       class="modal fade"
       id="editBookModal"
       tabindex="-1"
       aria-labelledby="editBookModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog" role="dialog" aria-modal="true">
-        <div class="modal-content">
-          <div class="modal-header">
+      <section class="modal-dialog" role="dialog" aria-modal="true">
+        <section class="modal-content">
+          <section class="modal-header">
             <h5 class="modal-title" id="editBookModalLabel">Edit Book</h5>
             <button
               type="button"
@@ -407,11 +406,11 @@
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
-          </div>
-          <div class="modal-body">
+          </section>
+          <section class="modal-body">
             <form id="editBookForm">
               <input type="hidden" id="editBookIndex" />
-              <div class="mb-3">
+              <section class="mb-3">
                 <label for="editTitle" class="form-label">Title</label>
                 <input
                   type="text"
@@ -419,8 +418,8 @@
                   id="editTitle"
                   required
                 />
-              </div>
-              <div class="mb-3">
+              </section>
+              <section class="mb-3">
                 <label for="editAuthor" class="form-label">Author</label>
                 <input
                   type="text"
@@ -428,8 +427,8 @@
                   id="editAuthor"
                   required
                 />
-              </div>
-              <div class="mb-3">
+              </section>
+              <section class="mb-3">
                 <label for="editPrice" class="form-label">Price</label>
                 <input
                   type="number"
@@ -437,8 +436,8 @@
                   id="editPrice"
                   required
                 />
-              </div>
-              <div class="mb-3">
+              </section>
+              <section class="mb-3">
                 <label for="editImage" class="form-label"
                   >Cover Image URL</label
                 >
@@ -448,15 +447,15 @@
                   id="editImage"
                   required
                 />
-              </div>
+              </section>
               <button type="submit" class="btn btn-primary">
                 Save changes
               </button>
             </form>
-          </div>
-        </div>
-      </div>
-    </div>
+          </section>
+        </section>
+      </section>
+    </section>
 
     <script>
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
