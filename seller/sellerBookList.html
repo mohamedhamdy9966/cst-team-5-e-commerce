@@ -326,8 +326,8 @@
     </section>
     <script>
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
-      const books = JSON.parse(localStorage.getItem("books"));
-      if (!u || u.role !== "seller") {
+      let all = JSON.parse(localStorage.getItem("books")) || [];
+      if (!u.role || u.role !== "seller") {
         alert("Access Denied");
         window.location.href = "../pages/login.html";
       }
@@ -341,7 +341,9 @@
           .querySelector("#searchInput")
           .addEventListener("input", function () {
             const filter = this.value.toLowerCase().trim();
-            const rows = document.querySelectorAll("#sellerBooksTable tr");
+            const rows = document.querySelectorAll(
+              "#sellerBooksTable tbody tr"
+            );
             rows.forEach((row) => {
               const title = row
                 .querySelector("td:nth-child(2)")
@@ -380,6 +382,7 @@
           tbody.appendChild(row);
         });
       }
+
       function deleteBook(index) {
         const book = sellerBooks[index];
         if (
@@ -388,9 +391,14 @@
           sellerBooks.splice(index, 1); // Remove the book
           u.books = sellerBooks; // update the user object with the updated book list
           localStorage.setItem("currentUser", JSON.stringify(u));
+          all = all.filter(
+            (b) => !(b.title === book.title && b.author === book.author)
+          );
+          localStorage.setItem("books", JSON.stringify(all));
           renderBooks(); // Re-render the books table
         }
       }
+
       function editBook(index) {
         const book = sellerBooks[index];
         document.getElementById("editBookIndex").value = index;
@@ -405,6 +413,7 @@
         );
         modal.show();
       }
+
       document
         .getElementById("editBookForm")
         .addEventListener("submit", function (e) {
@@ -427,7 +436,7 @@
             alert("All fields are required.");
             return;
           }
-          sellerBooks[index] = {
+          const updatedSellerBook = {
             ...sellerBooks[index],
             title,
             author,
@@ -436,8 +445,17 @@
             price,
             image,
           };
+          sellerBooks[index] = updatedSellerBook;
           u.books = sellerBooks;
           localStorage.setItem("currentUser", JSON.stringify(u));
+          const originalBook = sellerBooks[index];
+          const allIndex = all.findIndex(
+            (b) => b.title === originalBook.title && b.author === originalBook.author
+          );
+          if (allIndex !== -1) {
+            all[allIndex] = updatedSellerBook;
+            localStorage.setItem("books", JSON.stringify(all));
+          }
           alert("Book updated successfully!");
           const modal = bootstrap.Modal.getInstance(
             document.getElementById("editBookModal")
@@ -446,7 +464,7 @@
           renderBooks();
         });
       function logout() {
-        localStorage.clear();
+        localStorage.removeItem("currentUser");
         window.location.href = "../pages/login.html";
       }
     </script>
