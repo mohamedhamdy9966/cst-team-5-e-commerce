@@ -229,72 +229,30 @@
       const ordersTableBody = document.getElementById("ordersTableBody");
       ordersTableBody.innerHTML = "";
 
-      users.forEach((user) => {
-        if (user.orders && Array.isArray(user.orders)) {
-          user.orders.forEach((order, index) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-              <td>${user.firstName + " " + user.lastName}</td>
-              <td>${order.title || "N/A"}</td>
-              <td>${order.price || 0}</td>
-              <td>${order.quantity || 1}</td>
-              <td>
-                <select class="form-select form-select-sm">
-                  <option ${
-                    order.status === "packing" ? "selected" : ""
-                  }>Packing</option>
-                  <option ${
-                    order.status === "readyToShip" ? "selected" : ""
-                  }>Ready To Ship</option>
-                  <option ${
-                    order.status === "onWayDelivering" ? "selected" : ""
-                  }>On Way Delivering</option>
-                  <option ${
-                    order.status === "delivered" ? "selected" : ""
-                  }>Delivered</option>
-                </select>
-              </td>
-              <td class="btn-actions">
-                <button class="btn btn-sm btn-primary" onclick="editOrder(${index})">
-                  <i class="bi bi-pencil-square"></i> Edit
-                </button>
-                <button class="btn btn-sm btn-danger" onclick="deleteOrder(${index})">
-                  <i class="bi bi-trash"></i> Delete
-                </button>
-              </td>
-            `;
-            ordersTableBody.appendChild(row);
-          });
-        }
-      });
-
-      function deleteOrder(index) {
-        const user = users.find((u) => u.orders && u.orders[index]);
-        if (user) {
-          user.orders.splice(index, 1); // Remove the order
+      // Function to delete an order
+      function deleteOrder(userIndex, orderIndex) {
+        const user = users[userIndex];
+        if (user && user.orders && user.orders[orderIndex]) {
+          user.orders.splice(orderIndex, 1); // Remove the order
           localStorage.setItem("users", JSON.stringify(users)); // Update localStorage
           renderOrders(); // Re-render the orders table
         }
       }
 
-      function editOrder(index) {
-        const user = users.find((u) => u.orders && u.orders[index]);
-        if (user) {
-          const order = user.orders[index];
-          const newStatus = prompt("Edit the order status:", order.status);
-          if (newStatus) {
-            order.status = newStatus;
-            localStorage.setItem("users", JSON.stringify(users)); // Update localStorage
-            renderOrders(); // Re-render the orders table
-          }
+      // Function to handle status change in the select dropdown
+      function handleStatusChange(userIndex, orderIndex, newStatus) {
+        const user = users[userIndex];
+        if (user && user.orders && user.orders[orderIndex]) {
+          user.orders[orderIndex].status = newStatus; // Update the order status
+          localStorage.setItem("users", JSON.stringify(users)); // Update localStorage
         }
       }
-
+      // Function to render all orders
       function renderOrders() {
         ordersTableBody.innerHTML = "";
-        users.forEach((user) => {
+        users.forEach((user, userIndex) => {
           if (user.orders && Array.isArray(user.orders)) {
-            user.orders.forEach((order, index) => {
+            user.orders.forEach((order, orderIndex) => {
               const row = document.createElement("tr");
               row.innerHTML = `
               <td>${user.firstName + " " + user.lastName}</td>
@@ -302,35 +260,32 @@
               <td>${order.price || 0}</td>
               <td>${order.quantity || 1}</td>
               <td>
-                <select class="form-select form-select-sm">
-                  <option ${
+                <select class="form-select form-select-sm" onchange="handleStatusChange(${userIndex}, ${orderIndex}, this.value)">
+                  <option value="packing" ${
                     order.status === "packing" ? "selected" : ""
                   }>Packing</option>
-                  <option ${
+                  <option value="readyToShip" ${
                     order.status === "readyToShip" ? "selected" : ""
                   }>Ready To Ship</option>
-                  <option ${
+                  <option value="onWayDelivering" ${
                     order.status === "onWayDelivering" ? "selected" : ""
                   }>On Way Delivering</option>
-                  <option ${
+                  <option value="delivered" ${
                     order.status === "delivered" ? "selected" : ""
                   }>Delivered</option>
                 </select>
               </td>
               <td class="btn-actions">
-                <button class="btn btn-sm btn-primary" onclick="editOrder(${index})">
-                  <i class="bi bi-pencil-square"></i> Edit
-                </button>
-                <button class="btn btn-sm btn-danger" onclick="deleteOrder(${index})">
+                <button class="btn btn-sm btn-danger" onclick="deleteOrder(${userIndex}, ${orderIndex})">
                   <i class="bi bi-trash"></i> Delete
                 </button>
-              </td>
-            `;
+              </td>`;
               ordersTableBody.appendChild(row);
             });
           }
         });
       }
+      renderOrders();
     </script>
   </body>
 </html>
