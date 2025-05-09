@@ -148,46 +148,6 @@
           <!-- Icons -->
           <section class="d-flex gap-3">
             <section class="position-relative">
-              <a href="./wishlist.html" class="text-danger">
-                <i
-                  class="far fa-heart"
-                  style="font-size: 1.2rem; position: relative"
-                ></i>
-                <span
-                  class="rounded-circle text-bg-light"
-                  id="WishCount"
-                  style="
-                    font-size: 0.7rem;
-                    position: absolute;
-                    top: -8px;
-                    right: -10px;
-                    background-color: #036280;
-                  "
-                  >0</span
-                >
-              </a>
-            </section>
-            <section class="position-relative">
-              <a href="./cart.html" class="text-success">
-                <i
-                  class="fas fa-shopping-cart"
-                  style="font-size: 1.2rem; position: relative"
-                ></i>
-                <span
-                  class="rounded-circle text-bg-light"
-                  id="count"
-                  style="
-                    font-size: 0.7rem;
-                    position: absolute;
-                    top: -8px;
-                    right: -10px;
-                    background-color: #036280;
-                  "
-                  >0</span
-                >
-              </a>
-            </section>
-            <section class="position-relative">
               <a href="./login.html" class="d-md-none" style="color: #02488d">
                 <i
                   class="fas fa-user"
@@ -383,26 +343,6 @@
       </section>
     </footer>
     <script>
-       const loginTopNav = document.getElementById("loginTopNav");
-        const loginBottomNav = document.getElementById("loginBottomNav");
-        const cartIcon = document.getElementById("cartIcon");
-        const u = JSON.parse(localStorage.getItem("currentUser")) || {};
-        const wishlist = u.wishlist || [];
-        const wishlistBadge = document.getElementById("wishCount");
-        const wishlistIcon = document.getElementById("wishlistIcon");
-        if (u && u.firstName) {
-          loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
-          loginTopNav.href = "./customer/customerDashboard.html";
-          loginBottomNav.href = "./customer/customerDashboard.html";
-          wishlistIcon.href = "./customer/customerWishlist.html";
-          cartIcon.href = "./pages/cart.html";
-        } else {
-          loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
-          loginTopNav.href = "./pages/login.html";
-          loginBottomNav.href = "./pages/login.html";
-          wishlistIcon.href = "./pages/login.html";
-          cartIcon.href = "./pages/login.html";
-        }
       const signupBtn = document.getElementById("signupBtn");
       const spinner = document.getElementById("spinner");
       function showMessage(msg, type = "danger") {
