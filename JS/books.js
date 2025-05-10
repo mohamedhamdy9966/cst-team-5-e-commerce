@@ -699,9 +699,9 @@ categories.forEach((li, index) => {
 const shuffled = allBooks.slice().sort(() => 0.5 - Math.random());
 const topBooks = shuffled.slice(0, 4);
 
-const topNecro BooksBooks = document.querySelectorAll("#Necro BooksTopBooks .card");
+const topbookleBooks = document.querySelectorAll("#bookleTopBooks .card");
 
-topNecro BooksBooks.forEach((card, index) => {
+topbookleBooks.forEach((card, index) => {
   const book = topBooks[index];
   if (book) {
     const img = card.querySelector(".card > section > img");

@@ -451,10 +451,7 @@
     </section>
   </section>
 </body>
-
 <script>
-
-
   window.addEventListener('DOMContentLoaded', () => {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const u = JSON.parse(localStorage.getItem("currentUser")) || {};
@@ -654,7 +651,28 @@
     const existingUserData = JSON.parse(localStorage.getItem('userDetails')) || [];
     existingUserData.push(userDetails);
     localStorage.setItem('userDetails', JSON.stringify(existingUserData));
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+const users = JSON.parse(localStorage.getItem("users")) || [];
 
+const userIndex = users.findIndex(user => user.email === currentUser.email);
+if (userIndex !== -1) {
+  if (!Array.isArray(users[userIndex].orders)) {
+    users[userIndex].orders = [];
+  }
+
+  // أضف كل الكتب الموجودة في الطلب الحالي
+  fullOrder.items.forEach(item => {
+    users[userIndex].orders.push({
+      title: item.name,
+      price: item.price,
+      image: item.img,
+      quantity: item.quantity,
+      status: "Packing"
+    });
+  });
+
+  localStorage.setItem("users", JSON.stringify(users));
+}
     localStorage.setItem('cart', JSON.stringify([]));
 
     showToast("Order placed successfully!", "success");
