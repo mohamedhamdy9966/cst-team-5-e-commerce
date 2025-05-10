@@ -45,7 +45,7 @@
       }
 
       .sidebar .nav-link {
-        color: black;
+        color: rgb(255, 255, 255);
         background-color: #0f84a9;
         margin: 20px auto;
         text-align: center;
@@ -221,7 +221,7 @@
 
     <script>
       const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
-      if (!currentUser || !currentUser.role !== "customer") {
+      if (!currentUser || currentUser.role !== "customer") {
         alert("Access Denied");
         window.location.href = "../pages/login.html";
       }

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <!--Toastify-->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<!-- <script src="../JS/chechout.js"></script> -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <style>
     * {
@@ -93,9 +94,9 @@
         </section>
         <section>
           <a
-            href="./login.html"
+          href="../customer/customerDashboard.html"
             style="color: white; text-decoration: none; margin-right: 15px"
-            ><i class="fas fa-user ms-3 me-1"></i>Login</a
+            ><i class="fas fa-user ms-3 me-1"></i></a
           >
         </section>
       </section>
@@ -215,11 +216,11 @@
               >
             </a>
           </section>
-          <section class="position-relative">
-            <a href="./login.html" style="color: #02488d;">
+          <section class="position-relative d-md-none">
+            <a href="../customer/customerDashboard.html" style="color: #02488d;">
               <i
                 class="fas fa-user"
-                style="font-size: 1.2rem; position: relative"
+                style="font-size: 1.2rem; position: relative;"
               ></i>
             </a>
           </section>
@@ -236,7 +237,7 @@
       <!-- Center Text -->
       <section class="col-12 col-md-4 text-center py-5">
         <h2 class="fw-bold" style="color: #012E7C;">Checkout</h2>
-        <p><span style="color: #012E7C;">Home</span> > <span style="color: #036280;">Checkout</span></p>
+        <!-- <p><span style="color: #012E7C;"></span> > <span style="color: #036280;">Checkout</span></p> -->
       </section>
       <!-- Right Image -->
       <section class="col-md-4 d-none d-md-block text-center py-2">
@@ -281,7 +282,7 @@
       
               <section class="col-12 mb-3">
                 <label for="phone">Phone*</label>
-                <input type="tel" class="form-control mt-2" id="phone" name="phone" placeholder="Phone number" required>
+                <input type="number" class="form-control mt-2" id="phone" name="phone" placeholder="Phone number" required>
               </section>
       
               <section class="col-12 mb-3">
@@ -598,7 +599,6 @@
     const fields = [
       'firstName',
       'secondName',
-      'companyName',
       'country',
       'streetAddress',
       'city',
@@ -617,7 +617,6 @@
     const userDetails = {
       firstName: document.getElementById('firstName').value.trim(),
       secondName: document.getElementById('secondName').value.trim(),
-      companyName: document.getElementById('companyName').value.trim(),
       country: document.getElementById('country').value.trim(),
       streetAddress: document.getElementById('streetAddress')?.value.trim() || '',
       city: document.getElementById('city').value.trim(),

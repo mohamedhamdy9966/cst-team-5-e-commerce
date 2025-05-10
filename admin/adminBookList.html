@@ -59,7 +59,7 @@
 
       .sidebar span,
       .sidebar i {
-        color: black;
+        color: white;
       }
 
       .navbar {
@@ -215,7 +215,7 @@
 
       .sidebar span,
       .sidebar i {
-        color: black;
+        color: white;
       }
 
       .main-content {
@@ -367,11 +367,11 @@
     <!-- Main Content -->
     <main class="main-content">
       <header class="navbar">
-        <section class="logo">📚 Necro BookStore</section>
+        <section class="logo fw-bold">📚 Necro BookStore</section>
         <input type="text" class="search" placeholder="Search books..." />
       </header>
       <section class="container">
-        <h2 class="section-title">Available Books</h2>
+        <h2 class="section-title fw-bold" style="color: #0c6c8a;">Available Books</h2>
         <table>
           <thead>
             <tr>
@@ -492,7 +492,7 @@
         <td>${book.author}</td>
         <td class="price">$${book.price.toFixed(2)}</td>
         <td>
-          <button class="btn btn-sm btn-primary" onclick="editBook(${index})">
+          <button class="btn btn-sm btn-primary my-2" onclick="editBook(${index})">
             <i class="bi bi-pencil-square"></i>
           </button>
           <button class="btn btn-sm btn-danger" onclick="deleteBook(${index})">

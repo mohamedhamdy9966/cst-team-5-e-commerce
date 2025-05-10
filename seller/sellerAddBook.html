@@ -57,7 +57,7 @@
       }
       .sidebar span,
       .sidebar i {
-        color: black;
+        color: white;
       }
       .main-content {
         margin-left: 400px;
@@ -180,11 +180,12 @@
   </head>
   <body>
     <!-- Sidebar -->
+    <!-- Sidebar -->
     <nav class="sidebar">
       <a href="./sellerDashboard.html" class="nav-link ff15" title="Add Items"
         ><i class="bi bi-person-circle"></i><span id="sellerDashboard"></span
       ></a>
-      <a href="./sellerDashboard.html" class="nav-link ff15" title="Add Items"
+      <a href="./sellerAddBook.html" class="nav-link ff15" title="Add Items"
         ><i class="bi bi-plus-square"></i><span> Sell A Book</span></a
       >
       <a href="./sellerBookList.html" class="nav-link" title="List Items"
@@ -202,7 +203,7 @@
     </nav>
     <!-- Main Content -->
     <main class="main-content">
-      <section class="header bg-secondary rounded">
+      <section class="header text-center text-light rounded" style="background-color: #0f84a9;">
         <h3 class="text-center mb-0">Sell A Book</h3>
       </section>
       <!-- Form and Image -->
@@ -305,6 +306,8 @@
         alert("Access Denied");
         window.location.href = "../pages/login.html";
       }
+      const sellerDashboard = document.getElementById("sellerDashboard");
+      sellerDashboard.innerText += `${u.firstName} Dashboard`;
       let all = JSON.parse(localStorage.getItem("books")) || [];
       document
         .querySelector(".product-form-container form")

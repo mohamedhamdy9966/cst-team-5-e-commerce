@@ -45,7 +45,7 @@
       }
 
       .sidebar .nav-link {
-        color: black;
+        color: white;
         background-color: #0f84a9;
         margin: 20px auto;
         text-align: center;
@@ -196,7 +196,7 @@
     <!-- Main Content -->
     <main class="main-content">
       <section class="header">
-        <h3>All Orders</h3>
+        <h3 class="bi-receipt">All Orders</h3>
       </section>
 
       <section class="order-list-container mt-4">
@@ -262,7 +262,7 @@
               <td>${order.price || 0}</td>
               <td>${order.quantity || 1}</td>
               <td>
-                <select class="form-select form-select-sm border rounded bg-danger text-light" style="cursor: pointer;" onchange="handleStatusChange(${userIndex}, ${orderIndex}, this.value)">
+                <select class="form-select form-select-sm border rounded bg-success text-light" style="cursor: pointer;" onchange="handleStatusChange(${userIndex}, ${orderIndex}, this.value)">
                   <option value="packing" ${
                     order.status === "packing" ? "selected" : ""
                   }>Packing</option>
@@ -279,7 +279,7 @@
               </td>
               <td class="btn-actions">
                 <button class="btn btn-sm btn-danger" onclick="deleteOrder(${userIndex}, ${orderIndex})">
-                  <i class="bi bi-trash"></i> Delete
+                  <i class="bi bi-trash"></i>
                 </button>
               </td>`;
               ordersTableBody.appendChild(row);
