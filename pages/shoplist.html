@@ -706,6 +706,48 @@
 
         bindAddToCartButtons();
         renderPagination();
+        bindWishlistButtons();
+      }
+      function bindWishlistButtons() {
+        const currentUser =
+          JSON.parse(localStorage.getItem("currentUser")) || {};
+        currentUser.wishlist = currentUser.wishlist || [];
+
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        document.querySelectorAll(".product-card").forEach((card, index) => {
+          const book = books[(currentPage - 1) * booksPerPage + index];
+          const btn = card.querySelector(".icon-btn:nth-child(2)");
+
+          const isInWishlist = currentUser.wishlist.some(
+            (item) => item.id === book.id
+          );
+          if (isInWishlist) btn.classList.add("text-danger");
+
+          btn.addEventListener("click", () => {
+            const indexInWishlist = currentUser.wishlist.findIndex(
+              (item) => item.id === book.id
+            );
+
+            if (indexInWishlist === -1) {
+              currentUser.wishlist.push(book);
+              btn.classList.add("text-danger");
+            } else {
+              currentUser.wishlist.splice(indexInWishlist, 1);
+              btn.classList.remove("text-danger");
+            }
+
+            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+            const userIndex = users.findIndex(
+              (u) => u.email === currentUser.email
+            );
+            if (userIndex !== -1) {
+              users[userIndex] = currentUser;
+              localStorage.setItem("users", JSON.stringify(users));
+            }
+          });
+        });
       }
 
       function bindAddToCartButtons() {

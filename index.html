@@ -284,7 +284,7 @@
         >
           <section class="">
             <i class="fas fa-phone me-2"></i> +208-6666-0112 |
-            <i class="fas fa-envelope ms-2 me-2"></i> necro@sicko.com |
+            <i class="fas fa-envelope ms-2 me-2"></i> info@example.com |
             <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
           </section>
           <section>
@@ -1381,7 +1381,7 @@
                         </h5>
                         <section class="d-flex flex-wrap">
                           <section
-                            class="border rounded-circle p-1 m-1"
+                            class="border rounded-circle p-1 m-1 heart"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
@@ -1403,7 +1403,7 @@
                           </section>
                         </section>
                       </section>
-                      <p class="fs-6 fw-bold text-primary mb-1">
+                      <p class="fs-6 fw-bold text-primary mb-1 book-name">
                         Flovely And Unicom Erna
                       </p>
                       <p class="fw-bold text-primary mb-1 price">$19.00</p>
@@ -1457,7 +1457,7 @@
                         </h5>
                         <section class="d-flex flex-wrap">
                           <section
-                            class="border rounded-circle p-1 m-1"
+                            class="border rounded-circle p-1 m-1 heart"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
@@ -1479,7 +1479,7 @@
                           </section>
                         </section>
                       </section>
-                      <p class="fs-6 fw-bold text-primary mb-1">
+                      <p class="fs-6 fw-bold text-primary mb-1 book-name">
                         Flovely And Unicom Erna
                       </p>
                       <p class="fw-bold text-primary mb-1 price">$19.00</p>
@@ -1533,7 +1533,7 @@
                         </h5>
                         <section class="d-flex flex-wrap">
                           <section
-                            class="border rounded-circle p-1 m-1"
+                            class="border rounded-circle p-1 m-1 heart"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
@@ -1555,7 +1555,7 @@
                           </section>
                         </section>
                       </section>
-                      <p class="fs-6 fw-bold text-primary mb-1">
+                      <p class="fs-6 fw-bold text-primary mb-1 book-name">
                         Flovely And Unicom Erna
                       </p>
                       <p class="fw-bold text-primary mb-1 price">$19.00</p>
@@ -1609,7 +1609,7 @@
                         </h5>
                         <section class="d-flex flex-wrap">
                           <section
-                            class="border rounded-circle p-1 m-1"
+                            class="border rounded-circle p-1 m-1 heart"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
@@ -1631,7 +1631,7 @@
                           </section>
                         </section>
                       </section>
-                      <p class="fs-6 fw-bold text-primary mb-1">
+                      <p class="fs-6 fw-bold text-primary mb-1 book-name">
                         Flovely And Unicom Erna
                       </p>
                       <p class="fw-bold text-primary mb-1 price">$19.00</p>
@@ -1685,7 +1685,7 @@
                         </h5>
                         <section class="d-flex flex-wrap">
                           <section
-                            class="border rounded-circle p-1 m-1"
+                            class="border rounded-circle p-1 m-1 heart"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
@@ -1707,7 +1707,7 @@
                           </section>
                         </section>
                       </section>
-                      <p class="fs-6 fw-bold text-primary mb-1">
+                      <p class="fs-6 fw-bold text-primary mb-1 book-name">
                         Flovely And Unicom Erna
                       </p>
                       <p class="fw-bold text-primary mb-1 price">$19.00</p>
@@ -1761,7 +1761,7 @@
                         </h5>
                         <section class="d-flex flex-wrap">
                           <section
-                            class="border rounded-circle p-1 m-1"
+                            class="border rounded-circle p-1 m-1 heart"
                             title="Add to Favourite"
                             style="cursor: pointer"
                           >
@@ -1783,7 +1783,7 @@
                           </section>
                         </section>
                       </section>
-                      <p class="fs-6 fw-bold text-primary mb-1">
+                      <p class="fs-6 fw-bold text-primary mb-1 book-name">
                         Flovely And Unicom Erna
                       </p>
                       <p class="fw-bold text-primary mb-1 price">$19.00</p>
@@ -2878,25 +2878,106 @@
             );
         });
       });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        updateWishlistCount();
+        const heartIcons = document.querySelectorAll(".heart");
+
+        const currentUser =
+          JSON.parse(localStorage.getItem("currentUser")) || {};
+        currentUser.wishlist = currentUser.wishlist || [];
+
+        heartIcons.forEach((icon) => {
+          const card = icon.closest(".card");
+          const title = card.querySelector(".book-name")?.innerText.trim();
+          const iconEl = icon.querySelector("i");
+
+          const isInWishlist = currentUser.wishlist.some(
+            (book) => book.title === title
+          );
+          if (isInWishlist) {
+            iconEl.classList.add("text-danger");
+            iconEl.classList.replace("fa-heart", "fa-heart-circle-check");
+          } else {
+            iconEl.classList.remove("text-danger");
+            iconEl.classList.replace("fa-heart-circle-check", "fa-heart");
+          }
+
+          icon.addEventListener("click", () => {
+            const price = card
+              .querySelector(".price")
+              ?.innerText.replace("$", "")
+              .trim();
+            const image = card.querySelector("img")?.getAttribute("src");
+            const category = card
+              .querySelector(".card-title")
+              ?.innerText.trim();
+            const stock = 10;
+            const rating = 4.5;
+
+            const newBook = { title, price, image, category, stock, rating };
+
+            const index = currentUser.wishlist.findIndex(
+              (book) => book.title === title
+            );
+
+            if (index === -1) {
+              // إضافة للـ wishlist
+              currentUser.wishlist.push(newBook);
+
+              // تحديث currentUser في localStorage
+              localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+              // تحديث المستخدم في مصفوفة users
+              const users = JSON.parse(localStorage.getItem("users")) || [];
+              const userIndex = users.findIndex(
+                (user) => user.email === currentUser.email
+              );
+              if (userIndex !== -1) {
+                users[userIndex] = currentUser;
+                localStorage.setItem("users", JSON.stringify(users));
+              }
+
+              iconEl.classList.add("text-danger");
+              iconEl.classList.replace("fa-heart", "fa-heart-circle-check");
+
+              alert(`"${title}" تم إضافته إلى المفضلة`);
+              updateWishlistCount();
+            } else {
+              // إزالة من الـ wishlist
+              currentUser.wishlist.splice(index, 1);
+              localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+              const users = JSON.parse(localStorage.getItem("users")) || [];
+              const userIndex = users.findIndex(
+                (user) => user.email === currentUser.email
+              );
+              if (userIndex !== -1) {
+                users[userIndex] = currentUser;
+                localStorage.setItem("users", JSON.stringify(users));
+              }
+
+              iconEl.classList.remove("text-danger");
+              iconEl.classList.replace("fa-heart-circle-check", "fa-heart");
+
+              alert(`"${title}" تم حذفه من المفضلة`);
+              updateWishlistCount();
+            }
+          });
+        });
+      });
+      function updateWishlistCount() {
+        const currentUser =
+          JSON.parse(localStorage.getItem("currentUser")) || {};
+        const count = currentUser.wishlist ? currentUser.wishlist.length : 0;
+        const wishCountSpan = document.getElementById("wishCount");
+        if (wishCountSpan) {
+          wishCountSpan.textContent = count;
+        }
+      }
     </script>
     <script src="./JS/books.js"></script>
     <script src="./JS/users.js"></script>
     <script src="./JS/messages.js"></script>
-    <!-- <script>
-      (function () {
-        if (!localStorage.getItem("scriptsLoadedOnce")) {
-          const booksScript = document.createElement("script");
-          booksScript.src = "./JS/books.js";
-          document.body.appendChild(booksScript);
-          const usersScript = document.createElement("script");
-          usersScript.src = "./JS/users.js";
-          document.body.appendChild(usersScript);
-          const messagesScript = document.createElement("script");
-          messagesScript.src = "./JS/messages.js";
-          document.body.appendChild(messagesScript);
-          localStorage.setItem("scriptsLoadedOnce", "true");
-        }
-      })();
-    </script> -->
   </body>
 </html>

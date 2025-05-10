@@ -638,6 +638,8 @@
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const u = JSON.parse(localStorage.getItem("currentUser")) || [];
+        const userOrders = u.orders;
         const selectedProduct = JSON.parse(
           localStorage.getItem("selectedProduct")
         );
@@ -682,6 +684,10 @@
 
         function updateCartBadge() {
           const totalCount = cart.reduce(
+            (sum, item) => sum + (item.quantity || 1),
+            0
+          );
+          const totalOrders = userOrders.reduce(
             (sum, item) => sum + (item.quantity || 1),
             0
           );
@@ -793,6 +799,10 @@
               (sum, item) => sum + (item.quantity || 1),
               0
             );
+            const totalOrders = userOrders.reduce(
+            (sum, item) => sum + (item.quantity || 1),
+            0
+          );
             if (totalCount === 0) {
               e.preventDefault();
             }
