@@ -273,7 +273,7 @@
       // Access control
       // Ensure currentUser is valid and has the proper role
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
-      if (!u || (u.role == "admin" && u.role == "seller")) {
+      if (!u || u.role !== "customer") {
         alert("Access Denied");
         window.location.href = "../pages/login.html";
       }
