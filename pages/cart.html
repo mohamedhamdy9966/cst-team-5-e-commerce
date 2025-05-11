@@ -25,6 +25,7 @@
 
     <!-- Toastify JS -->
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <link rel="stylesheet" href="../style/css/top_of_pages.css" />
     <style>
       @keyframes spin {
         0% {
@@ -85,11 +86,11 @@
         color: white;
       }
       .btn-custom:hover {
-        background-color: #f4c430;
+        background-color: #ff6500;;
         color: white;
       }
       .fab:hover {
-        background-color: #f4c430;
+        background-color: #ff6500;;
         color: white;
       }
       .fab {
@@ -176,7 +177,7 @@
         padding: 40px;
       }
       .fab:hover {
-        background-color: #f4c430;
+        background-color: #ff6500;
         color: white;
       }
 
@@ -186,31 +187,9 @@
         border: 1px solid white;
         padding: 5px 8px;
       }
-      .zz {
-        position: relative;
-        padding: 14px;
-        overflow: hidden;
-        z-index: 1;
-        border: none;
-        color: white;
-      }
 
-      .zz::before {
-        content: "";
-        position: absolute;
-        top: 0;
-
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: orange;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.4s ease;
-        z-index: -1;
-      }
-
-      .zz:hover::before {
+   
+      .btn:hover::before {
         transform: scaleX(1);
       }
       @media (max-width: 768px) {
@@ -327,28 +306,6 @@
         }
       }
 
-      .relative {
-        position: relative;
-      }
-      #left-img {
-        position: absolute;
-        left: -0.25%;
-        top: 30%;
-        max-height: 200px;
-      }
-      #right-img {
-        position: absolute;
-        right: 0;
-        width: 300px;
-        top: 20%;
-        max-height: 220px;
-      }
-      .center-dev {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
       #last-dev {
         background-color: #e6eff2;
         height: 70vh;
@@ -377,49 +334,15 @@
         color: white;
       }
       .btn-custom:hover {
-        background-color: #f4c430;
+        background-color: #ff6500;;
         color: white;
       }
       .fab:hover {
-        background-color: #f4c430;
+        background-color: #ff6500;
         color: white;
       }
 
-      #header {
-        background-color: #e6eff2;
-        height: 50vh;
-      }
-      .relative {
-        position: relative;
-      }
-      #left-img {
-        position: absolute;
-        left: -0.25%;
-        top: 20%;
-        height: 300px !important;
-      }
-      #right-img {
-        position: absolute;
-        right: 0;
-        width: 300px;
-        top: 20%;
-        height: 350px !important;
-      }
-      .center-dev {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      @media (max-width: 1280px) {
-        #left-img {
-          display: none;
-        }
-        #right-img {
-          display: none;
-        }
-      }
-      @media (max-width: 780px) {
+   @media (max-width: 780px) {
         .dd {
           display: none;
         }
@@ -614,12 +537,20 @@
         </section>
       </section>
     </nav>
-    <section>
-      <section id="header" class="relative">
-        <img src="../assets/cart/test1.png" id="left-img" />
-        <h1 class="center-dev">Cart</h1>
-        <img src="../assets/cart/test2.png" id="right-img" />
+     <section class="top d-flex align-items-center justify-content-between">
+      <img
+        src="../assets/shop_details/top.png"
+        alt="top image"
+        class="col-auto d-none d-xl-block"
+      />
+      <section class="text-center col-12 col-xl-4 py-5">
+        <h1>Shop Cart</h1>
       </section>
+      <img
+        src="../assets/shop_details/book2.png"
+        alt="logo"
+        class="col-auto d-none d-xl-block"
+      />
     </section>
     <section class="wrapper p-3 mt-5 ff">
       <section class="main">
@@ -698,8 +629,8 @@
       <section class="container">
         <section class="row text-center text-md-start">
           <section class="col-md-3 mb-4">
-            <h5>📚 Bookle</h5>
-            <p>
+            <h5 class="text-light">📚 Bookle</h5>
+            <p class="text-light">
               Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
               lacinia curabitur lacinia mollis
             </p>
@@ -784,7 +715,7 @@
         </section>
         <hr class="bg-white" />
         <section class="text-center">
-          <p>
+          <p class="text-light">
             <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
             <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
             <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
