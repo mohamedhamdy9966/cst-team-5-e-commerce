@@ -353,28 +353,28 @@
                 return;
               }
 
-              sellerBooks = u.books || [];
+              // sellerBooks = u.books || [];
               const lastIdAllBooks =
                 all.length > 0 ? Math.max(...all.map((b) => b.id || 0)) : 1;
               const id = lastIdAllBooks + 1;
-              const lastIdSellerBooks =
-                sellerBooks.length > 0
-                  ? Math.max(...sellerBooks.map((b) => b.id || 0))
-                  : 1;
-              const idSellerBooks = lastIdSellerBooks + 1;
+              // const lastIdSellerBooks =
+              //   sellerBooks.length > 0
+              //     ? Math.max(...sellerBooks.map((b) => b.id || 0))
+              //     : 1;
+              // const idSellerBooks = lastIdSellerBooks + 1;
 
-              sellerBooks.push({
-                idSellerBooks,
-                title,
-                author,
-                price: parseFloat(price),
-                category,
-                rating: 4.7,
-                sold: 0,
-                image,
-                description,
-                stock,
-              });
+              // sellerBooks.push({
+              //   idSellerBooks,
+              //   title,
+              //   author,
+              //   price: parseFloat(price),
+              //   category,
+              //   rating: 4.7,
+              //   sold: 0,
+              //   image,
+              //   description,
+              //   stock,
+              // });
 
               all.push({
                 id,
@@ -390,14 +390,9 @@
                 owner: u.username,
               });
 
-              u.books = sellerBooks;
+              // u.books = sellerBooks;
               localStorage.setItem("currentUser", JSON.stringify(u));
               localStorage.setItem("books", JSON.stringify(all));
-
-              console.log("Current user", JSON.parse(localStorage.getItem("currentUser")));
-              console.log("All books", JSON.parse(localStorage.getItem("books")));
-
-
               alert("Book added successfully!");
               document.querySelector(".product-form-container form").reset();
 

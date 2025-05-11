@@ -387,13 +387,6 @@
           u.books = sellerBooks;
           localStorage.setItem("currentUser", JSON.stringify(u));
           localStorage.setItem("books", JSON.stringify(all));
-
-          console.log(
-            "Current user",
-            JSON.parse(localStorage.getItem("currentUser"))
-          );
-          console.log("All books", JSON.parse(localStorage.getItem("books")));
-
           alert("Book added successfully!");
           document.querySelector(".product-form-container form").reset();
 
