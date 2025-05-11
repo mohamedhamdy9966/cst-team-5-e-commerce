@@ -29,32 +29,39 @@
         margin: 0;
         box-sizing: border-box;
       }
+
       .top-bar {
         background-color: #036280;
         color: white;
         font-size: 0.9rem;
       }
+
       .top-bar a {
         color: white;
         text-decoration: none;
         margin-right: 15px;
       }
+
       .main-header {
         background-color: #fff;
         border-bottom: 1px solid #ddd;
       }
+
       .left-logo {
         background-color: #012e4a;
         border-top-right-radius: 75%;
         height: 100%;
       }
+
       .left-logo img {
         max-height: 100%;
       }
+
       .nav-icons i {
         font-size: 1.2rem;
         position: relative;
       }
+
       .nav-icons span.badge {
         font-size: 0.7rem;
         position: absolute;
@@ -62,12 +69,15 @@
         right: -10px;
         background-color: #036280;
       }
+
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
+
       hr {
         margin: 40px 0px;
       }
+
       li {
         color: #52556c;
       }
@@ -79,10 +89,12 @@
         border-radius: 20px;
         margin-bottom: 15px;
       }
+
       #mainImage {
         padding: 10% 20%;
         height: 550px;
       }
+
       .thumbnail {
         cursor: pointer;
 
@@ -100,12 +112,15 @@
       .info {
         padding-left: 50px;
       }
+
       .product-title {
         color: #012e4a;
       }
+
       .product-price {
         color: #ff6500;
       }
+
       #rating i,
       .product-price {
         color: #ff6500;
@@ -216,6 +231,7 @@
         font-size: 17px;
         color: #52556c;
       }
+
       .book-card {
         border: none;
         border-radius: 15px;
@@ -225,6 +241,7 @@
         min-height: 550px;
         margin: auto;
       }
+
       .card-top {
         height: 350px;
         display: flex;
@@ -239,19 +256,23 @@
         height: 70%;
         transition: transform 0.5s ease;
       }
+
       #header {
         background-color: #e6eff2;
         height: 50vh;
       }
+
       .relative {
         position: relative;
       }
+
       #left-img {
         position: absolute;
         left: -0.25%;
         top: 20%;
         height: 210px !important;
       }
+
       #right-img {
         position: absolute;
         right: 0;
@@ -259,12 +280,14 @@
         top: 20%;
         height: 200px !important;
       }
+
       .center-dev {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
+
       .book-card:hover .card-img-top {
         transform: scale(1.1);
       }
@@ -313,6 +336,7 @@
         border: none;
         font-weight: bold;
       }
+
       .btn {
         position: relative;
         overflow: hidden;
@@ -320,6 +344,7 @@
         z-index: 1;
         /* لضمان بقاء النص فوق الشريط */
       }
+
       .btn::before {
         content: "";
         position: absolute;
@@ -354,10 +379,12 @@
         justify-content: center;
         opacity: 0.3;
       }
+
       .swiper-button-next:hover,
       .swiper-button-prev:hover {
         opacity: 1;
       }
+
       .footer {
         background-color: #012e4a;
         border-radius: 5px;
@@ -368,36 +395,44 @@
         color: #036280;
         font-size: 20px;
       }
+
       input {
         height: 55px;
       }
+
       .note {
         height: 250px;
       }
+
       span {
         color: #012e4a;
         font-size: 20px;
       }
+
       @media (max-width: 1280px) {
         #left-img {
           display: none;
         }
+
         #right-img {
           display: none;
         }
       }
+
       @media (max-width: 780px) {
         .responsive-hr {
           display: block;
           margin: 1rem 0;
           border: 1px solid #ddd;
         }
+
         .ss img {
           padding-top: 10px;
         }
       }
     </style>
   </head>
+
   <body>
     <nav class="d-flex align-items-stretch sticky" style="height: 100px">
       <!-- Left Logo -->
@@ -430,10 +465,10 @@
           </section>
           <section>
             <a
-            href="../customer/customerDashboard.html"
+              href="../customer/customerDashboard.html"
               style="color: white; text-decoration: none; margin-right: 15px"
-              ><i class="fas fa-user ms-3 me-1"></i></a
-            >
+              ><i class="fas fa-user ms-3 me-1"></i
+            ></a>
           </section>
         </section>
         <!-- Bottom Nav -->
@@ -553,7 +588,11 @@
               </a>
             </section>
             <section class="position-relative">
-              <a href="../customer/customerDashboard.html" class="d-md-none" style="color: #02488d">
+              <a
+                href="../customer/customerDashboard.html"
+                class="d-md-none"
+                style="color: #02488d"
+              >
                 <i
                   class="fas fa-user"
                   style="font-size: 1.2rem; position: relative"
@@ -598,7 +637,7 @@
               <span>(1 Customer Reviews)</span>
             </div>
 
-            <p class="product-description">
+            <p class="product-description" id="description">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
               pulvinar, tortor quis varius pretium.
             </p>
@@ -1191,14 +1230,21 @@
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         const product = JSON.parse(localStorage.getItem("selectedProduct"));
+        const books = JSON.parse(localStorage.getItem("books"));
 
+        const titleProduct = product.name;
+        const foundBook = books.find(
+          (book) => book.title.toLowerCase() === titleProduct.toLowerCase()
+        );
         // Update product details display
-        if (product) {
+        if (foundBook) {
           document.querySelectorAll(".detailImg").forEach((img) => {
-            img.src = product.img;
+            img.src = foundBook.image;
           });
-          document.querySelector("#detailName").textContent = product.name;
-          document.querySelector("#detailPrice").textContent = product.price;
+          document.querySelector("#detailName").textContent = foundBook.title;
+          document.querySelector("#description").textContent =
+            foundBook.description;
+          document.querySelector("#detailPrice").textContent = foundBook.price;
         }
 
         const badge = document.getElementById("cartBadge");
@@ -1237,6 +1283,29 @@
           );
           if (badge) badge.textContent = newTotalItems;
           window.location.href = "./cart.html";
+        });
+        const cards = document.querySelectorAll(".swiper-slide .card");
+        const shuffled = books.slice().sort(() => 0.5 - Math.random());
+        const relatedBooks = shuffled.slice(0, 9);
+        cards.forEach((card, index) => {
+          const book = relatedBooks[index];
+          if (book) {
+            const img = card.querySelector(".card>.card-top>img");
+            img.src = book.image;
+            img.alt = book.title;
+            img.style.width = "160px";
+            img.style.height = "245px";
+
+            card.querySelector(
+              ".card > .card-body > h6.text-muted"
+            ).textContent = book.category;
+            card.querySelector(
+              ".card > .card-body > h5.card-title"
+            ).textContent = book.title;
+            card.querySelector(
+              ".card > .card-body > .price > span"
+            ).textContent = `$${book.price}`;
+          }
         });
       });
     </script>
