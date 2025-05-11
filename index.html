@@ -31,6 +31,9 @@
       input {
         height: 55px;
       }
+      h1{
+      color:   #012e4a;
+      }
       .note {
         height: 250px;
       }
@@ -123,10 +126,19 @@
         bottom: 0;
         right: 50%;
       }
-      .stars {
-        color: #f4c430;
-        font-size: 1.5rem;
+      .product-price {
+          color: #ff6500;
+          font-size:medium;
+        
       }
+      .stars{
+        color: #ff6500;
+      font-size: 1.5rem;   
+      }
+      .product-name{
+      color:  #012e4a
+      }
+     
       .homeAddToCartButton {
         position: relative;
         padding: 14px;
@@ -142,7 +154,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: orange;
+        background-color: #ff6500;
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 0.4s ease;
@@ -151,6 +163,9 @@
       .homeAddToCartButton:hover::before {
         transform: scaleX(1);
       }
+       .homeAddToCartButton:hover:hover{
+        color: white;
+      }
       .hover-zoom {
         transition: transform 0.3s ease;
       }
@@ -158,6 +173,7 @@
         transform: scale(1.07);
         cursor: pointer;
       }
+
       .top-carousel {
         top: 40px;
         z-index: 9999;
@@ -179,7 +195,7 @@
       .border-circle {
         width: 100%;
         height: 100%;
-        border: 3px dashed #7f56d9;
+        border: 3px dashed white;
         border-radius: 50%;
         position: absolute;
         top: 0;
@@ -188,11 +204,20 @@
         z-index: 1;
         box-sizing: border-box;
       }
+      .namecat{
+      color:#012e4a;
+      }
+      .card-title{
+          color:#012e4a;
+      }
       @keyframes spin {
         100% {
           transform: rotate(360deg);
         }
       }
+      /* .card-body{
+        height:170px;
+      } */
       .book-image {
         position: absolute;
         top: 50%;
@@ -270,7 +295,7 @@
       >
         <img
           src="./assets/home/white-logo.svg"
-          alt="Bookle Books"
+          alt="Bookle"
           class="img-fluid"
           style="max-height: 100%"
         />
@@ -440,7 +465,7 @@
         src="./assets/home//header-book.png"
         alt="Book"
         class="position-absolute img-fluid z-999"
-        style="height: 22%; left: 1%; bottom: 0"
+        style="height: 22%; left: 0; bottom: 0"
       />
       <!-- Top Dot Grid -->
       <section
@@ -452,11 +477,11 @@
       ></section>
       <!-- Center: Text & Button -->
       <section
-        class="position-absolute text-center"
-        style="top: 50%; left: 40%; transform: translate(-50%, -50%)"
+        class="position-absolute "
+        style="top: 50%; left: 30%; transform: translate(-50%, -50%)"
       >
-        <p class="text-danger fs-5">Up To 30% off</p>
-        <h1 class="fw-bold fs-1 mb-3 z-9999" style="color: #012e4a">
+        <h3  style="color:#ff6500; font-style: italic; ">Up To 30% off</h3>
+        <h1 class="fw-bold   mb-3 z-9999" style="color: #012e4a ; font-size: 80px; ">
           Get Your New Book <br />With The Best Price
         </h1>
         <a
@@ -546,7 +571,7 @@
     </section>
     <section id="homeThirdSection" class="first-slider container pt-5">
       <section class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="mb-0">Featured Books</h3>
+        <h1 class=" ms-2 mb-0">Featured Books</h1>
         <a
           href="#"
           class="btn homeAddToCartButton rounded text-secondary border px-4 px-md-5 py-2"
@@ -571,7 +596,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color: #f8f8f8;"
                     >
                       <img
                         src="./assets/home/book-4.png"
@@ -589,7 +614,7 @@
                       >
                         The Man
                       </a>
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold" style="color: #ff6500;">
                         <span class="product-price">$20.99</span>
                       </section>
                       <section
@@ -597,7 +622,7 @@
                       >
                         <section>
                           <img src="./assets/home/seller-3.png" />
-                          <span>manmanam</span>
+                          <span style="font-size:17px;">Asmaa</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
                       </section>
@@ -611,7 +636,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color: #f8f8f8"
                     >
                       <img
                         src="./assets/home/book-2.png"
@@ -629,7 +654,7 @@
                       >
                         The Man
                       </a>
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold" style="color: #ff6500;">
                         <span class="product-price"> $22.99</span>
                       </section>
                       <section
@@ -637,7 +662,7 @@
                       >
                         <section>
                           <img src="./assets/home/seller-2.png" />
-                          <span>manmanam</span>
+                          <span  style="font-size:17px;"> AbdAlrahman</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
                       </section>
@@ -651,7 +676,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color: #f8f8f8"
                     >
                       <img
                         src="./assets/home/book-3.png"
@@ -669,7 +694,7 @@
                       >
                         The Man
                       </a>
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold" style="color: #ff6500;">
                         <span class="product-price">$24.99</span>
                       </section>
                       <section
@@ -677,7 +702,7 @@
                       >
                         <section>
                           <img src="./assets/home/seller-1.png" />
-                          <span>manmanam</span>
+                          <span  style="font-size:17px;">Ahmed</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
                       </section>
@@ -691,7 +716,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color: #f8f8f8"
                     >
                       <img
                         src="./assets/home/book-4.png"
@@ -709,7 +734,7 @@
                       >
                         The Man
                       </a>
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold" style="color: #ff6500;">
                         <span class="product-price">$20.99</span>
                       </section>
                       <section
@@ -717,7 +742,7 @@
                       >
                         <section>
                           <img src="./assets/home/seller-5.png" />
-                          <span>manmanam</span>
+                          <span  style="font-size:17px;" >Mohamed</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
                       </section>
@@ -738,7 +763,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color: #f8f8f8"
                     >
                       <img
                         src="./assets/home/book-5.png"
@@ -756,7 +781,7 @@
                       >
                         The Man
                       </a>
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold" style="color: #ff6500;">
                         <span class="product-price">$20.99</span>
                       </section>
                       <section
@@ -764,7 +789,7 @@
                       >
                         <section>
                           <img src="./assets/home/seller-4.png" />
-                          <span>manmanam</span>
+                          <span  style="font-size:17px;">Amira</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
                       </section>
@@ -778,7 +803,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color: #f8f8f8"
                     >
                       <img
                         src="./assets/home/book-4.png"
@@ -796,7 +821,7 @@
                       >
                         The Man
                       </a>
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold" style="color: #ff6500;">
                         <span class="product-price">$20.99</span>
                       </section>
                       <section
@@ -804,7 +829,7 @@
                       >
                         <section>
                           <img src="./assets/home/seller-3.png" />
-                          <span>manmanam</span>
+                          <span  style="font-size:17px;">Semoon</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
                       </section>
@@ -818,7 +843,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color: #f8f8f8"
                     >
                       <img
                         src="./assets/home/book-3.png"
@@ -836,7 +861,7 @@
                       >
                         The Man
                       </a>
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold" style="color: #ff6500;">
                         <span class="product-price">$20.99</span>
                       </section>
                       <section
@@ -844,7 +869,7 @@
                       >
                         <section>
                           <img src="./assets/home/seller-1.png" />
-                          <span>manmanam</span>
+                          <span  style="font-size:17px;">Necro</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
                       </section>
@@ -858,7 +883,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color:#f8f8f8"
                     >
                       <img
                         src="./assets/home/book-2.png"
@@ -875,7 +900,7 @@
                         href="#"
                         >The Man</a
                       >
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold" style="color: #ff6500;">
                         <span class="product-price">$40.99</span>
                       </section>
                       <section
@@ -883,7 +908,7 @@
                       >
                         <section>
                           <img src="./assets/home/seller-2.png" />
-                          <span>manmanam</span>
+                          <span  style="font-size:17px;">Omar</span>
                         </section>
                         <section class="stars mb-2">★★★★☆</section>
                       </section>
@@ -947,7 +972,7 @@
                   />
                   <section class="badge-number">01</section>
                 </section>
-                <p class="mt-3 fw-bold namecat">Romance Books (80)</p>
+                <p class="mt-3 fw-bold fs-5 namecat">Romance Books (80)</p>
               </section>
             </li>
             <li class="splide__slide addToCartBtn">
@@ -961,7 +986,7 @@
                   />
                   <section class="badge-number">01</section>
                 </section>
-                <p class="mt-3 fw-bold namecat">Romance Books (80)</p>
+                 <p class="mt-3 fw-bold fs-5 namecat">Romance Books (80)</p>
               </section>
             </li>
             <li class="splide__slide addToCartBtn">
@@ -975,7 +1000,7 @@
                   />
                   <section class="badge-number">01</section>
                 </section>
-                <p class="mt-3 fw-bold namecat">Romance Books (80)</p>
+                 <p class="mt-3 fw-bold fs-5 namecat">Romance Books (80)</p>
               </section>
             </li>
             <li class="splide__slide addToCartBtn">
@@ -989,7 +1014,7 @@
                   />
                   <section class="badge-number">01</section>
                 </section>
-                <p class="mt-3 fw-bold namecat">Romance Books (80)</p>
+              <p class="mt-3 fw-bold fs-5 namecat">Romance Books (80)</p>
               </section>
             </li>
             <li class="splide__slide addToCartBtn">
@@ -1003,7 +1028,7 @@
                   />
                   <section class="badge-number">01</section>
                 </section>
-                <p class="mt-3 fw-bold namecat">Romance Books (80)</p>
+                <p class="mt-3 fw-bold fs-5 namecat">Romance Books (80)</p>
               </section>
             </li>
             <li class="splide__slide addToCartBtn">
@@ -1017,7 +1042,7 @@
                   />
                   <section class="badge-number">01</section>
                 </section>
-                <p class="mt-3 fw-bold namecat">Romance Books (80)</p>
+                <p class="mt-3 fw-bold fs-5 namecat">Romance Books (80)</p>
               </section>
             </li>
           </ul>
@@ -1026,9 +1051,9 @@
     </section>
     <section id="homeFifthSection" class="first-slider container pt-5">
       <section class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="fw-bold mb-0" style="color: #003366">
-          Bookle Top Books
-        </h3>
+        <h1 class="ms-2 mb-0" >
+         Bookle Top Books
+        </h1>
         <a
           href="#"
           class="btn homeAddToCartButton rounded text-secondary border px-4 px-md-5 py-2"
@@ -1037,7 +1062,7 @@
         </a>
       </section>
       <section
-        id="bookleTopBooks"
+        id="BookleTopBooks"
         class="carousel slide"
         data-bs-ride="carousel"
       >
@@ -1053,7 +1078,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded h-75"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color: #f8f8f8;"
                     >
                       <img
                         src="./assets/home/book-17.jpg"
@@ -1069,7 +1094,7 @@
                       >
                         The Man
                       </a>
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold mb-2" style="color: #ff6500;">
                         <span class="product-price"> $20.99</span>
                       </section>
                       <section
@@ -1091,7 +1116,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded h-75"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color: #f8f8f8;"
                     >
                       <img
                         src="./assets/home/book-2.png"
@@ -1107,7 +1132,7 @@
                       >
                         The Man
                       </a>
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold mb-2" style="color: #ff6500;">
                         <span class="product-price">$29.99</span>
                       </section>
                       <section
@@ -1129,7 +1154,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded h-75"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color: #f8f8f8;"
                     >
                       <img
                         src="./assets/home/book-3.png"
@@ -1145,7 +1170,7 @@
                       >
                         The Man
                       </a>
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold mb-2" style="color: #ff6500;">
                         <span class="product-price">$80.99</span>
                       </section>
                       <section
@@ -1167,7 +1192,7 @@
                   <section class="card h-100 border-0 shadow-sm">
                     <section
                       class="d-flex justify-content-center align-items-center p-5 rounded h-75"
-                      style="background-color: rgb(221, 221, 221)"
+                      style="background-color: #f8f8f8;"
                     >
                       <img
                         src="./assets/home/book-4.png"
@@ -1183,7 +1208,7 @@
                       >
                         The Man
                       </a>
-                      <section class="fw-bold" style="color: orangered">
+                      <section class="fw-bold mb-2" style="color: #ff6500;">
                         <span class="product-price">$64.99</span>
                       </section>
                       <section
@@ -1208,19 +1233,17 @@
       id="homeSixthSection"
       class="container mt-5 d-flex justify-content-center justify-content-md-start"
     >
-      <section class="card" style="width: 18rem; background-color: #036280">
-        <section class="card-body">
+      <section class="card" style="width: 25rem; background-color: #036280">
+        <section class="card-body px-5">
           <h2 class="card-title fw-bold fs-1 text-white">
-            Find <br />
-            Your <br />
-            Nest <br />
+            Find Your Nest <br />
             Books!
           </h2>
-          <p class="card-text text-white fw-bold">
+          <p class="card-text text-white ">
             And get your 25% discount now!
           </p>
           <a
-            href="#"
+            href="./pages/shoplist.html"
             class="btn homeAddToCartButton fw-bold btn-light text-secondary rounded"
             >Shop Now &rarr;</a
           >
@@ -1249,7 +1272,7 @@
           all kind of super Selling
         </h2>
         <a
-          href="#"
+          href="./pages/shoplist.html"
           class="btn homeAddToCartButton text-white rounded"
           style="background-color: #036280"
           >Shop Now &rarr;</a
@@ -1740,7 +1763,7 @@
       <section
         class="d-flex justify-content-between align-items-center mt-4 mb-5"
       >
-        <h3 class="mb-0 fw-bold" style="color: #003366">Top Selling Books</h3>
+        <h1 class="mb-0 " style="color:#012e4a">Top Selling Books</h1>
         <a
           href="#"
           class="btn homeAddToCartButton rounded text-secondary border px-4 px-md-5 py-2"
@@ -1756,7 +1779,7 @@
                 <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded h-75"
-                    style="background-color: rgb(221, 221, 221)"
+                    style="background-color:  #f8f8f8;"
                   >
                     <img
                       src="./assets/home/book-5.png"
@@ -1772,7 +1795,7 @@
                     >
                       The Man
                     </a>
-                    <section class="fw-bold" style="color: orangered">
+                    <section class="fw-bold mb-2" style="color: #ff6500;">
                       $20.99
                     </section>
                     <section
@@ -1780,7 +1803,7 @@
                     >
                       <section>
                         <img src="./assets/home/seller-3.png" />
-                        <span>manmanam</span>
+                        <span style="font-size:17px;">Asmaa</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
                     </section>
@@ -1793,7 +1816,7 @@
                 <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded h-75"
-                    style="background-color: rgb(221, 221, 221)"
+                    style="background-color:  #f8f8f8;"
                   >
                     <img
                       src="./assets/home/book-4.png"
@@ -1809,15 +1832,15 @@
                     >
                       The Man
                     </a>
-                    <section class="fw-bold" style="color: orangered">
+                    <section class="fw-bold mb-2" style="color: #ff6500;">
                       $20.99
                     </section>
                     <section
                       class="d-flex justify-content-between align-items-center"
                     >
                       <section>
-                        <img src="./assets/home/seller-3.png" />
-                        <span>manmanam</span>
+                        <img src="./assets/home/seller-2.png" />
+                          <span  style="font-size:17px;"> AbdAlrahman</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
                     </section>
@@ -1830,7 +1853,7 @@
                 <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded h-75"
-                    style="background-color: rgb(221, 221, 221)"
+                    style="background-color:  #f8f8f8;"
                   >
                     <img
                       src="./assets/home/book-2.png"
@@ -1846,15 +1869,15 @@
                     >
                       The Man
                     </a>
-                    <section class="fw-bold" style="color: orangered">
+                    <section class="fw-bold mb-2" style="color: #ff6500;">
                       $20.99
                     </section>
                     <section
                       class="d-flex justify-content-between align-items-center"
                     >
                       <section>
-                        <img src="./assets/home/seller-3.png" />
-                        <span>manmanam</span>
+                         <img src="./assets/home/seller-1.png" />
+                          <span  style="font-size:17px;">Ahmed</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
                     </section>
@@ -1867,7 +1890,7 @@
                 <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded h-75"
-                    style="background-color: rgb(221, 221, 221)"
+                    style="background-color:  #f8f8f8;"
                   >
                     <img
                       src="./assets/home/book-3.png"
@@ -1883,15 +1906,15 @@
                     >
                       The Man
                     </a>
-                    <section class="fw-bold" style="color: orangered">
+                    <section class="fw-bold mb-2" style="color: #ff6500;">
                       $20.99
                     </section>
                     <section
                       class="d-flex justify-content-between align-items-center"
                     >
                       <section>
-                        <img src="./assets/home/seller-3.png" />
-                        <span>manmanam</span>
+                         <img src="./assets/home/seller-5.png" />
+                          <span  style="font-size:17px;" >Mohamed</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
                     </section>
@@ -1904,7 +1927,7 @@
                 <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded h-75"
-                    style="background-color: rgb(221, 221, 221)"
+                    style="background-color:  #f8f8f8;"
                   >
                     <img
                       src="./assets/home/book-5.png"
@@ -1920,15 +1943,15 @@
                     >
                       The Man
                     </a>
-                    <section class="fw-bold" style="color: orangered">
+                    <section class="fw-bold mb-2" style="color: #ff6500;">
                       $20.99
                     </section>
                     <section
                       class="d-flex justify-content-between align-items-center"
                     >
                       <section>
-                        <img src="./assets/home/seller-3.png" />
-                        <span>manmanam</span>
+                         <img src="./assets/home/seller-4.png" />
+                          <span  style="font-size:17px;">Amira</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
                     </section>
@@ -1941,7 +1964,7 @@
                 <section class="card h-100 border-0 shadow-sm">
                   <section
                     class="d-flex justify-content-center align-items-center p-5 rounded h-75"
-                    style="background-color: rgb(221, 221, 221)"
+                    style="background-color:  #f8f8f8;"
                   >
                     <img
                       src="./assets/home/book-4.png"
@@ -1957,15 +1980,15 @@
                     >
                       The Man
                     </a>
-                    <section class="fw-bold" style="color: orangered">
+                    <section class="fw-bold mb-2" style="color: #ff6500;">
                       $20.99
                     </section>
                     <section
                       class="d-flex justify-content-between align-items-center"
                     >
                       <section>
-                        <img src="./assets/home/seller-3.png" />
-                        <span>manmanam</span>
+                        <img src="./assets/home/seller-4.png" />
+                          <span  style="font-size:17px;">semoon</span>
                       </section>
                       <section class="stars mb-2">★★★★☆</section>
                     </section>
@@ -2008,7 +2031,7 @@
                     <section class="ms-3">
                       <h6 class="mb-0">Ronald Richards</h6>
                       <small class="text-muted">Marketing Director</small>
-                      <section class="stars text-warning">★★★★☆</section>
+                      <section class="stars ">★★★★☆</section>
                     </section>
                   </section>
                   <img
@@ -2041,7 +2064,7 @@
                     <section class="ms-3">
                       <h6 class="mb-0">Ronald Richards</h6>
                       <small class="text-muted">Marketing Director</small>
-                      <section class="stars text-warning">★★★★☆</section>
+                      <section class="stars ">★★★★☆</section>
                     </section>
                   </section>
                   <img
@@ -2074,7 +2097,7 @@
                     <section class="ms-3">
                       <h6 class="mb-0">Ronald Richards</h6>
                       <small class="text-muted">Marketing Director</small>
-                      <section class="stars text-warning">★★★★☆</section>
+                      <section class="stars ">★★★★☆</section>
                     </section>
                   </section>
                   <img
