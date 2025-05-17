@@ -95,14 +95,7 @@
         background-color: #fff;
       }
 
-      .btn-actions {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-      }
-
       .btn-actions .btn {
-        padding: 6px 10px;
         border: none;
         border-radius: 4px;
         font-size: 16px;
@@ -225,28 +218,17 @@
         alert("Access Denied");
         window.location.href = "../pages/login.html";
       }
-
-      const users = JSON.parse(localStorage.getItem("users")) || [];
       const ordersTableBody = document.getElementById("ordersTableBody");
-
-      // نحاول نلاقي اليوزر الحقيقي من ال localStorage users
-      const currentUserFromList = users.find(
-        (user) => user.email === currentUser.email
-      );
-
-      if (!currentUserFromList || !Array.isArray(currentUserFromList.orders)) {
-        ordersTableBody.innerHTML =
-          "<tr><td colspan='6'>No orders found for current user.</td></tr>";
-      } else {
-        currentUserFromList.orders.forEach((order, index) => {
+      if (currentUser.orders) {
+        currentUser.orders.forEach((order, index) => {
           const row = document.createElement("tr");
           row.innerHTML = `
-          <td>${
-            currentUserFromList.firstName + " " + currentUserFromList.lastName
-          }</td>
-          <img src="${
-            order.image || "../assets/default-book.jpg"
-          }" alt="Book Image" style="width: 50px; height: 70px; object-fit: cover; border-radius: 4px;">
+          <td>${currentUser.firstName + " " + currentUser.lastName}</td>
+          <td>
+            <img src="${
+              order.image || "../assets/default-book.jpg"
+            }" alt="Book Image" style="width: 50px; height: 70px; object-fit: cover; border-radius: 4px;">
+          </td>
           <td>${order.title || "N/A"}</td>
           <td>${order.price || 0}</td>
           <td>${order.quantity || 1}</td>
@@ -264,9 +246,9 @@
         });
       }
       function deleteOrder(orderIndex) {
-        if (currentUserFromList && currentUserFromList.orders[orderIndex]) {
-          currentUserFromList.orders.splice(orderIndex, 1);
-          localStorage.setItem("users", JSON.stringify(users));
+        if (currentUser && currentUser.orders[orderIndex]) {
+          currentUser.orders.splice(orderIndex, 1);
+          localStorage.setItem("currentUser", JSON.stringify(currentUser)); 
           location.reload();
         }
       }

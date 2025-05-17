@@ -159,6 +159,38 @@
         background-color: #f4c430;
         color: white;
       }
+      .sidebar {
+        background-color: #036280;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 400px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1000;
+      }
+      .sidebar .nav-link {
+        color: white;
+        background-color: #0f84a9;
+        margin: 20px auto;
+        text-align: center;
+        width: 50%;
+        border-radius: 20px;
+        font-size: 1.25rem;
+        padding: 10px 20px;
+      }
+      .sidebar .nav-link:hover {
+        background-color: #0c6c8a;
+        box-shadow: 4px 4px 4px 4px rgba(36, 19, 194, 0.3);
+      }
+      .sidebar span,
+      .sidebar i {
+        color: white;
+      }
       /* #adminAddUserButton:hover {
         background: #f4c430;
       } */
@@ -169,30 +201,33 @@
     <!-- Sidebar -->
     <nav class="sidebar">
       <a href="./adminAddBook.html" class="nav-link ff15" title="Add Items"
-        ><i class="bi bi-plus-square"></i><span> Book</span></a
+        ><i class="bi bi-plus-square"></i><span> Sell A Book</span></a
       >
       <a href="./adminBookList.html" class="nav-link" title="List Items"
-        ><i class="bi bi-list-ul"></i><span> Book list</span></a
+        ><i class="bi bi-list-ul"></i><span> Books list</span></a
       >
       <a href="./adminOrders.html" class="nav-link" title="Orders"
-        ><i class="bi bi-receipt"></i><span> Orders</span></a
+        ><i class="bi bi-receipt"></i><span> All Orders</span></a
       >
-      <a href="./adminUsers.html" class="nav-link" title="Users"
-        ><i class="bi bi-people"></i><span> Users</span></a
+      <a href="./adminUsers.html" class="nav-link" title="Orders"
+        ><i class="bi bi-person-lines-fill"></i><span> All Users</span></a
       >
-      <a
-        href="./adminCustomerService.html"
-        class="nav-link"
-        title="Customer Service"
-        ><i class="bi bi-people"></i><span> Customer Services</span></a
+      <a href="./adminAnalytics.html" class="nav-link" title="Analytics"
+        ><i class="bi bi-bar-chart-line-fill"></i><span> My Analytics</span></a
       >
-      <a href="#" class="nav-link" title="Logout" onclick="logout()"
+      <a href="./adminCustomerService.html" class="nav-link" title="Analytics"
+        ><i class="bi bi-person-workspace"></i><span> Customer Service </span></a
+      >
+      <a href="../index.html" class="nav-link" title="Logout" onclick="logout()"
         ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
       >
     </nav>
     <!-- Main Content -->
     <main class="main-content text-center">
-      <section class="header rounded text-light" style="background-color: #0f84a9;">
+      <section
+        class="header rounded text-light"
+        style="background-color: #0f84a9"
+      >
         <h3>All Users</h3>
       </section>
       <section class="user-list-container mt-4">
@@ -210,7 +245,7 @@
       </section>
       <section
         class="w-25 p-1 mx-auto text-center btn border rounded my-3 p-3 fw-bold text-light"
-        style="background-color: #036280;"
+        style="background-color: #036280"
         id="adminAddUserButton"
       >
         Add User
@@ -262,6 +297,7 @@
                   class="form-control"
                   id="editEmail"
                   required
+                  disabled
                 />
               </section>
               <section class="mb-3">

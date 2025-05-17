@@ -263,7 +263,7 @@
         const orderCard = document.createElement("section");
         orderCard.className = "order-card d-flex align-items-center mb-3";
         const orderBookImage = document.createElement("img");
-        orderBookImage.src = order.image || "../assets/order-list/default.png";
+        orderBookImage.src = order.image || "../assets/order-list/b1.png";
         orderBookImage.alt = "Book";
         orderBookImage.className = "order-image me-3";
         const orderDetails = document.createElement("section");
@@ -303,29 +303,27 @@
         statusWrapper.className = "d-flex align-items-center";
         const statusDot = document.createElement("section");
         statusDot.className = "status-dot";
-        const statusSelect = document.createElement("select");
-        statusSelect.className = "form-select fw-bold text-light";
+        const statusSelect = document.createElement("section");
+        statusSelect.className = "fw-bold p-1 rounded text-light";
         statusSelect.style.backgroundColor = "lightgreen";
         statusSelect.style.cursor = "pointer";
-        const defaultOption = document.createElement("option");
-        defaultOption.value = "";
-        defaultOption.disabled = true;
-        defaultOption.selected = true;
-        defaultOption.textContent = "Status";
-        statusSelect.appendChild(defaultOption);
-        const statuses = [
-          { value: "packing", label: "Packing" },
-          { value: "readyToShip", label: "Ready To Ship" },
-          { value: "onWayDelivering", label: "On Way Delivering" },
-          { value: "delivered", label: "Delivered" },
-        ];
-        statuses.forEach((s) => {
-          const opt = document.createElement("option");
-          opt.value = s.value;
-          opt.textContent = s.label;
-          opt.style.cursor = "pointer";
-          statusSelect.appendChild(opt);
-        });
+        statusSelect.innerText += "Packing";
+        // const defaultOption = document.createElement("option");
+        // defaultOption.value = "packing";
+        // defaultOption.disabled = true;
+        // defaultOption.selected = true;
+        // defaultOption.textContent = "Status";
+        // statusSelect.appendChild(defaultOption);
+        // const statuses = [
+        //   { value: "packing", label: "Packing" },
+        // ];
+        // statuses.forEach((s) => {
+        //   const opt = document.createElement("option");
+        //   opt.value = s.value;
+        //   opt.textContent = s.label;
+        //   opt.style.cursor = "pointer";
+        //   statusSelect.appendChild(opt);
+        // });
         statusWrapper.append(statusDot, statusSelect);
         const statusBadge = document.createElement("section");
         statusBadge.className = "status-badge";

@@ -29,7 +29,9 @@
         margin: 0;
         box-sizing: border-box;
       }
-
+      .detailsProduct {
+        cursor: pointer;
+      }
       .top-bar {
         background-color: #036280;
         color: white;
@@ -549,7 +551,10 @@
           <!-- Icons -->
           <section class="d-flex gap-3">
             <section class="position-relative">
-              <a href="../customer/customerWishlist.html" class="text-danger d-none">
+              <a
+                href="../customer/customerWishlist.html"
+                class="text-danger d-none"
+              >
                 <i
                   class="far fa-heart"
                   style="font-size: 1.2rem; position: relative"
@@ -711,7 +716,7 @@
             <section class="swiper-slide">
               <!-- Book Card -->
               <section class="col">
-                <section class="card book-card position-relative">
+                <section class="card book-card position-relative detailsProduct">
                   <section
                     class="card-top d-flex justify-content-center align-items-center"
                   >
@@ -726,7 +731,7 @@
                   >
                   <section class="card-body">
                     <h6 class="text-muted">Design Low Book</h6>
-                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <h5 class="card-title product-name">How Deal With Very Bad BOOK</h5>
                     <section class="price mb-2">
                       <span class="fw-bold">$30.00</span> <del>$39.99</del>
                     </section>
@@ -753,7 +758,7 @@
             <section class="swiper-slide">
               <!-- كارد تاني -->
               <section class="col">
-                <section class="card book-card position-relative">
+                <section class="card book-card position-relative detailsProduct">
                   <section
                     class="card-top d-flex justify-content-center align-items-center"
                   >
@@ -768,7 +773,7 @@
                   >
                   <section class="card-body">
                     <h6 class="text-muted">Design Low Book</h6>
-                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <h5 class="card-title product-name">How Deal With Very Bad BOOK</h5>
                     <section class="price mb-2">
                       <span class="fw-bold">$30.00</span> <del>$39.99</del>
                     </section>
@@ -795,7 +800,7 @@
             <section class="swiper-slide">
               <!-- كارد تالت -->
               <section class="col">
-                <section class="card book-card position-relative">
+                <section class="card book-card position-relative detailsProduct">
                   <section
                     class="card-top d-flex justify-content-center align-items-center"
                   >
@@ -810,7 +815,7 @@
                   >
                   <section class="card-body">
                     <h6 class="text-muted">Design Low Book</h6>
-                    <h5 class="card-title">How Deal With Very Bad BOOK</h5>
+                    <h5 class="card-title product-name">How Deal With Very Bad BOOK</h5>
                     <section class="price mb-2">
                       <span class="fw-bold">$30.00</span> <del>$39.99</del>
                     </section>
@@ -838,7 +843,7 @@
             <section class="swiper-slide">
               <!-- كارد تالت -->
               <section class="col">
-                <section class="card book-card position-relative">
+                <section class="card book-card position-relative detailsProduct">
                   <section
                     class="card-top d-flex justify-content-center align-items-center"
                   >
@@ -880,7 +885,7 @@
             <section class="swiper-slide">
               <!-- كارد تالت -->
               <section class="col">
-                <section class="card book-card position-relative">
+                <section class="card book-card position-relative detailsProduct">
                   <section
                     class="card-top d-flex justify-content-center align-items-center"
                   >
@@ -922,7 +927,7 @@
             <section class="swiper-slide">
               <!-- كارد تالت -->
               <section class="col">
-                <section class="card book-card position-relative">
+                <section class="card book-card position-relative detailsProduct">
                   <section
                     class="card-top d-flex justify-content-center align-items-center"
                   >
@@ -964,7 +969,7 @@
             <section class="swiper-slide">
               <!-- كارد تالت -->
               <section class="col">
-                <section class="card book-card position-relative">
+                <section class="card book-card position-relative detailsProduct">
                   <section
                     class="card-top d-flex justify-content-center align-items-center"
                   >
@@ -1006,7 +1011,7 @@
             <section class="swiper-slide">
               <!-- كارد تالت -->
               <section class="col">
-                <section class="card book-card position-relative">
+                <section class="card book-card position-relative detailsProduct">
                   <section
                     class="card-top d-flex justify-content-center align-items-center"
                   >
@@ -1048,7 +1053,7 @@
             <section class="swiper-slide">
               <!-- كارد تالت -->
               <section class="col">
-                <section class="card book-card position-relative">
+                <section class="card book-card position-relative detailsProduct">
                   <section
                     class="card-top d-flex justify-content-center align-items-center"
                   >
@@ -1299,14 +1304,29 @@
             card.querySelector(
               ".card > .card-body > h6.text-muted"
             ).textContent = book.category;
-            card.querySelector(
+            const titleElement = card.querySelector(
               ".card > .card-body > h5.card-title"
-            ).textContent = book.title;
+            );
+            titleElement.textContent = book.title; 
+            titleElement.classList.add("product-name");
             card.querySelector(
               ".card > .card-body > .price > span"
             ).textContent = `$${book.price}`;
           }
         });
+        function goToDetails() {
+          document.querySelectorAll(".detailsProduct").forEach((card) => {
+            card.addEventListener("click", (e) => {
+              const name = card.querySelector(".product-name").textContent;
+              const price = card.querySelector(".price").textContent;
+              const img = card.querySelector(".card-img-top").src;
+              const product = { name, price, img };
+              localStorage.setItem("selectedProduct", JSON.stringify(product));
+              window.location.href = "./shop_details.html";
+            });
+          });
+        }
+        goToDetails();
       });
     </script>
   </body>

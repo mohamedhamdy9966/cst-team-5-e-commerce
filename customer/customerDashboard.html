@@ -231,6 +231,7 @@
                 class="form-control mx-w"
                 placeholder="Update Your Email"
                 id="email"
+                disabled
               />
             </section>
             <section class="mb-3">
@@ -243,7 +244,7 @@
               />
             </section>
             <section class="mb-3">
-              <label class="form-label">New Password</label>
+              <label class="form-label">Confirm New Password</label>
               <input
                 type="password"
                 class="form-control mx-w"
@@ -280,6 +281,11 @@
       // alert(`welcome back ${u.firstName} !`)
       const customerDashboard = document.getElementById("customerDashboard");
       customerDashboard.innerText += `${u.firstName} ${u.lastName} Dashboard`;
+      document.getElementById('firstName').value = `${u.firstName}`;
+      document.getElementById('lastName').value = `${u.lastName}`;
+      document.getElementById('email').value = `${u.email}`;
+      document.getElementById('password').value = `${u.password}`;
+      document.getElementById('confirmPassword').value = `${u.password}`;
       document.addEventListener("DOMContentLoaded", () => {
         document
           .getElementById("updateCustomerCredentials")

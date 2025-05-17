@@ -191,94 +191,131 @@
         }
       }
       @media (max-width: 992px) {
-  .product-form-container {
-    flex-direction: column;
-    align-items: center;
-  }
+        .product-form-container {
+          flex-direction: column;
+          align-items: center;
+        }
 
-  .seller-image {
-    width: 100%;
-    max-width: 300px;
-    margin-top: 2rem;
-  }
-}
+        .seller-image {
+          width: 100%;
+          max-width: 300px;
+          margin-top: 2rem;
+        }
+      }
 
-@media (max-width: 768px) {
-  .sidebar {
-    height: auto;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 0.5rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-  }
+      @media (max-width: 768px) {
+        .sidebar {
+          height: auto;
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-around;
+          padding: 0.5rem;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+        }
 
-  .sidebar .nav-link {
-    margin: 0;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1rem;
-    padding: 0;
-  }
+        .sidebar .nav-link {
+          margin: 0;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          font-size: 1rem;
+          padding: 0;
+        }
 
-  .sidebar span {
-    display: none;
-  }
+        .sidebar span {
+          display: none;
+        }
 
-  .main-content {
-    margin-left: 0;
-    padding-top: 5rem;
-  }
+        .main-content {
+          margin-left: 0;
+          padding-top: 5rem;
+        }
 
-  .product-form-container {
-    gap: 20px;
-  }
+        .product-form-container {
+          gap: 20px;
+        }
 
-  .img-placeholder {
-    max-width: 100%;
-  }
+        .img-placeholder {
+          max-width: 100%;
+        }
 
-  .mx-w {
-    max-width: 100%;
-  }
+        .mx-w {
+          max-width: 100%;
+        }
 
-  .seller-image {
-    display: none; /* إخفاء الصورة نهائيًا للموبايل */
-  }
-}
-
+        .seller-image {
+          display: none; /* إخفاء الصورة نهائيًا للموبايل */
+        }
+      }
+      .sidebar {
+        background-color: #036280;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 400px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1000;
+      }
+      .sidebar .nav-link {
+        color: white;
+        background-color: #0f84a9;
+        margin: 20px auto;
+        text-align: center;
+        width: 50%;
+        border-radius: 20px;
+        font-size: 1.25rem;
+        padding: 10px 20px;
+      }
+      .sidebar .nav-link:hover {
+        background-color: #0c6c8a;
+        box-shadow: 4px 4px 4px 4px rgba(36, 19, 194, 0.3);
+      }
+      .sidebar span,
+      .sidebar i {
+        color: white;
+      }
     </style>
   </head>
   <body>
     <!-- Sidebar -->
     <nav class="sidebar">
       <a href="./adminAddBook.html" class="nav-link ff15" title="Add Items"
-        ><i class="bi bi-plus-square"></i><span> Book</span></a
+        ><i class="bi bi-plus-square"></i><span> Sell A Book</span></a
       >
       <a href="./adminBookList.html" class="nav-link" title="List Items"
-        ><i class="bi bi-list-ul"></i><span> Book list</span></a
+        ><i class="bi bi-list-ul"></i><span> Books list</span></a
       >
       <a href="./adminOrders.html" class="nav-link" title="Orders"
-        ><i class="bi bi-receipt"></i><span> Orders</span></a
+        ><i class="bi bi-receipt"></i><span> All Orders</span></a
       >
-      <a href="./adminUsers.html" class="nav-link" title="Users"
-        ><i class="bi bi-people"></i><span> Users</span></a
+      <a href="./adminUsers.html" class="nav-link" title="Orders"
+        ><i class="bi bi-person-lines-fill"></i><span> All Users</span></a
       >
-      <a href="./adminCustomerService.html" class="nav-link" title="Users"
-        ><i class="bi bi-people"></i><span> Customer Services</span></a
+      <a href="./adminAnalytics.html" class="nav-link" title="Analytics"
+        ><i class="bi bi-bar-chart-line-fill"></i><span> My Analytics</span></a
       >
-      <a href="#" class="nav-link" title="Logout" onclick="logout()"
+      <a href="./adminCustomerService.html" class="nav-link" title="Analytics"
+        ><i class="bi bi-person-workspace"></i><span> Customer Service </span></a
+      >
+      <a href="../index.html" class="nav-link" title="Logout" onclick="logout()"
         ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
       >
     </nav>
     <!-- Main Content -->
     <section class="main-content">
-      <section class="header rounded text-light" style="background-color: #0f84a9;">
+      <section
+        class="header rounded text-light"
+        style="background-color: #0f84a9"
+      >
         <h3 class="text-center mb-0">Sell A Book</h3>
       </section>
       <!-- Form and Image -->
@@ -375,134 +412,145 @@
       </section>
     </section>
     <script>
-          // Access control
-          const u = JSON.parse(localStorage.getItem("currentUser"));
+      // Access control
+      const u = JSON.parse(localStorage.getItem("currentUser"));
       if (!u || u.role !== "admin") {
-            alert("Access Denied");
-            window.location.href = "../pages/login.html";
+        alert("Access Denied");
+        window.location.href = "../pages/login.html";
+      }
+
+      let all = JSON.parse(localStorage.getItem("books")) || [];
+
+      document
+        .querySelector(".product-form-container form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          console.log("Form submitted");
+          addBook();
+        });
+
+      function addBook() {
+        const imgInput = document.getElementById("imgInput");
+        const file = imgInput.files[0];
+        if (!file) {
+          alert("Please select an image.");
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function () {
+          const image = reader.result;
+          const title = document.getElementById("title").value.trim();
+          const author = document.getElementById("author").value.trim();
+          const description = document
+            .getElementById("description")
+            .value.trim();
+          const category = document.getElementById("category").value;
+          const price = document.getElementById("price").value.trim();
+          const stock = document.getElementById("stock").value.trim();
+
+          if (
+            !title ||
+            !price ||
+            !stock ||
+            !author ||
+            !description ||
+            !category
+          ) {
+            alert("Please fill in all fields.");
+            return;
           }
 
-          let all = JSON.parse(localStorage.getItem("books")) || [];
+          // sellerBooks = u.books || [];
+          const lastIdAllBooks =
+            all.length > 0 ? Math.max(...all.map((b) => b.id || 0)) : 1;
+          const id = lastIdAllBooks + 1;
+          // const lastIdSellerBooks =
+          //   sellerBooks.length > 0
+          //     ? Math.max(...sellerBooks.map((b) => b.id || 0))
+          //     : 1;
+          // const idSellerBooks = lastIdSellerBooks + 1;
 
-          document
-            .querySelector(".product-form-container form")
-            .addEventListener("submit", function (e) {
-              e.preventDefault();
-              console.log("Form submitted");
-              addBook();
-            });
+          // sellerBooks.push({
+          //   idSellerBooks,
+          //   title,
+          //   author,
+          //   price: parseFloat(price),
+          //   category,
+          //   rating: 4.7,
+          //   sold: 0,
+          //   image,
+          //   description,
+          //   stock,
+          // });
 
-          function addBook() {
-            const imgInput = document.getElementById("imgInput");
-            const file = imgInput.files[0];
-            if (!file) {
-              alert("Please select an image.");
-              return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = function () {
-              const image = reader.result;
-              const title = document.getElementById("title").value.trim();
-              const author = document.getElementById("author").value.trim();
-              const description = document.getElementById("description").value.trim();
-              const category = document.getElementById("category").value;
-              const price = document.getElementById("price").value.trim();
-              const stock = document.getElementById("stock").value.trim();
-
-              if (!title || !price || !stock || !author || !description || !category) {
-                alert("Please fill in all fields.");
-                return;
-              }
-
-              // sellerBooks = u.books || [];
-              const lastIdAllBooks =
-                all.length > 0 ? Math.max(...all.map((b) => b.id || 0)) : 1;
-              const id = lastIdAllBooks + 1;
-              // const lastIdSellerBooks =
-              //   sellerBooks.length > 0
-              //     ? Math.max(...sellerBooks.map((b) => b.id || 0))
-              //     : 1;
-              // const idSellerBooks = lastIdSellerBooks + 1;
-
-              // sellerBooks.push({
-              //   idSellerBooks,
-              //   title,
-              //   author,
-              //   price: parseFloat(price),
-              //   category,
-              //   rating: 4.7,
-              //   sold: 0,
-              //   image,
-              //   description,
-              //   stock,
-              // });
-
-              all.push({
-                id,
-                title,
-                author,
-                price: parseFloat(price),
-                category,
-                rating: 4.7,
-                image,
-                description,
-                stock,
-                sold: 0,
-                owner: u.username,
-              });
-
-              // u.books = sellerBooks;
-              localStorage.setItem("currentUser", JSON.stringify(u));
-              localStorage.setItem("books", JSON.stringify(all));
-              alert("Book added successfully!");
-              document.querySelector(".product-form-container form").reset();
-
-              // Reset image preview
-              document.getElementById("imgText").style.display = "block";
-              const preview = document.querySelector("#imgLabel img");
-              if (preview) preview.remove();
-            };
-
-            reader.readAsDataURL(file);
-          }
-
-          // ✅ image preview without removing input
-          document.getElementById("imgInput").addEventListener("change", function () {
-            const file = this.files[0];
-            if (file) {
-              const reader = new FileReader();
-              reader.onload = function () {
-                const label = document.getElementById("imgLabel");
-                const img = document.createElement("img");
-                img.src = reader.result;
-                img.style.maxWidth = "100%";
-                img.style.maxHeight = "100%";
-                img.style.objectFit = "contain";
-
-                // Remove old preview if any
-                const oldPreview = label.querySelector("img");
-                if (oldPreview) {
-                  oldPreview.remove();
-                }
-
-                // Hide "Image" text
-                const text = document.getElementById("imgText");
-                if (text) {
-                  text.style.display = "none";
-                }
-
-                label.appendChild(img);
-              };
-              reader.readAsDataURL(file);
-            }
+          all.push({
+            id,
+            title,
+            author,
+            price: parseFloat(price),
+            category,
+            rating: 4.7,
+            image,
+            description,
+            stock,
+            sold: 0,
+            owner: u.username,
           });
 
-          // Logout
-          function logout() {
-            localStorage.removeItem("currentUser");
-            window.location.href = "../index.html";
+          // u.books = sellerBooks;
+          localStorage.setItem("currentUser", JSON.stringify(u));
+          localStorage.setItem("books", JSON.stringify(all));
+          alert("Book added successfully!");
+          document.querySelector(".product-form-container form").reset();
+
+          // Reset image preview
+          document.getElementById("imgText").style.display = "block";
+          const preview = document.querySelector("#imgLabel img");
+          if (preview) preview.remove();
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+      // ✅ image preview without removing input
+      document
+        .getElementById("imgInput")
+        .addEventListener("change", function () {
+          const file = this.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function () {
+              const label = document.getElementById("imgLabel");
+              const img = document.createElement("img");
+              img.src = reader.result;
+              img.style.maxWidth = "100%";
+              img.style.maxHeight = "100%";
+              img.style.objectFit = "contain";
+
+              // Remove old preview if any
+              const oldPreview = label.querySelector("img");
+              if (oldPreview) {
+                oldPreview.remove();
+              }
+
+              // Hide "Image" text
+              const text = document.getElementById("imgText");
+              if (text) {
+                text.style.display = "none";
+              }
+
+              label.appendChild(img);
+            };
+            reader.readAsDataURL(file);
           }
+        });
+
+      // Logout
+      function logout() {
+        localStorage.removeItem("currentUser");
+        window.location.href = "../index.html";
+      }
     </script>
   </body>
 </html>

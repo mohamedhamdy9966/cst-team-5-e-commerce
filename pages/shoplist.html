@@ -25,10 +25,10 @@
       padding: 0;
       box-sizing: border-box;
     }
-    h4{
+    h4 {
       color: #012e4a;
     }
-   
+
     .num-btn:hover,
     .prev:hover,
     .next:hover,
@@ -36,10 +36,10 @@
       background-color: #ff6500;
       color: white;
     }
-  
-     .icon-btn:hover{
+
+    .icon-btn:hover {
       color: red;
-     }
+    }
 
     .product-card {
       background-color: white;
@@ -65,14 +65,13 @@
       font-size: 1.25rem;
       font-weight: 500;
     }
-  .stars {
+    .stars {
       color: #ff6500;
-   
     }
-      .product-price{
-        color: #036280; ;
-      }
-   
+    .product-price {
+      color: #036280;
+    }
+
     .icon-btn {
       background-color: #f1f1f1;
       border: none;
@@ -117,7 +116,7 @@
     .pages button {
       border: none;
     }
-    
+
     .footer {
       background-color: #012e4a;
       border-radius: 5px;
@@ -172,7 +171,7 @@
     #unique {
       padding: 15px 20px;
     }
-   
+
     .footer {
       background-color: #036280;
       border-radius: 5px;
@@ -189,9 +188,8 @@
       border: 1px solid white;
       padding: 5px 8px;
     }
-    
 
-     .addToCartBtn {
+    .addToCartBtn {
       background-color: #e0e7ff;
       color: #003049;
       font-weight: bold;
@@ -204,37 +202,36 @@
       z-index: 1;
       transition: background-color 0.3s, color 0.3s;
     }
-     .addToCartBtn {
-        position: relative;
-        overflow: hidden;
-        font-weight: bold;
-        z-index: 1;
-        
-        /* لضمان بقاء النص فوق الشريط */
-      }
-      .addToCartBtn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 30px;
-        background-color: #ff6500;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.6s ease;
-        z-index: -1;
-      }
+    .addToCartBtn {
+      position: relative;
+      overflow: hidden;
+      font-weight: bold;
+      z-index: 1;
 
-     .addToCartBtn:hover::before {
-        transform: scaleX(1);
-      }
+      /* لضمان بقاء النص فوق الشريط */
+    }
+    .addToCartBtn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      background-color: #ff6500;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s ease;
+      z-index: -1;
+    }
 
-      .addToCartBtn:hover {
-        color: white;
-      }
+    .addToCartBtn:hover::before {
+      transform: scaleX(1);
+    }
 
+    .addToCartBtn:hover {
+      color: white;
+    }
 
     /* Adjust center-dev on small screens */
     @media (max-width: 768px) {
@@ -281,8 +278,6 @@
       .nav-link {
         font-size: 0.9rem;
       }
-
-    
     }
 
     /* For very small screens (e.g., phones < 576px) */
@@ -428,7 +423,10 @@
           <!-- Icons -->
           <section class="d-flex gap-3">
             <section class="position-relative">
-              <a href="../customer/customerWishlist.html" class="text-danger d-none">
+              <a
+                href="../customer/customerWishlist.html"
+                class="text-danger d-none"
+              >
                 <i
                   class="far fa-heart"
                   style="font-size: 1.2rem; position: relative"
@@ -497,6 +495,29 @@
         class="col-auto d-none d-xl-block"
       />
     </section>
+    <section class="container py-3">
+      <section class="row align-items-center">
+        <!-- Search Input -->
+        <section class="col-11 col-md-11 mb-2 mb-md-0">
+          <input
+            class="form-control"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            id="searchInput"
+          />
+        </section>
+        <!-- Sort Icon -->
+        <section class="col-1 col-md-1 text-end">
+          <i
+            id="sort"
+            style="cursor: pointer"
+            class="fa-solid fa-arrow-down-wide-short"
+          ></i>
+        </section>
+      </section>
+    </section>
+
     <section class="container-fluid" id="booksContainer">
       <!-- JS will insert book cards here -->
     </section>
@@ -613,14 +634,16 @@
       const paginationContainer = document.getElementById("pagination");
       const booksPerPage = 5;
       let currentPage = 1;
-      function renderBooks(page) {
+      let searchFilter = "";
+      function renderBooks(page, filteredBooks = books) {
         booksContainer.innerHTML = "";
         const start = (page - 1) * booksPerPage;
         const end = start + booksPerPage;
-        const paginatedBooks = books.slice(start, end);
+        const paginatedBooks = filteredBooks.slice(start, end);
         paginatedBooks.forEach((book) => {
           const card = document.createElement("section");
-          card.className = "product-card row mb-4";
+          card.className = "product-card row mb-4 detailsProduct";
+          card.style.cursor = "pointer";
           card.innerHTML = `
             <section class="card p-3 shadow-sm border-0 rounded-4 d-flex flex-column flex-md-row align-items-center">
               <section class="col-12 col-md-4 text-center mb-3 mb-md-0">
@@ -648,10 +671,30 @@
           `;
           booksContainer.appendChild(card);
         });
-
         bindAddToCartButtons();
-        renderPagination();
+        goToDetails();
+        renderPagination(filteredBooks);
         bindWishlistButtons();
+      }
+      document.getElementById("searchInput").addEventListener("input", (e) => {
+        const searchFilter = e.target.value.trim().toLowerCase();
+        const filteredBooks = books.filter((book) => {
+          const title = book.title?.toLowerCase().trim();
+          const author = book.author?.toLowerCase().trim();
+          return title.includes(searchFilter) || author.includes(searchFilter);
+        });
+        currentPage = 1;
+        renderBooks(currentPage, filteredBooks);
+      });
+      function sortPriceDown(currentPage, filteredBooks) {
+        books.sort(function (a, b) {
+          return a - b;
+        });
+      }
+      function sortPriceUp(currentPage, filteredBooks) {
+        books.sort(function (a, b) {
+          return a - b;
+        });
       }
       function bindWishlistButtons() {
         const currentUser =
@@ -695,6 +738,36 @@
         });
       }
 
+      document.getElementById("sort").addEventListener("click", () => {
+        const icon = document.getElementById("sort");
+        const isDescending = icon.classList.contains(
+          "fa-arrow-down-wide-short"
+        );
+
+        // Toggle icon
+        icon.classList.toggle("fa-arrow-down-wide-short", !isDescending);
+        icon.classList.toggle("fa-arrow-up-wide-short", isDescending);
+
+        // Get the current filtered books from search input
+        const searchValue = document
+          .getElementById("searchInput")
+          .value.trim()
+          .toLowerCase();
+        const filteredBooks = books.filter((book) => {
+          const title = book.title?.toLowerCase().trim();
+          const author = book.author?.toLowerCase().trim();
+          return title.includes(searchValue) || author.includes(searchValue);
+        });
+
+        // Sort
+        const sortedBooks = [...filteredBooks].sort((a, b) => {
+          return isDescending ? b.price - a.price : a.price - b.price;
+        });
+
+        currentPage = 1;
+        renderBooks(currentPage, sortedBooks);
+      });
+
       function bindAddToCartButtons() {
         document.querySelectorAll(".addToCartBtn").forEach((btn) => {
           btn.addEventListener("click", (e) => {
@@ -711,8 +784,21 @@
         });
       }
 
-      function renderPagination() {
-        const totalPages = Math.ceil(books.length / booksPerPage);
+      function goToDetails() {
+        document.querySelectorAll(".detailsProduct").forEach((card) => {
+          card.addEventListener("click", (e) => {
+            const name = card.querySelector(".product-name").textContent;
+            const price = card.querySelector(".product-price").textContent;
+            const img = card.querySelector(".product-img").src;
+            const product = { name, price, img };
+            localStorage.setItem("selectedProduct", JSON.stringify(product));
+            window.location.href = "./shop_details.html";
+          });
+        });
+      }
+
+      function renderPagination(filteredBooks = books) {
+        const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
         paginationContainer.innerHTML = "";
         // Determine which block of 3 pages to show
         const pageBlock = Math.floor((currentPage - 1) / 3);
@@ -726,7 +812,7 @@
           prevBtn.addEventListener("click", (e) => {
             e.preventDefault();
             currentPage = startPage - 1;
-            renderBooks(currentPage);
+            renderBooks(currentPage, filteredBooks);
           });
           paginationContainer.appendChild(prevBtn);
         }
@@ -738,7 +824,7 @@
           li.addEventListener("click", (e) => {
             e.preventDefault();
             currentPage = i;
-            renderBooks(currentPage);
+            renderBooks(currentPage, filteredBooks);
           });
           paginationContainer.appendChild(li);
         }
@@ -750,7 +836,7 @@
           nextBtn.addEventListener("click", (e) => {
             e.preventDefault();
             currentPage = endPage + 1;
-            renderBooks(currentPage);
+            renderBooks(currentPage, filteredBooks);
           });
           paginationContainer.appendChild(nextBtn);
         }
