@@ -783,7 +783,6 @@
           });
         });
       }
-
       function goToDetails() {
         document.querySelectorAll(".detailsProduct").forEach((card) => {
           card.addEventListener("click", (e) => {
@@ -796,7 +795,6 @@
           });
         });
       }
-
       function renderPagination(filteredBooks = books) {
         const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
         paginationContainer.innerHTML = "";
