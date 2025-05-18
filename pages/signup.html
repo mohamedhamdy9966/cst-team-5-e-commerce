@@ -397,6 +397,13 @@
         console.log(users);
         localStorage.setItem("users", JSON.stringify(users));
         showMessage("Signup successful! Redirecting to login...", "success");
+        Toastify({
+          text: "Signed Up Successfully !",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "green",
+        }).showToast();
         setTimeout(() => {
           window.location.href = "./login.html";
         }, 1500);
@@ -421,5 +428,16 @@
         }
       });
     </script>
+        <!--Toastify-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- <script src="../JS/chechout.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
   </body>
 </html>

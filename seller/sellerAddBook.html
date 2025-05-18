@@ -20,7 +20,17 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
+    <!--Toastify-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- <script src="../JS/chechout.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <style>
       body {
         margin: 0;
@@ -203,7 +213,10 @@
     </nav>
     <!-- Main Content -->
     <main class="main-content">
-      <section class="header text-center text-light rounded" style="background-color: #0f84a9;">
+      <section
+        class="header text-center text-light rounded"
+        style="background-color: #0f84a9"
+      >
         <h3 class="text-center mb-0">Sell A Book</h3>
       </section>
       <!-- Form and Image -->
@@ -303,7 +316,13 @@
       // Access control
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
       if (!u || u.role !== "seller") {
-        alert("Access Denied");
+        Toastify({
+          text: " Access Denied !",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "red",
+        }).showToast();
         window.location.href = "../pages/login.html";
       }
       const sellerDashboard = document.getElementById("sellerDashboard");
@@ -320,7 +339,13 @@
         const imgInput = document.getElementById("imgInput");
         const file = imgInput.files[0];
         if (!file) {
-          alert("Please select an image.");
+          Toastify({
+            text: " Please select an image !",
+            duration: 3000,
+            gravity: "top",
+            position: "center",
+            backgroundColor: "red",
+          }).showToast();
           return;
         }
         const reader = new FileReader();
@@ -343,7 +368,13 @@
             !description ||
             !category
           ) {
-            alert("Please fill in all fields.");
+            Toastify({
+              text: " All Fields required !",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "red",
+            }).showToast();
             return;
           }
 
@@ -387,7 +418,13 @@
           u.books = sellerBooks;
           localStorage.setItem("currentUser", JSON.stringify(u));
           localStorage.setItem("books", JSON.stringify(all));
-          alert("Book added successfully!");
+          Toastify({
+              text: " Book Added Successfully !",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "green",
+            }).showToast();
           document.querySelector(".product-form-container form").reset();
 
           // Reset image preview
@@ -435,7 +472,16 @@
       // Logout
       function logout() {
         localStorage.removeItem("currentUser");
-        window.location.href = "../index.html";
+        Toastify({
+          text: "Logged Out Successfully.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "green",
+        }).showToast();
+        setTimeout(() => {
+          window.location.href = "../index.html";
+        }, 3000);
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

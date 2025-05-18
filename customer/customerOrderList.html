@@ -22,6 +22,17 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!--Toastify-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- <script src="../JS/chechout.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -215,7 +226,13 @@
     <script>
       const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
       if (!currentUser || currentUser.role !== "customer") {
-        alert("Access Denied");
+        Toastify({
+          text: " Access Denied !",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "red",
+        }).showToast();
         window.location.href = "../pages/login.html";
       }
       const ordersTableBody = document.getElementById("ordersTableBody");
@@ -248,13 +265,22 @@
       function deleteOrder(orderIndex) {
         if (currentUser && currentUser.orders[orderIndex]) {
           currentUser.orders.splice(orderIndex, 1);
-          localStorage.setItem("currentUser", JSON.stringify(currentUser)); 
+          localStorage.setItem("currentUser", JSON.stringify(currentUser));
           location.reload();
         }
       }
       function logout() {
         localStorage.removeItem("currentUser");
-        window.location.href = "../index.html";
+        Toastify({
+          text: "Logged Out Successfully.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "green",
+        }).showToast();
+        setTimeout(() => {
+          window.location.href = "../index.html";
+        }, 3000);
       }
     </script>
   </body>

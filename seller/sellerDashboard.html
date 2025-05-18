@@ -20,6 +20,17 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!--Toastify-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- <script src="../JS/chechout.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <style>
       body {
         margin: 0;
@@ -279,18 +290,24 @@
     <script>
       const u = JSON.parse(localStorage.getItem("currentUser"));
       if (!u || u.role !== "seller") {
-        alert("Access Denied");
+        Toastify({
+          text: " Access Denied !",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "red",
+        }).showToast();
         window.location.href = "../pages/login.html";
       }
       // alert(`welcome back ${u.firstName}`);
       const sellerDashboard = document.getElementById("sellerDashboard");
       sellerDashboard.innerText += `${u.firstName} Dashboard`;
       let all = JSON.parse(localStorage.getItem("books")) || [];
-      document.getElementById('firstName').value = `${u.firstName}`;
-      document.getElementById('lastName').value = `${u.lastName}`;
-      document.getElementById('email').value = `${u.email}`;
-      document.getElementById('password').value = `${u.password}`;
-      document.getElementById('confirmPassword').value = `${u.password}`;
+      document.getElementById("firstName").value = `${u.firstName}`;
+      document.getElementById("lastName").value = `${u.lastName}`;
+      document.getElementById("email").value = `${u.email}`;
+      document.getElementById("password").value = `${u.password}`;
+      document.getElementById("confirmPassword").value = `${u.password}`;
       document.addEventListener("DOMContentLoaded", () => {
         document
           .getElementById("updateSellerCredentials")
@@ -312,19 +329,43 @@
               !password ||
               !confirmPassword
             ) {
-              alert("Please fill in all fields.");
+              Toastify({
+                text: " All Fields required !",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "red",
+              }).showToast();
               return;
             }
             if (!emailRegex.test(email)) {
-              alert("Please enter a valid email address.");
+              Toastify({
+              text: " Please, Enter a valid email !",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "red",
+            }).showToast();
               return;
             }
             if (!passwordRegex.test(password)) {
-              alert("Password must be at least 6 characters long.");
+              Toastify({
+              text: " Password must be at least 6 characters long.",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "red",
+            }).showToast();
               return;
             }
             if (password !== confirmPassword) {
-              alert("Passwords don't match.");
+              Toastify({
+              text: "Passwords don't match.",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "red",
+            }).showToast();
               return;
             }
             u.firstName = firstName;
@@ -332,14 +373,29 @@
             u.email = email;
             u.password = password;
             localStorage.setItem("currentUser", JSON.stringify(u));
-            alert("Updated Credentials!");
+            Toastify({
+              text: "Updated Credentials !",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "green",
+            }).showToast();
             window.location.reload();
           });
       });
       // Logout function
       function logout() {
         localStorage.removeItem("currentUser");
-        window.location.href = "../index.html";
+        Toastify({
+          text: "Logged Out Successfully.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "green",
+        }).showToast();
+        setTimeout(() => {
+          window.location.href = "../index.html";
+        }, 3000);
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

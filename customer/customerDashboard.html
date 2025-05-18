@@ -3,7 +3,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customer Dashboard</title>
-    <link rel="icon" type="image/x-icon" href="../assets/home/favicon (1).ico">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../assets/home/favicon (1).ico"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -20,6 +24,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!--Toastify-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- <script src="../JS/chechout.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <style>
       body {
         margin: 0;
@@ -198,7 +213,7 @@
     </nav>
     <!-- Main Content -->
     <main class="main-content">
-      <section class="header rounded" style="background-color: #0c6c8a;">
+      <section class="header rounded" style="background-color: #0c6c8a">
         <h3 id="customerDashboard" class="text-light text-center mb-0"></h3>
       </section>
       <!-- Form and Image -->
@@ -275,17 +290,23 @@
       // Ensure currentUser is valid and has the proper role
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
       if (!u || u.role !== "customer") {
-        alert("Access Denied");
+        Toastify({
+          text: " Access Denied !",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "red",
+        }).showToast();
         window.location.href = "../pages/login.html";
       }
       // alert(`welcome back ${u.firstName} !`)
       const customerDashboard = document.getElementById("customerDashboard");
       customerDashboard.innerText += `${u.firstName} ${u.lastName} Dashboard`;
-      document.getElementById('firstName').value = `${u.firstName}`;
-      document.getElementById('lastName').value = `${u.lastName}`;
-      document.getElementById('email').value = `${u.email}`;
-      document.getElementById('password').value = `${u.password}`;
-      document.getElementById('confirmPassword').value = `${u.password}`;
+      document.getElementById("firstName").value = `${u.firstName}`;
+      document.getElementById("lastName").value = `${u.lastName}`;
+      document.getElementById("email").value = `${u.email}`;
+      document.getElementById("password").value = `${u.password}`;
+      document.getElementById("confirmPassword").value = `${u.password}`;
       document.addEventListener("DOMContentLoaded", () => {
         document
           .getElementById("updateCustomerCredentials")
@@ -307,19 +328,43 @@
               !password ||
               !confirmPassword
             ) {
-              alert("Please fill in all fields.");
+              Toastify({
+                text: " Please Fill in all the fields !",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "red",
+              }).showToast();
               return;
             }
             if (!emailRegex.test(email)) {
-              alert("Please enter a valid email address.");
+              Toastify({
+                text: " please enter a valid email !",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "red",
+              }).showToast();
               return;
             }
             if (!passwordRegex.test(password)) {
-              alert("Password must be at least 6 characters long.");
+              Toastify({
+                text: " password at least be 6 characters !",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "red",
+              }).showToast();
               return;
             }
             if (password !== confirmPassword) {
-              alert("Passwords don't match.");
+              Toastify({
+              text: " Passwords don't match !",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "red",
+            }).showToast();
               return;
             }
             u.firstName = firstName;
@@ -327,14 +372,29 @@
             u.email = email;
             u.password = password;
             localStorage.setItem("currentUser", JSON.stringify(u));
-            alert("Updated Credentials!");
+            Toastify({
+              text: " Updated Credentials !",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "green",
+            }).showToast();
             window.location.reload();
           });
       });
       // Logout function
       function logout() {
         localStorage.removeItem("currentUser");
-        window.location.href = "../index.html";
+        Toastify({
+          text: "Logged Out Successfully.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "green",
+        }).showToast();
+        setTimeout(() => {
+          window.location.href = "../index.html";
+        }, 5000);
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

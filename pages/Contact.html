@@ -22,6 +22,17 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <!--Toastify-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- <script src="../JS/chechout.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <style>
       .bg-color {
         background-color: #036280;
@@ -49,8 +60,9 @@
       .contact-form h2 {
         font-weight: bold;
       }
-      h1,h2{
-        color:#012e4a;
+      h1,
+      h2 {
+        color: #012e4a;
       }
 
       #ff {
@@ -136,13 +148,12 @@
         transform-origin: left;
         transition: transform 0.4s ease;
         z-index: -1;
-        
       }
 
       .zz:hover::before {
         transform: scaleX(1);
       }
-      .zz:hover{
+      .zz:hover {
         color: white;
       }
       @media (max-width: 768px) {
@@ -285,10 +296,10 @@
           </section>
           <section>
             <a
-            href="../customer/customerDashboard.html"
+              href="../customer/customerDashboard.html"
               style="color: white; text-decoration: none; margin-right: 15px"
-              ><i class="fas fa-user ms-3 me-1"></i></a
-            >
+              ><i class="fas fa-user ms-3 me-1"></i
+            ></a>
           </section>
         </section>
         <!-- Bottom Nav -->
@@ -408,7 +419,11 @@
               </a>
             </section> -->
             <section class="position-relative">
-              <a href="../customer/customerDashboard.html" class="d-md-none" style="color: #02488d">
+              <a
+                href="../customer/customerDashboard.html"
+                class="d-md-none"
+                style="color: #02488d"
+              >
                 <i
                   class="fas fa-user"
                   style="font-size: 1.2rem; position: relative"
@@ -420,7 +435,7 @@
       </section>
     </nav>
     <section>
-      <section id="header" class="relative" style="height:  420px;">
+      <section id="header" class="relative" style="height: 420px">
         <img src="../assets/cart/test1.png" id="left-img" />
         <h1 class="center-dev">Contact Us</h1>
         <img src="../assets/cart/test2.png" id="right-img" />
@@ -661,7 +676,13 @@
         const message = document.getElementById("message").value.trim();
         const messages = JSON.parse(localStorage.getItem("messages")) || [];
         if (!name || !email || !message) {
-          alert("Please fill in all fields.");
+          Toastify({
+            text: " Please Fill in all The Fields !",
+            duration: 3000,
+            gravity: "top",
+            position: "center",
+            backgroundColor: "red",
+          }).showToast();
           return;
         }
         messages.push({
@@ -670,7 +691,13 @@
           message,
         });
         localStorage.setItem("messages", JSON.stringify(messages));
-        alert("Message sent successfully!");
+        Toastify({
+          text: " Message sent successfully !",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "green",
+        }).showToast();
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
         document.getElementById("message").value = "";

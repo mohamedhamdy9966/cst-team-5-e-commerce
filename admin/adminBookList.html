@@ -3,7 +3,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookle</title>
-    <link rel="icon" type="image/x-icon" href="../assets/home/favicon (1).ico">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../assets/home/favicon (1).ico"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
       rel="stylesheet"
@@ -13,7 +17,17 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!--Toastify-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- <script src="../JS/chechout.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <!-- <link rel="stylesheet" href="style.css" /> -->
     <style>
       body {
@@ -394,7 +408,8 @@
         ><i class="bi bi-bar-chart-line-fill"></i><span> My Analytics</span></a
       >
       <a href="./adminCustomerService.html" class="nav-link" title="Analytics"
-        ><i class="bi bi-person-workspace"></i><span> Customer Service </span></a
+        ><i class="bi bi-person-workspace"></i
+        ><span> Customer Service </span></a
       >
       <a href="../index.html" class="nav-link" title="Logout" onclick="logout()"
         ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
@@ -407,7 +422,9 @@
         <input type="text" class="search" placeholder="Search books..." />
       </header>
       <section class="container">
-        <h2 class="section-title fw-bold" style="color: #0c6c8a;">Available Books</h2>
+        <h2 class="section-title fw-bold" style="color: #0c6c8a">
+          Available Books
+        </h2>
         <table>
           <thead>
             <tr>
@@ -576,7 +593,13 @@
           const image = document.getElementById("editImage").value.trim();
 
           if (!title || !author || isNaN(price) || !image) {
-            alert("All fields are required.");
+            Toastify({
+              text: " All Fields are Required !",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "red",
+            }).showToast();
             return;
           }
 
@@ -587,7 +610,13 @@
 
           localStorage.setItem("books", JSON.stringify(books));
 
-          alert("Book updated successfully!");
+          Toastify({
+            text: " Book Updated Successfully !",
+            duration: 3000,
+            gravity: "top",
+            position: "center",
+            backgroundColor: "green",
+          }).showToast();
 
           const modal = bootstrap.Modal.getInstance(
             document.getElementById("editBookModal")
@@ -598,7 +627,16 @@
 
       function logout() {
         localStorage.removeItem("currentUser");
-        window.location.href = "../index.html";
+        Toastify({
+          text: "Logged Out Successfully.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "green",
+        }).showToast();
+        setTimeout(() => {
+          window.location.href = "../index.html";
+        }, 3000);
       }
     </script>
   </body>
