@@ -581,6 +581,7 @@
           <section>
             <a
               href="../customer/customerDashboard.html"
+              id="loginTopNav"
               style="color: white; text-decoration: none; margin-right: 15px"
               ><i class="fas fa-user ms-3 me-1"></i
             ></a>
@@ -706,6 +707,7 @@
               <a
                 href="../customer/customerDashboard.html"
                 class="d-md-none"
+                id="loginBottomNav"
                 style="color: #02488d"
               >
                 <i
@@ -1173,10 +1175,17 @@
     </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const loginTopNav = document.getElementById("loginTopNav");
-        const loginBottomNav = document.getElementById("loginBottomNav");
+        // const loginBottomNav = document.getElementById("loginBottomNav");
         const cartIcon = document.getElementById("cartIcon");
         const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+        const loginTopNav = document.getElementById("loginTopNav");
+        if (u && u.firstName) {
+          loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
+          // loginBottomNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
+        } else {
+          loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
+          // loginBottomNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
+        }
         new Splide(".splide-two", {
           type: "loop",
           perPage: 2,

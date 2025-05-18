@@ -1,678 +1,769 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CheckOut</title>
-  <link rel="icon" type="image/x-icon" href="../assets/home/favicon (1).ico">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<!--Toastify-->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-<!-- <script src="../JS/chechout.js"></script> -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-    .left-img {
-      position: absolute;
-      left: -0.25%;
-      top: 20%;
-      max-height: 400px;
-    }
-    .right-img {
-      position: absolute;
-      right: 0;
-      width: 300px;
-      top: 20%;
-      max-height: 350px;
-    }
-    .fab:hover  {
-       background-color: #f4c430;
-       color: white;
-       }
-       .fab{
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CheckOut</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../assets/home/favicon (1).ico"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!--Toastify-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- <script src="../JS/chechout.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .left-img {
+        position: absolute;
+        left: -0.25%;
+        top: 20%;
+        max-height: 400px;
+      }
+      .right-img {
+        position: absolute;
+        right: 0;
+        width: 300px;
+        top: 20%;
+        max-height: 350px;
+      }
+      .fab:hover {
+        background-color: #f4c430;
+        color: white;
+      }
+      .fab {
         width: 30px;
         height: 30px;
         border: 1px solid white;
         padding: 5px 8px;
-       }
-    label{
+      }
+      label {
         color: #036280;
         font-size: 20px;
-        
-    }
-    input{
+      }
+      input {
         height: 55px;
-    }
-     .note{
+      }
+      .note {
         height: 250px;
-     }
-     span{
-        color:#012E4A;
+      }
+      span {
+        color: #012e4a;
         font-size: 20px;
-     }
-     .footer {
+      }
+      .footer {
         background-color: #012e4a;
         border-radius: 5px;
         padding: 40px;
       }
-  </style>
-</head>
-<body>
-  <nav class="d-flex align-items-stretch sticky" style="height: 100px">
-    <!-- Left Logo -->
-    <section
-      class="d-flex align-items-center px-4"
-      style="
-        background-color: #012e4a;
-        border-top-right-radius: 75%;
-        height: 100%;
-      "
-    >
-      <img
-        src="../assets/home/white-logo.svg"
-        alt="Bookle Books"
-        class="img-fluid"
-        style="max-height: 100%"
-      />
-    </section>
-    <!-- Right Section -->
-    <section class="flex-grow-1 d-flex flex-column">
-      <!-- Top Nav -->
+    </style>
+  </head>
+  <body>
+    <nav class="d-flex align-items-stretch sticky" style="height: 100px">
+      <!-- Left Logo -->
       <section
-        class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
-        style="background-color: #036280; color: white; font-size: 0.9rem"
+        class="d-flex align-items-center px-4"
+        style="
+          background-color: #012e4a;
+          border-top-right-radius: 75%;
+          height: 100%;
+        "
       >
-        <section class="">
-          <i class="fas fa-phone me-2"></i> +208-6666-0112 |
-          <i class="fas fa-envelope ms-2 me-2"></i> necro@sicko.com |
-          <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
-        </section>
-        <section>
-          <a
-          href="../customer/customerDashboard.html"
-            style="color: white; text-decoration: none; margin-right: 15px"
-            ><i class="fas fa-user ms-3 me-1"></i></a
-          >
-        </section>
+        <img
+          src="../assets/home/white-logo.svg"
+          alt="Bookle Books"
+          class="img-fluid"
+          style="max-height: 100%"
+        />
       </section>
-      <!-- Bottom Nav -->
-      <section
-        class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
-        style="background-color: #fff; border-bottom: 1px solid #ddd"
-      >
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg p-0">
-          <section class="container-fluid">
-            <!-- Toggle Button for Offcanvas -->
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasNavbar"
-              aria-controls="offcanvasNavbar"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Offcanvas Menu -->
-            <section
-              class="offcanvas offcanvas-start"
-              tabindex="-1"
-              id="offcanvasNavbar"
-              aria-labelledby="offcanvasNavbarLabel"
-            >
-              <section class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                  <i class="fa-solid fa-bars"></i> Menu
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </section>
-              <section class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li class="nav-item fw-bold px-2">
-                    <a class="nav-link" href="../index.html"
-                      ><i class="fa-solid fa-house"></i> Home</a
-                    >
-                  </li>
-                  <!-- Shop Dropdown -->
-                  <li class="nav-item fw-bold px-2">
-                    <a
-                      class="nav-link"
-                      href="./shoplist.html"
-                      role="button"
-                      aria-expanded="false"
-                    >
-                      <i class="fa-solid fa-shop"></i> Shop
-                    </a>
-                  </li>
-                  <!-- Pages Dropdown -->
-                  <li class="nav-item fw-bold px-2">
-                    <a
-                      class="nav-link"
-                      href="./aboutUs.html"
-                      role="button"
-                      aria-expanded="false"
-                    >
-                      <i class="fa-solid fa-file"></i> About Us
-                    </a>
-                  </li>
-                  <li class="nav-item fw-bold px-2">
-                    <a class="nav-link" href="./Contact.html"
-                      ><i class="fa-solid fa-address-book"></i> Contact</a
-                    >
-                  </li>
-                </ul>
-              </section>
-            </section>
+      <!-- Right Section -->
+      <section class="flex-grow-1 d-flex flex-column">
+        <!-- Top Nav -->
+        <section
+          class="top-bar d-flex justify-content-between align-items-center px-3 py-1 h-50 d-none d-md-flex"
+          style="background-color: #036280; color: white; font-size: 0.9rem"
+        >
+          <section class="">
+            <i class="fas fa-phone me-2"></i> +208-6666-0112 |
+            <i class="fas fa-envelope ms-2 me-2"></i> necro@sicko.com |
+            <i class="fas fa-clock ms-2 me-2"></i> Sunday - Fri: 9 AM - 6 PM
           </section>
-        </nav>
-        <!-- Icons -->
-        <section class="d-flex gap-3">
-          <section class="position-relative">
-            <a href="./wishlist.html" class="text-danger">
-              <i
-                class="far fa-heart"
-                style="font-size: 1.2rem; position: relative"
-              ></i>
-              <span
-                class="rounded-circle text-bg-light"
-                style="
-                  font-size: 0.7rem;
-                  position: absolute;
-                  top: -8px;
-                  right: -10px;
-                  background-color: #036280;
-                "
-                >0</span
-              >
-            </a>
-          </section>
-          <section class="position-relative">
-            <a href="./cart.html" class="text-success">
-              <i
-                class="fas fa-shopping-cart"
-                style="font-size: 1.2rem; position: relative"
-              ></i>
-              <span
-                class="rounded-circle text-bg-light"
-                style="
-                  font-size: 0.7rem;
-                  position: absolute;
-                  top: -8px;
-                  right: -10px;
-                  background-color: #036280;
-                "
-                id="count"
-                >0</span
-              >
-            </a>
-          </section>
-          <section class="position-relative d-md-none">
-            <a href="../customer/customerDashboard.html" style="color: #02488d;">
-              <i
-                class="fas fa-user"
-                style="font-size: 1.2rem; position: relative;"
-              ></i>
-            </a>
-          </section>
-        </section>
-      </section>
-    </section>
-  </nav>
-  <section class="container-fluid bg-light py-5" style="min-height: 400px;">
-    <section class="row align-items-center">
-      <!-- Left Image -->
-      <section class="col-md-4 d-none d-md-block text-center py-2">
-        <img src="../assets/checkout/book1.png" class="left-img" alt="Left books"/>
-      </section>
-      <!-- Center Text -->
-      <section class="col-12 col-md-4 text-center py-5">
-        <h2 class="fw-bold" style="color: #012E7C;">Checkout</h2>
-        <!-- <p><span style="color: #012E7C;"></span> > <span style="color: #036280;">Checkout</span></p> -->
-      </section>
-      <!-- Right Image -->
-      <section class="col-md-4 d-none d-md-block text-center py-2">
-        <img src="../assets/checkout/book2.png" class="right-img" alt="Right books" style="width: 250px; height: 300px;"/>
-      </section>
-    </section>
-</section>
-    <section class="container-fluid mt-3">
-        <h2>Billing Details</h2>
-        <form id="checkoutForm" onsubmit="return placeOrder()" novalidate>
-        <section class="row">
-          <!-- Billing Form - Left Column -->
-          
-          <section class="col-md-8">
-            <section class="row">
-              <section class="col-md-6 mb-3">
-                <label for="firstName">First Name*</label>
-                <input type="text" class="form-control mt-2" id="firstName" name="firstName" placeholder="Enter your first name" required>
-              </section>
-              <section class="col-md-6 mb-3">
-                <label for="secondName">Second Name*</label>
-                <input type="text" class="form-control mt-2" id="secondName" name="secondName" placeholder="Enter your second name" required>
-              </section>
-              <section class="col-12 mb-3">
-                <label for="companyName">Company Name (optional)</label>
-                <input type="text" class="form-control mt-2" id="companyName" name="companyName">
-              </section>
-              <section class="col-12 mb-3">
-                <label for="country">Country*</label>
-                <input type="text" class="form-control mt-2" id="country" name="country" placeholder="Select a country" required>
-              </section>
-            
-              <section class="col-12 mb-3">
-                <label for="streetAddress">Street Address</label>
-                <input type="text" class="form-control mt-2" id="streetAddress" name="streetAddress" placeholder="Apartment, suite, unit, etc." required>
-              </section>
-      
-              <section class="col-12 mb-3">
-                <label for="city">Town/City*</label>
-                <input type="text" class="form-control mt-2" id="city" name="city" required>
-              </section>
-      
-              <section class="col-12 mb-3">
-                <label for="phone">Phone*</label>
-                <input type="number" class="form-control mt-2" id="phone" name="phone" placeholder="Phone number" required>
-              </section>
-      
-              <section class="col-12 mb-3">
-                <label for="email">Email Address*</label>
-                <input type="email" class="form-control mt-2" id="email" name="email" placeholder="Email" required>
-              </section>
-            </section>
-          </section>
-      <!-- Order Summary - Right Column -->
-<section class="col-md-4 text-center">
-<h2>Our Order</h2>
-
-<!-- Order Table -->
-<table class="table">
-<thead>
-  <tr>
-    <th scope="col">Product</th>
-    <th scope="col">Quantity</th>
-    <th scope="col">Subtotal</th>
-  </tr>
-</thead>
-<tbody id="cartItems">
-
-</tbody>
-</table>
-
-<hr>
-
-<!-- Shipping Options -->
-<section class="row align-items-center">
-<!-- Shipping Label Column -->
-<section class="col-md-6 col-12 mb-2">
-  <span class="fw-bold">Shipping</span>
-</section>
-
-<!-- Radio Buttons Column -->
-<section class="col-md-6 col-12">
-  <section>
-    <input class="form-check-input me-2" type="radio" id="shipping2" name="shipping">
-    <label class="form-check-label" for="shipping2">Express Shipping</label>
-  </section>
-  <section>
-    <input class="form-check-input me-2" type="radio" id="shipping3" name="shipping">
-    <label class="form-check-label" for="shipping3">Next Day Delivery</label>
-  </section>
-</section>
-</section>
-
-<hr>
-
-<!-- Total -->
-<section class="d-flex justify-content-between">
-<span>Total</span>
-<span id="orderTotal">$55.00</span>
-</section>
-<hr>
-
-<!-- Payment Methods -->
-<section class="col-12">
-<section class="form-check d-flex align-items-center">
-  <input class="form-check-input me-2" type="radio" id="radio1">
-  <label class="form-check-label" for="radio1">Direct bank transfer</label>
-</section>
-<p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
-
-<section class="form-check d-flex align-items-center">
-  <input class="form-check-input me-2" type="radio" id="radio2">
-  <label class="form-check-label" for="radio2">Cash on delivery</label>
-</section>
-
-<section class="form-check d-flex align-items-center">
-  <input class="form-check-input me-2" type="radio" id="radio3">
-  <label class="form-check-label" for="radio3">Paypal</label>
-</section>
-
-<hr>
-<!-- Place Order Button -->
-<button type="submit" class="btn btn-success w-100 place-order-btn rounded-5" style="background-color: #012E4A;" >
-  Place Order
-</button>
-</section>
-</section>
-
-              </section>
-          </section>
-        </section>
-      </section>
-      
-<section class="container-fluid mt-5">
-    <section class="row">
-      <!-- Checkbox -->
-      <section class="col-12 mb-3">
-        <section class="form-check">
-            <input class="form-check-input" type="checkbox" id="Check1">
-            <label class="form-check-label" for="Check1">
-                Save for my next payment
-            </label>
-        </section>
-      </section>
-      <section class="col-12 mb-3">
-        <section class="form-check">
-            <input class="form-check-input" type="checkbox" id="Check2">
-            <label class="form-check-label" for="Check2">
-                Ship to a different address?
-            </label>
-        </section>
-      </section>
-    </section>
-  </section>
-    <section class="col-12 col-md-8 mx-3 my-3">
-        <label for="name">order notes (optional)</label>
-        <input type="text" class="form-control mt-2 note" id="name" placeholder="Note about your Order , E.G Special Notes for Delivery">
-      </section>
-    </form>
-
-
-  <section class="footer text-white">
-    <section class="container">
-      <section class="row text-center text-md-start">
-        <section class="col-md-3 mb-4">
-          <h5>📚 Bookle Books</h5>
-          <p>Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia curabitur lacinia mollis</p>
           <section>
-            <a href="#" class="text-white me-2" ><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white me-2"><i class="fab fa-linkedin"></i></a>
+            <a
+              href="../customer/customerDashboard.html"
+              id="loginTopNav"
+              style="color: white; text-decoration: none; margin-right: 15px"
+              ><i class="fas fa-user ms-3 me-1"></i
+            ></a>
           </section>
         </section>
-        <section class="col-md-3 mb-4">
-          <h6>Customers Support</h6>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Store List</a></li>
-            <li><a href="#" class="text-white">Opening Hours</a></li>
-            <li><a href="#" class="text-white">Contact Us</a></li>
-            <li><a href="#" class="text-white">Return Policy</a></li>
-          </ul>
-        </section>
-        <section class="col-md-3 mb-4">
-          <h6>Categories</h6>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Novel Books</a></li>
-            <li><a href="#" class="text-white">Poetry Books</a></li>
-            <li><a href="#" class="text-white">Political Books</a></li>
-            <li><a href="#" class="text-white">History Books</a></li>
-          </ul>
-        </section>
-        <section class="col-md-3 mb-4">
-          <h6>Newsletter</h6>
-          <p>Sign up to receive weekly newsletter to get the latest updates.</p>
-          <section class="d-flex">
-            <input type="email" class="form-control me-2" placeholder="Enter Email Address" />
-            <button class="btn btn-primary" type="submit">
-                <i class="fa fa-paper-plane" style="color: white;"></i>
+        <!-- Bottom Nav -->
+        <section
+          class="d-flex justify-content-between align-items-center px-3 flex-grow-1"
+          style="background-color: #fff; border-bottom: 1px solid #ddd"
+        >
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg p-0">
+            <section class="container-fluid">
+              <!-- Toggle Button for Offcanvas -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar"
+              >
+                <span class="navbar-toggler-icon"></span>
               </button>
+              <!-- Offcanvas Menu -->
+              <section
+                class="offcanvas offcanvas-start"
+                tabindex="-1"
+                id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel"
+              >
+                <section class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    <i class="fa-solid fa-bars"></i> Menu
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </section>
+                <section class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="../index.html"
+                        ><i class="fa-solid fa-house"></i> Home</a
+                      >
+                    </li>
+                    <!-- Shop Dropdown -->
+                    <li class="nav-item fw-bold px-2">
+                      <a
+                        class="nav-link"
+                        href="./shoplist.html"
+                        role="button"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-shop"></i> Shop
+                      </a>
+                    </li>
+                    <!-- Pages Dropdown -->
+                    <li class="nav-item fw-bold px-2">
+                      <a
+                        class="nav-link"
+                        href="./aboutUs.html"
+                        role="button"
+                        aria-expanded="false"
+                      >
+                        <i class="fa-solid fa-file"></i> About Us
+                      </a>
+                    </li>
+                    <li class="nav-item fw-bold px-2">
+                      <a class="nav-link" href="./Contact.html"
+                        ><i class="fa-solid fa-address-book"></i> Contact</a
+                      >
+                    </li>
+                  </ul>
+                </section>
+              </section>
+            </section>
+          </nav>
+          <!-- Icons -->
+          <section class="d-flex gap-3">
+            <section class="position-relative">
+              <a href="./wishlist.html" class="text-danger">
+                <i
+                  class="far fa-heart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  >0</span
+                >
+              </a>
+            </section>
+            <section class="position-relative">
+              <a href="./cart.html" class="text-success">
+                <i
+                  class="fas fa-shopping-cart"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+                <span
+                  class="rounded-circle text-bg-light"
+                  style="
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    background-color: #036280;
+                  "
+                  id="count"
+                  >0</span
+                >
+              </a>
+            </section>
+            <section class="position-relative d-md-none">
+              <a
+                href="../customer/customerDashboard.html"
+                style="color: #02488d"
+              >
+                <i
+                  class="fas fa-user"
+                  style="font-size: 1.2rem; position: relative"
+                ></i>
+              </a>
+            </section>
           </section>
         </section>
       </section>
-      <hr class="bg-white" />
-      <section class="text-center">
-        <p>
-          <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
-          <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
-          <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; | &nbsp;
-          <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
-        </p>
-      </section>
+    </nav>
+    <!-- Hero Section -->
+    <section class="container-fluid bg-light py-5" style="min-height: 400px">
+      <div class="row align-items-center">
+        <!-- Left Image -->
+        <div class="col-md-4 d-none d-md-block text-center py-2">
+          <img
+            src="../assets/checkout/book1.png"
+            class="left-img"
+            alt="Left books"
+          />
+        </div>
+        <!-- Center Text -->
+        <div class="col-12 col-md-4 text-center py-5">
+          <h2 class="fw-bold" style="color: #012e7c">Checkout</h2>
+        </div>
+        <!-- Right Image -->
+        <div class="col-md-4 d-none d-md-block text-center py-2">
+          <img
+            src="../assets/checkout/book2.png"
+            class="right-img"
+            alt="Right books"
+            style="width: 250px; height: 300px"
+          />
+        </div>
+      </div>
     </section>
-  </section>
-</body>
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const u = JSON.parse(localStorage.getItem("currentUser")) || {};
-    userOrders = u.orders;
-    // const loginTopNav = document.getElementById("loginTopNav");
-    //     const loginBottomNav = document.getElementById("loginBottomNav");
-    //     const cartIcon = document.getElementById("cartIcon");
-    //     const u = JSON.parse(localStorage.getItem("currentUser")) || {};
-    //     const wishlist = u.wishlist || [];
-    //     const wishlistBadge = document.getElementById("wishCount");
-    //     const wishlistIcon = document.getElementById("wishlistIcon");
-    //     if (u && u.firstName) {
-    //       loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
-    //       loginTopNav.href = "./customer/customerDashboard.html";
-    //       loginBottomNav.href = "./customer/customerDashboard.html";
-    //       wishlistIcon.href = "./customer/customerWishlist.html";
-    //       cartIcon.href = "./pages/cart.html";
-    //     } else {
-    //       loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
-    //       loginTopNav.href = "./pages/login.html";
-    //       loginBottomNav.href = "./pages/login.html";
-    //       wishlistIcon.href = "./pages/login.html";
-    //       cartIcon.href = "./pages/login.html";
-    //     }
-    const badge = document.querySelector('#count');
-     console.log(badge);
-    if (badge) {
-  
-      const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-      const totalOrders = userOrders.reduce((sum, item) => sum + (item.quantity || 1), 0);
-      badge.textContent = totalItems;
-    }
-  });
-</script>
-<script>
-  // Get cart data from localStorage
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const cartItemsTable = document.getElementById('cartItems');
-  const orderTotalElement = document.getElementById('orderTotal');
+    <!-- Checkout Form -->
+    <main class="container-fluid mt-3">
+      <h2>Billing Details</h2>
+      <form id="checkoutForm" onsubmit="return placeOrder()" novalidate>
+        <div class="row">
+          <!-- Billing Details -->
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">First Name*</label>
+                <input
+                  type="text"
+                  class="form-control mt-2"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="Enter your first name"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="secondName">Second Name*</label>
+                <input
+                  type="text"
+                  class="form-control mt-2"
+                  id="secondName"
+                  name="secondName"
+                  placeholder="Enter your second name"
+                  required
+                />
+              </div>
+              <div class="col-12 mb-3">
+                <label for="companyName">Company Name (optional)</label>
+                <input
+                  type="text"
+                  class="form-control mt-2"
+                  id="companyName"
+                  name="companyName"
+                />
+              </div>
+              <div class="col-12 mb-3">
+                <label for="country">Country*</label>
+                <input
+                  type="text"
+                  class="form-control mt-2"
+                  id="country"
+                  name="country"
+                  placeholder="Select a country"
+                  required
+                />
+              </div>
+              <div class="col-12 mb-3">
+                <label for="streetAddress">Street Address*</label>
+                <input
+                  type="text"
+                  class="form-control mt-2"
+                  id="streetAddress"
+                  name="streetAddress"
+                  placeholder="Apartment, suite, unit, etc."
+                  required
+                />
+              </div>
+              <div class="col-12 mb-3">
+                <label for="city">Town/City*</label>
+                <input
+                  type="text"
+                  class="form-control mt-2"
+                  id="city"
+                  name="city"
+                  required
+                />
+              </div>
+              <div class="col-12 mb-3">
+                <label for="phone">Phone*</label>
+                <input
+                  type="number"
+                  class="form-control mt-2"
+                  id="phone"
+                  name="phone"
+                  placeholder="Phone number"
+                  required
+                />
+              </div>
+              <div class="col-12 mb-3">
+                <label for="email">Email Address*</label>
+                <input
+                  type="email"
+                  class="form-control mt-2"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+            </div>
+          </div>
 
-  let totalAmount = 0;
+          <!-- Order Summary -->
+          <div class="col-md-4">
+            <h2 class="text-center">Your Order</h2>
+            <div id="total" class="d-none"></div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
+              <tbody id="cartItems"></tbody>
+            </table>
+            <hr />
 
-  // Loop through cart items
-  cart.forEach(item => {
-    const row = document.createElement('tr');
-    
-    // Product name cell with image
-    const productCell = document.createElement('td');
-    
-    // Create image element
-    const img = document.createElement('img');
-    img.src = item.img;  
-    img.alt = item.name;
-    img.style.width = '30px';
-    img.style.height = 'auto'; 
-    img.style.marginRight = '10px'; 
-    
-    // Add the image and product name together
-    productCell.appendChild(img);
-    productCell.appendChild(document.createTextNode(item.name)); // Add product name next to the image
+            <!-- Shipping Options -->
+            <div class="row align-items-center mb-3">
+              <div class="col-12 fw-bold">Shipping</div>
+              <div class="col-12">
+                <div>
+                  <input
+                    class="form-check-input me-2"
+                    type="radio"
+                    id="shipping2"
+                    name="shipping"
+                  />
+                  <label class="form-check-label" for="shipping2"
+                    >Express Shipping</label
+                  >
+                </div>
+                <div>
+                  <input
+                    class="form-check-input me-2"
+                    type="radio"
+                    id="shipping3"
+                    name="shipping"
+                  />
+                  <label class="form-check-label" for="shipping3"
+                    >Next Day Delivery</label
+                  >
+                </div>
+              </div>
+            </div>
 
-    // Quantity cell
-    const quantityCell = document.createElement('td');
-    quantityCell.textContent = item.quantity || 1; // Use 1 if quantity is missing
+            <hr />
+            <!-- Total -->
+            <div class="d-flex justify-content-between">
+              <span>Total</span>
+              <span id="orderTotal">$55.00</span>
+            </div>
+            <hr />
 
-    // Price and subtotal calculation
-    const price = typeof item.price === 'string' ? parseFloat(item.price.replace('$', '')) : item.price; // Ensure price is a number
-    const quantity = item.quantity || 1; // Default to 1 if quantity is missing or invalid
-    const subtotal = (price * quantity).toFixed(2); // Calculate subtotal for each product
+            <!-- Payment Methods -->
+            <div>
+              <div class="form-check d-flex align-items-center mb-2">
+                <input
+                  class="form-check-input me-2"
+                  type="radio"
+                  id="radio1"
+                  name="paymentMethod"
+                />
+                <label class="form-check-label" for="radio1"
+                  >Direct bank transfer</label
+                >
+              </div>
+              <p class="small">
+                Use Order ID as reference. Shipping only after payment is
+                confirmed.
+              </p>
 
-    const subtotalCell = document.createElement('td');
-    subtotalCell.textContent = `$${subtotal}`;
+              <div class="form-check d-flex align-items-center mb-2">
+                <input
+                  class="form-check-input me-2"
+                  type="radio"
+                  id="radio2"
+                  name="paymentMethod"
+                />
+                <label class="form-check-label" for="radio2"
+                  >Cash on delivery</label
+                >
+              </div>
 
-    // Append cells to the row
-    row.appendChild(productCell);
-    row.appendChild(quantityCell);
-    row.appendChild(subtotalCell);
+              <div class="form-check d-flex align-items-center mb-2">
+                <input
+                  class="form-check-input me-2"
+                  type="radio"
+                  id="radio3"
+                  name="paymentMethod"
+                />
+                <label class="form-check-label" for="radio3">Paypal</label>
+              </div>
 
-    // Append row to the table body
-    cartItemsTable.appendChild(row);
+              <hr />
+              <button
+                type="submit"
+                class="btn btn-success w-100 rounded-5"
+                style="background-color: #012e4a"
+              >
+                Place Order
+              </button>
+            </div>
+          </div>
+        </div>
 
-    // Update the total amount
-    totalAmount += parseFloat(subtotal); // Add subtotal to the totalAmount
-  });
+        <!-- Extra Options -->
+        <div class="row mt-5">
+          <div class="col-12 mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="Check1" />
+              <label class="form-check-label" for="Check1"
+                >Save for my next payment</label
+              >
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="Check2" />
+              <label class="form-check-label" for="Check2"
+                >Ship to a different address?</label
+              >
+            </div>
+          </div>
+          <div class="col-12 col-md-8 mx-3 my-3">
+            <label for="name">Order notes (optional)</label>
+            <input
+              type="text"
+              class="form-control mt-2 note"
+              id="name"
+              placeholder="Note about your Order, e.g. special delivery instructions"
+            />
+          </div>
+        </div>
+      </form>
+    </main>
+    <!-- Footer -->
+    <footer class="footer text-white bg-dark mt-5 pt-4 pb-2">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-3 mb-4">
+            <h5>📚 Bookle Books</h5>
+            <p>
+              Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
+              lacinia curabitur lacinia mollis
+            </p>
+            <div>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Customer Support</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Store List</a></li>
+              <li><a href="#" class="text-white">Opening Hours</a></li>
+              <li><a href="#" class="text-white">Contact Us</a></li>
+              <li><a href="#" class="text-white">Return Policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Categories</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Novel Books</a></li>
+              <li><a href="#" class="text-white">Poetry Books</a></li>
+              <li><a href="#" class="text-white">Political Books</a></li>
+              <li><a href="#" class="text-white">History Books</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h6>Newsletter</h6>
+            <p>
+              Sign up to receive weekly newsletter to get the latest updates.
+            </p>
+            <div class="d-flex">
+              <input
+                type="email"
+                class="form-control me-2"
+                placeholder="Enter Email Address"
+              />
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-paper-plane" style="color: white"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr class="bg-white" />
+        <div class="text-center small">
+          <p>
+            <i class="fa fa-phone"></i> +208-555-0112 &nbsp; | &nbsp;
+            <i class="fa fa-envelope"></i> example@gmail.com &nbsp; | &nbsp;
+            <i class="fa fa-clock"></i> Sunday - Fri: 9 AM - 6 PM &nbsp; |
+            &nbsp; <i class="fa fa-map-marker-alt"></i> 4517 Washington Ave.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+        const userOrders = u.orders || [];
+        const loginTopNav = document.getElementById("loginTopNav");
+        if (u && u.firstName) {
+          loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
+        } else {
+          loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
+        }
+        const badge = document.querySelector("#count");
+        if (badge) {
+          const totalItems = cart.reduce(
+            (sum, item) => sum + (item.quantity || 1),
+            0
+          );
+          badge.textContent = totalItems;
+        }
 
-  // Add shipping row (hardcoded)
-  const shippingRow = document.createElement('tr');
-  const shippingProductCell = document.createElement('td');
-  shippingProductCell.textContent = 'Shipping Charges';
+        const cartItemsTable = document.getElementById("cartItems");
+        const orderTotalElement = document.getElementById("orderTotal");
+        let totalAmount = 0;
 
-  const shippingQuantityCell = document.createElement('td');
-  shippingQuantityCell.textContent = ''; 
+        cart.forEach((item) => {
+          const row = document.createElement("tr");
+          const productCell = document.createElement("td");
 
-  const shippingSubtotalCell = document.createElement('td');
-  const shippingPrice = 5; 
-  shippingSubtotalCell.textContent = `$${shippingPrice.toFixed(2)}`;
+          const img = document.createElement("img");
+          img.src = item.img;
+          img.alt = item.name;
+          img.style.width = "30px";
+          img.style.marginRight = "10px";
 
-  // Append shipping row
-  shippingRow.appendChild(shippingProductCell);
-  shippingRow.appendChild(shippingQuantityCell);
-  shippingRow.appendChild(shippingSubtotalCell);
-  cartItemsTable.appendChild(shippingRow);
+          productCell.appendChild(img);
+          productCell.appendChild(document.createTextNode(item.name));
 
-  // Update totalAmount with shipping charges
-  totalAmount += shippingPrice;
+          const quantityCell = document.createElement("td");
+          quantityCell.textContent = item.quantity || 1;
 
-  // Display the total amount in the order total
-  orderTotalElement.textContent = `$${totalAmount.toFixed(2)}`;
+          const price =
+            typeof item.price === "string"
+              ? parseFloat(item.price.replace("$", ""))
+              : item.price;
+          const quantity = item.quantity || 1;
+          const subtotal = (price * quantity).toFixed(2);
 
-  // Update the "total" element on the page (if needed)
-  document.getElementById("total").innerHTML = totalAmount.toFixed(2);
-  function showToast(message, type = "error") {
-    Toastify({
-      text: message,
-      duration: 3000,
-      gravity: "top",
-      position: "right",
-      backgroundColor: type === "error" ? "#ff4d4d" : "#4BB543",
-      close: true
-    }).showToast();
-  }
+          const subtotalCell = document.createElement("td");
+          subtotalCell.textContent = `$${subtotal}`;
 
-  function placeOrder(event) {
-    event.preventDefault();
+          row.appendChild(productCell);
+          row.appendChild(quantityCell);
+          row.appendChild(subtotalCell);
+          cartItemsTable.appendChild(row);
 
-    // ✅ Check if user is logged in
-    const loggedInUser = localStorage.getItem("currentUser");
-    if (!loggedInUser) {
-      showToast("Please log in to place an order.");
-      return;
-    }
+          totalAmount += parseFloat(subtotal);
+        });
 
-    const fields = [
-      'firstName',
-      'secondName',
-      'country',
-      'streetAddress',
-      'city',
-      'phone',
-      'email'
-    ];
+        const shippingRow = document.createElement("tr");
+        const shippingProductCell = document.createElement("td");
+        shippingProductCell.textContent = "Shipping Charges";
 
-    for (const fieldId of fields) {
-      const value = document.getElementById(fieldId)?.value.trim();
-      if (!value) {
-        showToast(`Please fill in the ${fieldId} field.`);
-        return;
-      }
-    }
+        const shippingQuantityCell = document.createElement("td");
+        shippingQuantityCell.textContent = "";
 
-    const userDetails = {
-      firstName: document.getElementById('firstName').value.trim(),
-      secondName: document.getElementById('secondName').value.trim(),
-      country: document.getElementById('country').value.trim(),
-      streetAddress: document.getElementById('streetAddress')?.value.trim() || '',
-      city: document.getElementById('city').value.trim(),
-      phone: document.getElementById('phone').value.trim(),
-      email: document.getElementById('email').value.trim()
-    };
+        const shippingSubtotalCell = document.createElement("td");
+        const shippingPrice = 5;
+        shippingSubtotalCell.textContent = `$${shippingPrice.toFixed(2)}`;
 
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        shippingRow.appendChild(shippingProductCell);
+        shippingRow.appendChild(shippingQuantityCell);
+        shippingRow.appendChild(shippingSubtotalCell);
+        cartItemsTable.appendChild(shippingRow);
 
-    if (cart.length === 0) {
-      showToast("Your cart is empty.");
-      return;
-    }
+        totalAmount += shippingPrice;
+        orderTotalElement.textContent = `$${totalAmount.toFixed(2)}`;
+        document.getElementById("total").innerHTML = totalAmount.toFixed(2);
 
-    const fullOrder = {
-      userDetails: userDetails,
-      items: cart.map(item => ({
-        name: item.name,
-        price: item.price,
-        img: item.img,
-        quantity: item.quantity || 1,
-        total: (parseFloat(item.price.replace('$', '')) * item.quantity).toFixed(2),
-      })),
-      date: new Date().toISOString()
-    };
+        function showToast(message, type = "error") {
+          Toastify({
+            text: message,
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            backgroundColor: type === "error" ? "#ff4d4d" : "#4BB543",
+            close: true,
+          }).showToast();
+        }
 
-    const existingOrders = JSON.parse(localStorage.getItem('orders')) || [];
-    existingOrders.push(fullOrder);
-    localStorage.setItem('orders', JSON.stringify(existingOrders));
+        function placeOrder(event) {
+          event.preventDefault();
 
-    const existingUserData = JSON.parse(localStorage.getItem('userDetails')) || [];
-    existingUserData.push(userDetails);
-    localStorage.setItem('userDetails', JSON.stringify(existingUserData));
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-const users = JSON.parse(localStorage.getItem("users")) || [];
+          const loggedInUser = localStorage.getItem("currentUser");
+          if (!loggedInUser) {
+            showToast("Please log in to place an order.");
+            return;
+          }
 
-const userIndex = users.findIndex(user => user.email === currentUser.email);
-if (userIndex !== -1) {
-  if (!Array.isArray(users[userIndex].orders)) {
-    users[userIndex].orders = [];
-  }
+          const fields = [
+            "firstName",
+            "secondName",
+            "country",
+            "streetAddress",
+            "city",
+            "phone",
+            "email",
+          ];
+          for (const fieldId of fields) {
+            const value = document.getElementById(fieldId)?.value.trim();
+            if (!value) {
+              showToast(`Please fill in the ${fieldId} field.`);
+              return;
+            }
+          }
 
-  // أضف كل الكتب الموجودة في الطلب الحالي
-  fullOrder.items.forEach(item => {
-    users[userIndex].orders.push({
-      title: item.name,
-      price: item.price,
-      image: item.img,
-      quantity: item.quantity,
-      status: "Packing"
-    });
-  });
+          const userDetails = {
+            firstName: document.getElementById("firstName").value.trim(),
+            secondName: document.getElementById("secondName").value.trim(),
+            country: document.getElementById("country").value.trim(),
+            streetAddress: document
+              .getElementById("streetAddress")
+              .value.trim(),
+            city: document.getElementById("city").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            email: document.getElementById("email").value.trim(),
+          };
 
-  localStorage.setItem("users", JSON.stringify(users));
-}
-    localStorage.setItem('cart', JSON.stringify([]));
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+          if (cart.length === 0) {
+            showToast("Your cart is empty.");
+            return;
+          }
 
-    showToast("Order placed successfully!", "success");
+          const fullOrder = {
+            userDetails,
+            items: cart.map((item) => ({
+              name: item.name,
+              price: item.price,
+              img: item.img,
+              quantity: item.quantity || 1,
+              total: (
+                parseFloat(item.price.replace("$", "")) * item.quantity
+              ).toFixed(2),
+            })),
+            date: new Date().toISOString(),
+          };
 
-    setTimeout(() => {
-      window.location.href = "./completedOrder.html";
-    }, 1500);
-  }
+          const existingOrders =
+            JSON.parse(localStorage.getItem("orders")) || [];
+          existingOrders.push(fullOrder);
+          localStorage.setItem("orders", JSON.stringify(existingOrders));
 
-  window.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("checkoutForm").addEventListener("submit", placeOrder);
-  });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+          const existingUserData =
+            JSON.parse(localStorage.getItem("userDetails")) || [];
+          existingUserData.push(userDetails);
+          localStorage.setItem("userDetails", JSON.stringify(existingUserData));
+
+          const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          const userIndex = users.findIndex(
+            (user) => user.email === currentUser.email
+          );
+          if (userIndex !== -1) {
+            if (!Array.isArray(users[userIndex].orders)) {
+              users[userIndex].orders = [];
+            }
+            fullOrder.items.forEach((item) => {
+              users[userIndex].orders.push({
+                title: item.name,
+                price: item.price,
+                image: item.img,
+                quantity: item.quantity,
+                status: "Packing",
+              });
+            });
+            localStorage.setItem("users", JSON.stringify(users));
+          }
+
+          localStorage.setItem("cart", JSON.stringify([]));
+          showToast("Order placed successfully!", "success");
+          setTimeout(() => {
+            window.location.href = "./completedOrder.html";
+          }, 1500);
+        }
+
+        const form = document.getElementById("checkoutForm");
+        if (form) {
+          form.addEventListener("submit", placeOrder);
+        }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
