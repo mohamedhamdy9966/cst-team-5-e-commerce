@@ -22,6 +22,18 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jshashes/1.0.8/hashes.min.js"></script>
+    <!--Toastify-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- <script src="../JS/chechout.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <style>
       h1[class="card-title"] {
         color: #012e4a;
@@ -384,15 +396,18 @@
           spinner.classList.add("d-none");
           return showMessage("This email is already registered.");
         }
+        const SHA256 = new Hashes.SHA256();
+        const hashedPassword = SHA256.hex(password);
         users.push({
           firstName: firstName,
           lastName: lastName,
           email: email,
-          password: password,
+          password: hashedPassword,
           role: role,
           books: [],
           wishlist: [],
           orders: [],
+          cart: [],
         });
         console.log(users);
         localStorage.setItem("users", JSON.stringify(users));
@@ -428,16 +443,5 @@
         }
       });
     </script>
-        <!--Toastify-->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
-    <!-- <script src="../JS/chechout.js"></script> -->
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/toastify-js"
-    ></script>
   </body>
 </html>

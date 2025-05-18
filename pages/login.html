@@ -33,6 +33,7 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jshashes/1.0.8/hashes.min.js"></script>
     <style>
       .card-title {
         color: #012e4a;
@@ -429,9 +430,10 @@
           }
           // Normal users
           const users = JSON.parse(localStorage.getItem("users")) || [];
-          console.log("All users in storage:", users);
+          const SHA256 = new Hashes.SHA256();
+          const hashedPassword = SHA256.hex(password);
           const user = users.find(
-            (u) => u.email.toLowerCase() === email && u.password === password
+            (u) => u.email.toLowerCase() === email && u.password === hashedPassword
           );
           if (!user) {
             console.error("User not found or password mismatch");
