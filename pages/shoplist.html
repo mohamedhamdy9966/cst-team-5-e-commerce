@@ -437,16 +437,14 @@
           <!-- Icons -->
           <section class="d-flex gap-3">
             <section class="position-relative">
-              <a
-                href="../customer/customerWishlist.html"
-                class="text-danger"
-              >
+              <a href="../customer/customerWishlist.html" class="text-danger">
                 <i
                   class="far fa-heart"
                   style="font-size: 1.2rem; position: relative"
                 ></i>
                 <span
                   class="rounded-circle text-bg-light"
+                  id="wishCount"
                   style="
                     font-size: 0.7rem;
                     position: absolute;
@@ -714,15 +712,16 @@
       function bindWishlistButtons() {
         const currentUser =
           JSON.parse(localStorage.getItem("currentUser")) || {};
-        currentUser.wishlist = currentUser.wishlist || [];
-
+        const wishlistBadge = document.getElementById("wishCount");
+        const wishlist = currentUser.wishlist || [];
+        if (wishlistBadge) {
+          wishlistBadge.textContent = wishlist.length;
+        }
         document.querySelectorAll(".product-card").forEach((card, index) => {
           const book = books[(currentPage - 1) * booksPerPage + index];
           const btn = card.querySelector(".icon-btn:nth-child(2)");
 
-          const isInWishlist = currentUser.wishlist.some(
-            (item) => item.id === book.id
-          );
+          const isInWishlist = wishlist.some((item) => item.id === book.id);
           if (isInWishlist) btn.classList.add("text-danger");
 
           btn.addEventListener("click", () => {
@@ -741,6 +740,9 @@
                   position: "center",
                   backgroundColor: "orange",
                 }).showToast();
+                if (wishlistBadge) {
+                  wishlistBadge.textContent = wishlist.length;
+                }
               } else {
                 currentUser.wishlist.splice(indexInWishlist, 1);
                 btn.classList.remove("text-danger");
@@ -751,6 +753,9 @@
                   position: "center",
                   backgroundColor: "orange",
                 }).showToast();
+                if (wishlistBadge) {
+                  wishlistBadge.textContent = wishlist.length;
+                }
               }
 
               localStorage.setItem("currentUser", JSON.stringify(currentUser));
