@@ -36,6 +36,7 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     h4 {
       color: #012e4a;
     }
@@ -46,6 +47,10 @@
     .fab:hover {
       background-color: #ff6500;
       color: white;
+    }
+
+    .fab:hover {
+      background-color: #f4c430;
     }
 
     .icon-btn:hover {
@@ -59,6 +64,7 @@
       padding: 20px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
+
     .product-img {
       border-radius: 5px;
       background-color: #f8f8f8;
@@ -67,20 +73,21 @@
       padding: 20px;
       margin: 0 50px;
     }
+
     .product-img img {
       max-height: 300px;
       border-radius: 5px;
     }
-    .price {
+
+    .price,
+    .product-price {
       color: #036280;
       font-size: 1.25rem;
       font-weight: 500;
     }
+
     .stars {
       color: #ff6500;
-    }
-    .product-price {
-      color: #036280;
     }
 
     .icon-btn {
@@ -91,6 +98,7 @@
       border-radius: 50%;
       font-size: 1.2rem;
     }
+
     .prev {
       width: 100px;
       height: 50px;
@@ -101,6 +109,7 @@
       padding: 10px;
       font-size: 18px;
     }
+
     .next {
       width: 100px;
       height: 50px;
@@ -112,6 +121,7 @@
       font-size: 20px;
       border-radius: 10px;
     }
+
     .num-btn {
       background-color: #d0e1e7;
       text-align: center;
@@ -121,39 +131,47 @@
       font-size: 20px;
       border-radius: 10px;
     }
+
     .pages {
       margin: 20px 500px;
     }
+
     .pages button {
       border: none;
     }
 
     .footer {
-      background-color: #012e4a;
+      background-color: #036280;
       border-radius: 5px;
       padding: 40px;
     }
+
     .card p {
       max-width: 800px;
     }
+
     .bg-color {
       background-color: #036280;
       padding-top: 30px;
       min-height: 25vh;
     }
+
     .header-top {
       background-color: #036280;
       color: white;
     }
+
     .navbar-brand {
       font-weight: bold;
     }
+
     .contact-info {
       background-color: #036280;
       color: white;
       border-radius: 20px;
       overflow: hidden;
     }
+
     .contact-info img {
       width: 100%;
       border-top: 1px solid #ffffff55;
@@ -167,30 +185,24 @@
       background-color: #005670;
       color: white;
     }
+
     #fix {
       display: flex;
     }
+
     #fix p {
       margin-top: 5px;
       align-items: center;
     }
+
     .xx i {
       border: 1px dashed white;
       padding: 15px;
       border-radius: 50%;
     }
+
     #unique {
       padding: 15px 20px;
-    }
-
-    .footer {
-      background-color: #036280;
-      border-radius: 5px;
-      padding: 40px;
-    }
-    .fab:hover {
-      background-color: #f4c430;
-      color: white;
     }
 
     .fab {
@@ -213,14 +225,7 @@
       z-index: 1;
       transition: background-color 0.3s, color 0.3s;
     }
-    .addToCartBtn {
-      position: relative;
-      overflow: hidden;
-      font-weight: bold;
-      z-index: 1;
 
-      /* لضمان بقاء النص فوق الشريط */
-    }
     .addToCartBtn::before {
       content: "";
       position: absolute;
@@ -244,7 +249,6 @@
       color: white;
     }
 
-    /* Adjust center-dev on small screens */
     @media (max-width: 768px) {
       .center-dev {
         position: static;
@@ -291,7 +295,6 @@
       }
     }
 
-    /* For very small screens (e.g., phones < 576px) */
     @media (max-width: 576px) {
       .contact-form h2 {
         font-size: 1.25rem;
@@ -436,7 +439,7 @@
             <section class="position-relative">
               <a
                 href="../customer/customerWishlist.html"
-                class="text-danger d-none"
+                class="text-danger"
               >
                 <i
                   class="far fa-heart"
@@ -653,14 +656,14 @@
         const paginatedBooks = filteredBooks.slice(start, end);
         paginatedBooks.forEach((book) => {
           const card = document.createElement("section");
-          card.className = "product-card row mb-4 detailsProduct";
+          card.className = "product-card row mb-4";
           card.style.cursor = "pointer";
           card.innerHTML = `
             <section class="card p-3 shadow-sm border-0 rounded-4 d-flex flex-column flex-md-row align-items-center">
               <section class="col-12 col-md-4 text-center mb-3 mb-md-0">
                 <img src="${
                   book.image || "../assets/checkout/01.png"
-                }" class="img-fluid rounded-3 product-img mx-auto" alt="${
+                }" class="img-fluid rounded-3 product-img mx-auto detailsProduct" alt="${
             book.title
           }" style="max-height: 250px; object-fit: contain;">
               </section>
@@ -707,12 +710,11 @@
           return a - b;
         });
       }
+
       function bindWishlistButtons() {
         const currentUser =
           JSON.parse(localStorage.getItem("currentUser")) || {};
         currentUser.wishlist = currentUser.wishlist || [];
-
-        const users = JSON.parse(localStorage.getItem("users")) || [];
 
         document.querySelectorAll(".product-card").forEach((card, index) => {
           const book = books[(currentPage - 1) * booksPerPage + index];
@@ -724,26 +726,42 @@
           if (isInWishlist) btn.classList.add("text-danger");
 
           btn.addEventListener("click", () => {
-            const indexInWishlist = currentUser.wishlist.findIndex(
-              (item) => item.id === book.id
-            );
+            if (currentUser && currentUser.email) {
+              const indexInWishlist = currentUser.wishlist.findIndex(
+                (item) => item.id === book.id
+              );
 
-            if (indexInWishlist === -1) {
-              currentUser.wishlist.push(book);
-              btn.classList.add("text-danger");
+              if (indexInWishlist === -1) {
+                currentUser.wishlist.push(book);
+                btn.classList.add("text-danger");
+                Toastify({
+                  text: "Added To WishList!",
+                  duration: 3000,
+                  gravity: "top",
+                  position: "center",
+                  backgroundColor: "orange",
+                }).showToast();
+              } else {
+                currentUser.wishlist.splice(indexInWishlist, 1);
+                btn.classList.remove("text-danger");
+                Toastify({
+                  text: "Removed From WishList!",
+                  duration: 3000,
+                  gravity: "top",
+                  position: "center",
+                  backgroundColor: "orange",
+                }).showToast();
+              }
+
+              localStorage.setItem("currentUser", JSON.stringify(currentUser));
             } else {
-              currentUser.wishlist.splice(indexInWishlist, 1);
-              btn.classList.remove("text-danger");
-            }
-
-            localStorage.setItem("currentUser", JSON.stringify(currentUser));
-
-            const userIndex = users.findIndex(
-              (u) => u.email === currentUser.email
-            );
-            if (userIndex !== -1) {
-              users[userIndex] = currentUser;
-              localStorage.setItem("users", JSON.stringify(users));
+              Toastify({
+                text: "Please Login First to Add To Wish List!",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "red",
+              }).showToast();
             }
           });
         });
@@ -755,11 +773,9 @@
           "fa-arrow-down-wide-short"
         );
 
-        // Toggle icon
         icon.classList.toggle("fa-arrow-down-wide-short", !isDescending);
         icon.classList.toggle("fa-arrow-up-wide-short", isDescending);
 
-        // Get the current filtered books from search input
         const searchValue = document
           .getElementById("searchInput")
           .value.trim()
@@ -770,7 +786,6 @@
           return title.includes(searchValue) || author.includes(searchValue);
         });
 
-        // Sort
         const sortedBooks = [...filteredBooks].sort((a, b) => {
           return isDescending ? b.price - a.price : a.price - b.price;
         });
@@ -795,12 +810,13 @@
         });
       }
       function goToDetails() {
-        document.querySelectorAll(".detailsProduct").forEach((card) => {
-          card.addEventListener("click", (e) => {
+        document.querySelectorAll(".detailsProduct").forEach((img) => {
+          img.addEventListener("click", (e) => {
+            const card = img.closest(".product-card");
             const name = card.querySelector(".product-name").textContent;
             const price = card.querySelector(".product-price").textContent;
-            const img = card.querySelector(".product-img").src;
-            const product = { name, price, img };
+            const image = img.src;
+            const product = { name, price, img: image };
             localStorage.setItem("selectedProduct", JSON.stringify(product));
             window.location.href = "./shop_details.html";
           });
@@ -850,7 +866,6 @@
           paginationContainer.appendChild(nextBtn);
         }
       }
-      // Initial render
       renderBooks(currentPage);
     </script>
     <script>

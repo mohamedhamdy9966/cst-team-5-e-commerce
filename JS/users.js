@@ -13,7 +13,8 @@ const users = [
     firstName: "Ahmed",
     lastName: "marwan",
     email: "ahmedmarwan200@gmail.com",
-    password: "ahmed123",
+    password:
+      "c5716b88f7e6d3aa4c0f0d1d170604776f9d36481ba3d99c784ef539e6166110",
     role: "customer",
     books: [],
     wishlist: [
@@ -259,7 +260,8 @@ const users = [
     firstName: "Asmaa",
     lastName: "mousaa",
     email: "asmaamousa200@gmail.com",
-    password: "asmaa123",
+    password:
+      "eb57402f435d5c07a057e8841c4527b3e49ed6f2ea80c6c78036859b789792a2",
     role: "customer",
     books: [],
     wishlist: [
@@ -505,7 +507,8 @@ const users = [
     firstName: "Abelrahman",
     lastName: "Necro",
     email: "abdelrahman200@gmail.com",
-    password: "Abelrahman123",
+    password:
+      "522a8c5b4dcfb4e782a0e4f68ccd70bb5ee424a060cec6ecb11abf5736456ed8",
     role: "customer",
     books: [],
     wishlist: [
@@ -751,7 +754,8 @@ const users = [
     firstName: "Amira",
     lastName: "Mahmoud",
     email: "amiramahmoud200@gmail.com",
-    password: "amira123",
+    password:
+      "c04b4e2285bb3e2fdb65c96ade7f6169c42e5c606d7f9ce6c6b6f8de668a3154",
     role: "seller",
     books: [
       {
@@ -965,7 +969,8 @@ const users = [
     firstName: "Mohamed",
     lastName: "Hamdy",
     email: "mohamedhamdy200@gmail.com",
-    password: "mohamed123",
+    password:
+      "b2231142a60afb6d6a4671e5193d473632595608212862ae5e15e31b0eec1623",
     role: "seller",
     books: [
       {

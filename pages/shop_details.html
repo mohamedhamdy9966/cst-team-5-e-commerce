@@ -40,9 +40,15 @@
         margin: 0;
         box-sizing: border-box;
       }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
       .detailsProduct {
         cursor: pointer;
       }
+
       .top-bar {
         background-color: #036280;
         color: white;
@@ -83,10 +89,6 @@
         background-color: #036280;
       }
 
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
       hr {
         margin: 40px 0px;
       }
@@ -95,7 +97,6 @@
         color: #52556c;
       }
 
-      /* الصورة الكبيرة وعيالها */
       .product-image img {
         padding: 5% 10%;
         background-color: #f8f8f8;
@@ -110,7 +111,6 @@
 
       .thumbnail {
         cursor: pointer;
-
         margin-right: 5px;
         padding: 4px;
         border-radius: 20px;
@@ -118,10 +118,9 @@
       }
 
       .thumbnail:hover {
-        border: 2px solid#04314c;
+        border: 2px solid #04314c;
       }
 
-      /*تفاصيل المنتج */
       .info {
         padding-left: 50px;
       }
@@ -167,47 +166,42 @@
         padding: 15px;
       }
 
-      .favourite {
+      .favourite,
+      .arrow {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background-color: #036280;
-        color: white;
         display: flex;
         align-items: center;
         justify-content: center;
       }
 
+      .favourite {
+        background-color: #036280;
+        color: white;
+      }
+
       .arrow {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
         border-color: #036280;
         color: #036280;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
       }
 
       .product-details-list {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         list-style: none;
-        /* تشيل النقط */
         padding: 0;
         margin: 0;
         gap: 10px 20px;
-        /* مسافات بين العناصر */
       }
 
       .product-details-list li {
         font-size: 18px;
-        columns: #52556c;
+        color: #52556c;
+      }
 
-        b {
-          color: #012e4a;
-        }
+      .product-details-list li b {
+        color: #012e4a;
       }
 
       .responsive-hr {
@@ -226,11 +220,9 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         list-style: none;
-        /* تشيل النقط */
         padding: 0;
         margin: 0;
         gap: 10px 20px;
-        /* مسافات بين العناصر */
       }
 
       .available-on {
@@ -239,7 +231,6 @@
         margin-bottom: 100px;
       }
 
-      /* الوصف */
       .des {
         font-size: 17px;
         color: #52556c;
@@ -268,6 +259,10 @@
         width: 60%;
         height: 70%;
         transition: transform 0.5s ease;
+      }
+
+      .book-card:hover .card-img-top {
+        transform: scale(1.1);
       }
 
       #header {
@@ -301,10 +296,6 @@
         transform: translate(-50%, -50%);
       }
 
-      .book-card:hover .card-img-top {
-        transform: scale(1.1);
-      }
-
       .card-title {
         color: #012e4a;
       }
@@ -336,9 +327,7 @@
 
       .rating {
         font-size: 1.4rem;
-        /* تكبير النجوم */
         color: #ff6500;
-        /* نفس لون النجوم */
         line-height: 1;
       }
 
@@ -355,7 +344,6 @@
         overflow: hidden;
         font-weight: bold;
         z-index: 1;
-        /* لضمان بقاء النص فوق الشريط */
       }
 
       .btn::before {
@@ -387,7 +375,6 @@
         height: 50px;
         border-radius: 50%;
         color: #ff6500;
-        /* display: flex; */
         align-items: center;
         justify-content: center;
         opacity: 0.3;
@@ -423,10 +410,7 @@
       }
 
       @media (max-width: 1280px) {
-        #left-img {
-          display: none;
-        }
-
+        #left-img,
         #right-img {
           display: none;
         }
