@@ -70,7 +70,7 @@
           </section>
           <section>
             <a
-              href="./login.html"
+              href=""
               id="loginTopNav"
               style="color: white; text-decoration: none; margin-right: 15px"
               ><i class="fas fa-user ms-3 me-1"></i></a
@@ -155,7 +155,7 @@
           <!-- Icons -->
           <section class="d-flex gap-3">
             <section class="position-relative">
-              <a href="../customer/customerWishlist.html" class="text-danger">
+              <a href="../customer/customerWishlist.html" id="wishlistIcon" class="text-danger">
                 <i
                   class="far fa-heart"
                   style="font-size: 1.2rem; position: relative"
@@ -174,7 +174,7 @@
               </a>
             </section>
             <section class="position-relative">
-              <a href="./cart.html" class="text-success">
+              <a href="./cart.html" id="cartIcon" class="text-success">
                 <i
                   class="fas fa-shopping-cart"
                   style="font-size: 1.2rem; position: relative"
@@ -196,6 +196,7 @@
               <a href="./login.html" style="color: #02488d">
                 <i
                   class="fas fa-user"
+                  id="loginBottomNav"
                   style="font-size: 1.2rem; position: relative"
                 ></i>
               </a>
@@ -228,16 +229,16 @@
       const wishlistIcon = document.getElementById("wishlistIcon");
       if (u && u.firstName) {
         loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
-        loginTopNav.href = "./customer/customerDashboard.html";
-        loginBottomNav.href = "./customer/customerDashboard.html";
-        wishlistIcon.href = "./customer/customerWishlist.html";
-        cartIcon.href = "./pages/cart.html";
+        loginTopNav.href = "../customer/customerDashboard.html";
+        loginBottomNav.href = "../customer/customerDashboard.html";
+        wishlistIcon.href = "../customer/customerWishlist.html";
+        cartIcon.href = "./cart.html";
       } else {
         loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
-        loginTopNav.href = "./pages/login.html";
-        loginBottomNav.href = "./pages/login.html";
-        wishlistIcon.href = "./pages/login.html";
-        cartIcon.href = "./pages/login.html";
+        loginTopNav.href = "./login.html";
+        loginBottomNav.href = "./login.html";
+        wishlistIcon.href = "./login.html";
+        cartIcon.href = "./login.html";
       }
     </script>
   </body>

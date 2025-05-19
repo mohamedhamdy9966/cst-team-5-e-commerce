@@ -212,6 +212,8 @@
               <th>Book Title</th>
               <th>Price</th>
               <th>Quantity</th>
+              <th>Total</th>
+              <th>Date</th>
               <th>Status</th>
               <th>Actions</th>
             </tr>
@@ -227,7 +229,7 @@
       const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
       if (!currentUser || currentUser.role !== "customer") {
         Toastify({
-          text: " Access Denied !",
+          text: "Access Denied!",
           duration: 3000,
           gravity: "top",
           position: "center",
@@ -236,39 +238,85 @@
         window.location.href = "../pages/login.html";
       }
       const ordersTableBody = document.getElementById("ordersTableBody");
-      if (currentUser.orders) {
-        currentUser.orders.forEach((order, index) => {
-          const row = document.createElement("tr");
-          row.innerHTML = `
-          <td>${currentUser.firstName + " " + currentUser.lastName}</td>
+
+      function formatPrice(value) {
+        // Handle various price formats:
+        // - Already a number
+        // - String with $ symbol
+        // - Undefined/null
+        if (typeof value === "number") return value;
+        if (typeof value === "string") {
+          const num = parseFloat(value.replace(/[^0-9.-]/g, ""));
+          return isNaN(num) ? 0 : num;
+        }
+        return 0;
+      }
+
+      if (currentUser.orders && currentUser.orders.length > 0) {
+        currentUser.orders.forEach((order, orderIndex) => {
+          order.items.forEach((item, itemIndex) => {
+            const row = document.createElement("tr");
+
+            // Safely format prices
+            const price = formatPrice(item.price);
+            const total =
+              formatPrice(item.total) || price * (item.quantity || 1);
+
+            row.innerHTML = `
+          <td>${order.userDetails.firstName} ${
+              order.userDetails.secondName
+            }</td>
           <td>
-            <img src="${
-              order.image || "../assets/default-book.jpg"
-            }" alt="Book Image" style="width: 50px; height: 70px; object-fit: cover; border-radius: 4px;">
+            <img src="${item.img || "../assets/home/book-11.jpeg"}" 
+                 alt="Book Image" 
+                 style="width: 50px; height: 70px; object-fit: cover; border-radius: 4px;">
           </td>
-          <td>${order.title || "N/A"}</td>
-          <td>${order.price || 0}</td>
-          <td>${order.quantity || 1}</td>
+          <td>${item.name || "Book-1"}</td>
+          <td>$${price.toFixed(2)}</td>
+          <td>${item.quantity || 1}</td>
+          <td>$${total.toFixed(2)}</td>
+          <td>${new Date(order.date).toLocaleDateString()}</td>
           <td><span class="badge bg-warning text-dark">${
-            order.status || "Packing"
+            item.status || "Packing"
           }</span></td>
           <td class="btn-actions">
-          <button class="btn btn-sm btn-danger" onclick="deleteOrder(${index})">
-          <i class="bi bi-trash"></i>
-          </button>
+            <button class="btn btn-sm btn-danger" onclick="deleteOrder(${orderIndex}, ${itemIndex})">
+              <i class="bi bi-trash"></i>
+            </button>
           </td>
-          `;
-
-          ordersTableBody.appendChild(row);
+        `;
+            ordersTableBody.appendChild(row);
+          });
         });
+      } else {
+        // Show empty state if no orders
+        const row = document.createElement("tr");
+        row.innerHTML = `
+      <td colspan="9" class="text-center py-4">No orders found</td>
+    `;
+        ordersTableBody.appendChild(row);
       }
-      function deleteOrder(orderIndex) {
-        if (currentUser && currentUser.orders[orderIndex]) {
-          currentUser.orders.splice(orderIndex, 1);
+
+      function deleteOrder(orderIndex, itemIndex) {
+        if (currentUser?.orders?.[orderIndex]) {
+          if (itemIndex !== undefined) {
+            // Delete specific item
+            currentUser.orders[orderIndex].items.splice(itemIndex, 1);
+
+            // If no items left, delete the whole order
+            if (currentUser.orders[orderIndex].items.length === 0) {
+              currentUser.orders.splice(orderIndex, 1);
+            }
+          } else {
+            // Delete whole order
+            currentUser.orders.splice(orderIndex, 1);
+          }
+
           localStorage.setItem("currentUser", JSON.stringify(currentUser));
           location.reload();
         }
       }
+
       function logout() {
         localStorage.removeItem("currentUser");
         Toastify({

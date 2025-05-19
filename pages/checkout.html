@@ -577,7 +577,7 @@
       window.addEventListener("DOMContentLoaded", () => {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
         const u = JSON.parse(localStorage.getItem("currentUser")) || {};
-        const userOrders = u.orders || [];
+        u.orders = Array.isArray(u.orders) ? u.orders : [];
         const loginTopNav = document.getElementById("loginTopNav");
         if (u && u.firstName) {
           loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
@@ -621,7 +621,7 @@
           const subtotal = (price * quantity).toFixed(2);
 
           const subtotalCell = document.createElement("td");
-          subtotalCell.textContent = `$${subtotal}`;
+          subtotalCell.textContent = `${subtotal}`;
 
           row.appendChild(productCell);
           row.appendChild(quantityCell);
@@ -665,12 +665,6 @@
         function placeOrder(event) {
           event.preventDefault();
 
-          const loggedInUser = localStorage.getItem("currentUser");
-          if (!loggedInUser) {
-            showToast("Please log in to place an order.");
-            return;
-          }
-
           const fields = [
             "firstName",
             "secondName",
@@ -700,7 +694,6 @@
             email: document.getElementById("email").value.trim(),
           };
 
-          const cart = JSON.parse(localStorage.getItem("cart")) || [];
           if (cart.length === 0) {
             showToast("Your cart is empty.");
             return;
@@ -713,44 +706,23 @@
               price: item.price,
               img: item.img,
               quantity: item.quantity || 1,
-              total: (
-                parseFloat(item.price.replace("$", "")) * item.quantity
-              ).toFixed(2),
+              total: price * quantity,
             })),
             date: new Date().toISOString(),
+            orderId: Date.now(),
           };
 
-          const existingOrders =
-            JSON.parse(localStorage.getItem("orders")) || [];
-          existingOrders.push(fullOrder);
-          localStorage.setItem("orders", JSON.stringify(existingOrders));
+          if (!u.orders) u.orders = [];
+          u.orders.push(fullOrder);
+          localStorage.setItem("currentUser", JSON.stringify(u));
 
+          // Store user details (optional tracking)
           const existingUserData =
             JSON.parse(localStorage.getItem("userDetails")) || [];
           existingUserData.push(userDetails);
           localStorage.setItem("userDetails", JSON.stringify(existingUserData));
 
-          const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-          const users = JSON.parse(localStorage.getItem("users")) || [];
-          const userIndex = users.findIndex(
-            (user) => user.email === currentUser.email
-          );
-          if (userIndex !== -1) {
-            if (!Array.isArray(users[userIndex].orders)) {
-              users[userIndex].orders = [];
-            }
-            fullOrder.items.forEach((item) => {
-              users[userIndex].orders.push({
-                title: item.name,
-                price: item.price,
-                image: item.img,
-                quantity: item.quantity,
-                status: "Packing",
-              });
-            });
-            localStorage.setItem("users", JSON.stringify(users));
-          }
-
+          // Clear cart and redirect
           localStorage.setItem("cart", JSON.stringify([]));
           showToast("Order placed successfully!", "success");
           setTimeout(() => {
@@ -766,4 +738,109 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const u = JSON.parse(localStorage.getItem("currentUser")) || {};
+      u.orders = Array.isArray(u.orders) ? u.orders : [];
+
+      // ... (rest of your initialization code remains the same) ...
+
+      function showToast(message, type = "error") {
+        Toastify({
+          text: message,
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+          backgroundColor: type === "error" ? "#ff4d4d" : "#4BB543",
+          close: true,
+        }).showToast();
+      }
+
+      function placeOrder(event) {
+        event.preventDefault();
+
+        const fields = [
+          "firstName",
+          "secondName",
+          "country",
+          "streetAddress",
+          "city",
+          "phone",
+          "email",
+        ];
+
+        // Validate form fields
+        for (const fieldId of fields) {
+          const value = document.getElementById(fieldId)?.value.trim();
+          if (!value) {
+            showToast(`Please fill in the ${fieldId} field.`);
+            return;
+          }
+        }
+
+        const userDetails = {
+          firstName: document.getElementById("firstName").value.trim(),
+          secondName: document.getElementById("secondName").value.trim(),
+          country: document.getElementById("country").value.trim(),
+          streetAddress: document.getElementById("streetAddress").value.trim(),
+          city: document.getElementById("city").value.trim(),
+          phone: document.getElementById("phone").value.trim(),
+          email: document.getElementById("email").value.trim(),
+        };
+
+        if (cart.length === 0) {
+          showToast("Your cart is empty.");
+          return;
+        }
+
+        // Create the order with properly calculated prices
+        const fullOrder = {
+          userDetails,
+          items: cart.map((item) => {
+            // Calculate price properly
+            const price =
+              typeof item.price === "string"
+                ? parseFloat(item.price.replace("$", ""))
+                : item.price;
+            const quantity = item.quantity || 1;
+
+            return {
+              name: item.name,
+              price: price, // store as number
+              img: item.img,
+              quantity: quantity,
+              total: (price * quantity).toFixed(2),
+              status: "processing", // store as formatted string
+            };
+          }),
+          date: new Date().toISOString(),
+          orderId: Date.now(),
+        };
+
+        if (!u.orders) u.orders = [];
+        u.orders.push(fullOrder);
+        localStorage.setItem("currentUser", JSON.stringify(u));
+
+        // Store user details (optional tracking)
+        const existingUserData =
+          JSON.parse(localStorage.getItem("userDetails")) || [];
+        existingUserData.push(userDetails);
+        localStorage.setItem("userDetails", JSON.stringify(existingUserData));
+
+        // Clear cart and redirect
+        localStorage.setItem("cart", JSON.stringify([]));
+        showToast("Order placed successfully!", "success");
+        setTimeout(() => {
+          window.location.href = "./completedOrder.html";
+        }, 1500);
+      }
+
+      // Attach event listener
+      const form = document.getElementById("checkoutForm");
+      if (form) {
+        form.addEventListener("submit", (e) => placeOrder(e));
+      }
+    });
+  </script>
 </html>
