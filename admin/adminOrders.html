@@ -328,8 +328,11 @@
 
     <!-- Main Content -->
     <main class="main-content">
-      <section class="header">
-        <h3 class="bi-receipt">All Orders</h3>
+      <section
+        class="header rounded text-light"
+        style="background-color: #0f84a9"
+      >
+        <h3>All Orders</h3>
       </section>
 
       <section class="order-list-container mt-4">
@@ -337,6 +340,7 @@
           <thead class="table-light">
             <tr>
               <th>User</th>
+              <th>Delivery Info</th>
               <th>Book Title</th>
               <th>Price</th>
               <th>Quantity</th>
@@ -394,38 +398,52 @@
         users.forEach((user, userIndex) => {
           if (user.orders && Array.isArray(user.orders)) {
             user.orders.forEach((order, orderIndex) => {
-              const row = document.createElement("tr");
-              row.innerHTML = `
-              <td>${user.firstName + " " + user.lastName}</td>
-              <td>${order.title || "N/A"}</td>
-              <td>${order.price || 0}</td>
-              <td>${order.quantity || 1}</td>
-              <td>
-                <select class="form-select form-select-sm border rounded bg-success text-light" style="cursor: pointer;" onchange="handleStatusChange(${userIndex}, ${orderIndex}, this.value)">
-                  <option value="packing" ${
-                    order.status === "packing" ? "selected" : ""
-                  }>Packing</option>
-                  <option value="readyToShip" ${
-                    order.status === "readyToShip" ? "selected" : ""
-                  }>Ready To Ship</option>
-                  <option value="onWayDelivering" ${
-                    order.status === "onWayDelivering" ? "selected" : ""
-                  }>On Way Delivering</option>
-                  <option value="delivered" ${
-                    order.status === "delivered" ? "selected" : ""
-                  }>Delivered</option>
-                </select>
-              </td>
-              <td class="btn-actions">
-                <button class="btn btn-sm btn-danger" onclick="deleteOrder(${userIndex}, ${orderIndex})">
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>`;
-              ordersTableBody.appendChild(row);
+              // Loop through each item in the order
+              order.items.forEach((item, itemIndex) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+            <td>${order.userDetails.firstName} ${
+                  order.userDetails.secondName
+                }</td>
+            <td>
+              ${order.userDetails.streetAddress}, ${order.userDetails.city}<br>
+              ${order.userDetails.country}<br>
+              Phone: ${order.userDetails.phone}
+            </td>
+            <td>${item.name}</td>
+            <td>$${item.price.toFixed(2)}</td>
+            <td>${item.quantity}</td>
+            <td>
+              <select class="form-select form-select-sm border rounded bg-success text-light" 
+                style="cursor: pointer;" 
+                onchange="handleStatusChange(${userIndex}, ${orderIndex}, this.value)">
+                <option value="packing" ${
+                  order.status === "packing" ? "selected" : ""
+                }>Packing</option>
+                <option value="readyToShip" ${
+                  order.status === "readyToShip" ? "selected" : ""
+                }>Ready To Ship</option>
+                <option value="onWayDelivering" ${
+                  order.status === "onWayDelivering" ? "selected" : ""
+                }>On Way Delivering</option>
+                <option value="delivered" ${
+                  order.status === "delivered" ? "selected" : ""
+                }>Delivered</option>
+              </select>
+            </td>
+            <td>
+              <button class="btn btn-sm btn-danger" onclick="deleteOrder(${userIndex}, ${orderIndex})">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          `;
+                ordersTableBody.appendChild(row);
+              });
             });
           }
         });
       }
+
       renderOrders();
       // Logout function
       function logout() {

@@ -692,7 +692,7 @@
               <div class="d-flex flex-wrap gap-5 ss">
                 <img
                   src="../assets/shop_details/cutomerio.png"
-                  alt="Cutomerio"
+                  alt="Customer"
                 />
                 <img src="../assets/shop_details/dropbox.png" alt="Dropbox" />
                 <img src="../assets/shop_details/amazon.png" alt="Amazon" />
@@ -1271,7 +1271,7 @@
           document.querySelector("#detailName").textContent = foundBook.title;
           document.querySelector("#description").textContent =
             foundBook.description;
-          document.querySelector("#detailPrice").textContent = foundBook.price;
+          document.querySelector("#detailPrice").textContent = `$ ${foundBook.price}`;
         }
 
         const badge = document.getElementById("cartBadge");

@@ -263,28 +263,28 @@
               formatPrice(item.total) || price * (item.quantity || 1);
 
             row.innerHTML = `
-          <td>${order.userDetails.firstName} ${
+                <td>${order.userDetails.firstName} ${
               order.userDetails.secondName
             }</td>
-          <td>
-            <img src="${item.img || "../assets/home/book-11.jpeg"}" 
-                 alt="Book Image" 
-                 style="width: 50px; height: 70px; object-fit: cover; border-radius: 4px;">
-          </td>
-          <td>${item.name || "Book-1"}</td>
-          <td>$${price.toFixed(2)}</td>
-          <td>${item.quantity || 1}</td>
-          <td>$${total.toFixed(2)}</td>
-          <td>${new Date(order.date).toLocaleDateString()}</td>
-          <td><span class="badge bg-warning text-dark">${
-            item.status || "Packing"
-          }</span></td>
-          <td class="btn-actions">
-            <button class="btn btn-sm btn-danger" onclick="deleteOrder(${orderIndex}, ${itemIndex})">
-              <i class="bi bi-trash"></i>
-            </button>
-          </td>
-        `;
+                <td>
+                  <img src="${item.img || "../assets/home/book-11.jpeg"}"
+                       alt="Book Image"
+                       style="width: 50px; height: 70px; object-fit: cover; border-radius: 4px;">
+                </td>
+                <td>${item.name || "Book-1"}</td>
+                <td>$${price.toFixed(2)}</td>
+                <td>${item.quantity || 1}</td>
+                <td>$${total.toFixed(2)}</td>
+                <td>${new Date(order.date).toLocaleDateString()}</td>
+                <td><span class="badge bg-warning text-dark">${
+                  item.status || "Packing"
+                }</span></td>
+                <td class="btn-actions">
+                  <button class="btn btn-sm btn-danger" onclick="deleteOrder(${orderIndex}, ${itemIndex})">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              `;
             ordersTableBody.appendChild(row);
           });
         });
@@ -292,31 +292,50 @@
         // Show empty state if no orders
         const row = document.createElement("tr");
         row.innerHTML = `
-      <td colspan="9" class="text-center py-4">No orders found</td>
-    `;
+            <td colspan="9" class="text-center py-4">No orders found</td>
+          `;
         ordersTableBody.appendChild(row);
       }
 
-      function deleteOrder(orderIndex, itemIndex) {
-        if (currentUser?.orders?.[orderIndex]) {
-          if (itemIndex !== undefined) {
-            // Delete specific item
-            currentUser.orders[orderIndex].items.splice(itemIndex, 1);
+      // Add this function to update both currentUser and users array
+      function updateUserOrders(updatedOrders) {
+        // 1. Update currentUser
+        currentUser.orders = updatedOrders;
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
-            // If no items left, delete the whole order
-            if (currentUser.orders[orderIndex].items.length === 0) {
-              currentUser.orders.splice(orderIndex, 1);
-            }
-          } else {
-            // Delete whole order
-            currentUser.orders.splice(orderIndex, 1);
-          }
-
-          localStorage.setItem("currentUser", JSON.stringify(currentUser));
-          location.reload();
+        // 2. Update in users array
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const userIndex = users.findIndex((u) => u.email === currentUser.email);
+        if (userIndex !== -1) {
+          users[userIndex].orders = updatedOrders;
+          localStorage.setItem("users", JSON.stringify(users));
         }
       }
 
+      // Modify your deleteOrder function to use this:
+      function deleteOrder(orderIndex, itemIndex) {
+        if (currentUser?.orders?.[orderIndex]) {
+          // Create a copy of current orders
+          const updatedOrders = [...currentUser.orders];
+
+          if (itemIndex !== undefined) {
+            // Delete specific item
+            updatedOrders[orderIndex].items.splice(itemIndex, 1);
+
+            // If no items left, delete the whole order
+            if (updatedOrders[orderIndex].items.length === 0) {
+              updatedOrders.splice(orderIndex, 1);
+            }
+          } else {
+            // Delete whole order
+            updatedOrders.splice(orderIndex, 1);
+          }
+
+          // Use the new update function
+          updateUserOrders(updatedOrders);
+          location.reload();
+        }
+      }
       function logout() {
         localStorage.removeItem("currentUser");
         Toastify({

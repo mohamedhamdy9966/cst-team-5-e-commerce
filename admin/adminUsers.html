@@ -543,6 +543,7 @@
         .getElementById("editForm")
         .addEventListener("submit", function (e) {
           e.preventDefault();
+
           const index = parseInt(
             document.getElementById("editIndex").value,
             10
@@ -552,11 +553,14 @@
             .value.trim();
           const lastName = document.getElementById("editLastName").value.trim();
           const email = document.getElementById("editEmail").value.trim();
-          const password = document.getElementById("editPassword").value.trim();
+          const rawPassword = document
+            .getElementById("editPassword")
+            .value.trim(); // Get raw password
           const role = document.getElementById("editRole").value;
-          if (!firstName || !lastName || !email || !password || !role) {
+
+          if (!firstName || !lastName || !email || !role) {
             Toastify({
-              text: " All Fields required !",
+              text: "All fields except password are required!",
               duration: 3000,
               gravity: "top",
               position: "center",
@@ -564,14 +568,40 @@
             }).showToast();
             return;
           }
-          const SHA256 = new Hashes.SHA256();
-          const hashedPassword = SHA256.hex(password);
-          const updatedUser = { firstName, lastName, email, role, password: password ? sha256(password) : users[index]?.password || "" };
+
+          // Password handling logic
+          let hashedPassword;
+          if (rawPassword) {
+            // Hash new password only if provided
+            hashedPassword = new Hashes.SHA256().hex(rawPassword);
+          } else if (index < users.length) {
+            // Keep existing password if editing and no new password provided
+            hashedPassword = users[index].password;
+          } else {
+            // Require password for new users
+            Toastify({
+              text: "Password is required for new users!",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "red",
+            }).showToast();
+            return;
+          }
+
+          const updatedUser = {
+            firstName,
+            lastName,
+            email,
+            role,
+            password: hashedPassword,
+          };
+
           if (index >= users.length) {
             // Add new user
             users.push(updatedUser);
             Toastify({
-              text: " User Added Successfully !",
+              text: "User Added Successfully!",
               duration: 3000,
               gravity: "top",
               position: "center",
@@ -581,7 +611,7 @@
             // Update existing user
             if (users[index].role === "admin") {
               Toastify({
-                text: " can't edit the admin account !",
+                text: "Cannot edit admin account!",
                 duration: 3000,
                 gravity: "top",
                 position: "center",
@@ -591,13 +621,14 @@
             }
             users[index] = updatedUser;
             Toastify({
-              text: " User Updated Successfully !",
+              text: "User Updated Successfully!",
               duration: 3000,
               gravity: "top",
               position: "center",
               backgroundColor: "green",
             }).showToast();
           }
+
           localStorage.setItem("users", JSON.stringify(users));
           location.reload();
         });
