@@ -35,6 +35,7 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jshashes/1.0.8/hashes.min.js"></script>
     <style>
       body {
         margin: 0;
@@ -286,8 +287,6 @@
       </section>
     </main>
     <script>
-      // Access control
-      // Ensure currentUser is valid and has the proper role
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
       if (!u || u.role !== "customer") {
         Toastify({
@@ -299,7 +298,6 @@
         }).showToast();
         window.location.href = "../pages/login.html";
       }
-      // alert(`welcome back ${u.firstName} !`)
       const customerDashboard = document.getElementById("customerDashboard");
       customerDashboard.innerText += `${u.firstName} ${u.lastName} Dashboard`;
       document.getElementById("firstName").value = `${u.firstName}`;
@@ -359,18 +357,20 @@
             }
             if (password !== confirmPassword) {
               Toastify({
-              text: " Passwords don't match !",
-              duration: 3000,
-              gravity: "top",
-              position: "center",
-              backgroundColor: "red",
-            }).showToast();
+                text: " Passwords don't match !",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "red",
+              }).showToast();
               return;
             }
+            const SHA256 = new Hashes.SHA256();
+            const hashedPassword = SHA256.hex(password);
             u.firstName = firstName;
             u.lastName = lastName;
             u.email = email;
-            u.password = password;
+            u.password = hashedPassword;
             localStorage.setItem("currentUser", JSON.stringify(u));
             Toastify({
               text: " Updated Credentials !",

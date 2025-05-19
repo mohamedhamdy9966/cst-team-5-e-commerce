@@ -33,6 +33,7 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jshashes/1.0.8/hashes.min.js"></script>
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -515,7 +516,7 @@
         document.getElementById("editFirstName").value =
           user.firstName || user.fname;
         document.getElementById("editLastName").value =
-          user.lastName || user.fname;
+          user.lastName || user.lname;
         document.getElementById("editEmail").value = user.email;
         document.getElementById("editPassword").value = user.password;
         document.getElementById("editRole").value = user.role;
@@ -563,7 +564,9 @@
             }).showToast();
             return;
           }
-          const updatedUser = { firstName, lastName, email, password, role };
+          const SHA256 = new Hashes.SHA256();
+          const hashedPassword = SHA256.hex(password);
+          const updatedUser = { firstName, lastName, email, role, password: password ? sha256(password) : users[index]?.password || "" };
           if (index >= users.length) {
             // Add new user
             users.push(updatedUser);
