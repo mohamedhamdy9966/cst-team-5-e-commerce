@@ -11,10 +11,6 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link
@@ -25,17 +21,14 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <!--Toastify-->
+    <!-- Toastify -->
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
-    <!-- <script src="../JS/chechout.js"></script> -->
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/toastify-js"
-    ></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
       body {
         margin: 0;
@@ -70,10 +63,6 @@
         background-color: #0c6c8a;
         box-shadow: 4px 4px 4px 4px rgba(36, 19, 194, 0.3);
       }
-      .sidebar span,
-      .sidebar i {
-        color: white;
-      }
       .main-content {
         margin-left: 400px;
         padding: 2rem;
@@ -86,62 +75,13 @@
         top: 0;
         z-index: 999;
       }
-      .img-placeholder {
-        width: 100%;
-        height: 250px;
-        cursor: pointer;
-        max-width: 250px;
-        background-color: #e9ecef;
-        border: 2px dashed #ccc;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        color: #999;
-      }
-      .test {
-        max-width: 50%;
-      }
-      .mx-w {
-        max-width: 700px;
-      }
-      .product-form-container {
-        display: flex;
-        gap: 40px;
-        flex-wrap: wrap;
-        align-items: flex-start;
-      }
-      .product-image {
-        max-width: 500px;
-        margin-top: 10%;
-        border-radius: 20px;
-        min-height: 400px;
-        width: 100%;
-      }
-      .zz {
+      .chart-container {
         position: relative;
-        padding: 14px;
-        overflow: hidden;
-        z-index: 1;
-        border: none;
-        color: white;
-      }
-      .zz::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
+        height: 70vh;
         width: 100%;
-        height: 100%;
-        background-color: orange;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.4s ease;
-        z-index: -1;
+        margin-top: 2rem;
       }
-      .zz:hover::before {
-        transform: scaleX(1);
-      }
+
       @media (max-width: 768px) {
         .sidebar {
           height: auto;
@@ -154,13 +94,9 @@
           left: 0;
           right: 0;
         }
-        .test {
-          max-width: 100%;
-        }
         .sidebar span {
           display: none;
         }
-
         .sidebar .nav-link {
           margin: 0;
           border-radius: 50%;
@@ -170,52 +106,48 @@
           align-items: center;
           justify-content: center;
         }
-
         .main-content {
           margin-left: 0;
           padding-top: 4rem;
         }
-
-        .header {
-          padding-top: 20px;
-        }
-
-        .product-form-container {
-          flex-direction: column;
-          align-items: center;
-        }
-        .product-image {
-          min-height: auto;
+        .chart-container {
+          height: 50vh;
         }
       }
     </style>
   </head>
   <body>
     <!-- Sidebar -->
+     
     <nav class="sidebar">
-      <a href="./adminAddBook.html" class="nav-link ff15" title="Add Items"
-        ><i class="bi bi-plus-square"></i><span> Sell A Book</span></a
+      <a href="./adminAddBook.html" class="nav-link ff15" title="Add Items">
+        <i class="bi bi-plus-square"></i><span> Sell A Book</span>
+      </a>
+      <a href="./adminBookList.html" class="nav-link" title="List Items">
+        <i class="bi bi-list-ul"></i><span> Books list</span>
+      </a>
+      <a href="./adminOrders.html" class="nav-link" title="Orders">
+        <i class="bi bi-receipt"></i><span> All Orders</span>
+      </a>
+      <a href="./adminUsers.html" class="nav-link" title="Orders">
+        <i class="bi bi-person-lines-fill"></i><span> All Users</span>
+      </a>
+      <a href="./adminAnalytics.html" class="nav-link" title="Analytics">
+        <i class="bi bi-bar-chart-line-fill"></i><span> My Analytics</span>
+      </a>
+      <a href="./adminCustomerService.html" class="nav-link" title="Analytics">
+        <i class="bi bi-person-workspace"></i><span> Customer Service </span>
+      </a>
+      <a
+        href="../index.html"
+        class="nav-link"
+        title="Logout"
+        onclick="logout()"
       >
-      <a href="./adminBookList.html" class="nav-link" title="List Items"
-        ><i class="bi bi-list-ul"></i><span> Books list</span></a
-      >
-      <a href="./adminOrders.html" class="nav-link" title="Orders"
-        ><i class="bi bi-receipt"></i><span> All Orders</span></a
-      >
-      <a href="./adminUsers.html" class="nav-link" title="Orders"
-        ><i class="bi bi-person-lines-fill"></i><span> All Users</span></a
-      >
-      <a href="./adminAnalytics.html" class="nav-link" title="Analytics"
-        ><i class="bi bi-bar-chart-line-fill"></i><span> My Analytics</span></a
-      >
-      <a href="./adminCustomerService.html" class="nav-link" title="Analytics"
-        ><i class="bi bi-person-workspace"></i
-        ><span> Customer Service </span></a
-      >
-      <a href="../index.html" class="nav-link" title="Logout" onclick="logout()"
-        ><i class="bi bi-box-arrow-right"></i><span> LogOut</span></a
-      >
+        <i class="bi bi-box-arrow-right"></i><span> LogOut</span>
+      </a>
     </nav>
+
     <!-- Main Content -->
     <main class="main-content">
       <section
@@ -226,16 +158,19 @@
           <i class="fa-solid text-light fa-chart-simple"></i> Analytics
         </h2>
       </section>
-      <section>
+
+      <div class="chart-container">
         <canvas id="myChart"></canvas>
-      </section>
+      </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script>
+      // Check admin access
       const u = JSON.parse(localStorage.getItem("currentUser")) || {};
       if (!u || u.role !== "admin") {
         Toastify({
-          text: " Access Denied !",
+          text: "Access Denied!",
           duration: 3000,
           gravity: "top",
           position: "center",
@@ -243,33 +178,91 @@
         }).showToast();
         window.location.href = "../pages/login.html";
       }
-      const sellerBooks = JSON.parse(localStorage.getItem("books") || {});
-      const titles = sellerBooks.map((book) => book.title);
-      const soldCounts = sellerBooks.map((book) => book.sold);
-      const ctx = document.getElementById("myChart");
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: titles,
-          datasets: [
-            {
-              label: "Books Sold",
-              data: soldCounts,
-              backgroundColor: "rgba(54, 162, 235, 0.5)",
-              borderColor: "rgba(54, 162, 235, 1)",
-              borderWidth: 1,
+
+      // Initialize chart after DOM loads
+      document.addEventListener("DOMContentLoaded", function () {
+        try {
+          // Get books data safely
+          const booksData = localStorage.getItem("books");
+          const sellerBooks = booksData ? JSON.parse(booksData) : [];
+
+          if (sellerBooks.length === 0) {
+            document.querySelector(".chart-container").innerHTML = `
+              <div class="alert alert-info">
+                No books data available for analytics.
+              </div>
+            `;
+            return;
+          }
+
+          const titles = sellerBooks.map((book) => book.title || "Untitled");
+          const soldCounts = sellerBooks.map((book) => book.sold || 0);
+
+          const ctx = document.getElementById("myChart");
+          new Chart(ctx, {
+            type: "bar",
+            data: {
+              labels: titles,
+              datasets: [
+                {
+                  label: "Books Sold",
+                  data: soldCounts,
+                  backgroundColor: "rgba(15, 132, 169, 0.7)",
+                  borderColor: "rgba(3, 98, 128, 1)",
+                  borderWidth: 1,
+                },
+              ],
             },
-          ],
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true,
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  position: "top",
+                  labels: {
+                    font: {
+                      family: "Poppins",
+                      size: 14,
+                    },
+                  },
+                },
+                tooltip: {
+                  enabled: true,
+                  mode: "index",
+                  intersect: false,
+                },
+              },
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    font: {
+                      family: "Poppins",
+                    },
+                  },
+                },
+                x: {
+                  ticks: {
+                    font: {
+                      family: "Poppins",
+                    },
+                  },
+                },
+              },
             },
-          },
-        },
+          });
+        } catch (error) {
+          console.error("Error initializing chart:", error);
+          Toastify({
+            text: "Error loading analytics data",
+            duration: 3000,
+            gravity: "top",
+            position: "center",
+            backgroundColor: "red",
+          }).showToast();
+        }
       });
+
       // Logout function
       function logout() {
         localStorage.removeItem("currentUser");

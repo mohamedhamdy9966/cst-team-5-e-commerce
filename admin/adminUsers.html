@@ -206,6 +206,92 @@
         background: #f4c430;
       } */
     </style>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+      }
+      .sidebar {
+        background-color: #036280;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 400px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1000;
+      }
+      .sidebar .nav-link {
+        color: white;
+        background-color: #0f84a9;
+        margin: 20px auto;
+        text-align: center;
+        width: 50%;
+        border-radius: 20px;
+        font-size: 1.25rem;
+        padding: 10px 20px;
+      }
+      .sidebar .nav-link:hover {
+        background-color: #0c6c8a;
+        box-shadow: 4px 4px 4px 4px rgba(36, 19, 194, 0.3);
+      }
+      .main-content {
+        margin-left: 400px;
+        padding: 2rem;
+      }
+      .header {
+        background: white;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+      }
+      .chart-container {
+        position: relative;
+        height: 70vh;
+        width: 100%;
+        margin-top: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          height: auto;
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-around;
+          padding: 0.5rem;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+        }
+        .sidebar span {
+          display: none;
+        }
+        .sidebar .nav-link {
+          margin: 0;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .main-content {
+          margin-left: 0;
+          padding-top: 4rem;
+        }
+        .chart-container {
+          height: 50vh;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -492,12 +578,12 @@
             // Update existing user
             if (users[index].role === "admin") {
               Toastify({
-              text: " can't edit the admin account !",
-              duration: 3000,
-              gravity: "top",
-              position: "center",
-              backgroundColor: "red",
-            }).showToast();
+                text: " can't edit the admin account !",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "red",
+              }).showToast();
               return;
             }
             users[index] = updatedUser;
