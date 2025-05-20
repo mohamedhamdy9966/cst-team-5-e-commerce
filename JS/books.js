@@ -15,6 +15,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 2,
@@ -32,6 +33,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 3,
@@ -49,6 +51,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 4,
@@ -66,6 +69,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 5,
@@ -82,6 +86,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 6,
@@ -98,6 +103,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 7,
@@ -114,6 +120,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 8,
@@ -130,6 +137,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "admin",
   },
   {
     id: 9,
@@ -146,6 +154,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "admin",
   },
   {
     id: 10,
@@ -162,6 +171,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "admin",
   },
   {
     id: 11,
@@ -178,6 +188,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "admin",
   },
   {
     id: 12,
@@ -194,6 +205,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "admin",
   },
   {
     id: 13,
@@ -210,6 +222,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "admin",
   },
   {
     id: 14,
@@ -226,6 +239,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "admin",
   },
   {
     id: 15,
@@ -242,6 +256,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "admin",
   },
   {
     id: 16,
@@ -259,6 +274,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Mohamed Hamdy",
   },
   {
     id: 17,
@@ -276,6 +292,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Mohamed Hamdy",
   },
   {
     id: 18,
@@ -293,6 +310,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Mohamed Hamdy",
   },
   {
     id: 19,
@@ -310,6 +328,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Mohamed Hamdy",
   },
   {
     id: 20,
@@ -327,6 +346,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Mohamed Hamdy",
   },
   {
     id: 21,
@@ -344,6 +364,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Mohamed Hamdy",
   },
   {
     id: 22,
@@ -361,6 +382,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Mohamed Hamdy",
   },
   {
     id: 23,
@@ -378,6 +400,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Mohamed Hamdy",
   },
   {
     id: 24,
@@ -395,6 +418,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Mohamed Hamdy",
   },
   {
     id: 25,
@@ -412,6 +436,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 26,
@@ -429,6 +454,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 27,
@@ -446,6 +472,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 28,
@@ -463,6 +490,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 29,
@@ -480,6 +508,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 30,
@@ -497,6 +526,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 31,
@@ -514,6 +544,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 32,
@@ -531,6 +562,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 33,
@@ -548,6 +580,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 34,
@@ -565,6 +598,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 35,
@@ -582,6 +616,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 36,
@@ -599,6 +634,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
   {
     id: 37,
@@ -616,6 +652,7 @@ const books = [
     isTopCategories: true,
     isTopBooks: true,
     isTopRating: true,
+    owner: "Amira Mahmoud",
   },
 ];
 
