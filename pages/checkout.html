@@ -693,6 +693,7 @@
                 quantity: quantity,
                 total: (price * quantity).toFixed(2),
                 status: "processing",
+                owner: "admin",
               };
             }),
             date: new Date().toISOString(),
@@ -703,7 +704,6 @@
           u.orders.push(order);
           localStorage.setItem("currentUser", JSON.stringify(u));
 
-          // Update users array
           let users = JSON.parse(localStorage.getItem("users")) || [];
           const userIndex = users.findIndex((user) => user.email === u.email);
 

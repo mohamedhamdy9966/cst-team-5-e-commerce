@@ -25,7 +25,7 @@
 
     <!-- Toastify JS -->
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-        <link rel="stylesheet" href="../style/css/top_of_pages.css" />
+    <link rel="stylesheet" href="../style/css/top_of_pages.css" />
     <style>
       @keyframes spin {
         0% {
@@ -86,11 +86,11 @@
         color: white;
       }
       .btn-custom:hover {
-        background-color: #ff6500;;
+        background-color: #ff6500;
         color: white;
       }
       .fab:hover {
-        background-color: #ff6500;;
+        background-color: #ff6500;
         color: white;
       }
       .fab {
@@ -188,7 +188,6 @@
         padding: 5px 8px;
       }
 
-   
       .btn:hover::before {
         transform: scaleX(1);
       }
@@ -334,7 +333,7 @@
         color: white;
       }
       .btn-custom:hover {
-        background-color: #ff6500;;
+        background-color: #ff6500;
         color: white;
       }
       .fab:hover {
@@ -342,7 +341,7 @@
         color: white;
       }
 
-   @media (max-width: 780px) {
+      @media (max-width: 780px) {
         .dd {
           display: none;
         }
@@ -406,8 +405,8 @@
               href="../customer/customerDashboard.html"
               id="loginTopNav"
               style="color: white; text-decoration: none; margin-right: 15px"
-              ><i class="fas fa-user ms-3 me-1"></i></a
-            >
+              ><i class="fas fa-user ms-3 me-1"></i
+            ></a>
           </section>
         </section>
         <!-- Bottom Nav -->
@@ -527,7 +526,11 @@
               </a>
             </section>
             <section class="position-relative">
-              <a href="../customer/customerDashboard.html" class="d-md-none" style="color: #02488d">
+              <a
+                href="../customer/customerDashboard.html"
+                class="d-md-none"
+                style="color: #02488d"
+              >
                 <i
                   class="fas fa-user"
                   style="font-size: 1.2rem; position: relative"
@@ -538,7 +541,7 @@
         </section>
       </section>
     </nav>
-     <section class="top d-flex align-items-center justify-content-between">
+    <section class="top d-flex align-items-center justify-content-between">
       <img
         src="../assets/shop_details/top.png"
         alt="top image"
@@ -736,6 +739,13 @@
         const selectedProduct = JSON.parse(
           localStorage.getItem("selectedProduct")
         );
+        const books = JSON.parse(localStorage.getItem("books"));
+        const titleProduct = selectedProduct.name;
+        const foundBook = books.find(
+          (book) => book.title.toLowerCase() === titleProduct.toLowerCase()
+        );
+        let bookStock = foundBook.stock;
+        let bookSold = foundBook.sold;
         const badge = document.querySelector("#count");
         const cartItemsContainer = document.querySelector("#cartItems");
         const subTotalElement = document.querySelector("#subTotal");
@@ -743,23 +753,10 @@
         const totalElement = document.querySelector("#total");
         const checkoutButton = document.querySelector(".btn.w-100");
         const loginTopNav = document.getElementById("loginTopNav");
-        // const loginBottomNav = document.getElementById("loginBottomNav");
-        // const cartIcon = document.getElementById("cartIcon");
-        // const wishlist = u.wishlist || [];
-        // const wishlistBadge = document.getElementById("wishCount");
-        // const wishlistIcon = document.getElementById("wishlistIcon");
         if (u && u.firstName) {
           loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i>${u.firstName}`;
-        //   loginTopNav.href = "./customer/customerDashboard.html";
-        //   loginBottomNav.href = "./customer/customerDashboard.html";
-        //   wishlistIcon.href = "./customer/customerWishlist.html";
-        //   cartIcon.href = "./pages/cart.html";
         } else {
           loginTopNav.innerHTML = `<i class="fas fa-user ms-3 me-1"></i> Login`;
-        //   loginTopNav.href = "./pages/login.html";
-        //   loginBottomNav.href = "./pages/login.html";
-        //   wishlistIcon.href = "./pages/login.html";
-        //   cartIcon.href = "./pages/login.html";
         }
         // Add selected product to cart if not already there
         if (selectedProduct) {
@@ -814,7 +811,6 @@
             const quantity = item.quantity || 1;
             const itemTotal = price * quantity;
             subTotal += itemTotal;
-
             const row = document.createElement("tr");
             row.innerHTML = `
               <td>
@@ -856,7 +852,24 @@
           const index = button.dataset.index;
 
           if (button.classList.contains("inc-btn")) {
-            cart[index].quantity = (cart[index].quantity || 1) + 1;
+            if (cart[index].quantity >= foundBook.stock) {
+              Toastify({
+                text: "Can't add more than book stock!",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "#dc3545",
+              }).showToast();
+              return;
+            } else {
+              cart[index].quantity += 1;
+              foundBook.stock -= 1;
+
+              console.log(`Remaining stock: ${foundBook.stock}`);
+
+              localStorage.setItem("books", JSON.stringify(books));
+              localStorage.setItem("cart", JSON.stringify(cart));
+            }
           } else if (button.classList.contains("dec-btn")) {
             if ((cart[index].quantity || 1) > 1) {
               cart[index].quantity -= 1;
@@ -875,12 +888,23 @@
           if (e.target.classList.contains("quantity-input")) {
             const index = e.target.dataset.index;
             const value = parseInt(e.target.value);
-            if (!isNaN(value) && value > 0) {
-              cart[index].quantity = value;
+            if (cart[index].quantity >= foundBook.stock) {
+              Toastify({
+                text: "Can't add more than book stock!",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "#dc3545",
+              }).showToast();
+              return;
             } else {
-              e.target.value = cart[index].quantity || 1;
+              if (!isNaN(value) && value > 0) {
+                cart[index].quantity = value;
+              } else {
+                e.target.value = cart[index].quantity || 1;
+              }
+              localStorage.setItem("cart", JSON.stringify(cart));
             }
-            localStorage.setItem("cart", JSON.stringify(cart));
             displayCartItems();
           }
         });

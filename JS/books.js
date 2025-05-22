@@ -761,9 +761,13 @@ const topRatedBooks = allBooks
   .slice()
   .sort((a, b) => b.rating - a.rating)
   .slice(0, 6);
+
 const topRatedCards = document.querySelectorAll("#homeEightthSection .card");
 
 topRatedCards.forEach((card, index) => {
+  const button = card.querySelector(
+    ".homeAddToCartButton"
+  );
   const book = topRatedBooks[index];
   if (book) {
     const img = card.querySelector(".card img");
@@ -773,8 +777,25 @@ topRatedCards.forEach((card, index) => {
     img.style.height = "160px";
 
     card.querySelector(".card h5.card-title").textContent = book.category;
-    card.querySelector(".card p.fs-6").textContent = book.title;
-    card.querySelector(".card p.price").textContent = `$${book.price}`;
+    const name = card.querySelector(".card p.fs-6");
+    name.textContent = book.title;
+    const price = card.querySelector(".card p.price");
+    price.textContent = `$${book.price}`;
+
+    const product = {
+      name: name.textContent,
+      price: price.textContent,
+      image: img.src,
+      alt: img.alt,
+    };
+    button.addEventListener("click", () => {
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      window.location.href = "../pages/shop_details.html";
+    });
+    img.addEventListener("click", () => {
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      window.location.href = "../pages/shop_details.html";
+    });
   }
 });
 
@@ -792,11 +813,20 @@ topSellingCards.forEach((card, index) => {
     img.alt = book.title;
     img.style.width = "150px";
     img.style.height = "200px";
-
-    card.querySelector(".card h5").textContent = book.title;
+    const name = card.querySelector(".card h5");
+    name.textContent = book.title;
     card.querySelector(".card a.card-text").textContent = book.author;
-    card.querySelector(
-      ".card>.card-body>section.fw-bold"
-    ).textContent = `$${book.price}`;
+    const price = card.querySelector(".card>.card-body>section.fw-bold");
+    price.textContent = `$${book.price}`;
+    img.addEventListener("click", () => {
+      const product = {
+        name: name.textContent,
+        price: price.textContent,
+        image: img.src,
+        alt: img.alt,
+      };
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      window.location.href = "../pages/shop_details.html";
+    });
   }
 });

@@ -342,6 +342,7 @@
               <th>User</th>
               <th>Delivery Info</th>
               <th>Book Title</th>
+              <th>Book Owner</th>
               <th>Price</th>
               <th>Quantity</th>
               <th>Status</th>
@@ -411,6 +412,7 @@
               Phone: ${order.userDetails.phone}
             </td>
             <td>${item.name}</td>
+            <td>${item.owner}</td>
             <td>$${item.price.toFixed(2)}</td>
             <td>${item.quantity}</td>
             <td>

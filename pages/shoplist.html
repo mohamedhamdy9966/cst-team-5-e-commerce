@@ -813,6 +813,7 @@
             const name = productCard.querySelector(".product-name").textContent;
             const price =
               productCard.querySelector(".product-price").textContent;
+              
             const img = productCard.querySelector(".product-img").src;
             const product = { name, price, img };
             localStorage.setItem("selectedProduct", JSON.stringify(product));
